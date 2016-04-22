@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bamberg on Docker Pirates ARMed with explosive stuff</title>
+    <link>http://localhost:1313/categories/bamberg/</link>
+    <description>Recent content in Bamberg on Docker Pirates ARMed with explosive stuff</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 15 Jan 2016 21:47:24 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/bamberg/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>First Meetup at University of Bamberg summons local Docker community</title>
+      <link>http://localhost:1313/post/first_docker_meetup_university_bamberg/</link>
+      <pubDate>Fri, 15 Jan 2016 21:47:24 +0100</pubDate>
+      
+      <guid>http://localhost:1313/post/first_docker_meetup_university_bamberg/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;An introduction to Docker, hands-on tutorials, live demos and roughly 30 attendees.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;This is the summary of the first Docker meetup that we organized in cooperation with University of Bamberg. As a supplement to this event yesterday, we share the pictures and the slides of the presentation.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;gallery clearfix&#34; itemscope itemtype=&#34;http://schema.org/ImageGallery&#34;&gt;
+
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/meetup_uni_bamberg/docker_meetup_university_bamberg_00.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1030x684&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/meetup_uni_bamberg/thumbnails/thumb_docker_meetup_university_bamberg_00.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Our self-made poster&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Our self-made poster
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Dieter Reuter&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/meetup_uni_bamberg/docker_meetup_university_bamberg_01.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1030x684&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/meetup_uni_bamberg/thumbnails/thumb_docker_meetup_university_bamberg_01.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Some introductory words by Marcel Großmann as representer of the University&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Some introductory words by Marcel Großmann as representer of the University
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Dieter Reuter&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/meetup_uni_bamberg/docker_meetup_university_bamberg_02.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1030x684&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/meetup_uni_bamberg/thumbnails/thumb_docker_meetup_university_bamberg_02.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;... and Mathias with introductory words for Hypriot.&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    ... and Mathias with introductory words for Hypriot.
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Docker Inc.&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/meetup_uni_bamberg/docker_meetup_university_bamberg_03.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1030x684&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/meetup_uni_bamberg/thumbnails/thumb_docker_meetup_university_bamberg_03.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Introduction to Docker: Knowing about the evolution of virtualization helps to understand Docker.&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Introduction to Docker: Knowing about the evolution of virtualization helps to understand Docker.
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Dieter Reuter&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/meetup_uni_bamberg/docker_meetup_university_bamberg_04.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1030x684&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/meetup_uni_bamberg/thumbnails/thumb_docker_meetup_university_bamberg_04.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Community is carefully listening.&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Community is carefully listening.
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Dieter Reuter&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/meetup_uni_bamberg/docker_meetup_university_bamberg_05.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1030x684&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/meetup_uni_bamberg/thumbnails/thumb_docker_meetup_university_bamberg_05.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;While everyone is playing with Docker the entire Hypriot team is around to help.&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    While everyone is playing with Docker the entire Hypriot team is around to help.
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Dieter Reuter&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/meetup_uni_bamberg/docker_meetup_university_bamberg_06.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1030x684&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/meetup_uni_bamberg/thumbnails/thumb_docker_meetup_university_bamberg_06.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Mathias announcing a live demo with Hypriot Cluster Lab presented by Andreas (in the middle).&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Mathias announcing a live demo with Hypriot Cluster Lab presented by Andreas (in the middle).
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Dieter Reuter&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;link rel=&#34;stylesheet&#34; href=&#34;http://localhost:1313/css/photoswipe.css&#34;&gt;
+&lt;link rel=&#34;stylesheet&#34; href=&#34;http://localhost:1313/css/default-skin/default-skin.css&#34;&gt;
+&lt;script src=&#34;http://localhost:1313/js/photoswipe.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://localhost:1313/js/photoswipe-ui-default.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://localhost:1313/js/initphotoswipe.js&#34;&gt;&lt;/script&gt;
+
+
+
+&lt;div class=&#34;pswp&#34; tabindex=&#34;-1&#34; role=&#34;dialog&#34; aria-hidden=&#34;true&#34;&gt;
+
+&lt;div class=&#34;pswp__bg&#34;&gt;&lt;/div&gt;
+
+&lt;div class=&#34;pswp__scroll-wrap&#34;&gt;
+    
+    &lt;div class=&#34;pswp__container&#34;&gt;
+      &lt;div class=&#34;pswp__item&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;pswp__item&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;pswp__item&#34;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;div class=&#34;pswp__ui pswp__ui--hidden&#34;&gt;
+    &lt;div class=&#34;pswp__top-bar&#34;&gt;
+      
+      &lt;div class=&#34;pswp__counter&#34;&gt;&lt;/div&gt;
+      &lt;button class=&#34;pswp__button pswp__button--close&#34; title=&#34;Close (Esc)&#34;&gt;&lt;/button&gt;
+      &lt;button class=&#34;pswp__button pswp__button--share&#34; title=&#34;Share&#34;&gt;&lt;/button&gt;
+      &lt;button class=&#34;pswp__button pswp__button--fs&#34; title=&#34;Toggle fullscreen&#34;&gt;&lt;/button&gt;
+      &lt;button class=&#34;pswp__button pswp__button--zoom&#34; title=&#34;Zoom in/out&#34;&gt;&lt;/button&gt;
+      
+      
+      &lt;div class=&#34;pswp__preloader&#34;&gt;
+        &lt;div class=&#34;pswp__preloader__icn&#34;&gt;
+          &lt;div class=&#34;pswp__preloader__cut&#34;&gt;
+            &lt;div class=&#34;pswp__preloader__donut&#34;&gt;&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;pswp__share-modal pswp__share-modal--hidden pswp__single-tap&#34;&gt;
+      &lt;div class=&#34;pswp__share-tooltip&#34;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;button class=&#34;pswp__button pswp__button--arrow--left&#34; title=&#34;Previous (arrow left)&#34;&gt;
+    &lt;/button&gt;
+    &lt;button class=&#34;pswp__button pswp__button--arrow--right&#34; title=&#34;Next (arrow right)&#34;&gt;
+    &lt;/button&gt;
+    &lt;div class=&#34;pswp__caption&#34;&gt;
+      &lt;div class=&#34;pswp__caption__center&#34;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;style&gt;
+    .gallery {  }
+    .gallery img { width: 100%; height: auto; }
+    .gallery figure { display: block; float: left; margin: 0 5px 5px 0; width: 200px; }
+    .gallery figcaption { display: none; }
+    .gallery div.title { font-weight: bold; }
+    span[itemprop=&#34;copyrightHolder&#34;] { color : #888; float: right; }
+    span[itemprop=&#34;copyrightHolder&#34;]:before { content: &#34;Foto: &#34;; }
+    img[itemprop=&#34;thumbnail&#34;]{ width: 200px; }
+&lt;/style&gt;
+
+
+&lt;script&gt;initPhotoSwipeFromDOM(&#39;.gallery&#39;);&lt;/script&gt;
+&lt;/p&gt;
+
+&lt;p&gt;And here the slides of the presentation:&lt;/p&gt;
+
+&lt;p&gt;&lt;iframe src=&#34;//www.slideshare.net/slideshow/embed_code/key/79aLKAZjsSsL5i&#34; width=&#34;595&#34; height=&#34;485&#34; frameborder=&#34;0&#34; marginwidth=&#34;0&#34; marginheight=&#34;0&#34; scrolling=&#34;no&#34; style=&#34;border:1px solid #CCC; border-width:1px; margin-bottom:5px; max-width: 100%;&#34; allowfullscreen&gt; &lt;/iframe&gt; &lt;br /&gt;&lt;/p&gt;
+
+&lt;p&gt;Thanks to all guests for coming, hacking, and the good discussions. Special thanks to Prof. Krieger and Marcel Großmann for the awesome support from University.
+&lt;br /&gt;&lt;br /&gt;
+The next Docker Meetup will take place on February the 25th. Save the date! &lt;a href=&#34;http://www.meetup.com/Docker-Bamberg/&#34;&gt;Details are available here&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://twitter.com/MathiasRenner&#34;&gt;@MathiasRenner&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

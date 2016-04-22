@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title> How to get Docker running on your Raspberry Pi using Windows &middot; Docker Pirates ARMed with explosive stuff </title>
+
+  
+  <link rel="stylesheet" href="/css/poole.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="stylesheet" href="/css/hyde.css">
+  <link rel="stylesheet" href="/css/hypriot.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Docker Pirates ARMed with explosive stuff" />
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-59194692-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+</head>
+
+<body>
+
+  <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-logo">
+      <a href="/"><img src="/images/logo_tr.png" /></a>
+    </div>
+    <div class="sidebar-about">
+      <h1><a href="/">Docker Pirates ARMed with explosive stuff</a></h1>
+      <p class="lead">
+       Roaming the seven seas in search for golden container plunder. 
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="/">HOME</a> </li>
+      
+        <li><a href="/getting-started-with-docker-on-your-arm-device/"> GETTING STARTED </a></li>
+      
+        <li><a href="/downloads/"> DOWNLOADS </a></li>
+      
+        <li><a href="/faq/"> FAQ </a></li>
+      
+        <li><a href="https://gitter.im/hypriot/talk"> COMMUNITY </a></li>
+      
+        <li><a href="/about/"> ABOUT US </a></li>
+      
+        <li><a href="/crew/"> CREW </a></li>
+      
+    </ul>
+
+    <p>&copy; 2016 Hypriot </p>
+    <p><a href="/legal_notice" style="font-size: 1rem;">Legal Notice</a></p>
+    <div class="edit-github" id="edit-github-id">
+        <p>
+          <a href="https://github.com/hypriot/blog"><img src="https://www.presidecms.com/assets/img/icons/github.png" style="float:left; width:9%; height:9%; padding-right: 8px; padding-top: 6px; align: center; ">Edit this blog on GitHub</img></a>
+        </p>
+    </div>
+  </div>
+</div>
+
+
+  <div class="content container">
+    <div class="simple">
+      <h1>How to get Docker running on your Raspberry Pi using Windows</h1>
+          
+
+<p>This guide shows you how to get Docker running on your Raspberry Pi using a <strong>Windows workstation</strong>.</p>
+
+<blockquote>
+<p>If you have not read the getting started guide about Docker on the Raspberry Pi yet you might wanna check it out first: <a href="/getting-started-with-docker-on-your-arm-device">Getting started on your ARM device</a></p>
+</blockquote>
+
+<p>The <strong>hardware</strong> you gonna need to follow along is a Raspberry Pi 1 or 2 and one SD card.
+If you are going to use a Raspberry 2 you will have to use a microSD card - otherwise a normal SD card is sufficient.
+We recommend a size of at least 4 GB.</p>
+
+<p>The SD card contains all the software which we are going to use on our Raspberry Pi.
+With software we basically mean two things: first an operating system for your Raspberry Pi and second the software you as user would like to use - e.g. a browser or a word processing program.
+In our case the software we wanna use is Docker.</p>
+
+<p>We - from Hypriot - created a preconfigured <a href="http://blog.hypriot.com/downloads/">SD card image</a> which contains everything you need to run Docker on your Raspberry Pi.
+To use the image you first have to download and transfer it to your SD card. Transferring an image to an SD card is often referred to as <em>flashing</em>.
+Afterwards you just have to insert the flashed SD card into your Raspberry Pi and start it up.</p>
+
+<p>For this tutorial you will need to install four applications which we are going to use later. Please follow the download links and install them. Note the installation remarks.</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Application</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td align="left"><a href="http://www.7-zip.de">7-Zip</a></td>
+<td align="left">For extracting the compressed SD card image. </br> <em>Make sure you choose the download file that fits your workstations&rsquo;s architecture (x32 vs. x64)!</em></td>
+</tr>
+
+<tr>
+<td align="left"><a href="http://sourceforge.net/projects/win32diskimager/">Win32 Disk Imager</a></td>
+<td align="left">For flashing the SD card image to the SD card. </br> <em>During installation you will find a checkbox called &ldquo;Start Pcap-Service at startup&rdquo;. We recommend to disable it.</em></td>
+</tr>
+
+<tr>
+<td align="left"><a href="http://the.earth.li/~sgtatham/putty/latest/x86/putty.exe">Putty</a></td>
+<td align="left">For establishing a connection to the Raspberry Pi </br> <em>Just download it. No installation needed.</em></td>
+</tr>
+
+<tr>
+<td align="left"><a href="http://sourceforge.net/projects/nmap.mirror/?source=typ_redirect">Zenmap</a></td>
+<td align="left">For identifying the IP address of your Raspberry Pi</td>
+</tr>
+</tbody>
+</table>
+
+<h3 id="download-the-hypriot-docker-sd-card-image:f9c6c9c0ab05c0ca238dff8f082f6e17">Download the Hypriot Docker SD card image</h3>
+
+<p>Download our latest SD card image from the <a href="http://blog.hypriot.com/downloads/">download page</a>.</p>
+
+<p>Next go to your <strong>Download</strong> folder and extract the downloaded zip file by right-clicking on the file and then clicking on <strong>7-zip</strong> -&gt; <strong>extract here&hellip;</strong>.</p>
+
+<p>After 7-zip is finished with extracting you will have a file with a <strong>.img</strong> extension.
+In the next step we will flash this file onto your SD card.</p>
+
+<h3 id="flash-the-downloaded-image-to-your-sd-card:f9c6c9c0ab05c0ca238dff8f082f6e17">Flash the downloaded image to your SD card</h3>
+
+<p>To start the flashing process right-click on the <em>Win32 Disk Imager</em> application which we installed earlier and click on <em>Run as administrator</em>. You will see a window asking for permissions. Grant them.</p>
+
+<p>Now, with the <em>Win32 Disk Imager</em>&rsquo;s window opened, click on the blue folder icon and choose the Hypriot SD card image in your <em>Download</em> folder.</p>
+
+<p>Next to the blue folder button, you will find a dropdown menu in which you can select your SD card.
+To double check the device letter open your Windows Explorer and locate the SD card drive.</p>
+
+<p><img src="https://s3.eu-central-1.amazonaws.com/assets.hypriot.com/blog_post_getting-started/windows-screenies/image-writer-opened.png" alt="image-writer" /></p>
+
+<p>Finally click on <strong>write</strong> which will flash the SD card image to the SD card.</p>
+
+<p>Upon completion close <em>Win32 Disk Imager</em> and eject the SD card before removing it from its slot.
+In order to eject the SD card use the <em>secure eject</em> function in the menu next to your system clock.
+This is usually in the very bottom right corner of your screen.</p>
+
+<p><img src="https://s3.eu-central-1.amazonaws.com/assets.hypriot.com/blog_post_getting-started/windows-screenies/eject-sd-card.png" alt="eject-sd" /></p>
+
+<h3 id="start-your-raspberry-pi-with-the-sd-card:f9c6c9c0ab05c0ca238dff8f082f6e17">Start your Raspberry Pi with the SD card</h3>
+
+<p>Boot your Raspberry Pi by</p>
+
+<ul>
+<li>connecting the Raspberry Pi to your local network via an ethernet cable</li>
+<li>putting the SD card into the designated slot</li>
+<li>plugging in the power adapter</li>
+</ul>
+
+<p>After finishing the last step your Raspberry Pi will boot and the LEDs should start blinking.
+The very first boot will take one to three minutes as the file system will be resized.</p>
+
+<h3 id="ensure-everything-works:f9c6c9c0ab05c0ca238dff8f082f6e17">Ensure everything works</h3>
+
+<p>To check if Docker is actually running we need to log into the Raspberry Pi via <em>PuTTY</em>.</p>
+
+<p>To do this we need to find out the IP address of your Raspberry Pi first.
+This can be done with <em>Zenmap</em> which we installed earlier.</p>
+
+<p>After starting <em>Zenmap</em> look for the field <em>Command</em>.
+Type the following command into this field but replace the IP address in front of <code>/24</code> with your own and hit <em>Enter</em>.</p>
+
+<pre><code>nmap -sP 192.168.0.100/24
+</code></pre>
+
+<p>As a result you should see this:</p>
+
+<p><img src="https://s3.eu-central-1.amazonaws.com/assets.hypriot.com/blog_post_getting-started/windows-screenies/zenmap-scan-result.PNG" alt="zenmap-scan-result" /></p>
+
+<p><em>Zenmap</em> list all active hosts within your local network.
+In order to find the Raspberry Pi click the button <em>filter hosts</em> at the bottom of the <em>Zenmap</em> and type in <em>black</em>.
+Now the first line of the list should show the IP address of your Raspberry Pi.</p>
+
+<p><img src="https://s3.eu-central-1.amazonaws.com/assets.hypriot.com/blog_post_getting-started/windows-screenies/zenmap-with-filter-with-marker.png" alt="zenmap-with-filter-with-marker" /></p>
+
+<p>Since we now know where to find the Raspberry Pi within your network it is time to start <em>PuTTY</em> to establish a SSH connection to your Raspberry Pi.</p>
+
+<p>After starting <em>PuTTY</em> type in the IP address we determined into the field <em>Host Name</em>. With a click on the button <em>Open</em> the connection will be established.</p>
+
+<p><img src="https://s3.eu-central-1.amazonaws.com/assets.hypriot.com/blog_post_getting-started/windows-screenies/putty-window-settings.png" alt="Screenshot-putty-login" /></p>
+
+<p>In the new window which just opened type <code>root</code> as login name and hit <em>Enter</em>. Next you will be asked for a password. Type <code>hypriot</code> and hit <em>Enter</em> again.</p>
+
+<p>If everything went fine you should now see the <em>HypriotOS</em> command line prompt waiting for your input. It should look like this:</p>
+
+<p><img src="https://s3.eu-central-1.amazonaws.com/assets.hypriot.com/blog_post_getting-started/windows-screenies/putty-window-login.png" alt="putty-window-login" /></p>
+
+<p>Finally to check if the Docker service is running type</p>
+
+<pre><code>docker info
+</code></pre>
+
+<p>The output of the <code>docker info</code> command should look similar to:</p>
+
+<p><img src="https://s3.eu-central-1.amazonaws.com/assets.hypriot.com/blog_post_getting-started/windows-screenies/putty-window-docker-info.png" alt="docker-info" /></p>
+
+<p><strong>Congratulations! You have succeeded in getting Docker running on your Raspberry Pi!</strong> :)</p>
+
+<p>You are now ready to continue your exploration of Docker with our <a href="/getting-started-with-docker-on-your-arm-device#going-wild-with-docker-what-can-you-actually-do-with-it:397c66ef19f9f061b6711d2e296cb276">Getting Started Guide</a>.</p>
+
+<p>Have fun!</p>
+
+	
+	  
+	  
+	    <div class="social-sharing">
+  
+<div class="social-sharing-twitter" style="float: left;">
+  <a class="twitter-share-button"
+    href="https://twitter.com/share"
+    data-url="http://localhost:1313/getting-started-with-docker-and-windows-on-the-raspberry-pi/"
+    data-lang="en"
+    data-show-count="true"
+    data-via="HypriotTweets">
+  Tweet
+  </a>
+  <script>
+  window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
+  </script>
+</div>
+
+  
+<div class="social-sharing-facebook" style="float: left;">
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5&appId=599115553447708";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+  <div class="fb-share-button" data-href="http://localhost:1313/getting-started-with-docker-and-windows-on-the-raspberry-pi/" data-layout="button_count"></div>
+</div>
+
+  
+<div class="social-sharing-google">
+  <script >
+    window.___gcfg = {
+      lang: 'en-US',
+      parsetags: 'onload'
+    };
+  </script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <div class="g-plus" data-action="share" data-annotation="bubble" data-width="200" data-href="http://localhost:1313/getting-started-with-docker-and-windows-on-the-raspberry-pi/"></div>
+</div>
+
+</div>
+
+	  
+	
+	  
+	  
+	    <div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'hypriot';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+	    
+
+   </div>
+  </div>
+
+<script data-no-instant>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title> Drive NeoPixels in Docker on Raspberry Pi &middot; Docker Pirates ARMed with explosive stuff </title>
+
+  
+  <link rel="stylesheet" href="/css/poole.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="stylesheet" href="/css/hyde.css">
+  <link rel="stylesheet" href="/css/hypriot.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Docker Pirates ARMed with explosive stuff" />
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-59194692-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+</head>
+
+<body>
+
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-logo">
+      <a href="/"><img src="/images/logo_tr.png" /></a>
+    </div>
+    <div class="sidebar-about">
+      <h1><a href="/">Docker Pirates ARMed with explosive stuff</a></h1>
+      <p class="lead">
+       Roaming the seven seas in search for golden container plunder. 
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="/">HOME</a> </li>
+      
+        <li><a href="/getting-started-with-docker-on-your-arm-device/"> GETTING STARTED </a></li>
+      
+        <li><a href="/downloads/"> DOWNLOADS </a></li>
+      
+        <li><a href="/faq/"> FAQ </a></li>
+      
+        <li><a href="https://gitter.im/hypriot/talk"> COMMUNITY </a></li>
+      
+        <li><a href="/about/"> ABOUT US </a></li>
+      
+        <li><a href="/crew/"> CREW </a></li>
+      
+    </ul>
+
+    <p>&copy; 2016 Hypriot </p>
+    <p><a href="/legal_notice" style="font-size: 1rem;">Legal Notice</a></p>
+    <div class="edit-github" id="edit-github-id">
+        <p>
+          <a href="https://github.com/hypriot/blog"><img src="https://www.presidecms.com/assets/img/icons/github.png" style="float:left; width:9%; height:9%; padding-right: 8px; padding-top: 6px; align: center; ">Edit this blog on GitHub</img></a>
+        </p>
+    </div>
+  </div>
+</div>
+
+
+<div class="content container">
+  <div class="post">
+    <h1>Drive NeoPixels in Docker on Raspberry Pi</h1>
+    <span class="post-date">Tue, Apr 14, 2015</span>
+    
+
+<p>In our <a href="/post/lets-get-physical/">last blog post</a> we showed you how to interact with the GPIO ports and how to turn on one LED. Now for some more magic lights we create a little Node.js application that drives a NeoPixel LED strip from Adafruit in a Docker container.</p>
+
+<p>Thanks to the latest improvements now both Raspberry Pi B/B+ and the new Pi 2 B can  drive the NeoPixel LED strips from Adafruit with just a level shifter. So it&rsquo;s time to put this into Docker for easier deployment.</p>
+
+<p>The NeoPixel (or WS2812) LED&rsquo;s are programmable RGB LED&rsquo;s that receive their RGB value with a single serial wire.</p>
+
+<h2 id="wiring:463cf4b0db949da92d2a7ea79ab0611f">Wiring</h2>
+
+<p>Let&rsquo;s have a look at the wiring first. The Raspberry Pi can create the serial signal on GPIO Pin 18 trough PWM/DMA. But the signal level has to be shifted from 3.3V to 5V for the LED strip. I have used a Adafruit Level Shifter Breakout Board, but a 74AHCT125 level converter could be used as well.</p>
+
+<p><img src="/images/neopixel/rpi-levelshifter-neopixel_Steckplatine.png" alt="wiring diagram" /></p>
+
+<p><strong>Do not power the NeoPixels directly from your Raspberry Pi as the 5V output could not source enough current to light many pixels. This could damage your Raspberry Pi!</strong> For my tests with only eight pixels it is ok to use the 5V from the Pi, but be warned!</p>
+
+<h2 id="the-code:463cf4b0db949da92d2a7ea79ab0611f">The code</h2>
+
+<p>First we create the <code>package.json</code> file with a dependency to the <code>rpi-ws281x-native</code> Node.js module that supports all Raspberry Pi versions to drive the NeoPixels.</p>
+
+<h3 id="package-json:463cf4b0db949da92d2a7ea79ab0611f">package.json</h3>
+
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;rpi-node-neopixel-example&quot;,
+  &quot;private&quot;: true,
+  &quot;version&quot;: &quot;0.0.1&quot;,
+  &quot;description&quot;: &quot;Node.js NeoPixel app in docker&quot;,
+  &quot;author&quot;: &quot;hypriot.com&quot;,
+  &quot;dependencies&quot;: {
+    &quot;rpi-ws281x-native&quot;: &quot;0.4.0&quot;
+  }
+}
+</code></pre>
+
+<h3 id="server-js:463cf4b0db949da92d2a7ea79ab0611f">server.js</h3>
+
+<p>Now we implement a Node.js sample that does some color magic. We have reduced the brightness of the LED&rsquo;s a little bit.</p>
+
+<pre><code class="language-javascript">var ws281x = require('rpi-ws281x-native');
+
+var NUM_LEDS = parseInt(process.argv[2], 10) || 8,
+    pixelData = new Uint32Array(NUM_LEDS);
+
+var brightness = 128;
+
+ws281x.init(NUM_LEDS);
+
+
+var lightsOff = function () {
+  for (var i = 0; i &lt; NUM_LEDS; i++) {
+    pixelData[i] = color(0, 0, 0);
+  }
+  ws281x.render(pixelData);
+  ws281x.reset();
+}
+
+var signals = {
+  'SIGINT': 2,
+  'SIGTERM': 15
+};
+
+function shutdown(signal, value) {
+  console.log('Stopped by ' + signal);
+  lightsOff();
+  process.nextTick(function () { process.exit(0); });
+}
+
+Object.keys(signals).forEach(function (signal) {
+  process.on(signal, function () {
+    shutdown(signal, signals[signal]);
+  });
+});
+
+// ---- animation-loop
+var offset = 0;
+setInterval(function () {
+  for (var i = 0; i &lt; NUM_LEDS; i++) {
+    pixelData[i] = wheel(((i * 256 / NUM_LEDS) + offset) % 256);
+  }
+
+  offset = (offset + 1) % 256;
+  ws281x.render(pixelData);
+}, 1000 / 30);
+
+console.log('Rainbow started. Press &lt;ctrl&gt;+C to exit.');
+
+// generate rainbow colors accross 0-255 positions.
+function wheel(pos) {
+  pos = 255 - pos;
+  if (pos &lt; 85) { return color(255 - pos * 3, 0, pos * 3); }
+  else if (pos &lt; 170) { pos -= 85; return color(0, pos * 3, 255 - pos * 3); }
+  else { pos -= 170; return color(pos * 3, 255 - pos * 3, 0); }
+}
+
+// generate integer from RGB value
+function color(r, g, b) {
+  r = r * brightness / 255;
+  g = g * brightness / 255;
+  b = b * brightness / 255;
+  return ((r &amp; 0xff) &lt;&lt; 16) + ((g &amp; 0xff) &lt;&lt; 8) + (b &amp; 0xff);
+}
+</code></pre>
+
+<h3 id="dockerfile:463cf4b0db949da92d2a7ea79ab0611f">Dockerfile</h3>
+
+<p>The <code>Dockerfile</code> is very simple here as we use the <code>onbuild</code> version of our <a href="https://registry.hub.docker.com/u/hypriot/rpi-iojs/">hypriot/rpi-iojs</a> Docker image.</p>
+
+<pre><code>FROM hypriot/rpi-iojs:onbuild
+</code></pre>
+
+<h2 id="build-the-docker-image:463cf4b0db949da92d2a7ea79ab0611f">Build the Docker image</h2>
+
+<p>We now have all parts together and are ready to build the docker image with this command</p>
+
+<pre><code class="language-bash">$ docker build -t node-neopixel .
+</code></pre>
+
+<h2 id="run-the-docker-container:463cf4b0db949da92d2a7ea79ab0611f">Run the Docker container</h2>
+
+<p>Now it is time to turn on the NeoPixel LED&rsquo;s by running the container</p>
+
+<pre><code class="language-bash">$ docker run --cap-add SYS_RAWIO --device /dev/mem -d node-neopixel
+</code></pre>
+
+<p>On a Raspberry Pi 2 you have to give the container more privileges. So you have to use this command instead</p>
+
+<pre><code class="language-bash">$ docker run --privileged -d node-neopixel
+</code></pre>
+
+<p><img src="/images/neopixel/neopixel640.gif" alt="Let there be lights!" /></p>
+
+<p>You can find the complete Node.js example on GitHub at <a href="https://github.com/hypriot/rpi-node-neopixel-example">https://github.com/hypriot/rpi-node-neopixel-example</a>.</p>
+
+<h2 id="conclusion:463cf4b0db949da92d2a7ea79ab0611f">Conclusion</h2>
+
+<p>Now you are ready to start your NeoPixel project on your Raspberry Pi and deploy it with Docker.</p>
+
+<p>To learn more about NeoPixels head over to the excellent <a href="https://learn.adafruit.com/adafruit-neopixel-uberguide/overview">Adafruit&rsquo;s NeoPixel Überguide</a>.</p>
+
+<p>As always use the comments below to give us feedback and share it on Twitter or Facebook.</p>
+
+    <div class="social-sharing">
+  
+<div class="social-sharing-twitter" style="float: left;">
+  <a class="twitter-share-button"
+    href="https://twitter.com/share"
+    data-url="http://localhost:1313/post/drive-neopixels-in-docker/"
+    data-lang="en"
+    data-show-count="true"
+    data-via="HypriotTweets">
+  Tweet
+  </a>
+  <script>
+  window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
+  </script>
+</div>
+
+  
+<div class="social-sharing-facebook" style="float: left;">
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5&appId=599115553447708";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+  <div class="fb-share-button" data-href="http://localhost:1313/post/drive-neopixels-in-docker/" data-layout="button_count"></div>
+</div>
+
+  
+<div class="social-sharing-google">
+  <script >
+    window.___gcfg = {
+      lang: 'en-US',
+      parsetags: 'onload'
+    };
+  </script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <div class="g-plus" data-action="share" data-annotation="bubble" data-width="200" data-href="http://localhost:1313/post/drive-neopixels-in-docker/"></div>
+</div>
+
+</div>
+
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'hypriot';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+</div>
+
+<script data-no-instant>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

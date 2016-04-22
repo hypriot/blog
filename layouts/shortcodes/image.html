@@ -1,0 +1,11 @@
+<figure itemscope itemtype="http://schema.org/ImageObject" class="clearfix">
+  <img src="{{ .Get "file" }}" alt="{{ .Get "caption" }}" />
+
+  {{ if .Get "copyright" }}
+  <figcaption style="height: 1rem;">
+    {{ with .Get "caption" }} {{ . }} {{ end }}
+    <span style="float: right;"><a href="{{ .Get "copyright_link" }}">{{ .Get "copyright" }}</a></span>
+  </figcaption>
+  {{ end }}
+
+</figure>

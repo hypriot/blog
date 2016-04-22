@@ -1,0 +1,69 @@
+{
+  "recommended":[
+    "hypriot/rpi-busybox-httpd",
+    "hypriot/rpi-nano-httpd",
+    "hypriot/rpi-redis",
+    "hypriot/rpi-mysql",
+    "hypriot/rpi-crate",
+    "hypriot/rpi-gpio",
+    "hypriot/rpi-skydns",
+    "hypriot/rpi-haproxy",
+    "hypriot/rpi-swarm"
+  ],
+  "repos": [
+    {
+      "repo": "hypriot/rpi-busybox-httpd",
+      "gradient_start": "#24B8EB",
+      "gradient_end": "#218CF4",
+      "img": "kitematic_html.png"
+    },
+    {
+      "repo": "hypriot/rpi-nano-httpd",
+      "gradient_start": "#24B8EB",
+      "gradient_end": "#218CF4",
+      "img": "kitematic_html.png"
+    },
+    {
+      "repo": "hypriot/rpi-redis",
+      "gradient_start": "#DA2D1D",
+      "gradient_end": "#A61F1C",
+      "img": "redis.png"
+    },
+    {
+      "repo": "hypriot/rpi-mysql",
+      "gradient_start": "#2F6073",
+      "gradient_end": "#1A4E62",
+      "img": "mysql.png"
+    },
+    {
+      "repo": "hypriot/rpi-crate",
+      "gradient_start": "#4BD3F7",
+      "gradient_end": "#30B2D4",
+      "img": "crate.png"
+    },
+    {
+      "repo": "hypriot/rpi-gpio",
+      "gradient_start": "#24B8EB",
+      "gradient_end": "#218CF4",
+      "img": "kitematic_html.png"
+    },
+    {
+      "repo": "hypriot/rpi-skydns",
+      "gradient_start": "#24B8EB",
+      "gradient_end": "#218CF4",
+      "img": "kitematic_html.png"
+    },
+    {
+      "repo": "hypriot/rpi-haproxy",
+      "gradient_start": "#24B8EB",
+      "gradient_end": "#218CF4",
+      "img": "kitematic_html.png"
+    },
+    {
+      "repo": "hypriot/rpi-swarm",
+      "gradient_start": "#24B8EB",
+      "gradient_end": "#218CF4",
+      "img": "kitematic_html.png"
+    }
+  ]
+}

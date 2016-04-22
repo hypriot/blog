@@ -1,0 +1,11 @@
+<!-- see documentation at https://developers.google.com/+/web/share/#sharetag-parameters -->
+<div class="social-sharing-google">
+  <script >
+    window.___gcfg = {
+      lang: 'en-US',
+      parsetags: 'onload'
+    };
+  </script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <div class="g-plus" data-action="share" data-annotation="bubble" data-width="200" data-href="{{ with .Params.facebook_url }}{{.}}{{ else }}{{ .Permalink }}{{ end }}"></div>
+</div>

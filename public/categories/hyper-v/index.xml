@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hyper V on Docker Pirates ARMed with explosive stuff</title>
+    <link>http://localhost:1313/categories/hyper-v/</link>
+    <description>Recent content in Hyper V on Docker Pirates ARMed with explosive stuff</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 29 Mar 2016 17:20:34 +0200</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/hyper-v/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Close Encounters of the Third Kind, or Microsoft Windows meets Docker ARM Containers for IoT</title>
+      <link>http://localhost:1313/post/close-encounters-of-the-third-kind/</link>
+      <pubDate>Tue, 29 Mar 2016 17:20:34 +0200</pubDate>
+      
+      <guid>http://localhost:1313/post/close-encounters-of-the-third-kind/</guid>
+      <description>
+
+&lt;p&gt;Running an ARM-based Docker container for IoT applications directly on Microsoft Windows
+looks like an unbelievable &lt;strong&gt;extraterrestrial technology&lt;/strong&gt; from outer space.&lt;/p&gt;
+
+&lt;p&gt;This cannot be true, it must be a fake, right?&lt;br /&gt;
+Or, is this maybe just a &lt;strong&gt;cheap magic trick&lt;/strong&gt;?&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/close-encounters-of-the-third-kind/docker4win-arm-webpage.jpg&#34; alt=&#34;Docker for Windows&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Nope, believe me, that&amp;rsquo;s really true&amp;hellip;&lt;/p&gt;
+
+&lt;h2 id=&#34;behind-the-scenes:41ce06d9c70eae57025ae829633db5ae&#34;&gt;Behind the scenes&lt;/h2&gt;
+
+&lt;p&gt;As I showed in my last blog post about the &lt;a href=&#34;http://blog.hypriot.com/post/first-touch-down-with-docker-for-mac/&#34;&gt;First Touch Down with Docker for Mac&lt;/a&gt;,
+&amp;ldquo;Docker for Mac&amp;rdquo; uses an Alpine Linux VM under the hood with the capability of emulating
+ARM binaries on Intel CPUs. Because of &amp;ldquo;Docker for Windows&amp;rdquo; uses exactly the same
+Alpine Linux in a Hyper-V virtual machine, this should work on Windows 10, too.&lt;/p&gt;
+
+&lt;p&gt;The only problem here is, that the bind-mounting of a single binary doesn&amp;rsquo;t work
+right now on Windows. I guess this will be fixed in a later release for sure. But
+we can easily prepare an ARM-based Docker container to make the magic happen.&lt;/p&gt;
+
+&lt;p&gt;We just have to put the &lt;a href=&#34;https://en.wikipedia.org/wiki/QEMU&#34;&gt;QEMU&lt;/a&gt; emulator binary
+into the Docker container, and as long as we
+place it at the correct path &lt;code&gt;/usr/bin/qemu-arm-static&lt;/code&gt;, this should work. The easiest
+way to include the binary to the correct folder is to create a tar archive and use
+the ADD command in the Dockerfile.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;tar vtf qemu-arm-static.tar
+drwxr-xr-x  0 dieter staff       0 Mar 28 18:34 usr/
+drwxr-xr-x  0 dieter staff       0 Mar 28 18:34 usr/bin/
+-rwxr-xr-x  0 dieter staff 2899840 Mar 28 18:34 usr/bin/qemu-arm-static
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;dockerfile:41ce06d9c70eae57025ae829633db5ae&#34;&gt;Dockerfile&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;FROM hypriot/rpi-busybox-httpd
+ADD qemu-arm-static.tar /
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;With this easy preparation we&amp;rsquo;re able to start an ARM-based Docker container on
+Windows 10 with two steps only.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 1:&lt;/strong&gt; Create the modified Docker image&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker build -t rpi-busybox-httpd .
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;Step 2:&lt;/strong&gt; Start the QEMU-enabled Docker container&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker run -d -p 80:80 rpi-busybox-httpd
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Here in this screenshot you can see all the necessary steps we need, there is really
+nothing else to do.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/close-encounters-of-the-third-kind/docker4win-arm-container.jpg&#34; alt=&#34;Docker for Windows&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Voilà&lt;/strong&gt; - that was the magic trick which can be applied to almost all ARM-based Docker
+images to make them run in &amp;ldquo;Docker for Windows&amp;rdquo; and &amp;ldquo;Docker for Mac&amp;rdquo; even on an Intel-based
+CPU architecture.&lt;/p&gt;
+
+&lt;h2 id=&#34;watch-the-results:41ce06d9c70eae57025ae829633db5ae&#34;&gt;Watch the results&lt;/h2&gt;
+
+&lt;p&gt;&amp;ldquo;Docker for Windows&amp;rdquo; publishes the Docker Engine network with the local network name
+&lt;code&gt;docker&lt;/code&gt;. Thus to access the ARM web server, which is running inside of a Linux container,
+ we just have to point our preferred web browser to &lt;code&gt;http://docker/&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/close-encounters-of-the-third-kind/docker4win-arm-webpage2.jpg&#34; alt=&#34;Docker for Windows&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;key-takeaways:41ce06d9c70eae57025ae829633db5ae&#34;&gt;Key Takeaways&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&amp;ldquo;Docker for Windows&amp;rdquo; uses Windows native hypervisor Hyper-V&lt;/li&gt;
+&lt;li&gt;the Docker Engine is running in a tiny Alpine Linux VM&lt;/li&gt;
+&lt;li&gt;ARM-based Docker containers can be easily enabled with QEMU emulator&lt;/li&gt;
+&lt;li&gt;Docker works great on Windows 10&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Are you curious now and want to get in touch with &amp;ldquo;Docker for Windows&amp;rdquo; by yourself?
+Then you should register for the Docker BETA program at &lt;a href=&#34;https://beta.docker.com&#34;&gt;https://beta.docker.com&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Please send us your feedback on our &lt;a href=&#34;https://gitter.im/hypriot/talk&#34;&gt;Gitter channel&lt;/a&gt; or tweet your thoughts and ideas on this project at &lt;a href=&#34;https://twitter.com/HypriotTweets&#34;&gt;@HypriotTweets&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Dieter &lt;a href=&#34;https://twitter.com/Quintus23M&#34;&gt;@Quintus23M&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

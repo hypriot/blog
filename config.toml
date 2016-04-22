@@ -1,0 +1,46 @@
+baseurl = "http://blog.hypriot.com/"
+languageCode = "en-us"
+title = "Docker Pirates ARMed with explosive stuff"
+theme = "hyde"
+watch = "true"
+
+[params]
+  Description = "Roaming the seven seas in search for golden container plunder."
+  galleryprefix = "http://assets.hypriot.com/gallery"
+  disqusShortname = "hypriot"
+  GoogleAnalyticsTrackingID = "UA-59194692-1"
+
+[[menu.main]]
+    name = "GETTING STARTED"
+    pre = "<i class='fa fa-road'></i>"
+    weight = -120
+    url = "/getting-started-with-docker-on-your-arm-device/"
+[[menu.main]]
+    name = "DOWNLOADS"
+    pre = "<i class='fa fa-road'></i>"
+    weight = -110
+    url = "/downloads/"
+[[menu.main]]
+    name = "FAQ"
+    pre = "<i class='fa fa-heart'></i>"
+    weight = -100
+    identifier = "faq"
+    url = "/faq"
+[[menu.main]]
+    name = "COMMUNITY"
+    pre = "<i class='fa fa-heart'></i>"
+    weight = -90
+    identifier = "community"
+    url = "https://gitter.im/hypriot/talk"
+[[menu.main]]
+    name = "ABOUT US"
+    pre = "<i class='fa fa-heart'></i>"
+    weight = -80
+    identifier = "about"
+    url = "/about"
+[[menu.main]]
+    name = "CREW"
+    pre = "<i class='fa fa-heart'></i>"
+    weight = -70
+    identifier = "crew"
+    url = "/crew"

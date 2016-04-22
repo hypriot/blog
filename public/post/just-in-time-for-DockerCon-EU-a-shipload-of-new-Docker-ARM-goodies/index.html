@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title> Just in time for DockerCon EU: a shipload of new Docker ARM goodies &middot; Docker Pirates ARMed with explosive stuff </title>
+
+  
+  <link rel="stylesheet" href="/css/poole.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="stylesheet" href="/css/hyde.css">
+  <link rel="stylesheet" href="/css/hypriot.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Docker Pirates ARMed with explosive stuff" />
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-59194692-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+</head>
+
+<body>
+
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-logo">
+      <a href="/"><img src="/images/logo_tr.png" /></a>
+    </div>
+    <div class="sidebar-about">
+      <h1><a href="/">Docker Pirates ARMed with explosive stuff</a></h1>
+      <p class="lead">
+       Roaming the seven seas in search for golden container plunder. 
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="/">HOME</a> </li>
+      
+        <li><a href="/getting-started-with-docker-on-your-arm-device/"> GETTING STARTED </a></li>
+      
+        <li><a href="/downloads/"> DOWNLOADS </a></li>
+      
+        <li><a href="/faq/"> FAQ </a></li>
+      
+        <li><a href="https://gitter.im/hypriot/talk"> COMMUNITY </a></li>
+      
+        <li><a href="/about/"> ABOUT US </a></li>
+      
+        <li><a href="/crew/"> CREW </a></li>
+      
+    </ul>
+
+    <p>&copy; 2016 Hypriot </p>
+    <p><a href="/legal_notice" style="font-size: 1rem;">Legal Notice</a></p>
+    <div class="edit-github" id="edit-github-id">
+        <p>
+          <a href="https://github.com/hypriot/blog"><img src="https://www.presidecms.com/assets/img/icons/github.png" style="float:left; width:9%; height:9%; padding-right: 8px; padding-top: 6px; align: center; ">Edit this blog on GitHub</img></a>
+        </p>
+    </div>
+  </div>
+</div>
+
+
+<div class="content container">
+  <div class="post">
+    <h1>Just in time for DockerCon EU: a shipload of new Docker ARM goodies</h1>
+    <span class="post-date">Sun, Nov 15, 2015</span>
+    
+
+<p>Hard on the heels of Docker announcing <a href="https://blog.docker.com/2015/11/docker-1-9-production-ready-swarm-multi-host-networking/">major changes with Docker 1.9</a> we are making the newest Docker goodies available on HypriotOS.
+We are really happy that we were able to finish our new release called &ldquo;Hector&rdquo; just in time for DockerCon EU.</p>
+
+<p>If you like a personal demo of what&rsquo;s in store for &ldquo;Hector&rdquo; just ping @Quintus23M on Twitter and meet him in person at DockerCon EU.
+Dieter and Andreas brought their treasure chest filled with Raspberry Pi&rsquo;s to Barcelona and are eager to show off a bit.</p>
+
+<p><img src="/images/hector-release/testing.jpg" alt="" /></p>
+
+<p>And if you are not lucky enough to attend DockerCon you might as well read on.</p>
+
+<p>To name just a few of the highlights, there is now <a href="http://blog.docker.com/2015/11/docker-multi-host-networking-ga/">multi-host networking</a>, extensively improved volume management and a production-ready <a href="http://blog.docker.com/2015/11/swarm-1-0/">Swarm</a>.</p>
+
+<p><strong>HypriotOS - the ultimate Docker playground for your Raspberry Pi 1 &amp; 2</strong> has you covered once again: all the cool &amp; latest Docker tools in one convenient package.</p>
+
+<p>Compared with HypriotOS &ldquo;Will&rdquo; we updated</p>
+
+<ul>
+<li>the <strong>Linux Kernel</strong> from 4.1.8 to <strong>4.1.12</strong></li>
+<li>the <strong>Docker Engine</strong> from 1.8.2 to <strong>1.9.0</strong></li>
+<li><strong>Docker Compose</strong> from 1.4.2 to <strong>1.5.1</strong></li>
+<li><strong>Docker Swarm</strong> from 0.4.0 to <strong>1.0.0</strong></li>
+</ul>
+
+<p>Besides that we enabled some missing cgroup kernel settings for better Docker support.
+We also added a default <code>/boot/config.txt</code>, which for instance allows for a better out-of-the-box HDMI display experience (<code>hdmi_force_hotplug=1</code>).</p>
+
+<p>There is no easier way to get started with Docker on ARM.
+Just give it a try: Download our <a href="http://downloads.hypriot.com/hypriot-rpi-20151115-132854.img.zip">latest image</a> and get started in less than 5 minutes.</p>
+
+<h3 id="detailed-features-of-hypriotos-hector:02d83c62817c8a33766342f7f05756e9">Detailed Features of HypriotOS &ldquo;Hector&rdquo;</h3>
+
+<ul>
+<li>a modern operating system based on <strong>Raspbian Jessie</strong></li>
+<li>a recent Raspberry Pi firmware and Device Tree to <strong>support a huge range of hardware add-ons</strong></li>
+<li>a kernel optimized for Docker-awesomeness: <strong>Kernel 4.1.12 with support for OverlayFS</strong></li>
+<li>support for <strong>Raspberry Pi 1 &amp; 2</strong> with the same SD card image</li>
+<li><strong>Docker Engine 1.9.0</strong></li>
+<li><strong>Docker Compose 1.5.1</strong></li>
+<li><strong>Docker Machine 0.4.1</strong></li>
+<li><strong>Docker Swarm 1.0.0</strong></li>
+<li>support for <strong>network hotplugging</strong></li>
+<li>out-of-the-box support for <strong>WiFi</strong></li>
+<li>support for <strong>Avahi</strong> (aka mDNS aka Apple Bonjour)</li>
+<li>support for <strong>Open vSwitch</strong></li>
+<li>our own package repository to easily update individual components</li>
+</ul>
+
+<h3 id="download-get-it-while-it-is-still-hot:02d83c62817c8a33766342f7f05756e9">Download: Get it while it is still hot</h3>
+
+<p><a href="http://downloads.hypriot.com/hypriot-rpi-20151115-132854.img.zip">hypriot-rpi-20151115-132854.img.zip</a> (~ 438 MB)
+<a href="hypriot-rpi-20151115-132854.img.zip.sha256">SHA256 checksum</a></p>
+
+<p>Check out our <a href="http://blog.hypriot.com/getting-started-with-docker-on-your-arm-device/">Getting-Started-Guide</a> on how to get this SD card image running on your Raspberry Pi.</p>
+
+<p>As always, use the comments below to give us feedback and share this post on Twitter, Google+ or Facebook.</p>
+
+<p>Your Hypriot-Team -
+Stefan, Dieter, Mathias, Andreas, Govinda</p>
+
+    <div class="social-sharing">
+  
+<div class="social-sharing-twitter" style="float: left;">
+  <a class="twitter-share-button"
+    href="https://twitter.com/share"
+    data-url="http://localhost:1313/post/just-in-time-for-DockerCon-EU-a-shipload-of-new-Docker-ARM-goodies/"
+    data-lang="en"
+    data-show-count="true"
+    data-via="HypriotTweets">
+  Tweet
+  </a>
+  <script>
+  window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
+  </script>
+</div>
+
+  
+<div class="social-sharing-facebook" style="float: left;">
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5&appId=599115553447708";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+  <div class="fb-share-button" data-href="http://localhost:1313/post/just-in-time-for-DockerCon-EU-a-shipload-of-new-Docker-ARM-goodies/" data-layout="button_count"></div>
+</div>
+
+  
+<div class="social-sharing-google">
+  <script >
+    window.___gcfg = {
+      lang: 'en-US',
+      parsetags: 'onload'
+    };
+  </script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <div class="g-plus" data-action="share" data-annotation="bubble" data-width="200" data-href="http://localhost:1313/post/just-in-time-for-DockerCon-EU-a-shipload-of-new-Docker-ARM-goodies/"></div>
+</div>
+
+</div>
+
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'hypriot';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+</div>
+
+<script data-no-instant>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

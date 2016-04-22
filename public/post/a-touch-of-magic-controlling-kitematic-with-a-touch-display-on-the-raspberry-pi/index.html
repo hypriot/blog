@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title> A touch of magic: Controlling Kitematic &amp; Docker with a touch display on the Raspberry Pi &middot; Docker Pirates ARMed with explosive stuff </title>
+
+  
+  <link rel="stylesheet" href="/css/poole.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="stylesheet" href="/css/hyde.css">
+  <link rel="stylesheet" href="/css/hypriot.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Docker Pirates ARMed with explosive stuff" />
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-59194692-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+</head>
+
+<body>
+
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-logo">
+      <a href="/"><img src="/images/logo_tr.png" /></a>
+    </div>
+    <div class="sidebar-about">
+      <h1><a href="/">Docker Pirates ARMed with explosive stuff</a></h1>
+      <p class="lead">
+       Roaming the seven seas in search for golden container plunder. 
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="/">HOME</a> </li>
+      
+        <li><a href="/getting-started-with-docker-on-your-arm-device/"> GETTING STARTED </a></li>
+      
+        <li><a href="/downloads/"> DOWNLOADS </a></li>
+      
+        <li><a href="/faq/"> FAQ </a></li>
+      
+        <li><a href="https://gitter.im/hypriot/talk"> COMMUNITY </a></li>
+      
+        <li><a href="/about/"> ABOUT US </a></li>
+      
+        <li><a href="/crew/"> CREW </a></li>
+      
+    </ul>
+
+    <p>&copy; 2016 Hypriot </p>
+    <p><a href="/legal_notice" style="font-size: 1rem;">Legal Notice</a></p>
+    <div class="edit-github" id="edit-github-id">
+        <p>
+          <a href="https://github.com/hypriot/blog"><img src="https://www.presidecms.com/assets/img/icons/github.png" style="float:left; width:9%; height:9%; padding-right: 8px; padding-top: 6px; align: center; ">Edit this blog on GitHub</img></a>
+        </p>
+    </div>
+  </div>
+</div>
+
+
+<div class="content container">
+  <div class="post">
+    <h1>A touch of magic: Controlling Kitematic &amp; Docker with a touch display on the Raspberry Pi</h1>
+    <span class="post-date">Mon, Oct 12, 2015</span>
+    <p>We have recently released our <a href="http://blog.hypriot.com/post/get-your-all-in-one-docker-playground-now-hypriotos-reloaded/">new SD card image</a> called <strong>Will</strong>.
+It is the ultimate Docker playground with Docker Engine, Docker Compose, Docker Swarm and Docker Machine preinstalled.
+This image now also supports the new 7&rdquo; Raspberry Pi Touch Display out-of-the-box. So we thought, wouldn&rsquo;t it be cool to have Kitematic running directly on your Raspberry Pi? And yes, we did it.</p>
+
+<p><img src="/images/kitematic-on-pi/teaser.jpg" alt="" /></p>
+
+<p>While polishing and testing <strong>Will</strong> the idea came up that it would be awesome to be able to use Kitematic on the new great <a href="https://www.raspberrypi.org/blog/the-eagerly-awaited-raspberry-pi-display/">7&rdquo; touch display of the Raspberry Pi foundation</a>.</p>
+
+<p>We started using the <a href="https://github.com/zedtux/kitematic/tree/linux-support">Linux support branch</a> of Kitematic (<a href="https://github.com/kitematic/kitematic/pull/696">PR #696</a>) and tried to compile it.
+After some fiddling we got the first build working. Still in the team we were not satisfied with installing Kitematic directly on the host - we wanted a better way.
+This was the time for the next crazy idea. We thought, let us write a <code>Dockerfile</code> to build Kitematic and run it within a Docker container.</p>
+
+<p><div class="gallery clearfix" itemscope itemtype="http://schema.org/ImageGallery">
+<div class="title">Kitematic running on the Raspberry Pi</div>
+
+
+
+
+<figure itemscope itemtype="http://schema.org/ImageObject">
+  <a href="/images/kitematic-on-pi/docker-toolbox.jpg" itemprop="contentUrl" data-size="1600x1200">
+      <img src="/images/kitematic-on-pi/thumbnails/thumb_docker-toolbox.jpg" itemprop="thumbnail" alt="Unboxing the Docker Toolbox" />
+  </a>
+
+
+  <figcaption itemprop="caption description">
+    Unboxing the Docker Toolbox
+    <span itemprop="copyrightHolder">Hypriot</span>
+  </figcaption>
+</figure>
+
+
+
+
+<figure itemscope itemtype="http://schema.org/ImageObject">
+  <a href="/images/kitematic-on-pi/display-back.jpg" itemprop="contentUrl" data-size="1600x1200">
+      <img src="/images/kitematic-on-pi/thumbnails/thumb_display-back.jpg" itemprop="thumbnail" alt="The RPi 2 is attached to 7 inch Raspberry Pi Display" />
+  </a>
+
+
+  <figcaption itemprop="caption description">
+    The RPi 2 is attached to 7 inch Raspberry Pi Display
+    <span itemprop="copyrightHolder">Hypriot</span>
+  </figcaption>
+</figure>
+
+
+
+
+<figure itemscope itemtype="http://schema.org/ImageObject">
+  <a href="/images/kitematic-on-pi/connect-to-docker-hub.jpg" itemprop="contentUrl" data-size="1600x1200">
+      <img src="/images/kitematic-on-pi/thumbnails/thumb_connect-to-docker-hub.jpg" itemprop="thumbnail" alt="Connect to the Docker Hub" />
+  </a>
+
+
+  <figcaption itemprop="caption description">
+    Connect to the Docker Hub
+    <span itemprop="copyrightHolder">Hypriot</span>
+  </figcaption>
+</figure>
+
+
+
+
+<figure itemscope itemtype="http://schema.org/ImageObject">
+  <a href="/images/kitematic-on-pi/kitematic.jpg" itemprop="contentUrl" data-size="1600x1200">
+      <img src="/images/kitematic-on-pi/thumbnails/thumb_kitematic.jpg" itemprop="thumbnail" alt="List of Docker Images" />
+  </a>
+
+
+  <figcaption itemprop="caption description">
+    List of Docker Images
+    <span itemprop="copyrightHolder">Hypriot</span>
+  </figcaption>
+</figure>
+
+
+
+
+<figure itemscope itemtype="http://schema.org/ImageObject">
+  <a href="/images/kitematic-on-pi/create.jpg" itemprop="contentUrl" data-size="1600x1200">
+      <img src="/images/kitematic-on-pi/thumbnails/thumb_create.jpg" itemprop="thumbnail" alt="Download and create a Docker Container" />
+  </a>
+
+
+  <figcaption itemprop="caption description">
+    Download and create a Docker Container
+    <span itemprop="copyrightHolder">Hypriot</span>
+  </figcaption>
+</figure>
+
+
+
+
+<figure itemscope itemtype="http://schema.org/ImageObject">
+  <a href="/images/kitematic-on-pi/web-preview.jpg" itemprop="contentUrl" data-size="1600x1200">
+      <img src="/images/kitematic-on-pi/thumbnails/thumb_web-preview.jpg" itemprop="thumbnail" alt="A running a container with web preview" />
+  </a>
+
+
+  <figcaption itemprop="caption description">
+    A running a container with web preview
+    <span itemprop="copyrightHolder">Hypriot</span>
+  </figcaption>
+</figure>
+
+
+
+
+<figure itemscope itemtype="http://schema.org/ImageObject">
+  <a href="/images/kitematic-on-pi/thumbs-up.jpg" itemprop="contentUrl" data-size="1600x1200">
+      <img src="/images/kitematic-on-pi/thumbnails/thumb_thumbs-up.jpg" itemprop="thumbnail" alt="Thumbs up! All is running well" />
+  </a>
+
+
+  <figcaption itemprop="caption description">
+    Thumbs up! All is running well
+    <span itemprop="copyrightHolder">Hypriot</span>
+  </figcaption>
+</figure>
+
+
+</div>
+</p>
+
+<p><link rel="stylesheet" href="/css/photoswipe.css">
+<link rel="stylesheet" href="/css/default-skin/default-skin.css">
+<script src="/js/photoswipe.min.js"></script>
+<script src="/js/photoswipe-ui-default.min.js"></script>
+<script src="/js/initphotoswipe.js"></script>
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+<style>
+    .gallery {  }
+    .gallery img { width: 100%; height: auto; }
+    .gallery figure { display: block; float: left; margin: 0 5px 5px 0; width: 200px; }
+    .gallery figcaption { display: none; }
+    .gallery div.title { font-weight: bold; }
+    span[itemprop="copyrightHolder"] { color : #888; float: right; }
+    span[itemprop="copyrightHolder"]:before { content: "Foto: "; }
+    img[itemprop="thumbnail"]{ width: 200px; }
+</style>
+
+
+<script>initPhotoSwipeFromDOM('.gallery');</script>
+</p>
+
+<p>You can find the <code>Dockerfile</code> in a new GitHub repo at <a href="https://github.com/hypriot/rpi-kitematic">hypriot/rpi-kitematic</a>. If you like you can follow along and try it out with your own display.</p>
+
+<p>We made a small video to demonstrate how Kitematic looks and feels controlling your containers with a touch display:</p>
+
+<div class="video-container"><iframe src="https://www.youtube.com/embed/HVyQeCqE_4A" frameborder="0" allowfullscreen></iframe></div>
+
+<p>As you can see this is still a work-in-progress. But we believe we can make it available soon in an easy and convenient way to be used by everyone.</p>
+
+<p>If you are one of the lucky owners of the new Raspberry 7&rdquo; touch screen display, you may wanna try out the following steps to run it on your own Pi as well.</p>
+
+<p>First log in to your Raspberry Pi and install X11. We have created a small helper script that installs everything you need.</p>
+
+<pre><code>curl -sSL https://github.com/hypriot/x11-on-HypriotOS/raw/master/install-x11-basics.sh | bash
+</code></pre>
+
+<p>Now you have to enable the X11 server to listen on a TCP socket (port 6000). Just insert the line <code>xserver-allow-tcp=true</code> in the file <code>/etc/lightdm/lightdm.conf</code>.</p>
+
+<pre><code>echo &quot;xserver-allow-tcp=true&quot; &gt;&gt; /etc/lightdm/lightdm.conf
+</code></pre>
+
+<p>Next you have to enable X11 server to accept external TCP access from inside of a Docker container.
+This is a network connection coming from another TCP/IP address because the container is running in it&rsquo;s own network name space.</p>
+
+<p>If you want to automate this step, you can add a start script so the TCP connections are allowed after the next reboot.
+If you want to do it manually, just skip this step.</p>
+
+<pre><code>echo &quot;xhost +&quot; &gt; /etc/X11/Xsession.d/36x11-xhost-docker
+</code></pre>
+
+<p>To fix the orientation of the 7&rdquo; touch display we have to add <code>lcd_rotate=2</code> into the <code>/boot/config.txt</code>. If you just use an HDMI monitor you should skip this step.</p>
+
+<pre><code>echo &quot;lcd_rotate=2&quot; &gt;&gt; /boot/config.txt
+</code></pre>
+
+<p>Now reboot your Pi to start the X11 server on your 7&rdquo; touch display or HDMI monitor.</p>
+
+<pre><code>reboot
+</code></pre>
+
+<p>If you haven&rsquo;t enabled the TCP connection yet, run the following command to enable it now.</p>
+
+<pre><code>DISPLAY=:0.0 xhost +
+</code></pre>
+
+<p>If it works you see a message like <code>access control disabled, clients can connect from any host</code>.</p>
+
+<p>Now you have to build the Kitematic container.
+We haven&rsquo;t uploaded it to the Docker Hub yet as it is still a work-in-progress.</p>
+
+<pre><code>git clone https://github.com/hypriot/rpi-kitematic
+cd rpi-kitematic
+docker build -t hypriot/rpi-kitematic .
+</code></pre>
+
+<p>Now it&rsquo;s time to run the Kitematic container with:</p>
+
+<pre><code>docker run --privileged -v /var/run/docker.sock:/var/run/docker.sock -e DISPLAY=172.17.42.1:0.0 hypriot/rpi-kitematic
+</code></pre>
+
+<p>The container runs Kitematic in development mode. Because of this the first start-up may take some minutes until the user interface finally shows up.
+But once it is started, it feels pretty smooth to use.</p>
+
+<p>I hope you enjoyed this demonstration. We currently think of how to best deploy Kitematic for the Pi - whether we should run it in a container or natively on the host.
+But running a GUI application in a Docker container was something we wanted to try out anyhow. :)</p>
+
+<p>What do you think would be the best approach? How should we provide Kitematic on a Raspberry Pi without putting to much bloat into our SD card image by default?</p>
+
+<p>As always use the comments below to give us feedback and share it on Twitter or Facebook.
+You also might wanna discuss this article on <a href="https://news.ycombinator.com/item?id=10374271">HackerNews</a> or vote it up if you find it interesting.</p>
+
+<p>Stefan</p>
+
+    <div class="social-sharing">
+  
+<div class="social-sharing-twitter" style="float: left;">
+  <a class="twitter-share-button"
+    href="https://twitter.com/share"
+    data-url="http://localhost:1313/post/a-touch-of-magic-controlling-kitematic-with-a-touch-display-on-the-raspberry-pi/"
+    data-lang="en"
+    data-show-count="true"
+    data-via="HypriotTweets">
+  Tweet
+  </a>
+  <script>
+  window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
+  </script>
+</div>
+
+  
+<div class="social-sharing-facebook" style="float: left;">
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5&appId=599115553447708";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+  <div class="fb-share-button" data-href="http://localhost:1313/post/a-touch-of-magic-controlling-kitematic-with-a-touch-display-on-the-raspberry-pi/" data-layout="button_count"></div>
+</div>
+
+  
+<div class="social-sharing-google">
+  <script >
+    window.___gcfg = {
+      lang: 'en-US',
+      parsetags: 'onload'
+    };
+  </script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <div class="g-plus" data-action="share" data-annotation="bubble" data-width="200" data-href="http://localhost:1313/post/a-touch-of-magic-controlling-kitematic-with-a-touch-display-on-the-raspberry-pi/"></div>
+</div>
+
+</div>
+
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'hypriot';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+</div>
+
+<script data-no-instant>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

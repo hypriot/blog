@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title> Connecting Kitematic to an external Docker Engine running on a Raspberry Pi &middot; Docker Pirates ARMed with explosive stuff </title>
+
+  
+  <link rel="stylesheet" href="/css/poole.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="stylesheet" href="/css/hyde.css">
+  <link rel="stylesheet" href="/css/hypriot.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Docker Pirates ARMed with explosive stuff" />
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-59194692-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+</head>
+
+<body>
+
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-logo">
+      <a href="/"><img src="/images/logo_tr.png" /></a>
+    </div>
+    <div class="sidebar-about">
+      <h1><a href="/">Docker Pirates ARMed with explosive stuff</a></h1>
+      <p class="lead">
+       Roaming the seven seas in search for golden container plunder. 
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="/">HOME</a> </li>
+      
+        <li><a href="/getting-started-with-docker-on-your-arm-device/"> GETTING STARTED </a></li>
+      
+        <li><a href="/downloads/"> DOWNLOADS </a></li>
+      
+        <li><a href="/faq/"> FAQ </a></li>
+      
+        <li><a href="https://gitter.im/hypriot/talk"> COMMUNITY </a></li>
+      
+        <li><a href="/about/"> ABOUT US </a></li>
+      
+        <li><a href="/crew/"> CREW </a></li>
+      
+    </ul>
+
+    <p>&copy; 2016 Hypriot </p>
+    <p><a href="/legal_notice" style="font-size: 1rem;">Legal Notice</a></p>
+    <div class="edit-github" id="edit-github-id">
+        <p>
+          <a href="https://github.com/hypriot/blog"><img src="https://www.presidecms.com/assets/img/icons/github.png" style="float:left; width:9%; height:9%; padding-right: 8px; padding-top: 6px; align: center; ">Edit this blog on GitHub</img></a>
+        </p>
+    </div>
+  </div>
+</div>
+
+
+<div class="content container">
+  <div class="post">
+    <h1>Connecting Kitematic to an external Docker Engine running on a Raspberry Pi</h1>
+    <span class="post-date">Wed, Apr 15, 2015</span>
+    
+
+<p>In this post we show you the first steps how easy it is using Kitematic to control a Docker engine running on a Raspberry Pi. Finally we demostrate in a small screencast how to run an unbelievable amount of 101 web servers on a single Raspberry Pi 2.</p>
+
+<h3 id="intro-and-background:90fd682791be4b8b148459904d1205f8">Intro and Background</h3>
+
+<p>At Hypriot we recently built and released our own OS image to run the Docker Engine on a low-cost Raspberry Pi and labeled it HypriotOS.  A user can download this pre-compiled Raspbian based SD card image, which includes a Linux 3.18.10 kernel with all Docker related kernel options included, and Docker 1.5.0 is already enabled with Overlay filesystem.  Just download, extract, flash to a SD card and boot your Raspberry Pi - and within minutes you have Docker up and running and you can instantly start using it.</p>
+
+<p>You can read more details and find the download links in our blog post <a href="http://blog.hypriot.com/heavily-armed-after-major-upgrade-raspberry-pi-with-docker-1-dot-5-0">Heavily ARMed after major upgrade: Raspberry Pi with Docker 1.5.0</a> and recently updated post <a href="http://blog.hypriot.com/post/hypriotos-back-again-with-docker-on-arm/">HypriotOS: Back Again and Better then Ever</a>.</p>
+
+<p>As developers and geeks, we&rsquo;re really comfortable using SSH and a bash shell to control the Docker CLI.  It&rsquo;s also not a problem to connect a Linux or Mac OSX host via a native Docker CLI over the network, even a Windows client works well.  But what about the normal end users?  Wouldn&rsquo;t it be great to have a more convinient way to use a graphical frontend via web or a specific app.  A GUI would be really cool, but this would take a long time to develop.</p>
+
+<h3 id="kitematic-to-the-rescue:90fd682791be4b8b148459904d1205f8">Kitematic to the Rescue</h3>
+
+<p>Even the fact that our OS image works pretty much out of the box, and everybody can use Docker within minutes we&rsquo;ve received a lot of feedback, whether we could build and deliver a graphical application to control Docker and deploying apps/containers with it.  And here comes Kitematic to the rescue - what a great timing.  We&rsquo;ve just read the announcement on the Docker blog and were extremely impressed but also a little bit frustrated, it&rsquo;s only meant to be used on a Mac running it&rsquo;s own Boot2Docker VM through a newly created Docker Machine.</p>
+
+<p>We were fascinated immediately about the simplicity and the seamless GUI, instantly installing Kitematic on a MacBookPro and it was running within 10 minutes only.  Really impressed and hooked!  Another 15 minutes later, we had cloned the source code repo from GitHub, then a &ldquo;npm install&rdquo; and a &ldquo;npm start&rdquo; and WOW, we&rsquo;re running our personal dev version!  And we even were able to create our own Mac App with a &ldquo;npm run release&rdquo;.</p>
+
+<p>Imagine now what could be even better for an end user?  What if we could use Kitematic to control a remote Docker Host running on that cute little Raspberry Pi.</p>
+
+<h3 id="connecting-the-dots:90fd682791be4b8b148459904d1205f8">Connecting the Dots</h3>
+
+<p>We quickly read through the docs and studied the source code and found out that Kitematic is based upon Docker Machine to control the backend Docker Host, hey cool - that&rsquo;s the key.  Within a couple of hours we had the first rough hack and were able to actively control a Raspberry Pi 2 running Docker 1.5.0 with a brand new graphical user interface.  Just selecting one of our favorite Docker Images from the Docker Hub and pushed it seamlessly to a RPi!<br />
+<img src="/images/kitematic/rpi-docker-images-at-the-hub.png" alt="image1" /></p>
+
+<p>But until now, it was just a hack and far away from being used in production or by end users.  All settings were done with some source code changes within Kitematic itself.</p>
+
+<p>Here are the details of that quick hack.  You only have to change these three lines in <code>src/Docker.js</code>:</p>
+
+<pre><code class="language-javascript">16:      protocol: 'http',
+17:      host: 192.168.2.114,
+18:      port: 2375,
+</code></pre>
+
+<p>Just use an unencrypted connection for the first step, change the protocol from <code>https</code> to <code>http</code>, use the IP address of the Raspberry Pi, and don&rsquo;t forget to change the port number to <code>2375</code>.  With the last change, Kitematic don&rsquo;t use any cert or key file to connect to the remote Docker Host.</p>
+
+<p>For the next day we scheduled a short online meeting with Mike from Kitematic, and to our surprise the whole team joined us, including Jeff and Sean.  Everybody was so happy and surprised how easy we could merge both ideas and concepts together.  Right now, we&rsquo;re able to offer a Docker optimized OS for the Raspberry Pi which one could install and use within a few minutes only, and within the same amount of time, installing the app from Kitematic to control your Raspberry Pi with a great user experience.</p>
+
+<h3 id="switch-to-a-better-system-design:90fd682791be4b8b148459904d1205f8">Switch to a better System Design</h3>
+
+<p>Thanks to the fact, that Kitematic uses Docker Machine under the hood to connect to it&rsquo;s Docker VM, it must be able to use this concept for a better system design to communicate with an external Docker Host.  Our first try was just looking for a standard driver available which supports our needs.  We quickly tested the <code>none</code> driver and were able to control the Raspberry Pi from within Docker Machine.  For this case it was necessary to reconfigure Docker to use a TLS encrypted connection.  But we had absolute no luck to get it work together with Kitematic.</p>
+
+<p>Ok, let&rsquo;s dig deeper and just use the Docker Machine GitHub repo to get familiar with the driver concept.  And learn what has to be done, to build your own Docker Machine Driver specifically for connecting a Docker Engine running on an external Linux machine.  Within a day only, we got it working, our very first driver implementation for Docker Machine.  Our goal was to keep it super-simple and ready-to-use together with Kitematic, and hopefully don&rsquo;t change anything within the app&rsquo;s source code.</p>
+
+<p>All changes are already documented in a few pull-requests which are available for further improvement and testing.</p>
+
+<ul>
+<li><a href="https://github.com/hypriot/kitematic/pull/1">hypriot/kitematic#1, Connect to externel docker host through docker-machine</a></li>
+<li><a href="https://github.com/hypriot/machine/pull/1">hypriot/machine#1, Add driver &lsquo;hypriot&rsquo;</a></li>
+</ul>
+
+<p>To use this improved Kitematic version from Hypriot, you have to clone the GitHub repo <a href="https://github.com/hypriot/kitematic/tree/connect-to-externel-docker-host">hypriot/kitematic</a>, use the branch <code>connect-to-externel-docker-host</code> and build it with &ldquo;npm run install&rdquo;, it will also download and use our specifically built version of Docker Machine with the <code>hypriot</code> driver included.</p>
+
+<p><img src="/images/kitematic/Kitematic-and-HypriotOS-just-works.png" alt="image2" /></p>
+
+<h3 id="mission-accomplished:90fd682791be4b8b148459904d1205f8">Mission accomplished</h3>
+
+<p>At the end, we&rsquo;ve now built our own basic Docker Machine driver for the HypriotOS to use it for controlling a Raspberry Pi with the Kitematic app, and we&rsquo;ll improve it over the next few days and weeks to get it production ready.  To our surprise, we only had to change a single line of code within Kitematic itself.</p>
+
+<p>Here is a short 4 minute screencast to demonstrate the running system as <a href="https://www.youtube.com/watch?v=yHytb1k3TfM">Docker Kitematic controls Raspberry Pi 2 running Docker 1.5.0</a>. Watch out the number of web servers we started simultaneously on the Raspberry Pi 2, all as separate Docker containers. Can you imagine how cool this Linux container technology from Docker is, even on such a small device?</p>
+
+<p>And the best thing is, it could be used to connect any other external Docker Host to Kitematic, not only the Raspberry Pi.  In the PR we included a short description how to connect an already running Boot2Docker VM to Kitematic.  And if anyone is interested to help, please feel free to join.  As soon as we&rsquo;re done with the development we&rsquo;ll create an upstream PR to get the changes back into Kitematic and Docker Machine.</p>
+
+<h3 id="next-steps:90fd682791be4b8b148459904d1205f8">Next Steps</h3>
+
+<p>We do have a lot of things on our roadmap, maybe too much to share in this blog post.  Here are at least the next important things we&rsquo;re planing:</p>
+
+<ul>
+<li>new Linux kernel 3.18.10 (DONE)</li>
+<li>support for Open vSwitch (we&rsquo;d love to use SocketPlane on the RPi) (DONE)
+
+<ul>
+<li>include kernel options for Open vSwitch (DONE)</li>
+<li>natively compiled packages for Open vSwitch (DONE)</li>
+</ul></li>
+<li>support for Docker Machine (WIP)
+
+<ul>
+<li>production ready driver for HypriotOS and the Raspberry Pi</li>
+</ul></li>
+<li>support for Docker Compose (WIP)</li>
+<li>support for Docker Swarm (WIP)</li>
+<li>&hellip; (depending on user feedback)</li>
+</ul>
+
+<p><img src="/images/kitematic/pi_armed_with_docker.jpg" alt="image3" /></p>
+
+<h3 id="send-us-your-feedback-please:90fd682791be4b8b148459904d1205f8">Send us your Feedback, please!</h3>
+
+<p>We really love feedback and would like to get some new ideas and thoughts from all of you.  So, if you&rsquo;re liking our ideas and the way to find and break the limits, please send us your comments via email, twitter or drop us a line.  We&rsquo;d be more than happy to answer and talk directly to share our experiences.</p>
+
+<h4 id="note:90fd682791be4b8b148459904d1205f8">Note</h4>
+
+<p>This post was originally posted at the <a href="http://blog.kitematic.com">Kitematic Blog</a>, and is slightly updated to recent download links and version numbers.</p>
+
+<p>&ndash;
+Dieter Reuter</p>
+
+    <div class="social-sharing">
+  
+<div class="social-sharing-twitter" style="float: left;">
+  <a class="twitter-share-button"
+    href="https://twitter.com/share"
+    data-url="http://localhost:1313/post/connect-kitematic-to-external-docker-engine/"
+    data-lang="en"
+    data-show-count="true"
+    data-via="HypriotTweets">
+  Tweet
+  </a>
+  <script>
+  window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
+  </script>
+</div>
+
+  
+<div class="social-sharing-facebook" style="float: left;">
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5&appId=599115553447708";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+  <div class="fb-share-button" data-href="http://localhost:1313/post/connect-kitematic-to-external-docker-engine/" data-layout="button_count"></div>
+</div>
+
+  
+<div class="social-sharing-google">
+  <script >
+    window.___gcfg = {
+      lang: 'en-US',
+      parsetags: 'onload'
+    };
+  </script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <div class="g-plus" data-action="share" data-annotation="bubble" data-width="200" data-href="http://localhost:1313/post/connect-kitematic-to-external-docker-engine/"></div>
+</div>
+
+</div>
+
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'hypriot';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+</div>
+
+<script data-no-instant>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

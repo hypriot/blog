@@ -1,0 +1,1454 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Raspberry_pi on Docker Pirates ARMed with explosive stuff</title>
+    <link>http://localhost:1313/categories/raspberry_pi/</link>
+    <description>Recent content in Raspberry_pi on Docker Pirates ARMed with explosive stuff</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 16 Apr 2015 22:06:11 +0200</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/raspberry_pi/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Docker 1.6.0 is finally released into the wild</title>
+      <link>http://localhost:1313/post/docker-1-6-is-finally-released-into-the-wild/</link>
+      <pubDate>Thu, 16 Apr 2015 22:06:11 +0200</pubDate>
+      
+      <guid>http://localhost:1313/post/docker-1-6-is-finally-released-into-the-wild/</guid>
+      <description>
+
+&lt;p&gt;After nearly two months of development Docker 1.6.0 was finally released into the wild.
+Being right on the heels of the Docker team we were able to create an ARM compatible version within minutes and of course you can download it here as a Debian package.&lt;/p&gt;
+
+&lt;p&gt;Our Docker Debian packages are battle-tested only with our HypriotOS Docker SD card image.
+Use it to get the best Docker experience available for the Raspberry Pi. It is ridiculous easy to get up and running. Under 5 minutes - promised!&lt;/p&gt;
+
+&lt;p&gt;The image can be downloaded here:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://downloads.hypriot.com/hypriot-rpi-20150416-201537.img.zip&#34;&gt;Docker-Pi Image&lt;/a&gt; (~369MB)&lt;br /&gt;
+&lt;a href=&#34;http://downloads.hypriot.com/hypriot-rpi-20150416-201537.img.zip.sha256&#34;&gt;SHA256 checksum&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;For everybody else use our Docker Debian package at your own peril&amp;hellip; :)&lt;/p&gt;
+
+&lt;h2 id=&#34;all-new-shiny-docker-1-6-0:d3971ee1212b5cb8ba1d048eadd8bf0e&#34;&gt;All new shiny Docker 1.6.0&lt;/h2&gt;
+
+&lt;p&gt;Alright back to Docker&amp;hellip; version 1.6.0 will bring a couple of new features, changes and bugfixes.&lt;/p&gt;
+
+&lt;p&gt;The ones that stand out the most are&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;syslog support for the Docker logs&lt;/li&gt;
+&lt;li&gt;setting of ulimits for container&lt;/li&gt;
+&lt;li&gt;building images from an image id&lt;/li&gt;
+&lt;li&gt;pulling images based on id&lt;/li&gt;
+&lt;li&gt;Windows client support (&lt;a href=&#34;https://kitematic.com&#34;&gt;Kitematic&lt;/a&gt; - &lt;em&gt;I finally see it coming together!&lt;/em&gt;)&lt;/li&gt;
+&lt;li&gt;Labels for container and images&lt;/li&gt;
+&lt;li&gt;ability to set constraints on images - memory, etc.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Find out more details in the &lt;a href=&#34;https://github.com/docker/docker/blob/v1.6.0/CHANGELOG.md&#34;&gt;changelog&lt;/a&gt; yourself.&lt;/p&gt;
+
+&lt;p&gt;Read some more details on the official Docker blog
+&lt;a href=&#34;https://blog.docker.com/2015/04/docker-release-1-6/&#34;&gt;DOCKER 1.6: ENGINE &amp;amp; ORCHESTRATION UPDATES, REGISTRY 2.0, &amp;amp; WINDOWS CLIENT PREVIEW&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;get-it-while-it-is-still-hot:d3971ee1212b5cb8ba1d048eadd8bf0e&#34;&gt;Get it while it is still hot&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://downloads.hypriot.com/docker-hypriot_1.6.0-1_armhf.deb&#34;&gt;docker-hypriot_1.6.0-1_armhf.deb&lt;/a&gt; (~ 6MB)&lt;br /&gt;
+&lt;a href=&#34;http://downloads.hypriot.com/docker-hypriot_1.6.0-1_armhf.deb.sha256&#34;&gt;SHA256 checksum&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;All you have to do is to start up your Pi with our SD card image, download the prepared Docker package and install it with dpkg.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;highlight&#34; style=&#34;background: #272822&#34;&gt;&lt;pre style=&#34;line-height: 125%&#34;&gt;HypriotOS: root@black-pearl in ~
+$ wget http://downloads.hypriot.com/docker-hypriot_1.6.0-1_armhf.deb
+
+HypriotOS: root@black-pearl in ~
+$ dpkg -i docker-hypriot_1.6.0-1_armhf.deb
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Afterwards you should be able to quench your curiosity by playing with the latest and greatest Docker Engine.&lt;/p&gt;
+
+&lt;p&gt;And if you are especially daring today you might wanna try it together with Docker Compose:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://blog.hypriot.com/post/docker-compose-nodejs-haproxy&#34;&gt;http://blog.hypriot.com/post/docker-compose-nodejs-haproxy&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Have fun!&lt;/p&gt;
+
+&lt;p&gt;As always use the comments below to give us feedback and like this post on Twitter or Facebook.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Connecting Kitematic to an external Docker Engine running on a Raspberry Pi</title>
+      <link>http://localhost:1313/post/connect-kitematic-to-external-docker-engine/</link>
+      <pubDate>Wed, 15 Apr 2015 06:35:55 +0200</pubDate>
+      
+      <guid>http://localhost:1313/post/connect-kitematic-to-external-docker-engine/</guid>
+      <description>
+
+&lt;p&gt;In this post we show you the first steps how easy it is using Kitematic to control a Docker engine running on a Raspberry Pi. Finally we demostrate in a small screencast how to run an unbelievable amount of 101 web servers on a single Raspberry Pi 2.&lt;/p&gt;
+
+&lt;h3 id=&#34;intro-and-background:90fd682791be4b8b148459904d1205f8&#34;&gt;Intro and Background&lt;/h3&gt;
+
+&lt;p&gt;At Hypriot we recently built and released our own OS image to run the Docker Engine on a low-cost Raspberry Pi and labeled it HypriotOS.  A user can download this pre-compiled Raspbian based SD card image, which includes a Linux 3.18.10 kernel with all Docker related kernel options included, and Docker 1.5.0 is already enabled with Overlay filesystem.  Just download, extract, flash to a SD card and boot your Raspberry Pi - and within minutes you have Docker up and running and you can instantly start using it.&lt;/p&gt;
+
+&lt;p&gt;You can read more details and find the download links in our blog post &lt;a href=&#34;http://blog.hypriot.com/heavily-armed-after-major-upgrade-raspberry-pi-with-docker-1-dot-5-0&#34;&gt;Heavily ARMed after major upgrade: Raspberry Pi with Docker 1.5.0&lt;/a&gt; and recently updated post &lt;a href=&#34;http://blog.hypriot.com/post/hypriotos-back-again-with-docker-on-arm/&#34;&gt;HypriotOS: Back Again and Better then Ever&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;As developers and geeks, we&amp;rsquo;re really comfortable using SSH and a bash shell to control the Docker CLI.  It&amp;rsquo;s also not a problem to connect a Linux or Mac OSX host via a native Docker CLI over the network, even a Windows client works well.  But what about the normal end users?  Wouldn&amp;rsquo;t it be great to have a more convinient way to use a graphical frontend via web or a specific app.  A GUI would be really cool, but this would take a long time to develop.&lt;/p&gt;
+
+&lt;h3 id=&#34;kitematic-to-the-rescue:90fd682791be4b8b148459904d1205f8&#34;&gt;Kitematic to the Rescue&lt;/h3&gt;
+
+&lt;p&gt;Even the fact that our OS image works pretty much out of the box, and everybody can use Docker within minutes we&amp;rsquo;ve received a lot of feedback, whether we could build and deliver a graphical application to control Docker and deploying apps/containers with it.  And here comes Kitematic to the rescue - what a great timing.  We&amp;rsquo;ve just read the announcement on the Docker blog and were extremely impressed but also a little bit frustrated, it&amp;rsquo;s only meant to be used on a Mac running it&amp;rsquo;s own Boot2Docker VM through a newly created Docker Machine.&lt;/p&gt;
+
+&lt;p&gt;We were fascinated immediately about the simplicity and the seamless GUI, instantly installing Kitematic on a MacBookPro and it was running within 10 minutes only.  Really impressed and hooked!  Another 15 minutes later, we had cloned the source code repo from GitHub, then a &amp;ldquo;npm install&amp;rdquo; and a &amp;ldquo;npm start&amp;rdquo; and WOW, we&amp;rsquo;re running our personal dev version!  And we even were able to create our own Mac App with a &amp;ldquo;npm run release&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;Imagine now what could be even better for an end user?  What if we could use Kitematic to control a remote Docker Host running on that cute little Raspberry Pi.&lt;/p&gt;
+
+&lt;h3 id=&#34;connecting-the-dots:90fd682791be4b8b148459904d1205f8&#34;&gt;Connecting the Dots&lt;/h3&gt;
+
+&lt;p&gt;We quickly read through the docs and studied the source code and found out that Kitematic is based upon Docker Machine to control the backend Docker Host, hey cool - that&amp;rsquo;s the key.  Within a couple of hours we had the first rough hack and were able to actively control a Raspberry Pi 2 running Docker 1.5.0 with a brand new graphical user interface.  Just selecting one of our favorite Docker Images from the Docker Hub and pushed it seamlessly to a RPi!&lt;br /&gt;
+&lt;img src=&#34;http://localhost:1313/images/kitematic/rpi-docker-images-at-the-hub.png&#34; alt=&#34;image1&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;But until now, it was just a hack and far away from being used in production or by end users.  All settings were done with some source code changes within Kitematic itself.&lt;/p&gt;
+
+&lt;p&gt;Here are the details of that quick hack.  You only have to change these three lines in &lt;code&gt;src/Docker.js&lt;/code&gt;:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;16:      protocol: &#39;http&#39;,
+17:      host: 192.168.2.114,
+18:      port: 2375,
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Just use an unencrypted connection for the first step, change the protocol from &lt;code&gt;https&lt;/code&gt; to &lt;code&gt;http&lt;/code&gt;, use the IP address of the Raspberry Pi, and don&amp;rsquo;t forget to change the port number to &lt;code&gt;2375&lt;/code&gt;.  With the last change, Kitematic don&amp;rsquo;t use any cert or key file to connect to the remote Docker Host.&lt;/p&gt;
+
+&lt;p&gt;For the next day we scheduled a short online meeting with Mike from Kitematic, and to our surprise the whole team joined us, including Jeff and Sean.  Everybody was so happy and surprised how easy we could merge both ideas and concepts together.  Right now, we&amp;rsquo;re able to offer a Docker optimized OS for the Raspberry Pi which one could install and use within a few minutes only, and within the same amount of time, installing the app from Kitematic to control your Raspberry Pi with a great user experience.&lt;/p&gt;
+
+&lt;h3 id=&#34;switch-to-a-better-system-design:90fd682791be4b8b148459904d1205f8&#34;&gt;Switch to a better System Design&lt;/h3&gt;
+
+&lt;p&gt;Thanks to the fact, that Kitematic uses Docker Machine under the hood to connect to it&amp;rsquo;s Docker VM, it must be able to use this concept for a better system design to communicate with an external Docker Host.  Our first try was just looking for a standard driver available which supports our needs.  We quickly tested the &lt;code&gt;none&lt;/code&gt; driver and were able to control the Raspberry Pi from within Docker Machine.  For this case it was necessary to reconfigure Docker to use a TLS encrypted connection.  But we had absolute no luck to get it work together with Kitematic.&lt;/p&gt;
+
+&lt;p&gt;Ok, let&amp;rsquo;s dig deeper and just use the Docker Machine GitHub repo to get familiar with the driver concept.  And learn what has to be done, to build your own Docker Machine Driver specifically for connecting a Docker Engine running on an external Linux machine.  Within a day only, we got it working, our very first driver implementation for Docker Machine.  Our goal was to keep it super-simple and ready-to-use together with Kitematic, and hopefully don&amp;rsquo;t change anything within the app&amp;rsquo;s source code.&lt;/p&gt;
+
+&lt;p&gt;All changes are already documented in a few pull-requests which are available for further improvement and testing.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/hypriot/kitematic/pull/1&#34;&gt;hypriot/kitematic#1, Connect to externel docker host through docker-machine&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/hypriot/machine/pull/1&#34;&gt;hypriot/machine#1, Add driver &amp;lsquo;hypriot&amp;rsquo;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;To use this improved Kitematic version from Hypriot, you have to clone the GitHub repo &lt;a href=&#34;https://github.com/hypriot/kitematic/tree/connect-to-externel-docker-host&#34;&gt;hypriot/kitematic&lt;/a&gt;, use the branch &lt;code&gt;connect-to-externel-docker-host&lt;/code&gt; and build it with &amp;ldquo;npm run install&amp;rdquo;, it will also download and use our specifically built version of Docker Machine with the &lt;code&gt;hypriot&lt;/code&gt; driver included.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/kitematic/Kitematic-and-HypriotOS-just-works.png&#34; alt=&#34;image2&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;mission-accomplished:90fd682791be4b8b148459904d1205f8&#34;&gt;Mission accomplished&lt;/h3&gt;
+
+&lt;p&gt;At the end, we&amp;rsquo;ve now built our own basic Docker Machine driver for the HypriotOS to use it for controlling a Raspberry Pi with the Kitematic app, and we&amp;rsquo;ll improve it over the next few days and weeks to get it production ready.  To our surprise, we only had to change a single line of code within Kitematic itself.&lt;/p&gt;
+
+&lt;p&gt;Here is a short 4 minute screencast to demonstrate the running system as &lt;a href=&#34;https://www.youtube.com/watch?v=yHytb1k3TfM&#34;&gt;Docker Kitematic controls Raspberry Pi 2 running Docker 1.5.0&lt;/a&gt;. Watch out the number of web servers we started simultaneously on the Raspberry Pi 2, all as separate Docker containers. Can you imagine how cool this Linux container technology from Docker is, even on such a small device?&lt;/p&gt;
+
+&lt;p&gt;And the best thing is, it could be used to connect any other external Docker Host to Kitematic, not only the Raspberry Pi.  In the PR we included a short description how to connect an already running Boot2Docker VM to Kitematic.  And if anyone is interested to help, please feel free to join.  As soon as we&amp;rsquo;re done with the development we&amp;rsquo;ll create an upstream PR to get the changes back into Kitematic and Docker Machine.&lt;/p&gt;
+
+&lt;h3 id=&#34;next-steps:90fd682791be4b8b148459904d1205f8&#34;&gt;Next Steps&lt;/h3&gt;
+
+&lt;p&gt;We do have a lot of things on our roadmap, maybe too much to share in this blog post.  Here are at least the next important things we&amp;rsquo;re planing:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;new Linux kernel 3.18.10 (DONE)&lt;/li&gt;
+&lt;li&gt;support for Open vSwitch (we&amp;rsquo;d love to use SocketPlane on the RPi) (DONE)
+
+&lt;ul&gt;
+&lt;li&gt;include kernel options for Open vSwitch (DONE)&lt;/li&gt;
+&lt;li&gt;natively compiled packages for Open vSwitch (DONE)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;support for Docker Machine (WIP)
+
+&lt;ul&gt;
+&lt;li&gt;production ready driver for HypriotOS and the Raspberry Pi&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;support for Docker Compose (WIP)&lt;/li&gt;
+&lt;li&gt;support for Docker Swarm (WIP)&lt;/li&gt;
+&lt;li&gt;&amp;hellip; (depending on user feedback)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/kitematic/pi_armed_with_docker.jpg&#34; alt=&#34;image3&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;send-us-your-feedback-please:90fd682791be4b8b148459904d1205f8&#34;&gt;Send us your Feedback, please!&lt;/h3&gt;
+
+&lt;p&gt;We really love feedback and would like to get some new ideas and thoughts from all of you.  So, if you&amp;rsquo;re liking our ideas and the way to find and break the limits, please send us your comments via email, twitter or drop us a line.  We&amp;rsquo;d be more than happy to answer and talk directly to share our experiences.&lt;/p&gt;
+
+&lt;h4 id=&#34;note:90fd682791be4b8b148459904d1205f8&#34;&gt;Note&lt;/h4&gt;
+
+&lt;p&gt;This post was originally posted at the &lt;a href=&#34;http://blog.kitematic.com&#34;&gt;Kitematic Blog&lt;/a&gt;, and is slightly updated to recent download links and version numbers.&lt;/p&gt;
+
+&lt;p&gt;&amp;ndash;
+Dieter Reuter&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>10 minutes - no - 10 seconds to run a Java Hello World on Raspberry Pi - thanks to Docker on ARM</title>
+      <link>http://localhost:1313/post/hello-java-world-in-docker-on-armed-raspberry-pi/</link>
+      <pubDate>Tue, 14 Apr 2015 20:16:11 +0200</pubDate>
+      
+      <guid>http://localhost:1313/post/hello-java-world-in-docker-on-armed-raspberry-pi/</guid>
+      <description>
+
+&lt;p&gt;You will need just four commands to run a Java “Hello World” on your Pi. For the first time it will take a coffee break. For the second time it will take a coffee gulp.
+And running your own Java app on ARM does not take longer. See how it works!&lt;/p&gt;
+
+&lt;h2 id=&#34;prepare-your-pi:1bb31bbf8e6132f92b04f4e121cb67d3&#34;&gt;Prepare your Pi&lt;/h2&gt;
+
+&lt;p&gt;Only if you haven’t done it yet: Get Docker running on your Pi. Follow these steps to catch up on this:
+LINK-TO-POST&lt;/p&gt;
+
+&lt;h2 id=&#34;log-into-your-pi-and-clone-our-hello-java-world-repo:1bb31bbf8e6132f92b04f4e121cb67d3&#34;&gt;Log into your Pi and clone our Hello-Java-World repo:&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;git clone https://github.com/hypriot/rpi-java-hello-world
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;navigate-to-the-freshly-cloned-files:1bb31bbf8e6132f92b04f4e121cb67d3&#34;&gt;Navigate to the freshly cloned files&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;cd rpi-java-hello-world/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;crate-the-image-and-tag-it:1bb31bbf8e6132f92b04f4e121cb67d3&#34;&gt;Crate the image and tag it&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;docker build -t java-hello .
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you are not logged in as &lt;code&gt;root&lt;/code&gt;, you have to put &lt;code&gt;sudo&lt;/code&gt; in front of all docker commands.&lt;/p&gt;
+
+&lt;p&gt;This command takes roughly 10 Minutes. You might wonder about the headline now&amp;hellip; Well, the &lt;code&gt;docker build&lt;/code&gt; command downloads and configures all the necessary software to be able to compile and run Java. Especially the download and installing process of the Java binaries takes almost the full 10 Minutes.
+However, since the download needs to be done only once, after the first time, the tasks the command triggers are reduced to the configuration step. And this is done in even less than 10 seconds!&lt;/p&gt;
+
+&lt;h2 id=&#34;run-the-helloworld-app:1bb31bbf8e6132f92b04f4e121cb67d3&#34;&gt;Run the HelloWorld app&lt;/h2&gt;
+
+&lt;p&gt;As final step, run the container which will compile and run the java app automatically.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker run -e &amp;quot;app=HelloWorld&amp;quot; java-hello /bin/bash /src/compile-and-run-java-app.sh
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;run-your-app:1bb31bbf8e6132f92b04f4e121cb67d3&#34;&gt;Run YOUR app&lt;/h2&gt;
+
+&lt;p&gt;To run your own app, you need to change just two things compared to the hello world example:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;put your Java code into &lt;code&gt;src/java&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;modify the &lt;code&gt;docker run&lt;/code&gt; command above by setting the name of the app after &lt;code&gt;app=&lt;/code&gt; to the name of the &lt;code&gt;.java&lt;/code&gt; file which contains the main method - but omit the &lt;code&gt;.java&lt;/code&gt; file extension. That&amp;rsquo;s it!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;troubleshooting:1bb31bbf8e6132f92b04f4e121cb67d3&#34;&gt;Troubleshooting&lt;/h2&gt;
+
+&lt;p&gt;To identify a problem, we suggest, you compile and run the app stepwise.&lt;/p&gt;
+
+&lt;h3 id=&#34;at-first-dive-into-the-container:1bb31bbf8e6132f92b04f4e121cb67d3&#34;&gt;At first, dive into the container&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;docker run -e &amp;quot;app=HelloWorld&amp;quot; -it java-hello
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You will receive a new command prompt showing the ID of your container.&lt;/p&gt;
+
+&lt;h3 id=&#34;compile-source-code:1bb31bbf8e6132f92b04f4e121cb67d3&#34;&gt;Compile source code&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;javac HelloWorld.java
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;run-the-app:1bb31bbf8e6132f92b04f4e121cb67d3&#34;&gt;Run the app&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;java HelloWorld  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;inspired-to-move-on:1bb31bbf8e6132f92b04f4e121cb67d3&#34;&gt;Inspired to move on?&lt;/h2&gt;
+
+&lt;p&gt;Did we motivate you to try out more than this Hello World? Which Java app did start on your Pi? As always, We look forward to your feedback! Please let us know about any problems you encounter or any ideas you have for improvements!&lt;/p&gt;
+
+&lt;p&gt;&amp;ndash; Mathias Renner&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Drive NeoPixels in Docker on Raspberry Pi</title>
+      <link>http://localhost:1313/post/drive-neopixels-in-docker/</link>
+      <pubDate>Tue, 14 Apr 2015 13:25:33 +0100</pubDate>
+      
+      <guid>http://localhost:1313/post/drive-neopixels-in-docker/</guid>
+      <description>
+
+&lt;p&gt;In our &lt;a href=&#34;http://localhost:1313/post/lets-get-physical/&#34;&gt;last blog post&lt;/a&gt; we showed you how to interact with the GPIO ports and how to turn on one LED. Now for some more magic lights we create a little Node.js application that drives a NeoPixel LED strip from Adafruit in a Docker container.&lt;/p&gt;
+
+&lt;p&gt;Thanks to the latest improvements now both Raspberry Pi B/B+ and the new Pi 2 B can  drive the NeoPixel LED strips from Adafruit with just a level shifter. So it&amp;rsquo;s time to put this into Docker for easier deployment.&lt;/p&gt;
+
+&lt;p&gt;The NeoPixel (or WS2812) LED&amp;rsquo;s are programmable RGB LED&amp;rsquo;s that receive their RGB value with a single serial wire.&lt;/p&gt;
+
+&lt;h2 id=&#34;wiring:463cf4b0db949da92d2a7ea79ab0611f&#34;&gt;Wiring&lt;/h2&gt;
+
+&lt;p&gt;Let&amp;rsquo;s have a look at the wiring first. The Raspberry Pi can create the serial signal on GPIO Pin 18 trough PWM/DMA. But the signal level has to be shifted from 3.3V to 5V for the LED strip. I have used a Adafruit Level Shifter Breakout Board, but a 74AHCT125 level converter could be used as well.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/neopixel/rpi-levelshifter-neopixel_Steckplatine.png&#34; alt=&#34;wiring diagram&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Do not power the NeoPixels directly from your Raspberry Pi as the 5V output could not source enough current to light many pixels. This could damage your Raspberry Pi!&lt;/strong&gt; For my tests with only eight pixels it is ok to use the 5V from the Pi, but be warned!&lt;/p&gt;
+
+&lt;h2 id=&#34;the-code:463cf4b0db949da92d2a7ea79ab0611f&#34;&gt;The code&lt;/h2&gt;
+
+&lt;p&gt;First we create the &lt;code&gt;package.json&lt;/code&gt; file with a dependency to the &lt;code&gt;rpi-ws281x-native&lt;/code&gt; Node.js module that supports all Raspberry Pi versions to drive the NeoPixels.&lt;/p&gt;
+
+&lt;h3 id=&#34;package-json:463cf4b0db949da92d2a7ea79ab0611f&#34;&gt;package.json&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
+  &amp;quot;name&amp;quot;: &amp;quot;rpi-node-neopixel-example&amp;quot;,
+  &amp;quot;private&amp;quot;: true,
+  &amp;quot;version&amp;quot;: &amp;quot;0.0.1&amp;quot;,
+  &amp;quot;description&amp;quot;: &amp;quot;Node.js NeoPixel app in docker&amp;quot;,
+  &amp;quot;author&amp;quot;: &amp;quot;hypriot.com&amp;quot;,
+  &amp;quot;dependencies&amp;quot;: {
+    &amp;quot;rpi-ws281x-native&amp;quot;: &amp;quot;0.4.0&amp;quot;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;server-js:463cf4b0db949da92d2a7ea79ab0611f&#34;&gt;server.js&lt;/h3&gt;
+
+&lt;p&gt;Now we implement a Node.js sample that does some color magic. We have reduced the brightness of the LED&amp;rsquo;s a little bit.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var ws281x = require(&#39;rpi-ws281x-native&#39;);
+
+var NUM_LEDS = parseInt(process.argv[2], 10) || 8,
+    pixelData = new Uint32Array(NUM_LEDS);
+
+var brightness = 128;
+
+ws281x.init(NUM_LEDS);
+
+
+var lightsOff = function () {
+  for (var i = 0; i &amp;lt; NUM_LEDS; i++) {
+    pixelData[i] = color(0, 0, 0);
+  }
+  ws281x.render(pixelData);
+  ws281x.reset();
+}
+
+var signals = {
+  &#39;SIGINT&#39;: 2,
+  &#39;SIGTERM&#39;: 15
+};
+
+function shutdown(signal, value) {
+  console.log(&#39;Stopped by &#39; + signal);
+  lightsOff();
+  process.nextTick(function () { process.exit(0); });
+}
+
+Object.keys(signals).forEach(function (signal) {
+  process.on(signal, function () {
+    shutdown(signal, signals[signal]);
+  });
+});
+
+// ---- animation-loop
+var offset = 0;
+setInterval(function () {
+  for (var i = 0; i &amp;lt; NUM_LEDS; i++) {
+    pixelData[i] = wheel(((i * 256 / NUM_LEDS) + offset) % 256);
+  }
+
+  offset = (offset + 1) % 256;
+  ws281x.render(pixelData);
+}, 1000 / 30);
+
+console.log(&#39;Rainbow started. Press &amp;lt;ctrl&amp;gt;+C to exit.&#39;);
+
+// generate rainbow colors accross 0-255 positions.
+function wheel(pos) {
+  pos = 255 - pos;
+  if (pos &amp;lt; 85) { return color(255 - pos * 3, 0, pos * 3); }
+  else if (pos &amp;lt; 170) { pos -= 85; return color(0, pos * 3, 255 - pos * 3); }
+  else { pos -= 170; return color(pos * 3, 255 - pos * 3, 0); }
+}
+
+// generate integer from RGB value
+function color(r, g, b) {
+  r = r * brightness / 255;
+  g = g * brightness / 255;
+  b = b * brightness / 255;
+  return ((r &amp;amp; 0xff) &amp;lt;&amp;lt; 16) + ((g &amp;amp; 0xff) &amp;lt;&amp;lt; 8) + (b &amp;amp; 0xff);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;dockerfile:463cf4b0db949da92d2a7ea79ab0611f&#34;&gt;Dockerfile&lt;/h3&gt;
+
+&lt;p&gt;The &lt;code&gt;Dockerfile&lt;/code&gt; is very simple here as we use the &lt;code&gt;onbuild&lt;/code&gt; version of our &lt;a href=&#34;https://registry.hub.docker.com/u/hypriot/rpi-iojs/&#34;&gt;hypriot/rpi-iojs&lt;/a&gt; Docker image.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;FROM hypriot/rpi-iojs:onbuild
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;build-the-docker-image:463cf4b0db949da92d2a7ea79ab0611f&#34;&gt;Build the Docker image&lt;/h2&gt;
+
+&lt;p&gt;We now have all parts together and are ready to build the docker image with this command&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ docker build -t node-neopixel .
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;run-the-docker-container:463cf4b0db949da92d2a7ea79ab0611f&#34;&gt;Run the Docker container&lt;/h2&gt;
+
+&lt;p&gt;Now it is time to turn on the NeoPixel LED&amp;rsquo;s by running the container&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ docker run --cap-add SYS_RAWIO --device /dev/mem -d node-neopixel
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;On a Raspberry Pi 2 you have to give the container more privileges. So you have to use this command instead&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ docker run --privileged -d node-neopixel
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/neopixel/neopixel640.gif&#34; alt=&#34;Let there be lights!&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You can find the complete Node.js example on GitHub at &lt;a href=&#34;https://github.com/hypriot/rpi-node-neopixel-example&#34;&gt;https://github.com/hypriot/rpi-node-neopixel-example&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;conclusion:463cf4b0db949da92d2a7ea79ab0611f&#34;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;Now you are ready to start your NeoPixel project on your Raspberry Pi and deploy it with Docker.&lt;/p&gt;
+
+&lt;p&gt;To learn more about NeoPixels head over to the excellent &lt;a href=&#34;https://learn.adafruit.com/adafruit-neopixel-uberguide/overview&#34;&gt;Adafruit&amp;rsquo;s NeoPixel Überguide&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;As always use the comments below to give us feedback and share it on Twitter or Facebook.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Let&#39;s get physical with Docker on the Raspberry Pi</title>
+      <link>http://localhost:1313/post/lets-get-physical/</link>
+      <pubDate>Thu, 09 Apr 2015 16:49:33 +0100</pubDate>
+      
+      <guid>http://localhost:1313/post/lets-get-physical/</guid>
+      <description>
+
+&lt;p&gt;With Docker on the Raspberry Pi we are able to connect cloud tools with IoT devices. So how can we interact with the real world from inside a Docker container? Let&amp;rsquo;s see and get physical&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;To keep the tutorial simple we will use the binary from the &lt;a href=&#34;http://wiringpi.com&#34;&gt;wiringPi&lt;/a&gt; project within a Docker container. This command line tool can be used to read and write the GPIO (General Purpose Input/Output) pins of the Raspberry Pi.&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;ve dockerized the wiringPi binary &lt;code&gt;gpio&lt;/code&gt; in a very tiny Docker image of about 2 MByte, so pulling this image even on a Raspberry Pi B is still a fast experience.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;docker pull hypriot/rpi-gpio
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;turn-an-led-on-and-off:ea2b0cf3ad09b4d9c9d4cc88763964bd&#34;&gt;Turn an LED on and off&lt;/h2&gt;
+
+&lt;p&gt;In a first little example we just want to turn an LED on and off. You need only a few components to try it yourself.&lt;/p&gt;
+
+&lt;p&gt;See the wiring diagram on how to connect the LED and the 220Ω resistor to your Raspberry Pi for the following examples. We use the 11th (BCM GPIO 17 / wiringPi Pin 0) and 9th (Ground) Pin of the Raspberry Pi B/B+ or Pi 2 B.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/gpio/wiringPi-LED-Pin0_Steckplatine.svg&#34; alt=&#34;wiringPi LED Pin 0&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;And here is the circuit diagram:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/gpio/wiringPi-LED-Pin0_Schaltplan.svg&#34; alt=&#34;wiringPi LED Pin 0 circuit&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now you can use these commands:&lt;/p&gt;
+
+&lt;h3 id=&#34;get-status-of-all-gpios:ea2b0cf3ad09b4d9c9d4cc88763964bd&#34;&gt;Get status of all GPIOs&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ docker run --rm --cap-add SYS_RAWIO --device /dev/mem hypriot/rpi-gpio readall
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The output of this command shows a table with all pins and modes as well as the current states.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; +-----+-----+---------+------+---+---Pi 2---+---+------+---------+-----+-----+
+ | BCM | wPi |   Name  | Mode | V | Physical | V | Mode | Name    | wPi | BCM |
+ +-----+-----+---------+------+---+----++----+---+------+---------+-----+-----+
+ |     |     |    3.3v |      |   |  1 || 2  |   |      | 5v      |     |     |
+ |   2 |   8 |   SDA.1 | ALT0 | 1 |  3 || 4  |   |      | 5V      |     |     |
+ |   3 |   9 |   SCL.1 | ALT0 | 1 |  5 || 6  |   |      | 0v      |     |     |
+ |   4 |   7 | GPIO. 7 |   IN | 1 |  7 || 8  | 1 | ALT0 | TxD     | 15  | 14  |
+ |     |     |      0v |      |   |  9 || 10 | 1 | ALT0 | RxD     | 16  | 15  |
+ |  17 |   0 | GPIO. 0 |   IN | 0 | 11 || 12 | 0 | ALT5 | GPIO. 1 | 1   | 18  |
+ |  27 |   2 | GPIO. 2 |   IN | 0 | 13 || 14 |   |      | 0v      |     |     |
+ |  22 |   3 | GPIO. 3 |   IN | 0 | 15 || 16 | 0 | IN   | GPIO. 4 | 4   | 23  |
+ |     |     |    3.3v |      |   | 17 || 18 | 0 | IN   | GPIO. 5 | 5   | 24  |
+ |  10 |  12 |    MOSI | ALT0 | 0 | 19 || 20 |   |      | 0v      |     |     |
+ |   9 |  13 |    MISO | ALT0 | 0 | 21 || 22 | 0 | IN   | GPIO. 6 | 6   | 25  |
+ |  11 |  14 |    SCLK | ALT0 | 0 | 23 || 24 | 1 | ALT0 | CE0     | 10  | 8   |
+ |     |     |      0v |      |   | 25 || 26 | 1 | ALT0 | CE1     | 11  | 7   |
+ |   0 |  30 |   SDA.0 |   IN | 1 | 27 || 28 | 1 | IN   | SCL.0   | 31  | 1   |
+ |   5 |  21 | GPIO.21 |   IN | 1 | 29 || 30 |   |      | 0v      |     |     |
+ |   6 |  22 | GPIO.22 |   IN | 1 | 31 || 32 | 0 | IN   | GPIO.26 | 26  | 12  |
+ |  13 |  23 | GPIO.23 |   IN | 0 | 33 || 34 |   |      | 0v      |     |     |
+ |  19 |  24 | GPIO.24 |   IN | 0 | 35 || 36 | 0 | IN   | GPIO.27 | 27  | 16  |
+ |  26 |  25 | GPIO.25 |   IN | 0 | 37 || 38 | 0 | IN   | GPIO.28 | 28  | 20  |
+ |     |     |      0v |      |   | 39 || 40 | 0 | IN   | GPIO.29 | 29  | 21  |
+ +-----+-----+---------+------+---+----++----+---+------+---------+-----+-----+
+ | BCM | wPi |   Name  | Mode | V | Physical | V | Mode | Name    | wPi | BCM |
+ +-----+-----+---------+------+---+---Pi 2---+---+------+---------+-----+-----+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;set-mode-to-output:ea2b0cf3ad09b4d9c9d4cc88763964bd&#34;&gt;Set mode to output&lt;/h3&gt;
+
+&lt;p&gt;To turn on LED&amp;rsquo;s or switch other outputs you have to set the corresponding GPIO pin to output mode with&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ docker run --rm --cap-add SYS_RAWIO --device /dev/mem hypriot/rpi-gpio mode 0 out
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This has to be done only once after reboot.&lt;/p&gt;
+
+&lt;h3 id=&#34;turn-on-the-led:ea2b0cf3ad09b4d9c9d4cc88763964bd&#34;&gt;Turn on the LED&lt;/h3&gt;
+
+&lt;p&gt;Now we can turn on the LED with&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ docker run --rm --cap-add SYS_RAWIO --device /dev/mem hypriot/rpi-gpio write 0 on
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;turn-off-the-led:ea2b0cf3ad09b4d9c9d4cc88763964bd&#34;&gt;Turn off the LED&lt;/h3&gt;
+
+&lt;p&gt;or off with&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ docker run --rm --cap-add SYS_RAWIO --device /dev/mem hypriot/rpi-gpio write 0 off
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;read-a-button-from-gpio:ea2b0cf3ad09b4d9c9d4cc88763964bd&#34;&gt;Read a button from GPIO&lt;/h2&gt;
+
+&lt;p&gt;In another example we attach a button to the Raspberry Pi and read the state from the 12th pin (BCM GPIO 18, wiringPi Pin 1).
+The button is also connected to the 2nd Pin (3.3 V) and the pull down resistor is connected to 9th Pin (Ground).&lt;/p&gt;
+
+&lt;p&gt;The wiring diagram shows how to connect all parts. You need a push button, a 1kΩ resistor for pull down and a 10kΩ resistor to connect to the Raspberry Pi.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/gpio/wiringPi-Button-Pin1_Steckplatine.svg&#34; alt=&#34;wiringPi Button on Pin 1&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;And here is the corresponding circuit diagram:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/gpio/wiringPi-Button-Pin1_Schaltplan.svg&#34; alt=&#34;wiringPi Button on Pin 1 circuit&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;read-button-state:ea2b0cf3ad09b4d9c9d4cc88763964bd&#34;&gt;Read button state&lt;/h3&gt;
+
+&lt;p&gt;To get the status of just the 1th GPIO use this command&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ docker run --rm --cap-add SYS_RAWIO --device /dev/mem hypriot/rpi-gpio read 1
+0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The command returns &lt;code&gt;0&lt;/code&gt; or &lt;code&gt;1&lt;/code&gt; as a result of the input state.&lt;/p&gt;
+
+&lt;h2 id=&#34;conclusion:ea2b0cf3ad09b4d9c9d4cc88763964bd&#34;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;In this blog post we showed you how easily you can use the GPIO ports of the Raspberry Pi from a Docker container with a simple command line tool.&lt;/p&gt;
+
+&lt;p&gt;There also is a more complete Docker image &lt;a href=&#34;https://registry.hub.docker.com/u/acencini/rpi-python-serial-wiringpi/&#34;&gt;acencini/rpi-python-serial-wiringpi&lt;/a&gt; on the Docker Hub that contains Python and the complete wiringPi2 library to play with.&lt;/p&gt;
+
+&lt;p&gt;If you want to learn more about the GPIO pins you can use the excellent &lt;a href=&#34;http://pi.gadgetoid.com/pinout&#34;&gt;interactive Raspberry Pi Pinout guide&lt;/a&gt; from Gadgetoid.&lt;/p&gt;
+
+&lt;p&gt;As always use the comments below to give us feedback and share the blog post on Twitter or Facebook.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to use Docker Compose to run complex multi container apps on your Raspberry Pi</title>
+      <link>http://localhost:1313/post/docker-compose-nodejs-haproxy/</link>
+      <pubDate>Mon, 06 Apr 2015 00:18:47 +0100</pubDate>
+      
+      <guid>http://localhost:1313/post/docker-compose-nodejs-haproxy/</guid>
+      <description>
+
+&lt;p&gt;In this blog post we gonna walk you through the different steps that are necessary to get you started with Docker Compose and show how to use it.&lt;/p&gt;
+
+&lt;p&gt;To demonstrate the benefits of Docker Compose we are going to create a simple Node.js &amp;ldquo;Hello World&amp;rdquo; application which will run on three Docker Node.js containers.
+HTTP requests will be distributed to these Node.js nodes by an HAProxy instance running on another Docker container.&lt;/p&gt;
+
+&lt;p&gt;If you haven&amp;rsquo;t heard about Docker Compose its docs have a neat description of what it is all about:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Compose is a tool for defining and running complex applications with Docker.
+With Compose, you define a multi-container application in a single file,
+then spin your application up in a single command which does everything that needs to be done to get it running.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;h2 id=&#34;a-hello-world-application:63a2807194fcdb5e829ff92f8506efa0&#34;&gt;A Hello-World application&lt;/h2&gt;
+
+&lt;p&gt;We start by creating a simple Hello-World &lt;a href=&#34;https://nodejs.org&#34;&gt;Node.js&lt;/a&gt; web application based on &lt;a href=&#34;http://expressjs.com/&#34;&gt;Express.js&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;To keep it simple we are only going to show a &amp;ldquo;Hello World&amp;rdquo; message and the hostname of the container.  This will be useful later on.&lt;/p&gt;
+
+&lt;h3 id=&#34;src-index-js:63a2807194fcdb5e829ff92f8506efa0&#34;&gt;src/index.js&lt;/h3&gt;
+
+&lt;p&gt;First we create a &lt;code&gt;src/index.js&lt;/code&gt; file for the web application:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var express = require(&#39;express&#39;);
+var os = require(&amp;quot;os&amp;quot;);
+
+var app = express();
+var hostname = os.hostname();
+
+app.get(&#39;/&#39;, function (req, res) {
+  res.send(&#39;&amp;lt;html&amp;gt;&amp;lt;body&amp;gt;Hello from Node.js container &#39; + hostname + &#39;&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;&#39;);
+});
+
+app.listen(80);
+console.log(&#39;Running on http://localhost&#39;);
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;src-package-json:63a2807194fcdb5e829ff92f8506efa0&#34;&gt;src/package.json&lt;/h3&gt;
+
+&lt;p&gt;Then we need to create a &lt;code&gt;src/package.json&lt;/code&gt; file with the dependencies we need to build and start the Node.js application:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
+  &amp;quot;name&amp;quot;: &amp;quot;node-hello-world&amp;quot;,
+  &amp;quot;private&amp;quot;: true,
+  &amp;quot;version&amp;quot;: &amp;quot;0.0.1&amp;quot;,
+  &amp;quot;description&amp;quot;: &amp;quot;Node.js Hello world app on docker&amp;quot;,
+  &amp;quot;author&amp;quot;: &amp;quot;hypriot.com&amp;quot;,
+  &amp;quot;dependencies&amp;quot;: {
+    &amp;quot;express&amp;quot;: &amp;quot;4.12.0&amp;quot;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And that is all that is need to set up this small Hello-World application from the nods.js side of things.&lt;/p&gt;
+
+&lt;h3 id=&#34;dockerfile:63a2807194fcdb5e829ff92f8506efa0&#34;&gt;Dockerfile&lt;/h3&gt;
+
+&lt;p&gt;As we want to run our web application in a Docker container we now need to create a &lt;code&gt;Dockerfile&lt;/code&gt; for that.
+The Dockerfile is simple and straightforward.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# use our prepared Raspberry Pi compatible Docker base image with Node.js
+FROM hypriot/rpi-node:0.12.0
+
+# make the src folder available in the docker image
+ADD src/ /src
+WORKDIR /src
+
+# install the dependencies from the package.json file
+RUN npm install
+
+# make port 80 available outside of the image
+EXPOSE 80
+
+# start node with the index.js file of our hello-world application
+CMD [&amp;quot;node&amp;quot;, &amp;quot;index.js&amp;quot;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;running-one-container:63a2807194fcdb5e829ff92f8506efa0&#34;&gt;Running one container&lt;/h2&gt;
+
+&lt;p&gt;We can now test if our Node.js web server works by building a Docker application image first and then spinning it up as a new container.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ docker build -t node-hello .
+
+$ docker run -p 80:80 --name web -d node-hello
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Then we can check if the server is running with the following command&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ curl http://localhost
+&amp;lt;html&amp;gt;&amp;lt;body&amp;gt;Hello from Node.js container 38f69acbdf13&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As we have published the port 80 to the host we also can access our web application from another machine.&lt;/p&gt;
+
+&lt;h3 id=&#34;benchmarking-our-web-application:63a2807194fcdb5e829ff92f8506efa0&#34;&gt;Benchmarking our web application&lt;/h3&gt;
+
+&lt;p&gt;As we are curious guys we want to know how well our Hello-World application performs on a Docker-Raspberry-Pi-Combo.&lt;/p&gt;
+
+&lt;p&gt;So we are going to use &lt;a href=&#34;http://httpd.apache.org/docs/2.2/programs/ab.html&#34;&gt;Apache Bench&lt;/a&gt; to do some benchmarking from another machine in the network.
+To install Apache Bench on Debian/Ubuntu use &lt;code&gt;sudo apt-get install apache2-utils&lt;/code&gt;. On Mac OS X &lt;code&gt;ab&lt;/code&gt; usually comes preinstalled.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ ab -n 10000 -c 10 http://ip-of-your-rpi/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This runs 10.000 HTTP requests with a concurrency of 10. The CPU load while running the benchmark test shows that only one CPU core of the Raspberry Pi 2 is used. The reason is that Node.js is a single threaded process.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/rpi-node-haproxy/htop-1-webserver.png&#34; alt=&#34;htop with 1 webserver&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;And here are the results of the Apache Bench test. As you can see a single web server can handle &lt;strong&gt;338&lt;/strong&gt; Requests per second.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ ab -n 10000 -c 10 http://192.168.33.200/
+This is ApacheBench, Version 2.3 &amp;lt;$Revision: 655654 $&amp;gt;
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 192.168.33.200 (be patient)
+Completed 1000 requests
+Completed 2000 requests
+Completed 3000 requests
+Completed 4000 requests
+Completed 5000 requests
+Completed 6000 requests
+Completed 7000 requests
+Completed 8000 requests
+Completed 9000 requests
+Completed 10000 requests
+Finished 10000 requests
+
+
+Server Software:
+Server Hostname:        192.168.33.200
+Server Port:            80
+
+Document Path:          /
+Document Length:        67 bytes
+
+Concurrency Level:      10
+Time taken for tests:   29.499 seconds
+Complete requests:      10000
+Failed requests:        0
+Write errors:           0
+Total transferred:      2480000 bytes
+HTML transferred:       670000 bytes
+Requests per second:    338.99 [#/sec] (mean)
+Time per request:       29.499 [ms] (mean)
+Time per request:       2.950 [ms] (mean, across all concurrent requests)
+Transfer rate:          82.10 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        1    1   2.0      1      78
+Processing:    10   28   5.6     26     108
+Waiting:        9   28   5.4     26     106
+Total:         13   29   5.8     27     109
+
+Percentage of the requests served within a certain time (ms)
+  50%     27
+  66%     27
+  75%     28
+  80%     28
+  90%     38
+  95%     39
+  98%     47
+  99%     53
+ 100%    109 (longest request)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;cleaning-up:63a2807194fcdb5e829ff92f8506efa0&#34;&gt;Cleaning up&lt;/h3&gt;
+
+&lt;p&gt;That&amp;rsquo;s it for our first test drive. We can now stop the web server container.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ docker stop web
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;running-multiple-container-with-docker-compose:63a2807194fcdb5e829ff92f8506efa0&#34;&gt;Running multiple container with Docker Compose&lt;/h2&gt;
+
+&lt;p&gt;To run more of these web servers we now use Docker Compose to create a farm of web servers which are running behind a &lt;a href=&#34;http://www.haproxy.org&#34;&gt;HAProxy&lt;/a&gt; load balancer.&lt;/p&gt;
+
+&lt;p&gt;As our mission is to make Docker and its toolset available on ARM we created a &lt;code&gt;docker-compose&lt;/code&gt; binary ready to run on your Raspberry Pi.&lt;/p&gt;
+
+&lt;h3 id=&#34;installation:63a2807194fcdb5e829ff92f8506efa0&#34;&gt;Installation&lt;/h3&gt;
+
+&lt;p&gt;First we have to install Docker Compose for the ARM-based Raspberry Pi from our fork at &lt;a href=&#34;https://github.com/hypriot/compose&#34;&gt;https://github.com/hypriot/compose&lt;/a&gt;.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ sudo sh -c &amp;quot;curl -L https://github.com/hypriot/compose/releases/download/1.1.0-raspbian/docker-compose-`uname -s`-`uname -m` &amp;gt; /usr/local/bin/docker-compose; chmod +x /usr/local/bin/docker-compose&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;docker-compose-yml:63a2807194fcdb5e829ff92f8506efa0&#34;&gt;docker-compose.yml&lt;/h3&gt;
+
+&lt;p&gt;To get our four container configuration set up we first need to create a &lt;code&gt;docker-compose.yml&lt;/code&gt; file.
+We will need three containers &lt;code&gt;weba&lt;/code&gt;, &lt;code&gt;webb&lt;/code&gt; and &lt;code&gt;webc&lt;/code&gt; based on our web application image and one &lt;code&gt;haproxy&lt;/code&gt; container.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;weba:
+  build: .
+  expose:
+    - 80
+
+webb:
+  build: .
+  expose:
+    - 80
+
+webc:
+  build: .
+  expose:
+    - 80
+
+haproxy:
+  image: hypriot/rpi-haproxy
+  volumes:
+   - haproxy:/haproxy-override
+  links:
+   - weba
+   - webb
+   - webc
+  ports:
+   - &amp;quot;80:80&amp;quot;
+   - &amp;quot;70:70&amp;quot;
+
+  expose:
+   - &amp;quot;80&amp;quot;
+   - &amp;quot;70&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Each of the three web application containers exposes port 80.
+Additionally the HAProxy container will have (network) links to each of the three web application containers.
+Furthermore the HAProxy container will exposes port 80 as a central entry point to our Hello-World application webserver farm and its admin interface on port 70.&lt;/p&gt;
+
+&lt;h3 id=&#34;haproxy-haproxy-cfg:63a2807194fcdb5e829ff92f8506efa0&#34;&gt;haproxy/haproxy.cfg&lt;/h3&gt;
+
+&lt;p&gt;HAProxy needs a configuration file that is mapped into the container. Create a file &lt;code&gt;haproxy/haproxy.cfg&lt;/code&gt; with the following content.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;global
+  log 127.0.0.1 local0
+  log 127.0.0.1 local1 notice
+
+defaults
+  log global
+  mode http
+  option httplog
+  option dontlognull
+  timeout connect 5000
+  timeout client 10000
+  timeout server 10000
+
+listen stats :70
+  stats enable
+  stats uri /
+
+frontend balancer
+  bind 0.0.0.0:80
+  mode http
+  default_backend aj_backends
+
+backend aj_backends
+  mode http
+  option forwardfor
+  # http-request set-header X-Forwarded-Port %[dst_port]
+  balance roundrobin
+  server weba weba:80 check
+  server webb webb:80 check
+  server webc webc:80 check
+  # option httpchk OPTIONS * HTTP/1.1\r\nHost:\ localhost
+  option httpchk GET /
+  http-check expect status 200
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;HAProxy does a health check for each of our three web servers.&lt;/p&gt;
+
+&lt;h3 id=&#34;running-our-webserver-farm:63a2807194fcdb5e829ff92f8506efa0&#34;&gt;Running our webserver farm&lt;/h3&gt;
+
+&lt;p&gt;Now that we have set up all the necessary parts it is time to spin up all our Docker containers at once. Just run the command &lt;code&gt;docker-compose up&lt;/code&gt; interactively to see what is happening or use option &lt;code&gt;-d&lt;/code&gt; to start all containers in the background.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ docker-compose up -d
+Recreating rpinodehaproxyexample_webb_1...
+Recreating rpinodehaproxyexample_webc_1...
+Recreating rpinodehaproxyexample_weba_1...
+Recreating rpinodehaproxyexample_haproxy_1...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This will spin up all of our three web application servers and one HAProxy instance. Only the HAProxy container can be reached from the outside and each request will be load balanced by HAProxy to one of our web servers.&lt;/p&gt;
+
+&lt;p&gt;You can watch the logs of all our containers by running the following command.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ docker-compose logs
+Attaching to rpinodehaproxyexample_haproxy_1, rpinodehaproxyexample_weba_1, rpinodehaproxyexample_webc_1, rpinodehaproxyexample_webb_1
+weba_1    | Running on http://localhost
+webc_1    | Running on http://localhost
+webb_1    | Running on http://localhost
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now we can use &lt;code&gt;curl&lt;/code&gt; again to test our Hello-World application farm as whole.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;# on your Raspberry Pi
+$ curl http://localhost
+&amp;lt;html&amp;gt;&amp;lt;body&amp;gt;Hello from Node.js container fa05496d9ce7&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;~
+$ curl http://localhost
+&amp;lt;html&amp;gt;&amp;lt;body&amp;gt;Hello from Node.js container 1167459cdacc&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;~
+$ curl http://localhost
+&amp;lt;html&amp;gt;&amp;lt;body&amp;gt;Hello from Node.js container 660840416a84&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;~
+$ curl http://localhost
+&amp;lt;html&amp;gt;&amp;lt;body&amp;gt;Hello from Node.js container fa05496d9ce7&amp;lt;/body&amp;gt;&amp;lt;/html&amp;gt;~
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As you can see the container name is different for each &lt;code&gt;curl&lt;/code&gt; request.
+And the fourth request has the same container name as the first one.
+The HAProxy container forwards each request in a round robin fashion, so each web server gets only one third of the load.&lt;/p&gt;
+
+&lt;h3 id=&#34;benchmarking-our-web-application-farm:63a2807194fcdb5e829ff92f8506efa0&#34;&gt;Benchmarking our web application farm&lt;/h3&gt;
+
+&lt;p&gt;Let&amp;rsquo;s see how our web server farm fares compared to our single web application container instance from our first benchmark.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ ab -n 10000 -c 30 http://ip-or-your-rpi/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now we run 10.000 HTTP requests with a concurrency of 30. The CPU load while running the benchmark test now shows that all four CPU cores of the Raspberry Pi 2 are used.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/rpi-node-haproxy/htop-3-webserver-haproxy.png&#34; alt=&#34;htop with 3 webserver and haproxy&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;And here are the results of the benchmark test itself.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ ab -n 10000 -c 30 http://192.168.33.200/
+This is ApacheBench, Version 2.3 &amp;lt;$Revision: 655654 $&amp;gt;
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 192.168.33.200 (be patient)
+Completed 1000 requests
+Completed 2000 requests
+Completed 3000 requests
+Completed 4000 requests
+Completed 5000 requests
+Completed 6000 requests
+Completed 7000 requests
+Completed 8000 requests
+Completed 9000 requests
+Completed 10000 requests
+Finished 10000 requests
+
+
+Server Software:
+Server Hostname:        192.168.33.200
+Server Port:            80
+
+Document Path:          /
+Document Length:        67 bytes
+
+Concurrency Level:      30
+Time taken for tests:   23.353 seconds
+Complete requests:      10000
+Failed requests:        0
+Write errors:           0
+Total transferred:      2480000 bytes
+HTML transferred:       670000 bytes
+Requests per second:    428.22 [#/sec] (mean)
+Time per request:       70.058 [ms] (mean)
+Time per request:       2.335 [ms] (mean, across all concurrent requests)
+Transfer rate:          103.71 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        1    2   1.4      2      15
+Processing:     5   68  59.5     51     259
+Waiting:        4   67  59.3     51     259
+Total:          5   70  59.5     54     260
+
+Percentage of the requests served within a certain time (ms)
+  50%     54
+  66%     77
+  75%     94
+  80%    108
+  90%    163
+  95%    210
+  98%    231
+  99%    234
+ 100%    260 (longest request)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As you can see the cluster can handle &lt;strong&gt;428&lt;/strong&gt; Requests per second. Strangely enough we do not get three times the requests per second that we might have expected.
+Right now we are not really sure what the reason for this behaviour is. This may or may not be due to the fact that the NIC of the Raspberry Pi is sharing its IO bandwidth via the USB2 port.&lt;/p&gt;
+
+&lt;p&gt;Stopping our little webfarm is also easily done with&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ docker-compose stop
+Killing rpinodehaproxyexample_haproxy_1...
+Killing rpinodehaproxyexample_weba_1...
+Killing rpinodehaproxyexample_webc_1...
+Killing rpinodehaproxyexample_webb_1...
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you want to learn more about Docker Compose, just head over to the official documentation at &lt;a href=&#34;https://docs.docker.com/compose/&#34;&gt;https://docs.docker.com/compose/&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;You can find the code of this example on GitHub at &lt;a href=&#34;https://github.com/hypriot/rpi-node-haproxy-example&#34;&gt;https://github.com/hypriot/rpi-node-haproxy-example&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;We hope you enjoyed this little tour of Docker Compose!&lt;/p&gt;
+
+&lt;p&gt;As always use the comments below to give us feedback and share it on our &lt;a href=&#34;https://news.ycombinator.com/item?id=9329890&#34;&gt;HackerNews-Thread&lt;/a&gt;, Twitter or Facebook.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Heavily ARMed after major upgrade: Raspberry Pi with Docker 1.5.0</title>
+      <link>http://localhost:1313/post/heavily-armed-after-major-upgrade-raspberry-pi-with-docker-1-dot-5-0/</link>
+      <pubDate>Tue, 03 Mar 2015 22:09:33 +0100</pubDate>
+      
+      <guid>http://localhost:1313/post/heavily-armed-after-major-upgrade-raspberry-pi-with-docker-1-dot-5-0/</guid>
+      <description>
+
+&lt;p&gt;Nearly two weeks ago we have been blown away by the positive feedback we got for &lt;a href=&#34;http://blog.hypriot.com/kick-ass-raspberry-pi-2-having-a-forbidden-love-affair-with-docker-1-dot-4-1&#34;&gt;our first Raspberry Pi SD card image&lt;/a&gt;. It allowed people to get up and running with Docker on the Raspberry Pi in no time.&lt;/p&gt;
+
+&lt;p&gt;The positive feedback we received and the fact that two days later Docker 1.5.0 was released did motivate us to create an improved version of our Get-Docker-Up-And-Running-On-Your-Pi-In-No-Time SD card image.&lt;/p&gt;
+
+&lt;p&gt;&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34; class=&#34;clearfix&#34;&gt;
+  &lt;img src=&#34;http://assets.hypriot.com/gallery/heavily-armed-after-major-upgrade/black-pearl.jpg&#34; alt=&#34;&#34; /&gt;
+
+  
+  &lt;figcaption style=&#34;height: 1rem;&#34;&gt;
+    
+    &lt;span style=&#34;float: right;&#34;&gt;&lt;a href=&#34;http://www.kevinboone.net/black_pearl.html&#34;&gt;Kevin Boone&lt;/a&gt;&lt;/span&gt;
+  &lt;/figcaption&gt;
+  
+
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;The most important upgrade of our second image is the support for Docker 1.5.0 which has been released just recently. Most noteworthy about Docker 1.5.0 is the new support for IPv6, read-only containers and advanced statistics for image resource consumption. We find the last one especially interesting for people like us who are running Docker on small devices.&lt;/p&gt;
+
+&lt;p&gt;One thing we already had in the last incarnation of our image is the support of OverlayFS. OverlayFS is one of several storage drivers for Docker. The biggest distinction to other storage options, like lvm or btrfs, is the performance it offers. See this &lt;a href=&#34;https://developerblog.redhat.com/2014/09/30/overview-storage-scalability-docker/&#34;&gt;website&lt;/a&gt; for an in-depth-look at the performance/advantages of different docker storage options.
+Needless to say that OverlayFS comes out at the top. Even the big players like &lt;a href=&#34;http://lwn.net/Articles/627232/&#34;&gt;CoreOS&lt;/a&gt; seem to be in the process of moving to OverlayFS. We can provide OverlayFS in our image because with 3.18.8 we are using the latest linux kernel version which already has built-in support for OverlayFS.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;gallery clearfix&#34; itemscope itemtype=&#34;http://schema.org/ImageGallery&#34;&gt;
+&lt;div class=&#34;title&#34;&gt;Raspberry Pi with Docker&lt;/div&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://assets.hypriot.com/gallery/heavily-armed-after-major-upgrade/hypriot-pi-01.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x1008&#34;&gt;
+      &lt;img src=&#34;http://assets.hypriot.com/gallery/heavily-armed-after-major-upgrade/thumbnails/thumb_hypriot-pi-01.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Modern Kernel build for Docker&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Modern Kernel build for Docker
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://assets.hypriot.com/gallery/heavily-armed-after-major-upgrade/hypriot-pi-02.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x1008&#34;&gt;
+      &lt;img src=&#34;http://assets.hypriot.com/gallery/heavily-armed-after-major-upgrade/thumbnails/thumb_hypriot-pi-02.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Output of &amp;#39;docker version&amp;#39;&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Output of &amp;#39;docker version&amp;#39;
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://assets.hypriot.com/gallery/heavily-armed-after-major-upgrade/hypriot-pi-03.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x1008&#34;&gt;
+      &lt;img src=&#34;http://assets.hypriot.com/gallery/heavily-armed-after-major-upgrade/thumbnails/thumb_hypriot-pi-03.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Output of &amp;#39;docker info&amp;#39;&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Output of &amp;#39;docker info&amp;#39;
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://assets.hypriot.com/gallery/heavily-armed-after-major-upgrade/hypriot-pi-04.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x1008&#34;&gt;
+      &lt;img src=&#34;http://assets.hypriot.com/gallery/heavily-armed-after-major-upgrade/thumbnails/thumb_hypriot-pi-04.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Output of &amp;#39;docker images&amp;#39;&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Output of &amp;#39;docker images&amp;#39;
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;link rel=&#34;stylesheet&#34; href=&#34;http://localhost:1313/css/photoswipe.css&#34;&gt;
+&lt;link rel=&#34;stylesheet&#34; href=&#34;http://localhost:1313/css/default-skin/default-skin.css&#34;&gt;
+&lt;script src=&#34;http://localhost:1313/js/photoswipe.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://localhost:1313/js/photoswipe-ui-default.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://localhost:1313/js/initphotoswipe.js&#34;&gt;&lt;/script&gt;
+
+
+
+&lt;div class=&#34;pswp&#34; tabindex=&#34;-1&#34; role=&#34;dialog&#34; aria-hidden=&#34;true&#34;&gt;
+
+&lt;div class=&#34;pswp__bg&#34;&gt;&lt;/div&gt;
+
+&lt;div class=&#34;pswp__scroll-wrap&#34;&gt;
+    
+    &lt;div class=&#34;pswp__container&#34;&gt;
+      &lt;div class=&#34;pswp__item&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;pswp__item&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;pswp__item&#34;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;div class=&#34;pswp__ui pswp__ui--hidden&#34;&gt;
+    &lt;div class=&#34;pswp__top-bar&#34;&gt;
+      
+      &lt;div class=&#34;pswp__counter&#34;&gt;&lt;/div&gt;
+      &lt;button class=&#34;pswp__button pswp__button--close&#34; title=&#34;Close (Esc)&#34;&gt;&lt;/button&gt;
+      &lt;button class=&#34;pswp__button pswp__button--share&#34; title=&#34;Share&#34;&gt;&lt;/button&gt;
+      &lt;button class=&#34;pswp__button pswp__button--fs&#34; title=&#34;Toggle fullscreen&#34;&gt;&lt;/button&gt;
+      &lt;button class=&#34;pswp__button pswp__button--zoom&#34; title=&#34;Zoom in/out&#34;&gt;&lt;/button&gt;
+      
+      
+      &lt;div class=&#34;pswp__preloader&#34;&gt;
+        &lt;div class=&#34;pswp__preloader__icn&#34;&gt;
+          &lt;div class=&#34;pswp__preloader__cut&#34;&gt;
+            &lt;div class=&#34;pswp__preloader__donut&#34;&gt;&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;pswp__share-modal pswp__share-modal--hidden pswp__single-tap&#34;&gt;
+      &lt;div class=&#34;pswp__share-tooltip&#34;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;button class=&#34;pswp__button pswp__button--arrow--left&#34; title=&#34;Previous (arrow left)&#34;&gt;
+    &lt;/button&gt;
+    &lt;button class=&#34;pswp__button pswp__button--arrow--right&#34; title=&#34;Next (arrow right)&#34;&gt;
+    &lt;/button&gt;
+    &lt;div class=&#34;pswp__caption&#34;&gt;
+      &lt;div class=&#34;pswp__caption__center&#34;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;style&gt;
+    .gallery {  }
+    .gallery img { width: 100%; height: auto; }
+    .gallery figure { display: block; float: left; margin: 0 5px 5px 0; width: 200px; }
+    .gallery figcaption { display: none; }
+    .gallery div.title { font-weight: bold; }
+    span[itemprop=&#34;copyrightHolder&#34;] { color : #888; float: right; }
+    span[itemprop=&#34;copyrightHolder&#34;]:before { content: &#34;Foto: &#34;; }
+    img[itemprop=&#34;thumbnail&#34;]{ width: 200px; }
+&lt;/style&gt;
+
+
+&lt;script&gt;initPhotoSwipeFromDOM(&#39;.gallery&#39;);&lt;/script&gt;
+&lt;/p&gt;
+
+&lt;h2 id=&#34;summary-of-changes:3455e8c2e00ddc235c73ff691ea5d2cc&#34;&gt;Summary of changes&lt;/h2&gt;
+
+&lt;p&gt;Here is a list of the most important changes to the SD card image.&lt;/p&gt;
+
+&lt;p&gt;We &amp;hellip;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;upgraded the linux kernel from 3.18.6 to &lt;em&gt;3.18.8&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;added kernel headers to support compilation of custom modules&lt;/li&gt;
+&lt;li&gt;upgraded from Docker 1.4.1 to &lt;em&gt;1.5.0&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;added support for using a &lt;a href=&#34;https://learn.adafruit.com/adafruits-raspberry-pi-lesson-5-using-a-console-cable/overview&#34;&gt;USB to TTL serial console cable&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;added bash completion for Docker commands&lt;/li&gt;
+&lt;li&gt;lots of smaller fixes and improvements&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Besides that we kept some features which were already awesome&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;the image is based on Raspbian Wheezy&lt;/li&gt;
+&lt;li&gt;support for OverlayFS by default&lt;/li&gt;
+&lt;li&gt;support for Raspberry Pi 1 &amp;amp; 2 with the same SD card image (dual kernel)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;download:3455e8c2e00ddc235c73ff691ea5d2cc&#34;&gt;Download&lt;/h2&gt;
+
+&lt;p&gt;The image can be downloaded here:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://downloads.hypriot.com/hypriot-rpi-20150301-140537.img.zip&#34;&gt;Docker-Pi Image&lt;/a&gt; (~347MB)&lt;br /&gt;
+&lt;a href=&#34;http://downloads.hypriot.com/hypriot-rpi-20150301-140537.img.zip.sha256&#34;&gt;SHA256 checksum&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Update (30.03.2015):&lt;/strong&gt; We have published a more &lt;a href=&#34;http://blog.hypriot.com/post/hypriotos-back-again-with-docker-on-arm&#34;&gt;recent version of our SD card image&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;how-to-get-started:3455e8c2e00ddc235c73ff691ea5d2cc&#34;&gt;How to get started&lt;/h2&gt;
+
+&lt;p&gt;Download our SD card image and flash it on your own SD card. &lt;a href=&#34;http://computers.tutsplus.com/articles/how-to-flash-an-sd-card-for-raspberry-pi--mac-53600&#34;&gt;Here&lt;/a&gt; is a short guide on how to do this for Mac, Windows and Linux users. Afterwards insert the SD card in your Raspberry Pi and wait while it boots. The first time will take a little longer as it resizes the file system to its maximum and reboots again.&lt;/p&gt;
+
+&lt;p&gt;At the boot prompt log in with user &amp;ldquo;pi&amp;rdquo; and password &amp;ldquo;raspberry&amp;rdquo; (or with a privileged user &amp;ldquo;root&amp;rdquo; and password &amp;ldquo;hypriot&amp;rdquo;).&lt;/p&gt;
+
+&lt;p&gt;One thing that is still worth mentioning is that you need special ARM-compatible Docker Images.
+Standard x86-64 Docker Images from the Docker Hub won&amp;rsquo;t work. That&amp;rsquo;s the reason why we&amp;rsquo;ve created a number of ARM compatible Docker Images to get you started. Wether you prefer Java, Python, Node.js or io.js - we have you covered!&lt;/p&gt;
+
+&lt;p&gt;You will find these images and more at our place on the Docker Hub. After booting our image on your Pi these base images are just a &amp;ldquo;docker pull&amp;rdquo; away. For example &amp;ldquo;docker pull hypriot/rpi-node&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;As you can see - getting started with Docker on your Raspberry Pi just got so much easier!&lt;/p&gt;
+
+&lt;h2 id=&#34;give-us-your-feedback:3455e8c2e00ddc235c73ff691ea5d2cc&#34;&gt;Give us your feedback&lt;/h2&gt;
+
+&lt;p&gt;As we want to make this image even better we really need your feedback. What do you like about our SD card image and what could be made better? And what kind of additional Docker Images would you like to see?&lt;/p&gt;
+
+&lt;p&gt;Tell us via Twitter, HackerNews or in the comments!
+And please share this post with your friends.&lt;/p&gt;
+
+&lt;p&gt;We really would like to see more people using Docker on Raspberries as we think they make a really hot combo:
+Low-cost instant access to Docker awesomeness on your Raspberry Pi.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Kick-Ass Raspberry Pi 2 having a forbidden love affair with Docker 1.4.1</title>
+      <link>http://localhost:1313/post/kick-ass-raspberry-pi-2-having-a-forbidden-love-affair-with-docker-1-dot-4-1/</link>
+      <pubDate>Sun, 08 Feb 2015 22:09:33 +0100</pubDate>
+      
+      <guid>http://localhost:1313/post/kick-ass-raspberry-pi-2-having-a-forbidden-love-affair-with-docker-1-dot-4-1/</guid>
+      <description>&lt;p&gt;If you have not been living under a rock last week you probably heard that the &lt;a href=&#34;http://www.raspberrypi.org/&#34;&gt;Raspberry Pi Foundation&lt;/a&gt; did release a second generation Raspberry Pi on the 2th of February.&lt;/p&gt;
+
+&lt;p&gt;The last generation being a huge success with 4 million devices sold at the end of 2014 the success story is likely to continue with a new Raspberry Pi 2 Model B in 2015.&lt;/p&gt;
+
+&lt;p&gt;Pi 2 has the same form factor as the previous Pi 1 Model B+ and is completely compatible with Pi 1 - which is good news for everybody who already owns a Pi 1. Your old equipment will most likely still work with the Pi 2.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;gallery clearfix&#34; itemscope itemtype=&#34;http://schema.org/ImageGallery&#34;&gt;
+&lt;div class=&#34;title&#34;&gt;Raspberry Pi 2 Images&lt;/div&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://assets.hypriot.com/gallery/forbidden-love-affair/hypriot_pi2_01.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x900&#34;&gt;
+      &lt;img src=&#34;http://assets.hypriot.com/gallery/forbidden-love-affair/thumbnails/thumb_hypriot_pi2_01.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Pi 2 front and its package&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Pi 2 front and its package
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://assets.hypriot.com/gallery/forbidden-love-affair/hypriot_pi2_02.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x900&#34;&gt;
+      &lt;img src=&#34;http://assets.hypriot.com/gallery/forbidden-love-affair/thumbnails/thumb_hypriot_pi2_02.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Pi 2 backside&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Pi 2 backside
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://assets.hypriot.com/gallery/forbidden-love-affair/hypriot_pi2_03.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x900&#34;&gt;
+      &lt;img src=&#34;http://assets.hypriot.com/gallery/forbidden-love-affair/thumbnails/thumb_hypriot_pi2_03.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Pi 2 front&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Pi 2 front
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://assets.hypriot.com/gallery/forbidden-love-affair/hypriot_pi2_04.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x900&#34;&gt;
+      &lt;img src=&#34;http://assets.hypriot.com/gallery/forbidden-love-affair/thumbnails/thumb_hypriot_pi2_04.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Pi 2&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Pi 2
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://assets.hypriot.com/gallery/forbidden-love-affair/hypriot_pi2_05.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x900&#34;&gt;
+      &lt;img src=&#34;http://assets.hypriot.com/gallery/forbidden-love-affair/thumbnails/thumb_hypriot_pi2_05.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Pi 2&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Pi 2
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://assets.hypriot.com/gallery/forbidden-love-affair/hypriot_pi2_06.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x900&#34;&gt;
+      &lt;img src=&#34;http://assets.hypriot.com/gallery/forbidden-love-affair/thumbnails/thumb_hypriot_pi2_06.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Pi 2&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Pi 2
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Looking at the Pi 2 the most obvious difference is that it features a 900MHz quad-core ARM Cortex-A7 CPU with 1 GB of RAM. Because it has an ARMv7 processor it can now run the full range of ARM GNU/Linux distributions. Early benchmarks promise a performance boost of 4 to 6 times faster compared to the old single core Pi.&lt;/p&gt;
+
+&lt;p&gt;The Pi 2 can be bought from various places like &lt;a href=&#34;http://uk.rs-online.com/web/p/processor-microcontroller-development-kits/8326274/&#34;&gt;RS Online&lt;/a&gt; in the UK or &lt;a href=&#34;http://www.pollin.de/shop/dt/Mzg1NzkyOTk-/Bausaetze_Module/Entwicklerboards/Raspberry_Pi_2_Model_B.html&#34;&gt;Pollin&lt;/a&gt; in Germany.&lt;/p&gt;
+
+&lt;p&gt;Luckily we have been able to get our hands on a brand new Pi 2 before the first charge was sold out. Being such a performance beast we were really curious how well it would play with one of our other passions - &lt;a href=&#34;https://www.docker.com/&#34;&gt;Docker&lt;/a&gt;. Docker really is a terrific way to easily deploy all kinds of applications on your device without the need of being a full-sized linux administrator.&lt;/p&gt;
+
+&lt;p&gt;Well - after some tinkering we got Pi 2 and Docker playing well together really fast. Based on the most recent Raspbian we compiled our own special kernel and Docker packages. We then combined these into a lean and sexy image that can be easily flashed to a SD-Card.&lt;/p&gt;
+
+&lt;p&gt;What is really awesome about this image is not only that it combines two of the hottest technologies in 2015 into a single package but that it uses the most recent versions of those technologies.&lt;/p&gt;
+
+&lt;p&gt;The image uses&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Raspbian &lt;strong&gt;Wheezy&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Linux Kernel &lt;strong&gt;3.18.6&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;Docker &lt;strong&gt;1.4.1&lt;/strong&gt; with &lt;strong&gt;OverlayFS&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Our first tests went really well and we could do all the basic Docker stuff with the image. Our first impression is that running Docker on the Pi 2 promises to be a much smoother experience than on the Pi 1. Certainly there will be some areas where we still need to iron out some kinks with the image but so far it seems to be pretty solid.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;gallery clearfix&#34; itemscope itemtype=&#34;http://schema.org/ImageGallery&#34;&gt;
+&lt;div class=&#34;title&#34;&gt;Docker in action with Raspberry Pi 2&lt;/div&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://assets.hypriot.com/gallery/forbidden-love-affair/hypriot_pi_uname.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;986x540&#34;&gt;
+      &lt;img src=&#34;http://assets.hypriot.com/gallery/forbidden-love-affair/thumbnails/thumb_hypriot_pi_uname.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Command &amp;#39;docker images&amp;#39;&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Command &amp;#39;docker images&amp;#39;
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://assets.hypriot.com/gallery/forbidden-love-affair/hypriot_pi_docker_info.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;986x540&#34;&gt;
+      &lt;img src=&#34;http://assets.hypriot.com/gallery/forbidden-love-affair/thumbnails/thumb_hypriot_pi_docker_info.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Command &amp;#39;docker images&amp;#39;&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Command &amp;#39;docker images&amp;#39;
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://assets.hypriot.com/gallery/forbidden-love-affair/hypriot_pi_docker_images.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;986x540&#34;&gt;
+      &lt;img src=&#34;http://assets.hypriot.com/gallery/forbidden-love-affair/thumbnails/thumb_hypriot_pi_docker_images.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Command &amp;#39;docker images&amp;#39;&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Command &amp;#39;docker images&amp;#39;
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://assets.hypriot.com/gallery/forbidden-love-affair/hypriot_pi_docker_run.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;986x540&#34;&gt;
+      &lt;img src=&#34;http://assets.hypriot.com/gallery/forbidden-love-affair/thumbnails/thumb_hypriot_pi_docker_run.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Command &amp;#39;docker images&amp;#39;&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Command &amp;#39;docker images&amp;#39;
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;link rel=&#34;stylesheet&#34; href=&#34;http://localhost:1313/css/photoswipe.css&#34;&gt;
+&lt;link rel=&#34;stylesheet&#34; href=&#34;http://localhost:1313/css/default-skin/default-skin.css&#34;&gt;
+&lt;script src=&#34;http://localhost:1313/js/photoswipe.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://localhost:1313/js/photoswipe-ui-default.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://localhost:1313/js/initphotoswipe.js&#34;&gt;&lt;/script&gt;
+
+
+
+&lt;div class=&#34;pswp&#34; tabindex=&#34;-1&#34; role=&#34;dialog&#34; aria-hidden=&#34;true&#34;&gt;
+
+&lt;div class=&#34;pswp__bg&#34;&gt;&lt;/div&gt;
+
+&lt;div class=&#34;pswp__scroll-wrap&#34;&gt;
+    
+    &lt;div class=&#34;pswp__container&#34;&gt;
+      &lt;div class=&#34;pswp__item&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;pswp__item&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;pswp__item&#34;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;div class=&#34;pswp__ui pswp__ui--hidden&#34;&gt;
+    &lt;div class=&#34;pswp__top-bar&#34;&gt;
+      
+      &lt;div class=&#34;pswp__counter&#34;&gt;&lt;/div&gt;
+      &lt;button class=&#34;pswp__button pswp__button--close&#34; title=&#34;Close (Esc)&#34;&gt;&lt;/button&gt;
+      &lt;button class=&#34;pswp__button pswp__button--share&#34; title=&#34;Share&#34;&gt;&lt;/button&gt;
+      &lt;button class=&#34;pswp__button pswp__button--fs&#34; title=&#34;Toggle fullscreen&#34;&gt;&lt;/button&gt;
+      &lt;button class=&#34;pswp__button pswp__button--zoom&#34; title=&#34;Zoom in/out&#34;&gt;&lt;/button&gt;
+      
+      
+      &lt;div class=&#34;pswp__preloader&#34;&gt;
+        &lt;div class=&#34;pswp__preloader__icn&#34;&gt;
+          &lt;div class=&#34;pswp__preloader__cut&#34;&gt;
+            &lt;div class=&#34;pswp__preloader__donut&#34;&gt;&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;pswp__share-modal pswp__share-modal--hidden pswp__single-tap&#34;&gt;
+      &lt;div class=&#34;pswp__share-tooltip&#34;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;button class=&#34;pswp__button pswp__button--arrow--left&#34; title=&#34;Previous (arrow left)&#34;&gt;
+    &lt;/button&gt;
+    &lt;button class=&#34;pswp__button pswp__button--arrow--right&#34; title=&#34;Next (arrow right)&#34;&gt;
+    &lt;/button&gt;
+    &lt;div class=&#34;pswp__caption&#34;&gt;
+      &lt;div class=&#34;pswp__caption__center&#34;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;style&gt;
+    .gallery {  }
+    .gallery img { width: 100%; height: auto; }
+    .gallery figure { display: block; float: left; margin: 0 5px 5px 0; width: 200px; }
+    .gallery figcaption { display: none; }
+    .gallery div.title { font-weight: bold; }
+    span[itemprop=&#34;copyrightHolder&#34;] { color : #888; float: right; }
+    span[itemprop=&#34;copyrightHolder&#34;]:before { content: &#34;Foto: &#34;; }
+    img[itemprop=&#34;thumbnail&#34;]{ width: 200px; }
+&lt;/style&gt;
+
+
+&lt;script&gt;initPhotoSwipeFromDOM(&#39;.gallery&#39;);&lt;/script&gt;
+&lt;/p&gt;
+
+&lt;p&gt;We really would like to see how our image works for others and that is why you can download it here:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://downloads.hypriot.com/hypriot-rpi-20150208-015447.zip&#34;&gt;Docker-Pi-Image&lt;/a&gt; (~400MB)&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Update (30.03.2015):&lt;/strong&gt; We have published a more &lt;a href=&#34;http://blog.hypriot.com/post/hypriotos-back-again-with-docker-on-arm&#34;&gt;recent version of our SD card image&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Tell us what you like or dislike about this image!&lt;/p&gt;
+
+&lt;p&gt;We will gather your feedback and will try to make this image even better. Additionally we are also planning to publish our build scripts for the image soon.&lt;/p&gt;
+
+&lt;p&gt;Did I already tell you what the real kicker is?&lt;/p&gt;
+
+&lt;p&gt;Well - our image works for &lt;strong&gt;Pi 1 &amp;amp; 2&lt;/strong&gt; at the same time. How convenient is that?!&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;The credentials for logging in are &amp;ldquo;root&amp;rdquo; for the user and &amp;ldquo;hypriot&amp;rdquo; for the password.&lt;/strong&gt; Have fun!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

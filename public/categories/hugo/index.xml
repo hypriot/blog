@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hugo on Docker Pirates ARMed with explosive stuff</title>
+    <link>http://localhost:1313/categories/hugo/</link>
+    <description>Recent content in Hugo on Docker Pirates ARMed with explosive stuff</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 30 Jun 2015 09:03:12 +0200</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/hugo/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Static Website Generation on Steriods with Docker</title>
+      <link>http://localhost:1313/post/static-website-generation-on-steriods-with-docker/</link>
+      <pubDate>Tue, 30 Jun 2015 09:03:12 +0200</pubDate>
+      
+      <guid>http://localhost:1313/post/static-website-generation-on-steriods-with-docker/</guid>
+      <description>
+
+&lt;p&gt;Within the blogging community static site generators have been an exceptional hot topic in the last couple of years (at least before Docker appeared).
+There are even &lt;a href=&#34;https://www.staticgen.com/&#34;&gt;whole projects&lt;/a&gt; dedicated to giving an overview of the most popular static site generators.&lt;/p&gt;
+
+&lt;p&gt;One of the first static site generators that got really popular was &lt;a href=&#34;https://github.com/jekyll/jekyll/commits/master&#34;&gt;Jekyll&lt;/a&gt;, which was conceived by &lt;a href=&#34;http://tom.preston-werner.com/&#34;&gt;Tom Preston-Werner&lt;/a&gt; of Github fame.
+Typically static site generators transform input (e.g. text in a lightweight markup language such as Markdown or reStructuredText) to static HTML with the help of templates and filters.&lt;/p&gt;
+
+&lt;p&gt;There are several advantages to this approach - to name just a few:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;as the input is text it can easily be managed in a version control system like Git&lt;/li&gt;
+&lt;li&gt;as the output is just static HTML it can easily deployed with a cheap webhoster or even for free with a service like &lt;a href=&#34;https://pages.github.com/&#34;&gt;Github Pages&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;static HTML is much faster than dynamic HTML&lt;/li&gt;
+&lt;li&gt;there is neither a server-side web-framework nor a database necessary&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;While Jekyll is still the most popular static site generator there are some new contenders, which are gaining traction very fast.&lt;/p&gt;
+
+&lt;p&gt;Out of these static site generators &lt;a href=&#34;http://gohugo.io/&#34;&gt;Hugo&lt;/a&gt; is our favorite. Hugo is written in &lt;a href=&#34;http://golang.org/&#34;&gt;Go&lt;/a&gt; and is focused on speed and performance.
+We are using Hugo to generate this very blog&amp;hellip; :)&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/hugo/hugo-logo.png&#34; alt=&#34;hugo-logo&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;What we like most is that Hugo is basically just one binary. That makes it really easy to use Hugo in a Docker container.
+And - surprise - that is exactly what we did. You can find the prepared image on the &lt;a href=&#34;https://registry.hub.docker.com/u/hypriot/rpi-hugo/&#34;&gt;Docker Hub&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;setting-up-hugo:208d73d31f997ec1e4befc58fff83e1c&#34;&gt;Setting up Hugo&lt;/h2&gt;
+
+&lt;p&gt;To get started with Hugo you need a Raspberry Pi with a running Docker engine.
+The best way to get there is with our &lt;a href=&#34;http://blog.hypriot.com/getting-started-with-docker-on-your-arm-device/&#34;&gt;Getting Started Guide&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;After logging into your Raspberry Pi via SSH do a&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker pull hypriot/rpi-hugo
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Next, create a directory for your awesome new blogging project at a location of your choice.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;mkdir awesome-blog
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Change into the new directory.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cd awesome-blog
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;create-a-new-site:208d73d31f997ec1e4befc58fff83e1c&#34;&gt;Create a new site&lt;/h2&gt;
+
+&lt;p&gt;First create a new site by&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker run --rm -v `pwd`:/www hypriot/rpi-hugo new site .
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Afterwards you will find a basic directory layout which was created by Hugo.
+Next we need to download some nifty themes for our new site.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git clone --recursive --depth 1 https://github.com/spf13/hugoThemes themes
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you execute &lt;code&gt;ls&lt;/code&gt; you should see a folder structure similar to the one in the following screenshot:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/hugo/hugo-files-after-new-site.png&#34; alt=&#34;hugo-files-after-new-site&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;create-a-new-article:208d73d31f997ec1e4befc58fff83e1c&#34;&gt;Create a new article&lt;/h2&gt;
+
+&lt;p&gt;To create a new article run the following commands:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker run --rm -v `pwd`:/www hypriot/rpi-hugo new post/viral-hit.md
+echo &#39;# Hello World from Hypriot!&#39; &amp;gt;&amp;gt; content/post/viral-hit.md
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This will create and start a new container based on the &amp;lsquo;hypriot/rpi-hugo&amp;rsquo; image.
+It will also mount the current directory into the container at &lt;code&gt;/www&lt;/code&gt; and run &lt;code&gt;hugo new post/viral-hit.md&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;hugo new&lt;/code&gt; creates a new markdown document in the subfolder &lt;code&gt;post&lt;/code&gt;. With the &lt;code&gt;echo&lt;/code&gt; command we add a Hello-World message to our blog post.
+You can further edit this document with the editor of your choice.&lt;/p&gt;
+
+&lt;h2 id=&#34;live-preview:208d73d31f997ec1e4befc58fff83e1c&#34;&gt;Live preview&lt;/h2&gt;
+
+&lt;p&gt;To see a live preview of your new awesome blog run&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker run -d -p 1313:1313 -v `pwd`:/www hypriot/rpi-hugo server --bind=0.0.0.0 -w -D --theme=hyde
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You can now open your browser and go to &lt;code&gt;http://&amp;lt;ip of your pi&amp;gt;:1313&lt;/code&gt; to preview your new blog.
+Whenever you change any of your documents, Hugo will regenerate the HTML and reload the resulting webpage in your browser.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/hugo/preview.png&#34; alt=&#34;preview&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;build-the-final-html-pages:208d73d31f997ec1e4befc58fff83e1c&#34;&gt;Build the final HTML pages&lt;/h2&gt;
+
+&lt;p&gt;To get the final HTML pages for publication you just need to run Hugo without any options.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker run --rm -v `pwd`:/www hypriot/rpi-hugo
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Afterwards you can find the generated static HTML pages in a folder called &lt;code&gt;public&lt;/code&gt; in your project folder.
+Now you can just open &lt;code&gt;public/index.html&lt;/code&gt; with a browser or upload the contents of the &lt;code&gt;public&lt;/code&gt; folder to a webhoster of your preference.&lt;/p&gt;
+
+&lt;p&gt;You can learn more about Hugo and how to use it on it&amp;rsquo;s &lt;a href=&#34;http://gohugo.io/overview/introduction/&#34;&gt;documentation website&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;how-we-use-hugo:208d73d31f997ec1e4befc58fff83e1c&#34;&gt;How we use Hugo&lt;/h2&gt;
+
+&lt;p&gt;Right at the beginning when we started blogging about Docker on ARM we were faced with several challenges.
+We failed to address these challenges with our first blogging platform - Posthaven - and soon switched to Hugo.
+We wrote about this false start with Posthaven in &lt;a href=&#34;http://blog.hypriot.com/post/moved-from-posthaven-to-hugo/&#34;&gt;We moved our blog from Posthaven to Hugo after only three posts. Why?&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;But we did not tell you everything in that blog post. We held some bits back&amp;hellip; :)&lt;br /&gt;
+Hugo in Docker really starts to make a lot of sense when it is used together with some other tools in a &lt;strong&gt;team publishing workflow&lt;/strong&gt;.
+Our publishing workflow is based on Git, Github, Drone, Hugo and GitHub Pages.&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://drone.io/&#34;&gt;Drone&lt;/a&gt; is a &lt;a href=&#34;https://en.wikipedia.org/wiki/Continuous_integration&#34;&gt;Continuous Integration&lt;/a&gt; server written in Go (surprise!) that runs exceptionally well in a Docker container.
+Drone can be used to &amp;ldquo;listen&amp;rdquo; for changes in a Git-Repository - in this case the sources of our Hugo blog project. Drone can then be configured to generate the static HTML of your blog in another Hugo container and publish it to Github Pages.
+But describing this setup in detail is for another day.&lt;/p&gt;
+
+&lt;p&gt;Two days ago we introduced Gogs, today Hugo - next will be a blog post about Drone.
+After that we will have all the ingredients together to describe how to integrate everything for an &lt;strong&gt;ultimate Docker and Raspberry Pi based blogging platform&lt;/strong&gt;.
+What else would you wanna use for instant Blogger-(ähm Docker-) Bliss?&lt;/p&gt;
+
+&lt;p&gt;As always use the comments below to give us feedback and share it on Twitter or Facebook.&lt;/p&gt;
+
+&lt;p&gt;Govinda &amp;amp; Andreas&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

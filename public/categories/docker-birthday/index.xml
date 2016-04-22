@@ -1,0 +1,755 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker Birthday on Docker Pirates ARMed with explosive stuff</title>
+    <link>http://localhost:1313/categories/docker-birthday/</link>
+    <description>Recent content in Docker Birthday on Docker Pirates ARMed with explosive stuff</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 24 Mar 2016 00:00:00 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/docker-birthday/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>And did you see the notch in the sabre? Our Docker birthday wrap-up</title>
+      <link>http://localhost:1313/post/docker-birthday-party-review/</link>
+      <pubDate>Thu, 24 Mar 2016 00:00:00 +0100</pubDate>
+      
+      <guid>http://localhost:1313/post/docker-birthday-party-review/</guid>
+      <description>
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/dockerbday-review/docker_birthday_cake_white-bg.jpeg&#34; alt=&#34;one-of-its-kind birthday cake&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Once in a while everyone should have a break from work and party hard. I am not saying that this event was a break for our Hypriot Team, but we definitely celebrated as real pirates do: With a worn-out sabre and rum, on board of a three-storey cake ship.&lt;/p&gt;
+
+&lt;p&gt;This three hour long journey has been tough. 50 pirates, many of them Docker freshmen from many different companies, striked out to look for the blue whale. Strong currents in foreign waters made this task a challenging one. But six veterans were aboard that shared their experience so that together with the freshmen they made good progress.&lt;/p&gt;
+
+&lt;p&gt;The crew has already been working hard for well over 2 hours, when suddenly a huge wave reared up right in front of the ship. &amp;ldquo;This wave is the test if we did our work on deck properly&amp;rdquo;, one of the veterans roared against the loud noise of the strong breeze. And as the crew realized some seconds later, he was right. The wave fell on the ship and washed many of the bold freshmen away. However, eight of them, due to their exceptional firmness and ambition to finish the work properly, survived.&lt;/p&gt;
+
+&lt;p&gt;When the waters calmed down and the first sunrays started touching the ship again, the veterans promised the remaining freshmen to provide special T-shirts, which will help them to successfully master all upcoming journeys. Also the ones that shouted out loud such that more people get to know about this adventure were promised to receive a T-shirt.&lt;/p&gt;
+
+&lt;p&gt;The veterans carved their names on a wooden plank:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Christof Rodejohann (extra point since he tweeted in addition!)&lt;/li&gt;
+&lt;li&gt;Bruno (@brrandrade)&lt;/li&gt;
+&lt;li&gt;Daniel Muenzel&lt;/li&gt;
+&lt;li&gt;Pablo (@Pedce)&lt;/li&gt;
+&lt;li&gt;Jens Boerner&lt;/li&gt;
+&lt;li&gt;Bjoern Pohl&lt;/li&gt;
+&lt;li&gt;Alexander Mikuta&lt;/li&gt;
+&lt;li&gt;Evaldo Junior Bento&lt;/li&gt;
+&lt;li&gt;Christian Häussler (tweeted)&lt;/li&gt;
+&lt;li&gt;Andras Bekesi (tweeted)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;The veterans believe that these valuable goods will be lost when the mailboat impinges upon huge waves. Therefore, the T-shirts will be handed over  at the beginning of the next journey.&lt;/p&gt;
+
+&lt;p&gt;In case we do not have your proper size any more, we request your size from Docker. If this won&amp;rsquo;t work out, we put you on top of the winners list for next time when there&amp;rsquo;s something to win.&lt;/p&gt;
+
+&lt;h2 id=&#34;big-thanks-to-our-sponsors:4df1e7d2138a2d89c860af43c5e2ace8&#34;&gt;Big thanks to our sponsors&lt;/h2&gt;
+
+&lt;p&gt;This event would not have been possible without our sponsors. Again, we heartfully thank:&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Paessler AG&lt;/strong&gt; &lt;em&gt;&lt;a href=&#34;https://twitter.com/paesslerAG&#34;&gt;@paesslerAG&lt;/a&gt;&lt;/em&gt; for the gorgeous birthday cake:
+&lt;a href=&#34;http://www.paessler.com/&#34;&gt;&lt;img src=&#34;http://localhost:1313/images/dockerbday-review/paessler.jpg&#34; alt=&#34;Paessler AG&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;TAO &amp;amp; University of Bamberg&lt;/strong&gt; for the great location:
+&lt;a href=&#34;http://www.tao-oberfranken.de//&#34;&gt;&lt;img src=&#34;http://localhost:1313/images/dockerbday-review/tao.jpg&#34; alt=&#34;TAO&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.uni-bamberg.de/&#34;&gt;&lt;img src=&#34;http://localhost:1313/images/dockerbday-review/uni-bamberg.jpg&#34; alt=&#34;University of Bamberg&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Seal Systems AG&lt;/strong&gt; &lt;em&gt;&lt;a href=&#34;https://twitter.com/printandconvert&#34;&gt;@PrintAndConvert&lt;/a&gt;&lt;/em&gt; for the yummy pizza:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.sealsystems.de/&#34;&gt;&lt;img src=&#34;http://localhost:1313/images/dockerbday-review/seal.jpg&#34; alt=&#34;Seal Systems AG&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Please drop them a line at their twitter account and give them a virtual hug!&lt;/p&gt;
+
+&lt;p&gt;Particularly, we thank Prof. Krieger and Marcel Großmann from University of Bamberg for their fantastic support!&lt;/p&gt;
+
+&lt;p&gt;Also, thanks to everyone who gave us &lt;a href=&#34;http://www.meetup.com/Docker-Bamberg/events/228784029/&#34;&gt;feedback on Meetup.com&lt;/a&gt;, especially feedback on how we can improve!&lt;/p&gt;
+
+&lt;p&gt;Last but not least, we would like to give special thanks to Jana Jakob from &lt;a href=&#34;https://www.facebook.com/janescaketragedy/&#34;&gt;Janes Cake Tragedy&lt;/a&gt; for the one-of-its-kind birthday cake!&lt;/p&gt;
+
+&lt;h2 id=&#34;visually-dive-into-of-what-happened:4df1e7d2138a2d89c860af43c5e2ace8&#34;&gt;Visually dive into of what happened&lt;/h2&gt;
+
+&lt;p&gt;&lt;div class=&#34;gallery clearfix&#34; itemscope itemtype=&#34;http://schema.org/ImageGallery&#34;&gt;
+
+
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/dockerbday-review/dockerbday_00.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x1200&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/dockerbday-review/thumbnails/thumb_dockerbday_00.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Docker Birthday Party at University of Bamberg&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Docker Birthday Party at University of Bamberg
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Dieter Reuter, Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/dockerbday-review/dockerbday_01.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x1200&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/dockerbday-review/thumbnails/thumb_dockerbday_01.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Docker Birthday Party at University of Bamberg&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Docker Birthday Party at University of Bamberg
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Dieter Reuter, Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/dockerbday-review/dockerbday_02.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x1200&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/dockerbday-review/thumbnails/thumb_dockerbday_02.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Docker Birthday Party at University of Bamberg&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Docker Birthday Party at University of Bamberg
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Dieter Reuter, Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/dockerbday-review/dockerbday_03.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x1200&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/dockerbday-review/thumbnails/thumb_dockerbday_03.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Docker Birthday Party at University of Bamberg&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Docker Birthday Party at University of Bamberg
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Dieter Reuter, Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/dockerbday-review/dockerbday_04.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x1200&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/dockerbday-review/thumbnails/thumb_dockerbday_04.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Docker Birthday Party at University of Bamberg&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Docker Birthday Party at University of Bamberg
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Dieter Reuter, Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/dockerbday-review/dockerbday_05.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x1200&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/dockerbday-review/thumbnails/thumb_dockerbday_05.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Docker Birthday Party at University of Bamberg&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Docker Birthday Party at University of Bamberg
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Dieter Reuter, Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/dockerbday-review/dockerbday_06.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x1200&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/dockerbday-review/thumbnails/thumb_dockerbday_06.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Docker Birthday Party at University of Bamberg&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Docker Birthday Party at University of Bamberg
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Dieter Reuter, Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/dockerbday-review/dockerbday_07.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x1200&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/dockerbday-review/thumbnails/thumb_dockerbday_07.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Docker Birthday Party at University of Bamberg&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Docker Birthday Party at University of Bamberg
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Dieter Reuter, Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/dockerbday-review/dockerbday_08.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x1200&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/dockerbday-review/thumbnails/thumb_dockerbday_08.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Docker Birthday Party at University of Bamberg&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Docker Birthday Party at University of Bamberg
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Dieter Reuter, Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/dockerbday-review/dockerbday_09.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x1200&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/dockerbday-review/thumbnails/thumb_dockerbday_09.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Docker Birthday Party at University of Bamberg&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Docker Birthday Party at University of Bamberg
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Dieter Reuter, Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/dockerbday-review/dockerbday_10.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x1200&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/dockerbday-review/thumbnails/thumb_dockerbday_10.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Docker Birthday Party at University of Bamberg&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Docker Birthday Party at University of Bamberg
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Dieter Reuter, Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/dockerbday-review/dockerbday_11.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x1200&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/dockerbday-review/thumbnails/thumb_dockerbday_11.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Docker Birthday Party at University of Bamberg&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Docker Birthday Party at University of Bamberg
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Dieter Reuter, Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/dockerbday-review/dockerbday_12.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x1200&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/dockerbday-review/thumbnails/thumb_dockerbday_12.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Docker Birthday Party at University of Bamberg&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Docker Birthday Party at University of Bamberg
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Dieter Reuter, Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/dockerbday-review/dockerbday_13.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x1200&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/dockerbday-review/thumbnails/thumb_dockerbday_13.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Docker Birthday Party at University of Bamberg&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Docker Birthday Party at University of Bamberg
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Dieter Reuter, Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/dockerbday-review/dockerbday_14.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x1200&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/dockerbday-review/thumbnails/thumb_dockerbday_14.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Docker Birthday Party at University of Bamberg&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Docker Birthday Party at University of Bamberg
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Dieter Reuter, Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/dockerbday-review/dockerbday_16.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x1200&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/dockerbday-review/thumbnails/thumb_dockerbday_16.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Docker Birthday Party at University of Bamberg&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Docker Birthday Party at University of Bamberg
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Dieter Reuter, Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/dockerbday-review/dockerbday_17.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x1200&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/dockerbday-review/thumbnails/thumb_dockerbday_17.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Docker Birthday Party at University of Bamberg&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Docker Birthday Party at University of Bamberg
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Dieter Reuter, Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/dockerbday-review/dockerbday_18.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x1200&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/dockerbday-review/thumbnails/thumb_dockerbday_18.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Docker Birthday Party at University of Bamberg&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Docker Birthday Party at University of Bamberg
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Dieter Reuter, Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/dockerbday-review/dockerbday_19.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x1200&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/dockerbday-review/thumbnails/thumb_dockerbday_19.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Docker Birthday Party at University of Bamberg&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Docker Birthday Party at University of Bamberg
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Dieter Reuter, Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/dockerbday-review/dockerbday_20.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x1200&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/dockerbday-review/thumbnails/thumb_dockerbday_20.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Docker Birthday Party at University of Bamberg&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Docker Birthday Party at University of Bamberg
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Dieter Reuter, Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/dockerbday-review/dockerbday_22.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x1200&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/dockerbday-review/thumbnails/thumb_dockerbday_22.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Docker Birthday Party at University of Bamberg&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Docker Birthday Party at University of Bamberg
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Dieter Reuter, Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/dockerbday-review/dockerbday_21.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x1200&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/dockerbday-review/thumbnails/thumb_dockerbday_21.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Docker Birthday Party at University of Bamberg&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Docker Birthday Party at University of Bamberg
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Dieter Reuter, Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/dockerbday-review/dockerbday_15.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x1200&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/dockerbday-review/thumbnails/thumb_dockerbday_15.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Docker Birthday Party at University of Bamberg&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Docker Birthday Party at University of Bamberg
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Dieter Reuter, Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/dockerbday-review/dockerbday_23.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x1200&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/dockerbday-review/thumbnails/thumb_dockerbday_23.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Docker Birthday Party at University of Bamberg&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Docker Birthday Party at University of Bamberg
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Dieter Reuter, Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;link rel=&#34;stylesheet&#34; href=&#34;http://localhost:1313/css/photoswipe.css&#34;&gt;
+&lt;link rel=&#34;stylesheet&#34; href=&#34;http://localhost:1313/css/default-skin/default-skin.css&#34;&gt;
+&lt;script src=&#34;http://localhost:1313/js/photoswipe.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://localhost:1313/js/photoswipe-ui-default.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://localhost:1313/js/initphotoswipe.js&#34;&gt;&lt;/script&gt;
+
+
+
+&lt;div class=&#34;pswp&#34; tabindex=&#34;-1&#34; role=&#34;dialog&#34; aria-hidden=&#34;true&#34;&gt;
+
+&lt;div class=&#34;pswp__bg&#34;&gt;&lt;/div&gt;
+
+&lt;div class=&#34;pswp__scroll-wrap&#34;&gt;
+    
+    &lt;div class=&#34;pswp__container&#34;&gt;
+      &lt;div class=&#34;pswp__item&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;pswp__item&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;pswp__item&#34;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;div class=&#34;pswp__ui pswp__ui--hidden&#34;&gt;
+    &lt;div class=&#34;pswp__top-bar&#34;&gt;
+      
+      &lt;div class=&#34;pswp__counter&#34;&gt;&lt;/div&gt;
+      &lt;button class=&#34;pswp__button pswp__button--close&#34; title=&#34;Close (Esc)&#34;&gt;&lt;/button&gt;
+      &lt;button class=&#34;pswp__button pswp__button--share&#34; title=&#34;Share&#34;&gt;&lt;/button&gt;
+      &lt;button class=&#34;pswp__button pswp__button--fs&#34; title=&#34;Toggle fullscreen&#34;&gt;&lt;/button&gt;
+      &lt;button class=&#34;pswp__button pswp__button--zoom&#34; title=&#34;Zoom in/out&#34;&gt;&lt;/button&gt;
+      
+      
+      &lt;div class=&#34;pswp__preloader&#34;&gt;
+        &lt;div class=&#34;pswp__preloader__icn&#34;&gt;
+          &lt;div class=&#34;pswp__preloader__cut&#34;&gt;
+            &lt;div class=&#34;pswp__preloader__donut&#34;&gt;&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;pswp__share-modal pswp__share-modal--hidden pswp__single-tap&#34;&gt;
+      &lt;div class=&#34;pswp__share-tooltip&#34;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;button class=&#34;pswp__button pswp__button--arrow--left&#34; title=&#34;Previous (arrow left)&#34;&gt;
+    &lt;/button&gt;
+    &lt;button class=&#34;pswp__button pswp__button--arrow--right&#34; title=&#34;Next (arrow right)&#34;&gt;
+    &lt;/button&gt;
+    &lt;div class=&#34;pswp__caption&#34;&gt;
+      &lt;div class=&#34;pswp__caption__center&#34;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;style&gt;
+    .gallery {  }
+    .gallery img { width: 100%; height: auto; }
+    .gallery figure { display: block; float: left; margin: 0 5px 5px 0; width: 200px; }
+    .gallery figcaption { display: none; }
+    .gallery div.title { font-weight: bold; }
+    span[itemprop=&#34;copyrightHolder&#34;] { color : #888; float: right; }
+    span[itemprop=&#34;copyrightHolder&#34;]:before { content: &#34;Foto: &#34;; }
+    img[itemprop=&#34;thumbnail&#34;]{ width: 200px; }
+&lt;/style&gt;
+
+
+&lt;script&gt;initPhotoSwipeFromDOM(&#39;.gallery&#39;);&lt;/script&gt;
+&lt;/p&gt;
+
+&lt;p&gt;We look forward to have you with us on our next adventure! Stay in contact!&lt;/p&gt;
+
+&lt;p&gt;As always, use the comments below to give us feedback and share this post on Twitter, Google or Facebook.&lt;/p&gt;
+
+&lt;p&gt;Mathias &lt;a href=&#34;https://twitter.com/MathiasRenner&#34;&gt;@MathiasRenner&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Come to our Docker Birthday Party</title>
+      <link>http://localhost:1313/post/docker-birthday-party-announcement/</link>
+      <pubDate>Mon, 21 Mar 2016 00:00:00 +0100</pubDate>
+      
+      <guid>http://localhost:1313/post/docker-birthday-party-announcement/</guid>
+      <description>&lt;p&gt;As you all know tomorrow will be a really special day.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;We will celebrate the 3rd Docker birthday.&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;And of course we from Hypriot are in the thick of it.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/come-to-birthday-party/docker-mini-cake-cover.jpg&#34; alt=&#34;Come to the Docker Birthday Party 2016&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;We had to find a suitable location (we now have space for 450 people), prepare the location and computers for all the attendees,
+make a birthday cake, learn all about Docker so we could be mentors and finally we had to find sponsors &amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;And we actually found some and want to say thank you here for their support:&lt;/p&gt;
+
+&lt;p&gt;We thank &lt;strong&gt;Paessler AG&lt;/strong&gt; for the Birthday Cake:
+&lt;a href=&#34;http://www.paessler.com/&#34;&gt;&lt;img src=&#34;http://localhost:1313/images/come-to-birthday-party/paessler.jpg&#34; alt=&#34;Paessler AG&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;We thank &lt;strong&gt;TAO &amp;amp; University of Bamberg&lt;/strong&gt; for the great location:
+&lt;a href=&#34;http://www.tao-oberfranken.de//&#34;&gt;&lt;img src=&#34;http://localhost:1313/images/come-to-birthday-party/tao.jpg&#34; alt=&#34;TAO&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.uni-bamberg.de/&#34;&gt;&lt;img src=&#34;http://localhost:1313/images/come-to-birthday-party/uni-bamberg.jpg&#34; alt=&#34;University of Bamberg&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;We thank &lt;strong&gt;Seal Systems&lt;/strong&gt; AG for the yummy pizza:&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.sealsystems.de/&#34;&gt;&lt;img src=&#34;http://localhost:1313/images/come-to-birthday-party/seal.jpg&#34; alt=&#34;Seal Systems AG&#34; /&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Please drop them a line at their twitter account and give them a virtual hug!&lt;/p&gt;
+
+&lt;p&gt;So we mostly finished our preparations and are super excited.&lt;/p&gt;
+
+&lt;p&gt;If you have not yet decided if you want to come, here are some reasons:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;a totally free Docker Training&lt;/li&gt;
+&lt;li&gt;the best Mentors you can find in good old Germany&lt;/li&gt;
+&lt;li&gt;a special kind of Pizza that you usually will only get in Italy&lt;/li&gt;
+&lt;li&gt;a really one-of-its-kind birthday cake&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;And to wet your appetite some more we have prepared some pictures:&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;gallery clearfix&#34; itemscope itemtype=&#34;http://schema.org/ImageGallery&#34;&gt;
+&lt;div class=&#34;title&#34;&gt;Docker Birthday Party Warm-Up&lt;/div&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/come-to-birthday-party/docker-mini-cake.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x1062&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/come-to-birthday-party/thumbnails/thumb_docker-mini-cake.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Come to the Docker Birthday Party!&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Come to the Docker Birthday Party!
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/come-to-birthday-party/docker-gopher.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1062x1600&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/come-to-birthday-party/thumbnails/thumb_docker-gopher.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Go, the concurrency wizard handles three balloons at once...&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Go, the concurrency wizard handles three balloons at once...
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/come-to-birthday-party/docker-pinguin.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x1062&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/come-to-birthday-party/thumbnails/thumb_docker-pinguin.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;And here comes Linux who can even party in realtime...&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    And here comes Linux who can even party in realtime...
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/come-to-birthday-party/docker-squid.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1062x1600&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/come-to-birthday-party/thumbnails/thumb_docker-squid.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;And the squid will manage the bar. Nobody composes better cocktails...&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    And the squid will manage the bar. Nobody composes better cocktails...
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/come-to-birthday-party/docker-whale.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x1062&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/come-to-birthday-party/thumbnails/thumb_docker-whale.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Here comes the main act - guess Docker will take a deep dive at the bar...&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Here comes the main act - guess Docker will take a deep dive at the bar...
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/come-to-birthday-party/docker-pirate.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1062x1600&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/come-to-birthday-party/thumbnails/thumb_docker-pirate.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;And of course there is no Docker party without at least one Docker Pirate ...&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    And of course there is no Docker party without at least one Docker Pirate ...
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/come-to-birthday-party/docker-birthday-cake.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1062x1600&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/come-to-birthday-party/thumbnails/thumb_docker-birthday-cake.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;And the whole motely crew ...&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    And the whole motely crew ...
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;link rel=&#34;stylesheet&#34; href=&#34;http://localhost:1313/css/photoswipe.css&#34;&gt;
+&lt;link rel=&#34;stylesheet&#34; href=&#34;http://localhost:1313/css/default-skin/default-skin.css&#34;&gt;
+&lt;script src=&#34;http://localhost:1313/js/photoswipe.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://localhost:1313/js/photoswipe-ui-default.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://localhost:1313/js/initphotoswipe.js&#34;&gt;&lt;/script&gt;
+
+
+
+&lt;div class=&#34;pswp&#34; tabindex=&#34;-1&#34; role=&#34;dialog&#34; aria-hidden=&#34;true&#34;&gt;
+
+&lt;div class=&#34;pswp__bg&#34;&gt;&lt;/div&gt;
+
+&lt;div class=&#34;pswp__scroll-wrap&#34;&gt;
+    
+    &lt;div class=&#34;pswp__container&#34;&gt;
+      &lt;div class=&#34;pswp__item&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;pswp__item&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;pswp__item&#34;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;div class=&#34;pswp__ui pswp__ui--hidden&#34;&gt;
+    &lt;div class=&#34;pswp__top-bar&#34;&gt;
+      
+      &lt;div class=&#34;pswp__counter&#34;&gt;&lt;/div&gt;
+      &lt;button class=&#34;pswp__button pswp__button--close&#34; title=&#34;Close (Esc)&#34;&gt;&lt;/button&gt;
+      &lt;button class=&#34;pswp__button pswp__button--share&#34; title=&#34;Share&#34;&gt;&lt;/button&gt;
+      &lt;button class=&#34;pswp__button pswp__button--fs&#34; title=&#34;Toggle fullscreen&#34;&gt;&lt;/button&gt;
+      &lt;button class=&#34;pswp__button pswp__button--zoom&#34; title=&#34;Zoom in/out&#34;&gt;&lt;/button&gt;
+      
+      
+      &lt;div class=&#34;pswp__preloader&#34;&gt;
+        &lt;div class=&#34;pswp__preloader__icn&#34;&gt;
+          &lt;div class=&#34;pswp__preloader__cut&#34;&gt;
+            &lt;div class=&#34;pswp__preloader__donut&#34;&gt;&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;pswp__share-modal pswp__share-modal--hidden pswp__single-tap&#34;&gt;
+      &lt;div class=&#34;pswp__share-tooltip&#34;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;button class=&#34;pswp__button pswp__button--arrow--left&#34; title=&#34;Previous (arrow left)&#34;&gt;
+    &lt;/button&gt;
+    &lt;button class=&#34;pswp__button pswp__button--arrow--right&#34; title=&#34;Next (arrow right)&#34;&gt;
+    &lt;/button&gt;
+    &lt;div class=&#34;pswp__caption&#34;&gt;
+      &lt;div class=&#34;pswp__caption__center&#34;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;style&gt;
+    .gallery {  }
+    .gallery img { width: 100%; height: auto; }
+    .gallery figure { display: block; float: left; margin: 0 5px 5px 0; width: 200px; }
+    .gallery figcaption { display: none; }
+    .gallery div.title { font-weight: bold; }
+    span[itemprop=&#34;copyrightHolder&#34;] { color : #888; float: right; }
+    span[itemprop=&#34;copyrightHolder&#34;]:before { content: &#34;Foto: &#34;; }
+    img[itemprop=&#34;thumbnail&#34;]{ width: 200px; }
+&lt;/style&gt;
+
+
+&lt;script&gt;initPhotoSwipeFromDOM(&#39;.gallery&#39;);&lt;/script&gt;
+&lt;/p&gt;
+
+&lt;p&gt;So come and join us tomorrow. RSVP now at our &lt;a href=&#34;http://www.meetup.com/de-DE/Docker-Bamberg/events/228784029/&#34;&gt;Docker Meetup Page&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;As always, use the comments below to give us feedback and share this post on Twitter, Google or Facebook.&lt;/p&gt;
+
+&lt;p&gt;Govinda &lt;a href=&#34;https://twitter.com/_beagile_&#34;&gt;@_beagile__&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

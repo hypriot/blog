@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Neopixels on Docker Pirates ARMed with explosive stuff</title>
+    <link>http://localhost:1313/categories/neopixels/</link>
+    <description>Recent content in Neopixels on Docker Pirates ARMed with explosive stuff</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 14 Apr 2015 13:25:33 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/neopixels/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Drive NeoPixels in Docker on Raspberry Pi</title>
+      <link>http://localhost:1313/post/drive-neopixels-in-docker/</link>
+      <pubDate>Tue, 14 Apr 2015 13:25:33 +0100</pubDate>
+      
+      <guid>http://localhost:1313/post/drive-neopixels-in-docker/</guid>
+      <description>
+
+&lt;p&gt;In our &lt;a href=&#34;http://localhost:1313/post/lets-get-physical/&#34;&gt;last blog post&lt;/a&gt; we showed you how to interact with the GPIO ports and how to turn on one LED. Now for some more magic lights we create a little Node.js application that drives a NeoPixel LED strip from Adafruit in a Docker container.&lt;/p&gt;
+
+&lt;p&gt;Thanks to the latest improvements now both Raspberry Pi B/B+ and the new Pi 2 B can  drive the NeoPixel LED strips from Adafruit with just a level shifter. So it&amp;rsquo;s time to put this into Docker for easier deployment.&lt;/p&gt;
+
+&lt;p&gt;The NeoPixel (or WS2812) LED&amp;rsquo;s are programmable RGB LED&amp;rsquo;s that receive their RGB value with a single serial wire.&lt;/p&gt;
+
+&lt;h2 id=&#34;wiring:463cf4b0db949da92d2a7ea79ab0611f&#34;&gt;Wiring&lt;/h2&gt;
+
+&lt;p&gt;Let&amp;rsquo;s have a look at the wiring first. The Raspberry Pi can create the serial signal on GPIO Pin 18 trough PWM/DMA. But the signal level has to be shifted from 3.3V to 5V for the LED strip. I have used a Adafruit Level Shifter Breakout Board, but a 74AHCT125 level converter could be used as well.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/neopixel/rpi-levelshifter-neopixel_Steckplatine.png&#34; alt=&#34;wiring diagram&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Do not power the NeoPixels directly from your Raspberry Pi as the 5V output could not source enough current to light many pixels. This could damage your Raspberry Pi!&lt;/strong&gt; For my tests with only eight pixels it is ok to use the 5V from the Pi, but be warned!&lt;/p&gt;
+
+&lt;h2 id=&#34;the-code:463cf4b0db949da92d2a7ea79ab0611f&#34;&gt;The code&lt;/h2&gt;
+
+&lt;p&gt;First we create the &lt;code&gt;package.json&lt;/code&gt; file with a dependency to the &lt;code&gt;rpi-ws281x-native&lt;/code&gt; Node.js module that supports all Raspberry Pi versions to drive the NeoPixels.&lt;/p&gt;
+
+&lt;h3 id=&#34;package-json:463cf4b0db949da92d2a7ea79ab0611f&#34;&gt;package.json&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
+  &amp;quot;name&amp;quot;: &amp;quot;rpi-node-neopixel-example&amp;quot;,
+  &amp;quot;private&amp;quot;: true,
+  &amp;quot;version&amp;quot;: &amp;quot;0.0.1&amp;quot;,
+  &amp;quot;description&amp;quot;: &amp;quot;Node.js NeoPixel app in docker&amp;quot;,
+  &amp;quot;author&amp;quot;: &amp;quot;hypriot.com&amp;quot;,
+  &amp;quot;dependencies&amp;quot;: {
+    &amp;quot;rpi-ws281x-native&amp;quot;: &amp;quot;0.4.0&amp;quot;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;server-js:463cf4b0db949da92d2a7ea79ab0611f&#34;&gt;server.js&lt;/h3&gt;
+
+&lt;p&gt;Now we implement a Node.js sample that does some color magic. We have reduced the brightness of the LED&amp;rsquo;s a little bit.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var ws281x = require(&#39;rpi-ws281x-native&#39;);
+
+var NUM_LEDS = parseInt(process.argv[2], 10) || 8,
+    pixelData = new Uint32Array(NUM_LEDS);
+
+var brightness = 128;
+
+ws281x.init(NUM_LEDS);
+
+
+var lightsOff = function () {
+  for (var i = 0; i &amp;lt; NUM_LEDS; i++) {
+    pixelData[i] = color(0, 0, 0);
+  }
+  ws281x.render(pixelData);
+  ws281x.reset();
+}
+
+var signals = {
+  &#39;SIGINT&#39;: 2,
+  &#39;SIGTERM&#39;: 15
+};
+
+function shutdown(signal, value) {
+  console.log(&#39;Stopped by &#39; + signal);
+  lightsOff();
+  process.nextTick(function () { process.exit(0); });
+}
+
+Object.keys(signals).forEach(function (signal) {
+  process.on(signal, function () {
+    shutdown(signal, signals[signal]);
+  });
+});
+
+// ---- animation-loop
+var offset = 0;
+setInterval(function () {
+  for (var i = 0; i &amp;lt; NUM_LEDS; i++) {
+    pixelData[i] = wheel(((i * 256 / NUM_LEDS) + offset) % 256);
+  }
+
+  offset = (offset + 1) % 256;
+  ws281x.render(pixelData);
+}, 1000 / 30);
+
+console.log(&#39;Rainbow started. Press &amp;lt;ctrl&amp;gt;+C to exit.&#39;);
+
+// generate rainbow colors accross 0-255 positions.
+function wheel(pos) {
+  pos = 255 - pos;
+  if (pos &amp;lt; 85) { return color(255 - pos * 3, 0, pos * 3); }
+  else if (pos &amp;lt; 170) { pos -= 85; return color(0, pos * 3, 255 - pos * 3); }
+  else { pos -= 170; return color(pos * 3, 255 - pos * 3, 0); }
+}
+
+// generate integer from RGB value
+function color(r, g, b) {
+  r = r * brightness / 255;
+  g = g * brightness / 255;
+  b = b * brightness / 255;
+  return ((r &amp;amp; 0xff) &amp;lt;&amp;lt; 16) + ((g &amp;amp; 0xff) &amp;lt;&amp;lt; 8) + (b &amp;amp; 0xff);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;dockerfile:463cf4b0db949da92d2a7ea79ab0611f&#34;&gt;Dockerfile&lt;/h3&gt;
+
+&lt;p&gt;The &lt;code&gt;Dockerfile&lt;/code&gt; is very simple here as we use the &lt;code&gt;onbuild&lt;/code&gt; version of our &lt;a href=&#34;https://registry.hub.docker.com/u/hypriot/rpi-iojs/&#34;&gt;hypriot/rpi-iojs&lt;/a&gt; Docker image.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;FROM hypriot/rpi-iojs:onbuild
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;build-the-docker-image:463cf4b0db949da92d2a7ea79ab0611f&#34;&gt;Build the Docker image&lt;/h2&gt;
+
+&lt;p&gt;We now have all parts together and are ready to build the docker image with this command&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ docker build -t node-neopixel .
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;run-the-docker-container:463cf4b0db949da92d2a7ea79ab0611f&#34;&gt;Run the Docker container&lt;/h2&gt;
+
+&lt;p&gt;Now it is time to turn on the NeoPixel LED&amp;rsquo;s by running the container&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ docker run --cap-add SYS_RAWIO --device /dev/mem -d node-neopixel
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;On a Raspberry Pi 2 you have to give the container more privileges. So you have to use this command instead&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ docker run --privileged -d node-neopixel
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/neopixel/neopixel640.gif&#34; alt=&#34;Let there be lights!&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You can find the complete Node.js example on GitHub at &lt;a href=&#34;https://github.com/hypriot/rpi-node-neopixel-example&#34;&gt;https://github.com/hypriot/rpi-node-neopixel-example&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;conclusion:463cf4b0db949da92d2a7ea79ab0611f&#34;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;Now you are ready to start your NeoPixel project on your Raspberry Pi and deploy it with Docker.&lt;/p&gt;
+
+&lt;p&gt;To learn more about NeoPixels head over to the excellent &lt;a href=&#34;https://learn.adafruit.com/adafruit-neopixel-uberguide/overview&#34;&gt;Adafruit&amp;rsquo;s NeoPixel Überguide&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;As always use the comments below to give us feedback and share it on Twitter or Facebook.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

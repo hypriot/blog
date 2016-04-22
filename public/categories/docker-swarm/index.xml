@@ -1,0 +1,633 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker Swarm on Docker Pirates ARMed with explosive stuff</title>
+    <link>http://localhost:1313/categories/docker-swarm/</link>
+    <description>Recent content in Docker Swarm on Docker Pirates ARMed with explosive stuff</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 03 Jul 2015 00:30:45 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/docker-swarm/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Let Docker Swarm all over your Raspberry Pi Cluster</title>
+      <link>http://localhost:1313/post/let-docker-swarm-all-over-your-raspberry-pi-cluster/</link>
+      <pubDate>Fri, 03 Jul 2015 00:30:45 +0100</pubDate>
+      
+      <guid>http://localhost:1313/post/let-docker-swarm-all-over-your-raspberry-pi-cluster/</guid>
+      <description>
+
+&lt;p&gt;In this blog post we show you how easy it is to install Swarm on your Raspberry Pi and how to set up a Raspberry Pi Swarm cluster with the help of Docker Machine.&lt;/p&gt;
+
+&lt;p&gt;We have built a little &amp;ldquo;Pi Tower&amp;rdquo; with three Raspberry Pi 2 model B and combined them into a Docker Swarm cluster.&lt;/p&gt;
+
+&lt;p&gt;As you can see in the pictures below we have mounted the three Raspberry Pi&amp;rsquo;s on top of a 5-port D-Link GBit switch. All four devices get their power from an Anker 4-port USB charger.
+This makes a very solid but portable &amp;ldquo;Pi Tower&amp;rdquo; with only one power plug and one external network connector.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;gallery clearfix&#34; itemscope itemtype=&#34;http://schema.org/ImageGallery&#34;&gt;
+&lt;div class=&#34;title&#34;&gt;Pi Tower&lt;/div&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/docker-swarm/d-link_mounting_holes.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x1200&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/docker-swarm/thumbnails/thumb_d-link_mounting_holes.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;The Making of Pi Tower&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    The Making of Pi Tower
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/docker-swarm/d-link_rpi2_cluster.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x1200&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/docker-swarm/thumbnails/thumb_d-link_rpi2_cluster.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Pi Tower with D-Link Switch&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Pi Tower with D-Link Switch
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/docker-swarm/d-link_rpi2_cluster02.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x1200&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/docker-swarm/thumbnails/thumb_d-link_rpi2_cluster02.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Pi Tower with D-Link Switch&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Pi Tower with D-Link Switch
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/docker-swarm/d-link_rpi2_cluster_lights.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x1200&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/docker-swarm/thumbnails/thumb_d-link_rpi2_cluster_lights.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Pi Tower at night&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Pi Tower at night
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;link rel=&#34;stylesheet&#34; href=&#34;http://localhost:1313/css/photoswipe.css&#34;&gt;
+&lt;link rel=&#34;stylesheet&#34; href=&#34;http://localhost:1313/css/default-skin/default-skin.css&#34;&gt;
+&lt;script src=&#34;http://localhost:1313/js/photoswipe.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://localhost:1313/js/photoswipe-ui-default.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://localhost:1313/js/initphotoswipe.js&#34;&gt;&lt;/script&gt;
+
+
+
+&lt;div class=&#34;pswp&#34; tabindex=&#34;-1&#34; role=&#34;dialog&#34; aria-hidden=&#34;true&#34;&gt;
+
+&lt;div class=&#34;pswp__bg&#34;&gt;&lt;/div&gt;
+
+&lt;div class=&#34;pswp__scroll-wrap&#34;&gt;
+    
+    &lt;div class=&#34;pswp__container&#34;&gt;
+      &lt;div class=&#34;pswp__item&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;pswp__item&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;pswp__item&#34;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;div class=&#34;pswp__ui pswp__ui--hidden&#34;&gt;
+    &lt;div class=&#34;pswp__top-bar&#34;&gt;
+      
+      &lt;div class=&#34;pswp__counter&#34;&gt;&lt;/div&gt;
+      &lt;button class=&#34;pswp__button pswp__button--close&#34; title=&#34;Close (Esc)&#34;&gt;&lt;/button&gt;
+      &lt;button class=&#34;pswp__button pswp__button--share&#34; title=&#34;Share&#34;&gt;&lt;/button&gt;
+      &lt;button class=&#34;pswp__button pswp__button--fs&#34; title=&#34;Toggle fullscreen&#34;&gt;&lt;/button&gt;
+      &lt;button class=&#34;pswp__button pswp__button--zoom&#34; title=&#34;Zoom in/out&#34;&gt;&lt;/button&gt;
+      
+      
+      &lt;div class=&#34;pswp__preloader&#34;&gt;
+        &lt;div class=&#34;pswp__preloader__icn&#34;&gt;
+          &lt;div class=&#34;pswp__preloader__cut&#34;&gt;
+            &lt;div class=&#34;pswp__preloader__donut&#34;&gt;&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;pswp__share-modal pswp__share-modal--hidden pswp__single-tap&#34;&gt;
+      &lt;div class=&#34;pswp__share-tooltip&#34;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;button class=&#34;pswp__button pswp__button--arrow--left&#34; title=&#34;Previous (arrow left)&#34;&gt;
+    &lt;/button&gt;
+    &lt;button class=&#34;pswp__button pswp__button--arrow--right&#34; title=&#34;Next (arrow right)&#34;&gt;
+    &lt;/button&gt;
+    &lt;div class=&#34;pswp__caption&#34;&gt;
+      &lt;div class=&#34;pswp__caption__center&#34;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;style&gt;
+    .gallery {  }
+    .gallery img { width: 100%; height: auto; }
+    .gallery figure { display: block; float: left; margin: 0 5px 5px 0; width: 200px; }
+    .gallery figcaption { display: none; }
+    .gallery div.title { font-weight: bold; }
+    span[itemprop=&#34;copyrightHolder&#34;] { color : #888; float: right; }
+    span[itemprop=&#34;copyrightHolder&#34;]:before { content: &#34;Foto: &#34;; }
+    img[itemprop=&#34;thumbnail&#34;]{ width: 200px; }
+&lt;/style&gt;
+
+
+&lt;script&gt;initPhotoSwipeFromDOM(&#39;.gallery&#39;);&lt;/script&gt;
+&lt;/p&gt;
+
+&lt;p&gt;For your convenience we have prepared a &lt;a href=&#34;http://www.amazon.de/gp/registry/wishlist/BCGEW9W3V8GM/ref=cm_wl_rlist_go_o&#34;&gt;small shopping list&lt;/a&gt; of all the components we used at Amazon.&lt;/p&gt;
+
+&lt;h2 id=&#34;pre-requisites:89caca6f537cb35a7331e4245fcac0e7&#34;&gt;Pre-requisites&lt;/h2&gt;
+
+&lt;p&gt;For this tutorial we will run all steps from a Mac. To do this we need three tools.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A flash tool to write the SD card images for all the Raspberry Pi&amp;rsquo;s.&lt;/li&gt;
+&lt;li&gt;The Docker client, which is only a &lt;code&gt;brew install docker&lt;/code&gt; away.&lt;/li&gt;
+&lt;li&gt;The Docker Machine binary with the hypriot driver&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;flash-all-sd-cards:89caca6f537cb35a7331e4245fcac0e7&#34;&gt;Flash all SD cards&lt;/h2&gt;
+
+&lt;p&gt;First we want to install the SD cards with Docker preinstalled.
+On a Mac or Linux machine we can use our little &lt;a href=&#34;https://github.com/hypriot/flash&#34;&gt;flash command line tool&lt;/a&gt; to prepare the three SD cards with these simple commands:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ flash --hostname pi1 http://downloads.hypriot.com/hypriot-rpi-20150416-201537.img.zip
+$ flash --hostname pi2 http://downloads.hypriot.com/hypriot-rpi-20150416-201537.img.zip
+$ flash --hostname pi3 http://downloads.hypriot.com/hypriot-rpi-20150416-201537.img.zip
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now insert the SD cards into all Raspberry Pi&amp;rsquo;s and boot them. They will come up with different host names after a while.&lt;/p&gt;
+
+&lt;h2 id=&#34;retrieve-ip-addresses:89caca6f537cb35a7331e4245fcac0e7&#34;&gt;Retrieve IP addresses&lt;/h2&gt;
+
+&lt;p&gt;Our SD card image also starts the avahi-daemon to announce the hostname through mDNS, so each Pi is reachable with &lt;code&gt;pi1.local&lt;/code&gt;, &lt;code&gt;pi2.local&lt;/code&gt; and &lt;code&gt;pi3.local&lt;/code&gt;.
+Docker Machine cannot resolve these hostnames at the moment, so we have to retrieve the IP addresses for the Raspberry Pi&amp;rsquo;s manually.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ ping -c 1 pi1.local
+$ ping -c 1 pi2.local
+$ ping -c 1 pi3.local
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For this example we assume that the three IP adresses are &lt;code&gt;192.168.1.101&lt;/code&gt;, &lt;code&gt;102&lt;/code&gt; and &lt;code&gt;103&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;insert-ssh-public-key:89caca6f537cb35a7331e4245fcac0e7&#34;&gt;Insert SSH public key&lt;/h2&gt;
+
+&lt;p&gt;Docker Machine connects to each Raspberry Pi through SSH. You have to insert your public SSH key to avoid entering the password of the &lt;code&gt;root&lt;/code&gt; user.
+To insert the SSH public key into a remote machine there is a tool called &lt;code&gt;ssh-copy-id&lt;/code&gt;. You might have to install it first.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ ssh-copy-id root@192.168.1.101
+$ ssh-copy-id root@192.168.1.102
+$ ssh-copy-id root@192.168.1.103
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For each of the above commands you have to enter the password &lt;code&gt;hypriot&lt;/code&gt; for the user &lt;code&gt;root&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;create-docker-machines:89caca6f537cb35a7331e4245fcac0e7&#34;&gt;Create Docker Machines&lt;/h2&gt;
+
+&lt;p&gt;For the next step we use our Docker Machine driver to connect to the Raspberry Pi Hypriot devices.
+Our hypriot driver is not yet integrated into the official Docker Machine binary.
+So we have to download the &lt;code&gt;docker-machine&lt;/code&gt; binary with our hypriot machine driver.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ curl -o docker-machine http://downloads.hypriot.com/docker-machine_0.4.0-dev_darwin-amd64
+$ chmod +x ./docker-machine
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Download the binary into the current directory and make it executable. You may move it
+into another directory in your PATH to use it from other directories.&lt;/p&gt;
+
+&lt;h3 id=&#34;create-swarm-token:89caca6f537cb35a7331e4245fcac0e7&#34;&gt;Create Swarm Token&lt;/h3&gt;
+
+&lt;p&gt;A Docker Swarm cluster uses a unique Cluster ID which allows the individual swarm agents to find each other.
+We need such a Cluster ID to build our Docker Swarm.&lt;/p&gt;
+
+&lt;p&gt;This can be done in your shell with&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ export TOKEN=$(for i in $(seq 1 32); do echo -n $(echo &amp;quot;obase=16; $(($RANDOM % 16))&amp;quot; | bc); done; echo)
+$ echo $TOKEN
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For this example we use&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ export TOKEN=babb1eb00bdecadedec0debabb1eb00b
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you already have a Docker swarm container up and running, you also can create a new Cluster ID
+with &lt;code&gt;docker run --rm hypriot/rpi-swarm create&lt;/code&gt;.
+We simply used the shell commands above to skip this chicken or egg problem.&lt;/p&gt;
+
+&lt;h3 id=&#34;create-the-swarm-master:89caca6f537cb35a7331e4245fcac0e7&#34;&gt;Create the Swarm Master&lt;/h3&gt;
+
+&lt;p&gt;Now we create the Docker Swarm Master on the first Raspberry Pi with our generated Cluster ID&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ ./docker-machine create -d hypriot --swarm --swarm-master --swarm-discovery token://$TOKEN --hypriot-ip-address 192.168.1.101 pi1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This command connects to the Raspberry Pi &amp;ldquo;pi1&amp;rdquo;, secures the Docker daemon with TLS and pulls the Docker image &lt;code&gt;hypriot/rpi-swarm:latest&lt;/code&gt; from the Docker Hub.
+It starts both the Swarm Master as well as a Swarm Agent in a container.&lt;/p&gt;
+
+&lt;p&gt;To check if everything works we can connect to the newly started Swarm Master by using the following command.
+It retrieves all environment variables needed for the Docker client to communicate with the Swarm.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ eval $(./docker-machine env --swarm pi1)
+$ docker info
+Containers: 2
+Strategy: spread
+Filters: affinity, health, constraint, port, dependency
+Nodes: 1
+ pi1: 192.168.1.202:2376
+  └ Containers: 2
+  └ Reserved CPUs: 0 / 4
+  └ Reserved Memory: 0 B / 971.3 MiB
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We now have successfully set up a lonely Swarm Manager. Let&amp;rsquo;s start some more Raspberry Pi&amp;rsquo;s to prevent the Swarm Manager from feeling lonely.&lt;/p&gt;
+
+&lt;h3 id=&#34;create-the-swarm-agents:89caca6f537cb35a7331e4245fcac0e7&#34;&gt;Create the Swarm agents&lt;/h3&gt;
+
+&lt;p&gt;For the rest of the Raspberry Pi&amp;rsquo;s we also create Docker Machine connections with the same Cluster ID.
+This time we run docker-machine without the &lt;code&gt;--swarm-master&lt;/code&gt; option to just spin up a Swarm Agent container in each Pi.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ ./docker-machine create -d hypriot --swarm --swarm-discovery token://$TOKEN --hypriot-ip-address 192.168.1.102 pi2
+$ ./docker-machine create -d hypriot --swarm --swarm-discovery token://$TOKEN --hypriot-ip-address 192.168.1.103 pi3
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Let&amp;rsquo;s check what the swarm looks like now&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ docker info
+Containers: 4
+Strategy: spread
+Filters: affinity, health, constraint, port, dependency
+Nodes: 3
+ pi1: 192.168.1.101:2376
+  └ Containers: 2
+  └ Reserved CPUs: 0 / 4
+  └ Reserved Memory: 0 B / 971.3 MiB
+ pi2: 192.168.1.102:2376
+  └ Containers: 1
+  └ Reserved CPUs: 0 / 4
+  └ Reserved Memory: 0 B / 971.3 MiB
+ pi3: 192.168.1.103:2376
+  └ Containers: 1
+  └ Reserved CPUs: 0 / 4
+  └ Reserved Memory: 0 B / 971.3 MiB
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We also can list all containers in the whole swarm as usual with&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ docker ps
+CONTAINER ID        IMAGE                      COMMAND                CREATED             STATUS              PORTS                                    NAMES
+5effaa7de4a3        hypriot/rpi-swarm:latest   &amp;quot;/swarm join --addr    2 minutes ago       Up About a minute   2375/tcp                                 pi3/swarm-agent
+6b73003b7246        hypriot/rpi-swarm:latest   &amp;quot;/swarm join --addr    4 minutes ago       Up 3 minutes        2375/tcp                                 pi2/swarm-agent
+5e00fbf7b9f6        hypriot/rpi-swarm:latest   &amp;quot;/swarm join --addr    7 minutes ago       Up 7 minutes        2375/tcp                                 pi1/swarm-agent
+02c905ec25a0        hypriot/rpi-swarm:latest   &amp;quot;/swarm manage --tls   7 minutes ago       Up 7 minutes        2375/tcp, 192.168.1.101:3376-&amp;gt;3376/tcp   pi1/swarm-agent-master
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;After setting up the Docker Swarm you now can use the normal Docker commands through port 3376.
+Have a look at the &lt;a href=&#34;https://docs.docker.com/swarm/&#34;&gt;official Docker Swarm documentation&lt;/a&gt; for more details.&lt;/p&gt;
+
+&lt;p&gt;Just remember to set up the environment correctly to communicate with the Swarm Master before using the Docker client by&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ eval $(docker-machine env --swarm pi1)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And then you can remotely manage your Raspberry Pi Swarm from your Mac. See - this was not really difficult, was it?&lt;/p&gt;
+
+&lt;p&gt;We hope you enjoyed this little tour of Docker Swarm!&lt;/p&gt;
+
+&lt;p&gt;As always use the comments below to give us feedback and share it on Twitter or Facebook.&lt;/p&gt;
+
+&lt;p&gt;Stefan&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to use Docker Swarm on your Raspberry Pi cluster</title>
+      <link>http://localhost:1313/post/docker-swarm-on-raspberry-pi/</link>
+      <pubDate>Thu, 02 Jul 2015 07:31:45 +0100</pubDate>
+      
+      <guid>http://localhost:1313/post/docker-swarm-on-raspberry-pi/</guid>
+      <description>
+
+&lt;p&gt;In this blog post we show you how easy it is to install Swarm on your Raspberry Pi and how to setup a Raspberry Pi Swarm cluster with the help of Docker Machine.&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;ve built a little &amp;ldquo;Pi Tower&amp;rdquo; with three Raspberry Pi 2 model B and combine them into a Docker Swarm.&lt;/p&gt;
+
+&lt;p&gt;As you can see in the pictures below we&amp;rsquo;ve mounted the three Raspberry Pi&amp;rsquo;s on top of a 5-port D-Link GBit switch. All four devices get their power from an Anker 4-port USB charger. This makes a very solid but portable &amp;ldquo;Pi Tower&amp;rdquo; with only one power plug and one external network connector.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;gallery clearfix&#34; itemscope itemtype=&#34;http://schema.org/ImageGallery&#34;&gt;
+&lt;div class=&#34;title&#34;&gt;Pi Tower&lt;/div&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/docker-swarm/d-link_mounting_holes.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x1200&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/docker-swarm/thumbnails/thumb_d-link_mounting_holes.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;The Making of Pi Tower&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    The Making of Pi Tower
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/docker-swarm/d-link_rpi2_cluster.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x1200&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/docker-swarm/thumbnails/thumb_d-link_rpi2_cluster.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Pi Tower with D-Link Switch&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Pi Tower with D-Link Switch
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/docker-swarm/d-link_rpi2_cluster02.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x1200&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/docker-swarm/thumbnails/thumb_d-link_rpi2_cluster02.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Pi Tower with D-Link Switch&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Pi Tower with D-Link Switch
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/docker-swarm/d-link_rpi2_cluster_lights.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x1200&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/docker-swarm/thumbnails/thumb_d-link_rpi2_cluster_lights.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Pi Tower at night&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Pi Tower at night
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;link rel=&#34;stylesheet&#34; href=&#34;http://localhost:1313/css/photoswipe.css&#34;&gt;
+&lt;link rel=&#34;stylesheet&#34; href=&#34;http://localhost:1313/css/default-skin/default-skin.css&#34;&gt;
+&lt;script src=&#34;http://localhost:1313/js/photoswipe.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://localhost:1313/js/photoswipe-ui-default.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://localhost:1313/js/initphotoswipe.js&#34;&gt;&lt;/script&gt;
+
+
+
+&lt;div class=&#34;pswp&#34; tabindex=&#34;-1&#34; role=&#34;dialog&#34; aria-hidden=&#34;true&#34;&gt;
+
+&lt;div class=&#34;pswp__bg&#34;&gt;&lt;/div&gt;
+
+&lt;div class=&#34;pswp__scroll-wrap&#34;&gt;
+    
+    &lt;div class=&#34;pswp__container&#34;&gt;
+      &lt;div class=&#34;pswp__item&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;pswp__item&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;pswp__item&#34;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;div class=&#34;pswp__ui pswp__ui--hidden&#34;&gt;
+    &lt;div class=&#34;pswp__top-bar&#34;&gt;
+      
+      &lt;div class=&#34;pswp__counter&#34;&gt;&lt;/div&gt;
+      &lt;button class=&#34;pswp__button pswp__button--close&#34; title=&#34;Close (Esc)&#34;&gt;&lt;/button&gt;
+      &lt;button class=&#34;pswp__button pswp__button--share&#34; title=&#34;Share&#34;&gt;&lt;/button&gt;
+      &lt;button class=&#34;pswp__button pswp__button--fs&#34; title=&#34;Toggle fullscreen&#34;&gt;&lt;/button&gt;
+      &lt;button class=&#34;pswp__button pswp__button--zoom&#34; title=&#34;Zoom in/out&#34;&gt;&lt;/button&gt;
+      
+      
+      &lt;div class=&#34;pswp__preloader&#34;&gt;
+        &lt;div class=&#34;pswp__preloader__icn&#34;&gt;
+          &lt;div class=&#34;pswp__preloader__cut&#34;&gt;
+            &lt;div class=&#34;pswp__preloader__donut&#34;&gt;&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;pswp__share-modal pswp__share-modal--hidden pswp__single-tap&#34;&gt;
+      &lt;div class=&#34;pswp__share-tooltip&#34;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;button class=&#34;pswp__button pswp__button--arrow--left&#34; title=&#34;Previous (arrow left)&#34;&gt;
+    &lt;/button&gt;
+    &lt;button class=&#34;pswp__button pswp__button--arrow--right&#34; title=&#34;Next (arrow right)&#34;&gt;
+    &lt;/button&gt;
+    &lt;div class=&#34;pswp__caption&#34;&gt;
+      &lt;div class=&#34;pswp__caption__center&#34;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;style&gt;
+    .gallery {  }
+    .gallery img { width: 100%; height: auto; }
+    .gallery figure { display: block; float: left; margin: 0 5px 5px 0; width: 200px; }
+    .gallery figcaption { display: none; }
+    .gallery div.title { font-weight: bold; }
+    span[itemprop=&#34;copyrightHolder&#34;] { color : #888; float: right; }
+    span[itemprop=&#34;copyrightHolder&#34;]:before { content: &#34;Foto: &#34;; }
+    img[itemprop=&#34;thumbnail&#34;]{ width: 200px; }
+&lt;/style&gt;
+
+
+&lt;script&gt;initPhotoSwipeFromDOM(&#39;.gallery&#39;);&lt;/script&gt;
+&lt;/p&gt;
+
+&lt;h2 id=&#34;pre-requisites:8f0fe211d9770745ca52ec727b049d95&#34;&gt;Pre-requisites&lt;/h2&gt;
+
+&lt;p&gt;For this tutorial we just run all steps from a Mac (or Linux) notebook. To do this we need three tools.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;A flash tool to write the SD card images for all the Raspberry Pi&amp;rsquo;s.&lt;/li&gt;
+&lt;li&gt;The Docker client, which is only a &lt;code&gt;brew install docker&lt;/code&gt; away.&lt;/li&gt;
+&lt;li&gt;The Docker Machine binary with the hypriot driver&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;flash-all-sd-cards:8f0fe211d9770745ca52ec727b049d95&#34;&gt;Flash all SD cards&lt;/h2&gt;
+
+&lt;p&gt;First we want to install the SD cards with Docker preinstalled. On a Mac or Linux machine, we use our little &lt;a href=&#34;https://github.com/hypriot/flash&#34;&gt;flash command line tool&lt;/a&gt; to prepare the three SD cards with these simple commands.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ flash --hostname pi1 http://downloads.hypriot.com/hypriot-rpi-20150416-201537.img.zip
+$ flash --hostname pi2 http://downloads.hypriot.com/hypriot-rpi-20150416-201537.img.zip
+$ flash --hostname pi3 http://downloads.hypriot.com/hypriot-rpi-20150416-201537.img.zip
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now insert the SD cards into all Raspberry Pi&amp;rsquo;s and boot them. They will come up with different host names after a while.&lt;/p&gt;
+
+&lt;h2 id=&#34;retrieve-ip-addresses:8f0fe211d9770745ca52ec727b049d95&#34;&gt;Retrieve IP addresses&lt;/h2&gt;
+
+&lt;p&gt;Our SD card image also starts the avahi-daemon to announce the hostname through mDNS, so each Pi is reachable with &lt;code&gt;pi1.local&lt;/code&gt;, &lt;code&gt;pi2.local&lt;/code&gt; and &lt;code&gt;pi3.local&lt;/code&gt;.
+Docker Machine cannot resolve these hostnames at the moment, so we have to retrieve the IP addresses for the Raspberry Pi&amp;rsquo;s.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ ping -c 1 pi1.local
+$ ping -c 1 pi2.local
+$ ping -c 1 pi3.local
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For this example we assume that the three IP adresses are &lt;code&gt;192.168.1.101&lt;/code&gt;, &lt;code&gt;102&lt;/code&gt; and &lt;code&gt;103&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;insert-ssh-public-key:8f0fe211d9770745ca52ec727b049d95&#34;&gt;Insert SSH public key&lt;/h2&gt;
+
+&lt;p&gt;Docker Machine connects to each Raspberry Pi through SSH. You have to insert your public
+SSH key to avoid entering the password of the &lt;code&gt;root&lt;/code&gt; user. To insert the SSH public key into a remote machine there is a tool &lt;code&gt;ssh-copy-id&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ ssh-copy-id root@192.168.1.101
+$ ssh-copy-id root@192.168.1.102
+$ ssh-copy-id root@192.168.1.103
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For each of the Raspberry Pi&amp;rsquo;s you have to enter the password &lt;code&gt;hypriot&lt;/code&gt; for the user &lt;code&gt;root&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;create-docker-machines:8f0fe211d9770745ca52ec727b049d95&#34;&gt;Create Docker Machines&lt;/h2&gt;
+
+&lt;p&gt;For the next step we use our Docker Machine driver to connect to the Raspberry Pi Hypriot devices.
+Our hypriot driver is not yet integrated into the official Docker Machine binary.
+So we have to download the &lt;code&gt;docker-machine&lt;/code&gt; binary with our hypriot machine driver.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ curl -o docker-machine http://downloads.hypriot.com/docker-machine_0.4.0-dev_darwin-amd64
+$ chmod +x ./docker-machine
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We download the binary into the current directory and make it executable. You may move it
+into another directory in your PATH to use it from other directories.&lt;/p&gt;
+
+&lt;h3 id=&#34;create-swarm-token:8f0fe211d9770745ca52ec727b049d95&#34;&gt;Create Swarm Token&lt;/h3&gt;
+
+&lt;p&gt;A Docker Swarm cluster uses a unique Cluster ID to enable all swarm agents find each other. We need such a Cluster ID to build our Docker Swarm. This can be done in your shell with this command&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ export TOKEN=$(for i in $(seq 1 32); do echo -n $(echo &amp;quot;obase=16; $(($RANDOM % 16))&amp;quot; | bc); done; echo)
+$ echo $TOKEN
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;For this example we use&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ export TOKEN=babb1eb00bdecadedec0debabb1eb00b
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you already have a Docker swarm container up and running, you also can create a new Cluster ID
+with &lt;code&gt;docker run --rm hypriot/rpi-swarm create&lt;/code&gt;. We simply used the shell commands above to skip this chicken or the egg problem.&lt;/p&gt;
+
+&lt;h3 id=&#34;create-the-swarm-master:8f0fe211d9770745ca52ec727b049d95&#34;&gt;Create the Swarm Master&lt;/h3&gt;
+
+&lt;p&gt;Now we create the Docker Swarm Master on the first Raspberry Pi with our generated Cluster ID&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ ./docker-machine create -d hypriot --swarm --swarm-master --swarm-discovery token://$TOKEN --hypriot-ip-address 192.168.1.101 pi1
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This command connects to the Raspberry Pi, secures the Docker daemon with TLS and pulls the Docker image &lt;code&gt;hypriot/rpi-swarm:latest&lt;/code&gt; from the Docker Hub. It starts both the Swarm Master as well as a Swarm Agent in a container.&lt;/p&gt;
+
+&lt;p&gt;To check it we can connect to the newly started Swarm Master by using the following command that retrieves all environment variables needed for the Docker client to communicate with the Swarm.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ eval $(./docker-machine env --swarm pi1)
+$ docker info
+Containers: 2
+Strategy: spread
+Filters: affinity, health, constraint, port, dependency
+Nodes: 1
+ pi1: 192.168.1.202:2376
+  └ Containers: 2
+  └ Reserved CPUs: 0 / 4
+  └ Reserved Memory: 0 B / 971.3 MiB
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We now have a Swarm Manager running alone. So let&amp;rsquo;s start some more Raspberry Pi&amp;rsquo;s to build a bigger swarm.&lt;/p&gt;
+
+&lt;h3 id=&#34;create-the-swarm-agents:8f0fe211d9770745ca52ec727b049d95&#34;&gt;Create the Swarm agents&lt;/h3&gt;
+
+&lt;p&gt;For the rest of the Raspberry Pi&amp;rsquo;s we also create Docker Machine connections with the same Cluster ID. This time we run docker-machine without the &lt;code&gt;--swarm-master&lt;/code&gt; option to just spin up a Swarm Agent container in each Pi.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ ./docker-machine create -d hypriot --swarm --swarm-discovery token://$TOKEN --hypriot-ip-address 192.168.1.102 pi2
+$ ./docker-machine create -d hypriot --swarm --swarm-discovery token://$TOKEN --hypriot-ip-address 192.168.1.103 pi3
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Let&amp;rsquo;s check what the swarm looks like now&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ docker info
+Containers: 4
+Strategy: spread
+Filters: affinity, health, constraint, port, dependency
+Nodes: 3
+ pi1: 192.168.1.101:2376
+  └ Containers: 2
+  └ Reserved CPUs: 0 / 4
+  └ Reserved Memory: 0 B / 971.3 MiB
+ pi2: 192.168.1.102:2376
+  └ Containers: 1
+  └ Reserved CPUs: 0 / 4
+  └ Reserved Memory: 0 B / 971.3 MiB
+ pi3: 192.168.1.103:2376
+  └ Containers: 1
+  └ Reserved CPUs: 0 / 4
+  └ Reserved Memory: 0 B / 971.3 MiB
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We also can list all containers in the whole swarm as usual with&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ docker ps
+CONTAINER ID        IMAGE                      COMMAND                CREATED             STATUS              PORTS                                    NAMES
+5effaa7de4a3        hypriot/rpi-swarm:latest   &amp;quot;/swarm join --addr    2 minutes ago       Up About a minute   2375/tcp                                 pi3/swarm-agent
+6b73003b7246        hypriot/rpi-swarm:latest   &amp;quot;/swarm join --addr    4 minutes ago       Up 3 minutes        2375/tcp                                 pi2/swarm-agent
+5e00fbf7b9f6        hypriot/rpi-swarm:latest   &amp;quot;/swarm join --addr    7 minutes ago       Up 7 minutes        2375/tcp                                 pi1/swarm-agent
+02c905ec25a0        hypriot/rpi-swarm:latest   &amp;quot;/swarm manage --tls   7 minutes ago       Up 7 minutes        2375/tcp, 192.168.1.101:3376-&amp;gt;3376/tcp   pi1/swarm-agent-master
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;After setting up the Docker Swarm you now can use the normal Docker commands through the port 3376. Have a look at the &lt;a href=&#34;https://docs.docker.com/swarm/&#34;&gt;official Docker Swarm documentation&lt;/a&gt; for more details.&lt;/p&gt;
+
+&lt;p&gt;Just remember to set the environments to communicate with the Swarm Master before using the Docker client.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ eval $(docker-machine env --swarm pi1)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And then you can remotely manage your Raspberry Pi Swarm from your Mac or Linux machine.&lt;/p&gt;
+
+&lt;p&gt;We hope you enjoyed this little tour of Docker Swarm!&lt;/p&gt;
+
+&lt;p&gt;As always use the comments below to give us feedback and share it on Twitter or Facebook.&lt;/p&gt;
+
+&lt;p&gt;Stefan&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

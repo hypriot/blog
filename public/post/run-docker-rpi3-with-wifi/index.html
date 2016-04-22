@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title> Run Docker on a Raspberry Pi 3 with onboard WiFi &middot; Docker Pirates ARMed with explosive stuff </title>
+
+  
+  <link rel="stylesheet" href="/css/poole.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="stylesheet" href="/css/hyde.css">
+  <link rel="stylesheet" href="/css/hypriot.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Docker Pirates ARMed with explosive stuff" />
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-59194692-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+</head>
+
+<body>
+
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-logo">
+      <a href="/"><img src="/images/logo_tr.png" /></a>
+    </div>
+    <div class="sidebar-about">
+      <h1><a href="/">Docker Pirates ARMed with explosive stuff</a></h1>
+      <p class="lead">
+       Roaming the seven seas in search for golden container plunder. 
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="/">HOME</a> </li>
+      
+        <li><a href="/getting-started-with-docker-on-your-arm-device/"> GETTING STARTED </a></li>
+      
+        <li><a href="/downloads/"> DOWNLOADS </a></li>
+      
+        <li><a href="/faq/"> FAQ </a></li>
+      
+        <li><a href="https://gitter.im/hypriot/talk"> COMMUNITY </a></li>
+      
+        <li><a href="/about/"> ABOUT US </a></li>
+      
+        <li><a href="/crew/"> CREW </a></li>
+      
+    </ul>
+
+    <p>&copy; 2016 Hypriot </p>
+    <p><a href="/legal_notice" style="font-size: 1rem;">Legal Notice</a></p>
+    <div class="edit-github" id="edit-github-id">
+        <p>
+          <a href="https://github.com/hypriot/blog"><img src="https://www.presidecms.com/assets/img/icons/github.png" style="float:left; width:9%; height:9%; padding-right: 8px; padding-top: 6px; align: center; ">Edit this blog on GitHub</img></a>
+        </p>
+    </div>
+  </div>
+</div>
+
+
+<div class="content container">
+  <div class="post">
+    <h1>Run Docker on a Raspberry Pi 3 with onboard WiFi</h1>
+    <span class="post-date">Sat, Mar 5, 2016</span>
+    
+
+<p>Today morning we finally got our Raspberry Pi 3&rsquo;s from ThePiHut. They have been overwhelmed by the number of orders.</p>
+
+<p><img src="/images/rpi3-onboard-wifi/thepihut-delivery.jpg" alt="ThePiHut delivery" /></p>
+
+<p>While waiting for the delivery we already heard from our community that the current HypriotOS SD image does not boot.</p>
+
+<p>But with some little tweaks the first people have started running Docker containers with HypriotOS. We will update our image builder soon and publish a new HypriotOS image for an easy out-of-the-box experience.</p>
+
+<p>In the meantime for all the impatient out there I&rsquo;ll give you a short intro how to run the latest Docker Engine on the standard Raspbian SD image.</p>
+
+<h2 id="download-raspbian-lite:41cd8e8b967fec6fd9b7dfd6fb7de44e">Download Raspbian LITE</h2>
+
+<p>Just download and flash the Raspbian LITE image from <a href="https://www.raspberrypi.org/downloads/raspbian/">https://www.raspberrypi.org/downloads/raspbian/</a> or use our <a href="https://github.com/hypriot/flash"><code>flash</code> script</a> with this command.</p>
+
+<pre><code class="language-bash">flash https://downloads.raspberrypi.org/raspbian_lite_latest
+</code></pre>
+
+<p>Now boot your Raspberry Pi 3 and log into it with user <code>pi</code> and the password <code>raspberry</code>.</p>
+
+<pre><code>ssh pi@raspberrypi.local
+</code></pre>
+
+<p>The standard Raspbian image does not resize the SD filesystem automatically.</p>
+
+<h2 id="add-the-overlay-kernel-module:41cd8e8b967fec6fd9b7dfd6fb7de44e">Add the overlay kernel module</h2>
+
+<p>Before we resize and reboot the Pi we also customize a little bit. The overlay kernel module must be loaded automatically while booting, so we just add it with the next command.</p>
+
+<pre><code class="language-bash">echo &quot;overlay&quot; | sudo tee -a /etc/modules
+</code></pre>
+
+<h2 id="customize-wifi:41cd8e8b967fec6fd9b7dfd6fb7de44e">Customize WiFi</h2>
+
+<p>If you want to run your Docker with the onboard WiFi, just add your SSID and pre-shared key with the next command</p>
+
+<pre><code class="language-bash">echo 'network={
+  ssid=&quot;your-ssid&quot;
+  psk=&quot;your-psk&quot;
+}' | sudo tee -a /etc/wpa_supplicant/wpa_supplicant.conf
+</code></pre>
+
+<h2 id="resize-filesystem:41cd8e8b967fec6fd9b7dfd6fb7de44e">Resize filesystem</h2>
+
+<p>Now we have to resize the filesystem to install Docker and have space for Docker images and containers. Start <code>raspi-config</code> and follow the steps to resize your filesystem.</p>
+
+<pre><code class="language-bash">sudo raspi-config
+</code></pre>
+
+<p>After that let raspi-config reboot your Raspberry Pi.</p>
+
+<h2 id="cut-the-wires:41cd8e8b967fec6fd9b7dfd6fb7de44e">Cut the wires</h2>
+
+<p>If you have added your WiFi settings, remove your network cable while rebooting. From now on you can connect to your Raspberry Pi 3 over the air.</p>
+
+<h2 id="install-docker:41cd8e8b967fec6fd9b7dfd6fb7de44e">Install Docker</h2>
+
+<p>After rebooting, eventually unplugging the network cable we have to install Docker. The Raspbian Jessie distribution also has a Docker package, but it is only Version 1.3.3. So we install the Hypriot&rsquo;s Docker 1.10.2 instead.</p>
+
+<p>Just log into your Raspberry Pi 3 again and install Docker with these commands.</p>
+
+<pre><code class="language-bash">ssh pi@raspberrypi.local
+sudo apt-get install -y apt-transport-https
+wget -q https://packagecloud.io/gpg.key -O - | sudo apt-key add -
+echo 'deb https://packagecloud.io/Hypriot/Schatzkiste/debian/ wheezy main' | sudo tee /etc/apt/sources.list.d/hypriot.list
+sudo apt-get update
+sudo apt-get install -y docker-hypriot
+sudo systemctl enable docker
+</code></pre>
+
+<p>Now you have a good setup until the next HypriotOS release is coming.</p>
+
+<p><img src="/images/rpi3-onboard-wifi/rpi3-raspbian-lite-docker-version.png" alt="docker version" /></p>
+
+<p>And with the onboard WiFi it is now very easy to build some mobile Docker IoT projects.</p>
+
+<p><img src="/images/rpi3-onboard-wifi/rpi3-over-the-air.jpg" alt="docker over the air" /></p>
+
+<p>As always use the comments below to give us feedback and share it on Twitter or Facebook.</p>
+
+<p>Stefan <a href="https://twitter.com/stefscherer">@stefscherer</a></p>
+
+    <div class="social-sharing">
+  
+<div class="social-sharing-twitter" style="float: left;">
+  <a class="twitter-share-button"
+    href="https://twitter.com/share"
+    data-url="http://localhost:1313/post/run-docker-rpi3-with-wifi/"
+    data-lang="en"
+    data-show-count="true"
+    data-via="HypriotTweets">
+  Tweet
+  </a>
+  <script>
+  window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
+  </script>
+</div>
+
+  
+<div class="social-sharing-facebook" style="float: left;">
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5&appId=599115553447708";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+  <div class="fb-share-button" data-href="http://localhost:1313/post/run-docker-rpi3-with-wifi/" data-layout="button_count"></div>
+</div>
+
+  
+<div class="social-sharing-google">
+  <script >
+    window.___gcfg = {
+      lang: 'en-US',
+      parsetags: 'onload'
+    };
+  </script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <div class="g-plus" data-action="share" data-annotation="bubble" data-width="200" data-href="http://localhost:1313/post/run-docker-rpi3-with-wifi/"></div>
+</div>
+
+</div>
+
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'hypriot';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+</div>
+
+<script data-no-instant>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

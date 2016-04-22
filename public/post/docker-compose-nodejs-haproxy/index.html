@@ -1,0 +1,552 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title> How to use Docker Compose to run complex multi container apps on your Raspberry Pi &middot; Docker Pirates ARMed with explosive stuff </title>
+
+  
+  <link rel="stylesheet" href="/css/poole.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="stylesheet" href="/css/hyde.css">
+  <link rel="stylesheet" href="/css/hypriot.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Docker Pirates ARMed with explosive stuff" />
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-59194692-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+</head>
+
+<body>
+
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-logo">
+      <a href="/"><img src="/images/logo_tr.png" /></a>
+    </div>
+    <div class="sidebar-about">
+      <h1><a href="/">Docker Pirates ARMed with explosive stuff</a></h1>
+      <p class="lead">
+       Roaming the seven seas in search for golden container plunder. 
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="/">HOME</a> </li>
+      
+        <li><a href="/getting-started-with-docker-on-your-arm-device/"> GETTING STARTED </a></li>
+      
+        <li><a href="/downloads/"> DOWNLOADS </a></li>
+      
+        <li><a href="/faq/"> FAQ </a></li>
+      
+        <li><a href="https://gitter.im/hypriot/talk"> COMMUNITY </a></li>
+      
+        <li><a href="/about/"> ABOUT US </a></li>
+      
+        <li><a href="/crew/"> CREW </a></li>
+      
+    </ul>
+
+    <p>&copy; 2016 Hypriot </p>
+    <p><a href="/legal_notice" style="font-size: 1rem;">Legal Notice</a></p>
+    <div class="edit-github" id="edit-github-id">
+        <p>
+          <a href="https://github.com/hypriot/blog"><img src="https://www.presidecms.com/assets/img/icons/github.png" style="float:left; width:9%; height:9%; padding-right: 8px; padding-top: 6px; align: center; ">Edit this blog on GitHub</img></a>
+        </p>
+    </div>
+  </div>
+</div>
+
+
+<div class="content container">
+  <div class="post">
+    <h1>How to use Docker Compose to run complex multi container apps on your Raspberry Pi</h1>
+    <span class="post-date">Mon, Apr 6, 2015</span>
+    
+
+<p>In this blog post we gonna walk you through the different steps that are necessary to get you started with Docker Compose and show how to use it.</p>
+
+<p>To demonstrate the benefits of Docker Compose we are going to create a simple Node.js &ldquo;Hello World&rdquo; application which will run on three Docker Node.js containers.
+HTTP requests will be distributed to these Node.js nodes by an HAProxy instance running on another Docker container.</p>
+
+<p>If you haven&rsquo;t heard about Docker Compose its docs have a neat description of what it is all about:</p>
+
+<blockquote>
+<p>Compose is a tool for defining and running complex applications with Docker.
+With Compose, you define a multi-container application in a single file,
+then spin your application up in a single command which does everything that needs to be done to get it running.</p>
+</blockquote>
+
+<h2 id="a-hello-world-application:63a2807194fcdb5e829ff92f8506efa0">A Hello-World application</h2>
+
+<p>We start by creating a simple Hello-World <a href="https://nodejs.org">Node.js</a> web application based on <a href="http://expressjs.com/">Express.js</a>.</p>
+
+<p>To keep it simple we are only going to show a &ldquo;Hello World&rdquo; message and the hostname of the container.  This will be useful later on.</p>
+
+<h3 id="src-index-js:63a2807194fcdb5e829ff92f8506efa0">src/index.js</h3>
+
+<p>First we create a <code>src/index.js</code> file for the web application:</p>
+
+<pre><code class="language-javascript">var express = require('express');
+var os = require(&quot;os&quot;);
+
+var app = express();
+var hostname = os.hostname();
+
+app.get('/', function (req, res) {
+  res.send('&lt;html&gt;&lt;body&gt;Hello from Node.js container ' + hostname + '&lt;/body&gt;&lt;/html&gt;');
+});
+
+app.listen(80);
+console.log('Running on http://localhost');
+</code></pre>
+
+<h3 id="src-package-json:63a2807194fcdb5e829ff92f8506efa0">src/package.json</h3>
+
+<p>Then we need to create a <code>src/package.json</code> file with the dependencies we need to build and start the Node.js application:</p>
+
+<pre><code class="language-json">{
+  &quot;name&quot;: &quot;node-hello-world&quot;,
+  &quot;private&quot;: true,
+  &quot;version&quot;: &quot;0.0.1&quot;,
+  &quot;description&quot;: &quot;Node.js Hello world app on docker&quot;,
+  &quot;author&quot;: &quot;hypriot.com&quot;,
+  &quot;dependencies&quot;: {
+    &quot;express&quot;: &quot;4.12.0&quot;
+  }
+}
+</code></pre>
+
+<p>And that is all that is need to set up this small Hello-World application from the nods.js side of things.</p>
+
+<h3 id="dockerfile:63a2807194fcdb5e829ff92f8506efa0">Dockerfile</h3>
+
+<p>As we want to run our web application in a Docker container we now need to create a <code>Dockerfile</code> for that.
+The Dockerfile is simple and straightforward.</p>
+
+<pre><code># use our prepared Raspberry Pi compatible Docker base image with Node.js
+FROM hypriot/rpi-node:0.12.0
+
+# make the src folder available in the docker image
+ADD src/ /src
+WORKDIR /src
+
+# install the dependencies from the package.json file
+RUN npm install
+
+# make port 80 available outside of the image
+EXPOSE 80
+
+# start node with the index.js file of our hello-world application
+CMD [&quot;node&quot;, &quot;index.js&quot;]
+</code></pre>
+
+<h2 id="running-one-container:63a2807194fcdb5e829ff92f8506efa0">Running one container</h2>
+
+<p>We can now test if our Node.js web server works by building a Docker application image first and then spinning it up as a new container.</p>
+
+<pre><code class="language-bash">$ docker build -t node-hello .
+
+$ docker run -p 80:80 --name web -d node-hello
+</code></pre>
+
+<p>Then we can check if the server is running with the following command</p>
+
+<pre><code class="language-bash">$ curl http://localhost
+&lt;html&gt;&lt;body&gt;Hello from Node.js container 38f69acbdf13&lt;/body&gt;&lt;/html&gt;
+</code></pre>
+
+<p>As we have published the port 80 to the host we also can access our web application from another machine.</p>
+
+<h3 id="benchmarking-our-web-application:63a2807194fcdb5e829ff92f8506efa0">Benchmarking our web application</h3>
+
+<p>As we are curious guys we want to know how well our Hello-World application performs on a Docker-Raspberry-Pi-Combo.</p>
+
+<p>So we are going to use <a href="http://httpd.apache.org/docs/2.2/programs/ab.html">Apache Bench</a> to do some benchmarking from another machine in the network.
+To install Apache Bench on Debian/Ubuntu use <code>sudo apt-get install apache2-utils</code>. On Mac OS X <code>ab</code> usually comes preinstalled.</p>
+
+<pre><code class="language-bash">$ ab -n 10000 -c 10 http://ip-of-your-rpi/
+</code></pre>
+
+<p>This runs 10.000 HTTP requests with a concurrency of 10. The CPU load while running the benchmark test shows that only one CPU core of the Raspberry Pi 2 is used. The reason is that Node.js is a single threaded process.</p>
+
+<p><img src="/images/rpi-node-haproxy/htop-1-webserver.png" alt="htop with 1 webserver" /></p>
+
+<p>And here are the results of the Apache Bench test. As you can see a single web server can handle <strong>338</strong> Requests per second.</p>
+
+<pre><code class="language-bash">$ ab -n 10000 -c 10 http://192.168.33.200/
+This is ApacheBench, Version 2.3 &lt;$Revision: 655654 $&gt;
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 192.168.33.200 (be patient)
+Completed 1000 requests
+Completed 2000 requests
+Completed 3000 requests
+Completed 4000 requests
+Completed 5000 requests
+Completed 6000 requests
+Completed 7000 requests
+Completed 8000 requests
+Completed 9000 requests
+Completed 10000 requests
+Finished 10000 requests
+
+
+Server Software:
+Server Hostname:        192.168.33.200
+Server Port:            80
+
+Document Path:          /
+Document Length:        67 bytes
+
+Concurrency Level:      10
+Time taken for tests:   29.499 seconds
+Complete requests:      10000
+Failed requests:        0
+Write errors:           0
+Total transferred:      2480000 bytes
+HTML transferred:       670000 bytes
+Requests per second:    338.99 [#/sec] (mean)
+Time per request:       29.499 [ms] (mean)
+Time per request:       2.950 [ms] (mean, across all concurrent requests)
+Transfer rate:          82.10 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        1    1   2.0      1      78
+Processing:    10   28   5.6     26     108
+Waiting:        9   28   5.4     26     106
+Total:         13   29   5.8     27     109
+
+Percentage of the requests served within a certain time (ms)
+  50%     27
+  66%     27
+  75%     28
+  80%     28
+  90%     38
+  95%     39
+  98%     47
+  99%     53
+ 100%    109 (longest request)
+</code></pre>
+
+<h3 id="cleaning-up:63a2807194fcdb5e829ff92f8506efa0">Cleaning up</h3>
+
+<p>That&rsquo;s it for our first test drive. We can now stop the web server container.</p>
+
+<pre><code class="language-bash">$ docker stop web
+</code></pre>
+
+<h2 id="running-multiple-container-with-docker-compose:63a2807194fcdb5e829ff92f8506efa0">Running multiple container with Docker Compose</h2>
+
+<p>To run more of these web servers we now use Docker Compose to create a farm of web servers which are running behind a <a href="http://www.haproxy.org">HAProxy</a> load balancer.</p>
+
+<p>As our mission is to make Docker and its toolset available on ARM we created a <code>docker-compose</code> binary ready to run on your Raspberry Pi.</p>
+
+<h3 id="installation:63a2807194fcdb5e829ff92f8506efa0">Installation</h3>
+
+<p>First we have to install Docker Compose for the ARM-based Raspberry Pi from our fork at <a href="https://github.com/hypriot/compose">https://github.com/hypriot/compose</a>.</p>
+
+<pre><code class="language-bash">$ sudo sh -c &quot;curl -L https://github.com/hypriot/compose/releases/download/1.1.0-raspbian/docker-compose-`uname -s`-`uname -m` &gt; /usr/local/bin/docker-compose; chmod +x /usr/local/bin/docker-compose&quot;
+</code></pre>
+
+<h3 id="docker-compose-yml:63a2807194fcdb5e829ff92f8506efa0">docker-compose.yml</h3>
+
+<p>To get our four container configuration set up we first need to create a <code>docker-compose.yml</code> file.
+We will need three containers <code>weba</code>, <code>webb</code> and <code>webc</code> based on our web application image and one <code>haproxy</code> container.</p>
+
+<pre><code class="language-yaml">weba:
+  build: .
+  expose:
+    - 80
+
+webb:
+  build: .
+  expose:
+    - 80
+
+webc:
+  build: .
+  expose:
+    - 80
+
+haproxy:
+  image: hypriot/rpi-haproxy
+  volumes:
+   - haproxy:/haproxy-override
+  links:
+   - weba
+   - webb
+   - webc
+  ports:
+   - &quot;80:80&quot;
+   - &quot;70:70&quot;
+
+  expose:
+   - &quot;80&quot;
+   - &quot;70&quot;
+</code></pre>
+
+<p>Each of the three web application containers exposes port 80.
+Additionally the HAProxy container will have (network) links to each of the three web application containers.
+Furthermore the HAProxy container will exposes port 80 as a central entry point to our Hello-World application webserver farm and its admin interface on port 70.</p>
+
+<h3 id="haproxy-haproxy-cfg:63a2807194fcdb5e829ff92f8506efa0">haproxy/haproxy.cfg</h3>
+
+<p>HAProxy needs a configuration file that is mapped into the container. Create a file <code>haproxy/haproxy.cfg</code> with the following content.</p>
+
+<pre><code>global
+  log 127.0.0.1 local0
+  log 127.0.0.1 local1 notice
+
+defaults
+  log global
+  mode http
+  option httplog
+  option dontlognull
+  timeout connect 5000
+  timeout client 10000
+  timeout server 10000
+
+listen stats :70
+  stats enable
+  stats uri /
+
+frontend balancer
+  bind 0.0.0.0:80
+  mode http
+  default_backend aj_backends
+
+backend aj_backends
+  mode http
+  option forwardfor
+  # http-request set-header X-Forwarded-Port %[dst_port]
+  balance roundrobin
+  server weba weba:80 check
+  server webb webb:80 check
+  server webc webc:80 check
+  # option httpchk OPTIONS * HTTP/1.1\r\nHost:\ localhost
+  option httpchk GET /
+  http-check expect status 200
+</code></pre>
+
+<p>HAProxy does a health check for each of our three web servers.</p>
+
+<h3 id="running-our-webserver-farm:63a2807194fcdb5e829ff92f8506efa0">Running our webserver farm</h3>
+
+<p>Now that we have set up all the necessary parts it is time to spin up all our Docker containers at once. Just run the command <code>docker-compose up</code> interactively to see what is happening or use option <code>-d</code> to start all containers in the background.</p>
+
+<pre><code class="language-bash">$ docker-compose up -d
+Recreating rpinodehaproxyexample_webb_1...
+Recreating rpinodehaproxyexample_webc_1...
+Recreating rpinodehaproxyexample_weba_1...
+Recreating rpinodehaproxyexample_haproxy_1...
+</code></pre>
+
+<p>This will spin up all of our three web application servers and one HAProxy instance. Only the HAProxy container can be reached from the outside and each request will be load balanced by HAProxy to one of our web servers.</p>
+
+<p>You can watch the logs of all our containers by running the following command.</p>
+
+<pre><code class="language-bash">$ docker-compose logs
+Attaching to rpinodehaproxyexample_haproxy_1, rpinodehaproxyexample_weba_1, rpinodehaproxyexample_webc_1, rpinodehaproxyexample_webb_1
+weba_1    | Running on http://localhost
+webc_1    | Running on http://localhost
+webb_1    | Running on http://localhost
+</code></pre>
+
+<p>Now we can use <code>curl</code> again to test our Hello-World application farm as whole.</p>
+
+<pre><code class="language-bash"># on your Raspberry Pi
+$ curl http://localhost
+&lt;html&gt;&lt;body&gt;Hello from Node.js container fa05496d9ce7&lt;/body&gt;&lt;/html&gt;~
+$ curl http://localhost
+&lt;html&gt;&lt;body&gt;Hello from Node.js container 1167459cdacc&lt;/body&gt;&lt;/html&gt;~
+$ curl http://localhost
+&lt;html&gt;&lt;body&gt;Hello from Node.js container 660840416a84&lt;/body&gt;&lt;/html&gt;~
+$ curl http://localhost
+&lt;html&gt;&lt;body&gt;Hello from Node.js container fa05496d9ce7&lt;/body&gt;&lt;/html&gt;~
+</code></pre>
+
+<p>As you can see the container name is different for each <code>curl</code> request.
+And the fourth request has the same container name as the first one.
+The HAProxy container forwards each request in a round robin fashion, so each web server gets only one third of the load.</p>
+
+<h3 id="benchmarking-our-web-application-farm:63a2807194fcdb5e829ff92f8506efa0">Benchmarking our web application farm</h3>
+
+<p>Let&rsquo;s see how our web server farm fares compared to our single web application container instance from our first benchmark.</p>
+
+<pre><code class="language-bash">$ ab -n 10000 -c 30 http://ip-or-your-rpi/
+</code></pre>
+
+<p>Now we run 10.000 HTTP requests with a concurrency of 30. The CPU load while running the benchmark test now shows that all four CPU cores of the Raspberry Pi 2 are used.</p>
+
+<p><img src="/images/rpi-node-haproxy/htop-3-webserver-haproxy.png" alt="htop with 3 webserver and haproxy" /></p>
+
+<p>And here are the results of the benchmark test itself.</p>
+
+<pre><code class="language-bash">$ ab -n 10000 -c 30 http://192.168.33.200/
+This is ApacheBench, Version 2.3 &lt;$Revision: 655654 $&gt;
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking 192.168.33.200 (be patient)
+Completed 1000 requests
+Completed 2000 requests
+Completed 3000 requests
+Completed 4000 requests
+Completed 5000 requests
+Completed 6000 requests
+Completed 7000 requests
+Completed 8000 requests
+Completed 9000 requests
+Completed 10000 requests
+Finished 10000 requests
+
+
+Server Software:
+Server Hostname:        192.168.33.200
+Server Port:            80
+
+Document Path:          /
+Document Length:        67 bytes
+
+Concurrency Level:      30
+Time taken for tests:   23.353 seconds
+Complete requests:      10000
+Failed requests:        0
+Write errors:           0
+Total transferred:      2480000 bytes
+HTML transferred:       670000 bytes
+Requests per second:    428.22 [#/sec] (mean)
+Time per request:       70.058 [ms] (mean)
+Time per request:       2.335 [ms] (mean, across all concurrent requests)
+Transfer rate:          103.71 [Kbytes/sec] received
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:        1    2   1.4      2      15
+Processing:     5   68  59.5     51     259
+Waiting:        4   67  59.3     51     259
+Total:          5   70  59.5     54     260
+
+Percentage of the requests served within a certain time (ms)
+  50%     54
+  66%     77
+  75%     94
+  80%    108
+  90%    163
+  95%    210
+  98%    231
+  99%    234
+ 100%    260 (longest request)
+</code></pre>
+
+<p>As you can see the cluster can handle <strong>428</strong> Requests per second. Strangely enough we do not get three times the requests per second that we might have expected.
+Right now we are not really sure what the reason for this behaviour is. This may or may not be due to the fact that the NIC of the Raspberry Pi is sharing its IO bandwidth via the USB2 port.</p>
+
+<p>Stopping our little webfarm is also easily done with</p>
+
+<pre><code class="language-bash">$ docker-compose stop
+Killing rpinodehaproxyexample_haproxy_1...
+Killing rpinodehaproxyexample_weba_1...
+Killing rpinodehaproxyexample_webc_1...
+Killing rpinodehaproxyexample_webb_1...
+</code></pre>
+
+<p>If you want to learn more about Docker Compose, just head over to the official documentation at <a href="https://docs.docker.com/compose/">https://docs.docker.com/compose/</a>.</p>
+
+<p>You can find the code of this example on GitHub at <a href="https://github.com/hypriot/rpi-node-haproxy-example">https://github.com/hypriot/rpi-node-haproxy-example</a>.</p>
+
+<p>We hope you enjoyed this little tour of Docker Compose!</p>
+
+<p>As always use the comments below to give us feedback and share it on our <a href="https://news.ycombinator.com/item?id=9329890">HackerNews-Thread</a>, Twitter or Facebook.</p>
+
+    <div class="social-sharing">
+  
+<div class="social-sharing-twitter" style="float: left;">
+  <a class="twitter-share-button"
+    href="https://twitter.com/share"
+    data-url="http://localhost:1313/post/docker-compose-nodejs-haproxy/"
+    data-lang="en"
+    data-show-count="true"
+    data-via="HypriotTweets">
+  Tweet
+  </a>
+  <script>
+  window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
+  </script>
+</div>
+
+  
+<div class="social-sharing-facebook" style="float: left;">
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5&appId=599115553447708";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+  <div class="fb-share-button" data-href="http://localhost:1313/post/docker-compose-nodejs-haproxy/" data-layout="button_count"></div>
+</div>
+
+  
+<div class="social-sharing-google">
+  <script >
+    window.___gcfg = {
+      lang: 'en-US',
+      parsetags: 'onload'
+    };
+  </script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <div class="g-plus" data-action="share" data-annotation="bubble" data-width="200" data-href="http://localhost:1313/post/docker-compose-nodejs-haproxy/"></div>
+</div>
+
+</div>
+
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'hypriot';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+</div>
+
+<script data-no-instant>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog on Docker Pirates ARMed with explosive stuff</title>
+    <link>http://localhost:1313/categories/blog/</link>
+    <description>Recent content in Blog on Docker Pirates ARMed with explosive stuff</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 27 Mar 2015 22:52:37 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/blog/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>We moved our blog from Posthaven to Hugo after only three posts. Why?</title>
+      <link>http://localhost:1313/post/moved-from-posthaven-to-hugo/</link>
+      <pubDate>Fri, 27 Mar 2015 22:52:37 +0100</pubDate>
+      
+      <guid>http://localhost:1313/post/moved-from-posthaven-to-hugo/</guid>
+      <description>
+
+&lt;p&gt;Today we made the move and switched our blog from &lt;a href=&#34;http://posthaven.com&#34;&gt;Posthaven&lt;/a&gt; to &lt;a href=&#34;http://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;.
+And that after having published only three blog posts. You might ask yourself why?&lt;/p&gt;
+
+&lt;h2 id=&#34;in-the-beginning-there-was-posthaven:ab1a22dbb8c2ab1383cf764571aa0986&#34;&gt;In the beginning there was Posthaven&lt;/h2&gt;
+
+&lt;p&gt;Well when we first were looking for place to start our blog it was all about getting started fast without much effort.
+We also wanted something simple which wouldn&amp;rsquo;t cost a fortune. Posthaven seemed to fit the bill perfectly. It just cost us 5$/month and we had it up and running in half an hour.
+And that is including setting it up to work with a custom domain and Google Analytics support.&lt;/p&gt;
+
+&lt;p&gt;But after a couple of weeks it already felt like it had too many restrictions.
+For instance there was nearly no support for adjusting the look and feel of the blog. Only some basic CSS styling was possible.
+After contacting the support I was told that some theming support was in the pipeline but no concrete release date was available.&lt;/p&gt;
+
+&lt;p&gt;Another problem was that it was very difficult to add some non-blog-post-style pages like &amp;lsquo;About&amp;rsquo; or &amp;lsquo;legal notice&amp;rsquo;. One could create such pages but these had an empty author field which was shown to visitors.
+Not very satisfying.&lt;/p&gt;
+
+&lt;p&gt;Another nuisance was that the Google Analytics support was only very basic. It was not possible to add any custom analytics code to blog posts - for instance to track download links with custom tracking events.&lt;/p&gt;
+
+&lt;p&gt;And last but not least it was difficult to add syntax highlighted text to the blog. We found the advise to use Github Gists instead somewhere but we could not find out a way to honour the gists CSS styling after embedding the its link in our post.
+That was the final event that pushed us towards trying another solution.&lt;/p&gt;
+
+&lt;p&gt;We already had this other solution on our radar from the beginning but were hesitant to use it because we had been afraid that it would be a big time sink. And we had been right.&lt;/p&gt;
+
+&lt;h2 id=&#34;then-there-came-hugo:ab1a22dbb8c2ab1383cf764571aa0986&#34;&gt;&amp;hellip; then there came Hugo&lt;/h2&gt;
+
+&lt;p&gt;Hugo is a so-called static-blog generator similar to &lt;a href=&#34;http://jekyllrb.com/&#34;&gt;Jekyll&lt;/a&gt;.
+It is able to generate a complete blog from text files you write with &lt;a href=&#34;http://daringfireball.net/projects/markdown&#34;&gt;Markdown&lt;/a&gt;.
+As markdown is just a text format it can be easily managed with a revison control system like Git.&lt;/p&gt;
+
+&lt;p&gt;That comes in especially handy if you write blog posts as part of a team. Thus changes can easily be tracked and coordinated until a post is ready to be published.&lt;/p&gt;
+
+&lt;h2 id=&#34;and-we-paid-the-price:ab1a22dbb8c2ab1383cf764571aa0986&#34;&gt;&amp;hellip; and we paid the price.&lt;/h2&gt;
+
+&lt;p&gt;All in all it took us about 20 hours to move the old blog to Hugo.&lt;br /&gt;
+That not only includes the time to learn all about Hugo but also the time to find a suitable theme as a starting point for our own and to implement a responsive image gallery.
+Furthermore we needed to add support for social sharing and for comments with Disqus. Finally we automated the deployment with &lt;a href=&#34;https://github.com/drone&#34;&gt;Drone&lt;/a&gt; to &lt;a href=&#34;https://pages.github.com/&#34;&gt;Github-Pages&lt;/a&gt;. And that is not even all we had to do.&lt;/p&gt;
+
+&lt;p&gt;Of course with this new knowledge and experience under our belt, we would be able to start another blog in a fraction of this time.
+But nevertheless the time we had to invest for this first one was substantial.&lt;/p&gt;
+
+&lt;h2 id=&#34;so-was-it-worth-the-effort:ab1a22dbb8c2ab1383cf764571aa0986&#34;&gt;So was it worth the effort?&lt;/h2&gt;
+
+&lt;p&gt;After moving &amp;hellip;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;we can easily modify the design of the blog&lt;/li&gt;
+&lt;li&gt;we can track everything to our heart&amp;rsquo;s content&lt;/li&gt;
+&lt;li&gt;we have a really cool team publishing workflow with Markdown, Git, Github-Pages and Drone&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;So yes we think it was worth it.&lt;/p&gt;
+
+&lt;p&gt;I guess our new blog still has some kinks we have to iron out. If you find a problem let us know!&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

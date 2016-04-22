@@ -1,0 +1,71 @@
+.profile {
+  margin-bottom: 2rem;
+  min-height: 150px;
+}
+
+.profile p {
+  margin-bottom: 3px;
+}
+
+.profile img {
+  float: left;
+  margin-right: 10px;
+  width: 120px;
+  margin-top: 4px;
+}
+
+.clearfix:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#disqus_thread {
+margin-top: 3rem;
+}
+
+/* Social Sharing */
+.social-sharing {
+	padding-left: 2px;
+	margin-top: 0.75rem;
+	margin-bottom: 0.75rem;
+}
+
+.social-sharing-twitter > iframe {
+  vertical-align: bottom;
+}
+
+.fb-share-button {
+  padding-left: 10px;
+}
+
+.social-sharing-google iframe {
+  padding-left: 10px;
+  margin-top: 10px !important;
+}
+
+.posts > .summary {
+  margin-bottom: 3rem;
+}
+
+.video-container {
+	position:relative;
+	padding-bottom:56.25%;
+	padding-top:30px;
+	height:0;
+	overflow:hidden;
+}
+
+.video-container iframe, .video-container object, .video-container embed {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+}
+
+pre {
+  overflow: auto;
+  word-wrap: normal;
+  white-space: pre;
+}

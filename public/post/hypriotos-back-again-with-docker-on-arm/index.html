@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title> HypriotOS: Back Again and Better then Ever &middot; Docker Pirates ARMed with explosive stuff </title>
+
+  
+  <link rel="stylesheet" href="/css/poole.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="stylesheet" href="/css/hyde.css">
+  <link rel="stylesheet" href="/css/hypriot.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Docker Pirates ARMed with explosive stuff" />
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-59194692-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+</head>
+
+<body>
+
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-logo">
+      <a href="/"><img src="/images/logo_tr.png" /></a>
+    </div>
+    <div class="sidebar-about">
+      <h1><a href="/">Docker Pirates ARMed with explosive stuff</a></h1>
+      <p class="lead">
+       Roaming the seven seas in search for golden container plunder. 
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="/">HOME</a> </li>
+      
+        <li><a href="/getting-started-with-docker-on-your-arm-device/"> GETTING STARTED </a></li>
+      
+        <li><a href="/downloads/"> DOWNLOADS </a></li>
+      
+        <li><a href="/faq/"> FAQ </a></li>
+      
+        <li><a href="https://gitter.im/hypriot/talk"> COMMUNITY </a></li>
+      
+        <li><a href="/about/"> ABOUT US </a></li>
+      
+        <li><a href="/crew/"> CREW </a></li>
+      
+    </ul>
+
+    <p>&copy; 2016 Hypriot </p>
+    <p><a href="/legal_notice" style="font-size: 1rem;">Legal Notice</a></p>
+    <div class="edit-github" id="edit-github-id">
+        <p>
+          <a href="https://github.com/hypriot/blog"><img src="https://www.presidecms.com/assets/img/icons/github.png" style="float:left; width:9%; height:9%; padding-right: 8px; padding-top: 6px; align: center; ">Edit this blog on GitHub</img></a>
+        </p>
+    </div>
+  </div>
+</div>
+
+
+<div class="content container">
+  <div class="post">
+    <h1>HypriotOS: Back Again and Better then Ever</h1>
+    <span class="post-date">Mon, Mar 30, 2015</span>
+    
+
+<p>Time is running and it is nearly a month since we released our last ARM Docker SD card image for the Raspberry Pi.
+Listening to our users and having some ideas of our own we are back again with our latest version of HypriotOS.</p>
+
+<p>We dubbed it &ldquo;<strong>Jack</strong>&rdquo; as every proper software release should have a fitting <a href="http://royal.pingdom.com/2010/05/27/the-developer-obsession-with-code-names-114-interesting-examples/">code name</a>.</p>
+
+<h2 id="summary-of-changes:3dc6f6d2f6296024232980f87970ab3c">Summary of Changes</h2>
+
+<p>Jack brings along a host of new features</p>
+
+<ul>
+<li>an upgrade of the Linux kernel from 3.18.8 to <strong>3.18.10</strong></li>
+<li>support for <a href="http://openvswitch.org/">Open vSwitch</a></li>
+<li>support for <strong>network hotplugging</strong></li>
+<li>out of the box support for <strong>Wifi</strong></li>
+<li>support for <strong>Avahi</strong> (aka Apple Bonjour)</li>
+<li>more inodes to allow for more files in the filesystem</li>
+<li>some smaller improvements/additions: fake-hwclock, usbutils, htop</li>
+</ul>
+
+<p>Some of these feature deserve a more thorough explanation.</p>
+
+<h3 id="open-vswitch-support:3dc6f6d2f6296024232980f87970ab3c">Open vSwitch support</h3>
+
+<p>Check out this cool video <a href="https://www.youtube.com/watch?v=sBy0NVBPc9g">Running Open vSwitch on Docker</a> from Dave Tucker as an introduction to Docker and Open vSwitch.
+We added the foundation for using Open vSwitch by adding the necessary kernel support into our image.</p>
+
+<p>You can see for yourself by typing the following</p>
+
+<p><div class="highlight" style="background: #272822"><pre style="line-height: 125%">HypriotOS: root@black-pearl in ~
+$ modprobe openvswitch
+HypriotOS: root@black-pearl in ~
+$ lsmod | grep openvswitch
+openvswitch            68194  0
+vxlan                  29211  1 openvswitch
+gre                     4069  1 openvswitch
+</pre></div>
+</p>
+
+<p>Be aware that you still need a working Open vSwitch Docker image that works for ARM.
+If nobody else is faster we might provide one soon ourselves!</p>
+
+<h3 id="improved-networking-support:3dc6f6d2f6296024232980f87970ab3c">Improved Networking Support</h3>
+
+<h4 id="hotplug:3dc6f6d2f6296024232980f87970ab3c">Hotplug</h4>
+
+<p>To make the networking with our image a smoother experience we added hotplug support for networking devices.
+This allows you to add for instance a USB Wifi Dongle and it will be recognized by your Pi at once.</p>
+
+<p>You can check if it worked by using <strong>lsusb</strong>:</p>
+
+<p><div class="highlight" style="background: #272822"><pre style="line-height: 125%">$ lsusb
+Bus 001 Device 002: ID 0424:9514 Standard Microsystems Corp.
+Bus 001 Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
+Bus 001 Device 003: ID 0424:ec00 Standard Microsystems Corp.
+Bus 001 Device 004: ID 0bda:8178 Realtek Semiconductor Corp. RTL8192CU 802.11n WLAN Adapter
+</pre></div>
+</p>
+
+<h4 id="wifi:3dc6f6d2f6296024232980f87970ab3c">Wifi</h4>
+
+<p>One of the most asked for features regarding our SD image was the support of Wifi.</p>
+
+<p>The easiest way to get started with Wifi is on Mac with our <a href="https://github.com/hypriot/flash">flash script</a>.
+This script does not only allow you to set Wifi configuration but it also allows you to fetch, configure and flash the SD card in one go.</p>
+
+<p><div class="highlight" style="background: #272822"><pre style="line-height: 125%">flash --ssid Your-Wifi-SID --password Your-Wifi-Password http://downloads.hypriot.com/hypriot-rpi-20150329-140334.img.zip
+</pre></div>
+</p>
+
+<p>If you cannot use our nifty flash tool you have to first boot your Pi with a network cable attached.
+Then you can add your Wifi credentials in <code>/boot/occidentalis.txt</code> as described in the <a href="https://github.com/hypriot/flash#occidentalistxt">Readme</a> of the flash tool.
+Afterwards run <code>occi</code> at the command line and reboot.</p>
+
+<p>After rebooting you should see a wlan-interface with an ip address assigned similar to this:</p>
+
+<p><div class="highlight" style="background: #272822"><pre style="line-height: 125%">$ ip a
+1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host
+       valid_lft forever preferred_lft forever
+2: eth0: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc pfifo_fast state DOWN qlen 1000
+    link/ether b8:27:eb:c0:df:1a brd ff:ff:ff:ff:ff:ff
+    inet 192.168.178.83/24 brd 192.168.178.255 scope global eth0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::ba27:ebff:fec0:df1a/64 scope link
+       valid_lft forever preferred_lft forever
+3: wlan0: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc mq state UP qlen 1000
+    link/ether e8:4e:06:0b:bf:d8 brd ff:ff:ff:ff:ff:ff
+    inet 192.168.178.144/24 brd 192.168.178.255 scope global wlan0
+       valid_lft forever preferred_lft forever
+    inet6 fe80::ea4e:6ff:fe0b:bfd8/64 scope link
+       valid_lft forever preferred_lft forever
+4: docker0: &lt;NO-CARRIER,BROADCAST,MULTICAST,UP&gt; mtu 1500 qdisc noqueue state DOWN
+    link/ether 56:84:7a:fe:97:99 brd ff:ff:ff:ff:ff:ff
+    inet 172.17.42.1/16 scope global docker0
+       valid_lft forever preferred_lft forever
+</pre></div>
+</p>
+
+<h3 id="support-for-avahi-bonjour:3dc6f6d2f6296024232980f87970ab3c">Support for Avahi/Bonjour</h3>
+
+<p>One of the major problems after booting your Pi always was how to find out its IP address.
+There are many approaches to solve this problem but one of the easiest is with the help of <a href="http://de.wikipedia.org/wiki/Avahi_(Software">Avahi</a>.</p>
+
+<p>Now after booting up our SD card image you can just ssh into your Pi without finding out the IP address first.</p>
+
+<p><div class="highlight" style="background: #272822"><pre style="line-height: 125%">$ ssh root@black-pearl.local
+root@black-pearl.local&#39;s password:
+Linux black-pearl 3.18.10-hypriotos-v7+ #2 SMP PREEMPT Sun Mar 29 13:13:41 UTC 2015 armv7l
+
+The programs included with the Debian GNU/Linux system are free software;
+the exact distribution terms for each program are described in the
+individual files in /usr/share/doc/*/copyright.
+
+Debian GNU/Linux comes with ABSOLUTELY NO WARRANTY, to the extent
+permitted by applicable law.
+Last login: Sun Mar 29 23:49:43 2015 from macbook
+HypriotOS: root@black-pearl in ~
+$
+</pre></div>
+</p>
+
+<p><strong>black-pearl</strong> is the standard hostname your Pi gets after booting with our image.</p>
+
+<p>This out of the box experience is once again unfortunately only for Mac users.
+Linux and Windows users need to install additional software first.</p>
+
+<p>Linux users need to install the Avahi daemon. For Ubuntu it works like this</p>
+
+<p><code>sudo apt-get install avahi-daemon</code></p>
+
+<p>Windows users need to install <a href="https://www.apple.com/de/itunes/download/">iTunes</a> as Bonjour/Avahi comes bundles with it.</p>
+
+<h2 id="download:3dc6f6d2f6296024232980f87970ab3c">Download</h2>
+
+<p>The new image can be downloaded here:</p>
+
+<p><a href="http://downloads.hypriot.com/hypriot-rpi-20150329-140334.img.zip">Docker-Pi Image</a> (~367MB)<br />
+<a href="http://downloads.hypriot.com/hypriot-rpi-20150329-140334.img.zip.sha256">SHA256 checksum</a></p>
+
+<h2 id="how-to-get-started:3dc6f6d2f6296024232980f87970ab3c">How to get started</h2>
+
+<p>Download our SD card image and flash it on your own SD card. <a href="http://computers.tutsplus.com/articles/how-to-flash-an-sd-card-for-raspberry-pi--mac-53600">Here</a> is a short guide on how to do this for Mac, Windows and Linux users. Afterwards insert the SD card in your Raspberry Pi and wait while it boots. The first time will take a little longer as it resizes the file system to its maximum and reboots again.</p>
+
+<p>At the boot prompt log in with user &ldquo;<strong>pi</strong>&rdquo; and password &ldquo;<strong>raspberry</strong>&rdquo; (or with a privileged user &ldquo;root&rdquo; and password &ldquo;hypriot&rdquo;).</p>
+
+<p>One thing that is still worth mentioning is that you need special ARM-compatible Docker Images.
+<strong>Standard x86-64 Docker Images from the Docker Hub won&rsquo;t work</strong>. That&rsquo;s the reason why we&rsquo;ve created a number of ARM compatible Docker Images to get you started. Wether you prefer Java, Python, Node.js or io.js - we have you covered!</p>
+
+<p>You can find these images and more at <a href="https://registry.hub.docker.com/repos/hypriot/">our place</a> on the Docker Hub. After booting our image on your Pi these base images are just a &ldquo;docker pull&rdquo; away. For example &ldquo;docker pull hypriot/rpi-node&rdquo;.</p>
+
+<h2 id="give-us-your-feedback:3dc6f6d2f6296024232980f87970ab3c">Give us your feedback</h2>
+
+<p>As we want to make this image even better we really need your feedback. What do you like about our SD card image and what could be made better? And what kind of additional Docker Images would you like to see?</p>
+
+<p>Tell us via Twitter, HackerNews or in the comments!
+And please share this post with your friends.</p>
+
+<p>We really would like to see more people using Docker on Raspberries as we think they make a really hot combo:
+Low-cost instant access to Docker awesomeness on your Raspberry Pi.</p>
+
+    <div class="social-sharing">
+  
+<div class="social-sharing-twitter" style="float: left;">
+  <a class="twitter-share-button"
+    href="https://twitter.com/share"
+    data-url="http://localhost:1313/post/hypriotos-back-again-with-docker-on-arm/"
+    data-lang="en"
+    data-show-count="true"
+    data-via="HypriotTweets">
+  Tweet
+  </a>
+  <script>
+  window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
+  </script>
+</div>
+
+  
+<div class="social-sharing-facebook" style="float: left;">
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5&appId=599115553447708";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+  <div class="fb-share-button" data-href="http://localhost:1313/post/hypriotos-back-again-with-docker-on-arm/" data-layout="button_count"></div>
+</div>
+
+  
+<div class="social-sharing-google">
+  <script >
+    window.___gcfg = {
+      lang: 'en-US',
+      parsetags: 'onload'
+    };
+  </script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <div class="g-plus" data-action="share" data-annotation="bubble" data-width="200" data-href="http://localhost:1313/post/hypriotos-back-again-with-docker-on-arm/"></div>
+</div>
+
+</div>
+
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'hypriot';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+</div>
+
+<script data-no-instant>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Java on Docker Pirates ARMed with explosive stuff</title>
+    <link>http://localhost:1313/categories/java/</link>
+    <description>Recent content in Java on Docker Pirates ARMed with explosive stuff</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 14 Apr 2015 20:16:11 +0200</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/java/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>10 minutes - no - 10 seconds to run a Java Hello World on Raspberry Pi - thanks to Docker on ARM</title>
+      <link>http://localhost:1313/post/hello-java-world-in-docker-on-armed-raspberry-pi/</link>
+      <pubDate>Tue, 14 Apr 2015 20:16:11 +0200</pubDate>
+      
+      <guid>http://localhost:1313/post/hello-java-world-in-docker-on-armed-raspberry-pi/</guid>
+      <description>
+
+&lt;p&gt;You will need just four commands to run a Java “Hello World” on your Pi. For the first time it will take a coffee break. For the second time it will take a coffee gulp.
+And running your own Java app on ARM does not take longer. See how it works!&lt;/p&gt;
+
+&lt;h2 id=&#34;prepare-your-pi:1bb31bbf8e6132f92b04f4e121cb67d3&#34;&gt;Prepare your Pi&lt;/h2&gt;
+
+&lt;p&gt;Only if you haven’t done it yet: Get Docker running on your Pi. Follow these steps to catch up on this:
+LINK-TO-POST&lt;/p&gt;
+
+&lt;h2 id=&#34;log-into-your-pi-and-clone-our-hello-java-world-repo:1bb31bbf8e6132f92b04f4e121cb67d3&#34;&gt;Log into your Pi and clone our Hello-Java-World repo:&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;git clone https://github.com/hypriot/rpi-java-hello-world
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;navigate-to-the-freshly-cloned-files:1bb31bbf8e6132f92b04f4e121cb67d3&#34;&gt;Navigate to the freshly cloned files&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;cd rpi-java-hello-world/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;crate-the-image-and-tag-it:1bb31bbf8e6132f92b04f4e121cb67d3&#34;&gt;Crate the image and tag it&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;docker build -t java-hello .
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you are not logged in as &lt;code&gt;root&lt;/code&gt;, you have to put &lt;code&gt;sudo&lt;/code&gt; in front of all docker commands.&lt;/p&gt;
+
+&lt;p&gt;This command takes roughly 10 Minutes. You might wonder about the headline now&amp;hellip; Well, the &lt;code&gt;docker build&lt;/code&gt; command downloads and configures all the necessary software to be able to compile and run Java. Especially the download and installing process of the Java binaries takes almost the full 10 Minutes.
+However, since the download needs to be done only once, after the first time, the tasks the command triggers are reduced to the configuration step. And this is done in even less than 10 seconds!&lt;/p&gt;
+
+&lt;h2 id=&#34;run-the-helloworld-app:1bb31bbf8e6132f92b04f4e121cb67d3&#34;&gt;Run the HelloWorld app&lt;/h2&gt;
+
+&lt;p&gt;As final step, run the container which will compile and run the java app automatically.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker run -e &amp;quot;app=HelloWorld&amp;quot; java-hello /bin/bash /src/compile-and-run-java-app.sh
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;run-your-app:1bb31bbf8e6132f92b04f4e121cb67d3&#34;&gt;Run YOUR app&lt;/h2&gt;
+
+&lt;p&gt;To run your own app, you need to change just two things compared to the hello world example:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;put your Java code into &lt;code&gt;src/java&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;modify the &lt;code&gt;docker run&lt;/code&gt; command above by setting the name of the app after &lt;code&gt;app=&lt;/code&gt; to the name of the &lt;code&gt;.java&lt;/code&gt; file which contains the main method - but omit the &lt;code&gt;.java&lt;/code&gt; file extension. That&amp;rsquo;s it!&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;troubleshooting:1bb31bbf8e6132f92b04f4e121cb67d3&#34;&gt;Troubleshooting&lt;/h2&gt;
+
+&lt;p&gt;To identify a problem, we suggest, you compile and run the app stepwise.&lt;/p&gt;
+
+&lt;h3 id=&#34;at-first-dive-into-the-container:1bb31bbf8e6132f92b04f4e121cb67d3&#34;&gt;At first, dive into the container&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;docker run -e &amp;quot;app=HelloWorld&amp;quot; -it java-hello
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You will receive a new command prompt showing the ID of your container.&lt;/p&gt;
+
+&lt;h3 id=&#34;compile-source-code:1bb31bbf8e6132f92b04f4e121cb67d3&#34;&gt;Compile source code&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;javac HelloWorld.java
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;run-the-app:1bb31bbf8e6132f92b04f4e121cb67d3&#34;&gt;Run the app&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;java HelloWorld  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;inspired-to-move-on:1bb31bbf8e6132f92b04f4e121cb67d3&#34;&gt;Inspired to move on?&lt;/h2&gt;
+
+&lt;p&gt;Did we motivate you to try out more than this Hello World? Which Java app did start on your Pi? As always, We look forward to your feedback! Please let us know about any problems you encounter or any ideas you have for improvements!&lt;/p&gt;
+
+&lt;p&gt;&amp;ndash; Mathias Renner&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

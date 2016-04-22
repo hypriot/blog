@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Git on Docker Pirates ARMed with explosive stuff</title>
+    <link>http://localhost:1313/categories/git/</link>
+    <description>Recent content in Git on Docker Pirates ARMed with explosive stuff</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 27 Jun 2015 22:19:55 +0200</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/git/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Run your own GitHub-like service with the help of Docker</title>
+      <link>http://localhost:1313/post/run-your-own-github-like-service-with-docker/</link>
+      <pubDate>Sat, 27 Jun 2015 22:19:55 +0200</pubDate>
+      
+      <guid>http://localhost:1313/post/run-your-own-github-like-service-with-docker/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;https://git-scm.com/&#34;&gt;Git&lt;/a&gt; and &lt;a href=&#34;https://github.com/&#34;&gt;GitHub&lt;/a&gt; have taken the world by storm.
+No serious developer today can afford not to &lt;a href=&#34;https://www.atlassian.com/git/tutorials/&#34;&gt;know how to work with Git&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;But what if you do not want to have your code in the cloud? What if you want to host your code repositories yourself?&lt;/p&gt;
+
+&lt;p&gt;For most of us this meant to go with &lt;a href=&#34;https://about.gitlab.com/&#34;&gt;Gitlab&lt;/a&gt;. The biggest downside in the past was that Gitlab had so many different parts that the installation could be very tedious.
+With the &lt;a href=&#34;https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/README.md&#34;&gt;Omnibus Gitlab Installer&lt;/a&gt; the installation did get a lot easier but this does not change the fact that Gitlab is compromised of so many different parts.&lt;/p&gt;
+
+&lt;p&gt;Why does this matter?&lt;/p&gt;
+
+&lt;p&gt;It really starts to matter when you want to put your apps/services into something like Docker.
+Putting all parts of Gitlab (Postgres, Ruby, Ruby on Rails, Redis, Git, etc.) into one container is certainly not the Docker way of doing things, but puttings these parts into different containers makes it really complicated and involved to set up, too.&lt;/p&gt;
+
+&lt;p&gt;Fortunately we did find another solution for your Git needs - one that really works well with Docker.
+It is called &lt;a href=&#34;http://gogs.io/&#34;&gt;Gogs&lt;/a&gt; and is written in Go and has no additional dependencies with the exception of a SSH server.
+Gogs is such a lightweight solution that it only needs about 5 MB of RAM and very few CPU resources while running.
+This makes it a perfect candidate for a home-grown GitHub alternative that can easily run on a - you guessed it - Raspberry Pi.&lt;/p&gt;
+
+&lt;p&gt;In this post, we show you how to set up &lt;em&gt;Gogs&lt;/em&gt; in just a couple of minutes. Thanks to Docker it will be fast and easy.&lt;/p&gt;
+
+&lt;p&gt;To follow along you gonna need a Raspberry Pi with Docker.
+In case you do not have Docker running on your Raspberry Pi our &lt;a href=&#34;http://blog.hypriot.com/getting-started-with-docker-on-your-arm-device/&#34;&gt;Getting-Started guide&lt;/a&gt; will cover everything you need to know to get up and running in a snap.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://gogs.qiniudn.com/gogs_demo.gif&#34; alt=&#34;Gogs Screenshots&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;If you wanna dive more deeply into &lt;em&gt;Gogs&lt;/em&gt; there is a &lt;a href=&#34;http://gogs.io/docs/intro/&#34;&gt;official &lt;em&gt;Gogs&lt;/em&gt; documentation&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;how-to-set-up-gogs:dc7018a7890c20895bf31528a8ab5dea&#34;&gt;How to set up Gogs&lt;/h2&gt;
+
+&lt;p&gt;First, log into your Raspberry Pi via SSH.
+Please refer to our &lt;a href=&#34;http://blog.hypriot.com/getting-started-with-docker-on-your-arm-device/&#34;&gt;Getting-Started guide&lt;/a&gt; if you are not sure about how to do this.&lt;/p&gt;
+
+&lt;p&gt;After logging in successfully pull and run &lt;em&gt;Gogs&lt;/em&gt; by executing the following command:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker run -d --name my-go-git-server --publish 8022:22 --publish 3000:3000 --volume `pwd`/gogs-data/:/data hypriot/rpi-gogs-raspbian
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Let&amp;rsquo;s see what each of these options means&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;&amp;ndash;name&lt;/strong&gt; gives the Docker container a name&lt;br /&gt;
+  &lt;strong&gt;&amp;ndash;publish&lt;/strong&gt; (first) instructs Docker to open port &lt;code&gt;8022&lt;/code&gt;. We will use this port to access Gogs via git/ssh.&lt;br /&gt;
+  &lt;strong&gt;&amp;ndash;publish&lt;/strong&gt; (second) defines &lt;code&gt;3000&lt;/code&gt; as the port at which you will be able to access the web interface of &lt;em&gt;Gogs&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;When the &lt;em&gt;Gogs&lt;/em&gt; container is running you can point your browser to the IP address of your Pi. Make sure you use the port you defined in the &lt;code&gt;docker run&lt;/code&gt; command.
+In our example we have to type the following address into the browser:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;http://172.16.254.149:3000
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As a result you should see the setup page of &lt;em&gt;Gogs&lt;/em&gt;:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/gogs_own_Git_service/frist-run-gogs.png&#34; alt=&#34;hypriot-ssh-prompt-after-login&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;nbsp;&lt;/p&gt;
+
+&lt;p&gt;In this setup page we need to adapt the default settings to the settings we defined in the &lt;code&gt;docker run&lt;/code&gt; command we executed previously. Thus, please change the input fields according to this table:&lt;/p&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align=&#34;left&#34;&gt;Input field&lt;/th&gt;
+&lt;th align=&#34;left&#34;&gt;Description&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;Domain&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Replace &lt;code&gt;localhost&lt;/code&gt; with the IP address of your Raspberry Pi&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;Application URL&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;In the predefined string, replace only &lt;code&gt;localhost&lt;/code&gt; with the IP address of your Raspberry Pi, such that you have e.g. &lt;code&gt;http://172.16.254.149:3000/&lt;/code&gt;&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;Username&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Set an your username&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;Password&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Set an your password with at least 8 characters&lt;/td&gt;
+&lt;/tr&gt;
+
+&lt;tr&gt;
+&lt;td align=&#34;left&#34;&gt;E-mail&lt;/td&gt;
+&lt;td align=&#34;left&#34;&gt;Set your email adress&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+
+&lt;p&gt;After you filled all required fields, it should look like this:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/gogs_own_Git_service/frist-run-gogs_user-input-combined.png&#34; alt=&#34;frist-run-gogs_user-input-combined.png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;To finish the setup, click on &lt;strong&gt;install&lt;/strong&gt; at the bottom of the page. Afterwards you will be forwarded to the login page of &lt;em&gt;Gogs&lt;/em&gt;.
+Please login with the credentials you just specified.&lt;/p&gt;
+
+&lt;p&gt;After logging in you should see the start page of the &lt;em&gt;Gogs&lt;/em&gt; service.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Nice, you successfully installed Gogs!&lt;/strong&gt; Now let&amp;rsquo;s start using it! Please continue with the next section to learn &lt;em&gt;how&lt;/em&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;how-to-create-a-git-repository-in-gogs:dc7018a7890c20895bf31528a8ab5dea&#34;&gt;How to create a Git repository in &lt;em&gt;Gogs&lt;/em&gt;&lt;/h2&gt;
+
+&lt;p&gt;Before we will be able to &lt;code&gt;git push&lt;/code&gt;, we need to&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;create a Git repository in &lt;em&gt;Gogs&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;configure your public SSH key in &lt;em&gt;Gogs&lt;/em&gt;&lt;/li&gt;
+&lt;li&gt;clone the Git repository in &lt;em&gt;Gogs&lt;/em&gt; to your local workstation&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Let&amp;rsquo;s start by creating a new repository. Click on the &lt;strong&gt;green button&lt;/strong&gt; in the top right corner of the page and choose &lt;strong&gt;New Repository&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/gogs_own_Git_service/start-with-green-button_with-marker.png&#34; alt=&#34;start-with-green-button&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You should see a setup page for your new repository. Please fill out the two text input fields.&lt;/p&gt;
+
+&lt;p&gt;At the bottom of the page you will find a checkbox. We recommend to enable this checkbox since it automatically will initialize this repository with a &lt;em&gt;README.md&lt;/em&gt;.
+The following screenshot shows an example of how the setup page might look like after you provided all the necessary information.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/gogs_own_Git_service/new-repo.png&#34; alt=&#34;new-repo&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Finish the setup by clicking on &lt;strong&gt;Create Repository&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;Before you can actually use the new repository, you need to add your SSH key. Click on The &lt;strong&gt;settings button&lt;/strong&gt; in the top right corner of the page. Then, go to &lt;strong&gt;SSH Keys&lt;/strong&gt; -&amp;gt; &lt;strong&gt;Add Key&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/gogs_own_Git_service/add-private-key2_with-markers.png&#34; alt=&#34;add-private-key2&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Paste your public SSH key into this field and set an arbitrary &lt;em&gt;Key Name&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;If you don&amp;rsquo;t know where to find your SSH key, execute the following command in your terminal.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cat ~/.ssh/id_rsa.pub
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;As you can see in the following screenshot, you should see your SSH key as result.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/gogs_own_Git_service/ssh-key-export.png&#34; alt=&#34;ssh-key-export.png&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Finally, back in the &lt;em&gt;Gogs&lt;/em&gt; website, click the green button &lt;strong&gt;Add Key&lt;/strong&gt; to add your public SSH key. Afterwards you should see a message confirming that the key has been added successfully.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;At this point, &lt;em&gt;Gogs&lt;/em&gt; should be set up properly to receive your first commit!&lt;/strong&gt; As a last step, we will &lt;code&gt;git clone&lt;/code&gt; the new repo to your workstation.&lt;/p&gt;
+
+&lt;h2 id=&#34;start-using-git-with-the-new-repository:dc7018a7890c20895bf31528a8ab5dea&#34;&gt;Start using Git with the new repository&lt;/h2&gt;
+
+&lt;p&gt;&lt;em&gt;Gogs&lt;/em&gt; helps us in constructing the proper &lt;code&gt;git clone&lt;/code&gt; command.
+Navigate inside your new repository in the Gogs Web-GUI and click on the &lt;strong&gt;black cloud symbol&lt;/strong&gt;.
+Make sure that the &lt;strong&gt;SSH&lt;/strong&gt; button in front of the command is activated and copy the string in the text field via the &lt;strong&gt;black copy button&lt;/strong&gt; on the right edge.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/gogs_own_Git_service/in-repo-get-ssh-link-for-git-remote_with-markers.png&#34; alt=&#34;in-repo-get-ssh-link-for-git-remote&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now open a terminal at your workstation and navigate to the location where you want to create the folder for the repository.&lt;/p&gt;
+
+&lt;p&gt;Paste the command you just copied from Gogs Web-GUI. Before executing add &lt;code&gt;git clone ssh://&lt;/code&gt; in front of the command and put port &lt;code&gt;8022&lt;/code&gt; in front of your user name.
+In our case &lt;code&gt;8022&lt;/code&gt; is the port Gogs listens on for SSH.&lt;/p&gt;
+
+&lt;p&gt;In the end the command should look similar to this one:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git clone ssh://git@172.16.254.149:8022/my-name/demo-hypriot.git
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;After this command has been executed confirm the fingerprint prompt and navigate into the new directory that has been created by this command.&lt;/p&gt;
+
+&lt;p&gt;Within the repository folder execute a &lt;code&gt;git pull&lt;/code&gt;. If the command returns &lt;code&gt;Already up-to-date&lt;/code&gt; the repository is properly set up.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Congratulations!! You now have your own Git service running on your Raspberry Pi!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Note: Gogs will only be available within your local network.
+To make your Git service available outside of your home you need to do use a Dynamic DNS service like &lt;a href=&#34;http://www.noip.com/&#34;&gt;no-ip&lt;/a&gt; and configure some port forwarding in your router.&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;We hope setting up your own Gogs has been a painless experience for you.&lt;br /&gt;
+As always use the comments below to give us feedback and share the blog post on Twitter or Facebook.&lt;/p&gt;
+
+&lt;p&gt;Mathias, Andreas &amp;amp; Govinda&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

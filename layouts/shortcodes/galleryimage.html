@@ -1,0 +1,14 @@
+{{ $galleryprefix := .Page.Params.galleryprefix }}
+{{ $galleryfolder := .Page.Params.galleryfolder }}
+{{ $gallerythumbnail := .Page.Params.gallerythumbnail }}
+<figure itemscope itemtype="http://schema.org/ImageObject">
+  <a href="{{ $galleryprefix }}/{{ $galleryfolder }}/{{ .Get "file" }}" itemprop="contentUrl" data-size="{{ .Get "size" }}">
+      <img src="{{ $galleryprefix }}/{{ $galleryfolder }}/{{ $gallerythumbnail }}/thumb_{{ .Get "file" }}" itemprop="thumbnail" alt="{{ .Get "caption" }}" />
+  </a>
+
+
+  <figcaption itemprop="caption description">
+    {{ .Get "caption" }}
+    <span itemprop="copyrightHolder">{{ .Get "copyrightHolder" }}</span>
+  </figcaption>
+</figure>

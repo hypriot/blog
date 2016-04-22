@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title> Let&#39;s build a PicoCluster for Docker Swarm &middot; Docker Pirates ARMed with explosive stuff </title>
+
+  
+  <link rel="stylesheet" href="/css/poole.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="stylesheet" href="/css/hyde.css">
+  <link rel="stylesheet" href="/css/hypriot.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Docker Pirates ARMed with explosive stuff" />
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-59194692-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+</head>
+
+<body>
+
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-logo">
+      <a href="/"><img src="/images/logo_tr.png" /></a>
+    </div>
+    <div class="sidebar-about">
+      <h1><a href="/">Docker Pirates ARMed with explosive stuff</a></h1>
+      <p class="lead">
+       Roaming the seven seas in search for golden container plunder. 
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="/">HOME</a> </li>
+      
+        <li><a href="/getting-started-with-docker-on-your-arm-device/"> GETTING STARTED </a></li>
+      
+        <li><a href="/downloads/"> DOWNLOADS </a></li>
+      
+        <li><a href="/faq/"> FAQ </a></li>
+      
+        <li><a href="https://gitter.im/hypriot/talk"> COMMUNITY </a></li>
+      
+        <li><a href="/about/"> ABOUT US </a></li>
+      
+        <li><a href="/crew/"> CREW </a></li>
+      
+    </ul>
+
+    <p>&copy; 2016 Hypriot </p>
+    <p><a href="/legal_notice" style="font-size: 1rem;">Legal Notice</a></p>
+    <div class="edit-github" id="edit-github-id">
+        <p>
+          <a href="https://github.com/hypriot/blog"><img src="https://www.presidecms.com/assets/img/icons/github.png" style="float:left; width:9%; height:9%; padding-right: 8px; padding-top: 6px; align: center; ">Edit this blog on GitHub</img></a>
+        </p>
+    </div>
+  </div>
+</div>
+
+
+<div class="content container">
+  <div class="post">
+    <h1>Let&#39;s build a PicoCluster for Docker Swarm</h1>
+    <span class="post-date">Wed, Mar 23, 2016</span>
+    
+
+<p>As we love to use Docker Swarm on a cluster of Raspberry Pi&rsquo;s, we&rsquo;d like to cover
+in this hands-on tutorial how to build such a cluster easily with a hardware kit
+from <a href="http://picocluster.com">PicoCluster</a>.</p>
+
+<p>All you need is a PicoCluster kit for a 3-node or 5-node cluster, a couple of
+Raspberry Pi&rsquo;s and the time to assemble all the parts together. The project can be
+completed within an hour only, and makes so much fun, too - especially when you can
+share this as quality time with your kids.</p>
+
+<p><img src="/images/picocluster-kits/picocluster-3node-pdu-tower.jpg" alt="PicoCluster 3-node" /></p>
+
+<p>PicoCluster had just sent us two different kits of their cool Raspberry Pi
+clusters. Of course, we are eager to build these new clusters so you can get a first impression.</p>
+
+<h3 id="what-s-in-the-box:098640bbbda183ea709087a458ce9550">What&rsquo;s in the box</h3>
+
+<p>3-node PicoCluster kit:</p>
+
+<ul>
+<li>acrylic case, all parts</li>
+<li>PDU (12V input, 4x USB 5V output), including all wires</li>
+<li>wiring for 3x microUSB power</li>
+<li>case wiring for 1x HDMI</li>
+<li>case wiring for 1x 12V power plug</li>
+<li>base mounting for Pi tower, including all crews, nuts &amp; bolts, spacers</li>
+</ul>
+
+<p><img src="/images/picocluster-kits/picocluster-3node-parts.jpg" alt="PicoCluster 3-node" /></p>
+
+<p>5-node PicoCluster kit:</p>
+
+<ul>
+<li>acrylic case, all parts</li>
+<li>internal 8-port Ethernet switch</li>
+<li>PDU (12V input, 5x USB 5V output), including all wires</li>
+<li>wiring for 5x microUSB power</li>
+<li>wiring for network (Raspberry Pi to Ethernet switch)</li>
+<li>case wiring for 1x Ethernet</li>
+<li>case wiring for 1x HDMI</li>
+<li>case wiring for 2x USB</li>
+<li>case wiring for 1x 12V power plug</li>
+<li>base mounting for Pi tower, including all crews, nuts &amp; bolts, spacers</li>
+</ul>
+
+<p><img src="/images/picocluster-kits/picocluster-5node-parts.jpg" alt="PicoCluster 5-node" /></p>
+
+<p>Not included in the kits: (so you have to buy it separately)</p>
+
+<ul>
+<li>Raspberry Pi’s and microSD cards</li>
+<li>AC adapter (12V, 1.5A, barrel plug 5.5x2.1mm)</li>
+</ul>
+
+<p>Additionally we&rsquo;ll need some common tools for the mechanical assembling:</p>
+
+<ul>
+<li>philips screw driver</li>
+<li>7mm wrench (or a pliers)</li>
+</ul>
+
+<p><img src="/images/picocluster-kits/tools-screwdriver-wrench.jpg" alt="PicoCluster toosl" /></p>
+
+<h3 id="assembling-the-3-node-picocluster:098640bbbda183ea709087a458ce9550">Assembling the 3-node PicoCluster</h3>
+
+<h4 id="towering-the-raspberry-pi-s:098640bbbda183ea709087a458ce9550">Towering the Raspberry Pi&rsquo;s</h4>
+
+<p>First we take the mounting plate for the Pi tower and stack all
+three Raspberry Pi&rsquo;s with the help of the included spacers.</p>
+
+<p><img src="/images/picocluster-kits/picocluster-3node-pi-tower.jpg" alt="PicoCluster 3-node" /></p>
+
+<h4 id="wiring-all-together:098640bbbda183ea709087a458ce9550">Wiring all together</h4>
+
+<p>Now it&rsquo;s easy to mount the PDU on top of the Pi tower with 4 screws and attaching
+the USB power cables to the three Raspberry Pi&rsquo;s.</p>
+
+<p><img src="/images/picocluster-kits/picocluster-3node-pdu-tower2.jpg" alt="PicoCluster 3-node" /></p>
+
+<p>Next we mount the tower on the base plate, which makes our new cluster look even better.</p>
+
+<p><img src="/images/picocluster-kits/picocluster-3node-base-tower.jpg" alt="PicoCluster 3-node" /></p>
+
+<p>From now on, it&rsquo;s easy to complete the cluster installation: We connect
+the 12V power cable to the PDU and front cover. We can also attach the HDMI cable
+to the upper Raspberry Pi and mount the other end to the front cover, too.</p>
+
+<h4 id="assembling-the-case:098640bbbda183ea709087a458ce9550">Assembling the case</h4>
+
+<p>Finally, we mount the side and back cover and put on the top plate.
+Mounting with nuts &amp; bolts and the PicoCluster is ready.</p>
+
+<p><em>Note:</em> Don&rsquo;t forget to flash your microSD cards and insert them into the Pi&rsquo;s,
+because as soon as we close the cluster case, it&rsquo;s a little bit harder to change
+the SD cards.</p>
+
+<p><img src="/images/picocluster-kits/picocluster-3node-completed.jpg" alt="PicoCluster 3-node" /></p>
+
+<h3 id="assembling-the-5-node-picocluster:098640bbbda183ea709087a458ce9550">Assembling the 5-node PicoCluster</h3>
+
+<h4 id="towering-the-raspberry-pi-s-1:098640bbbda183ea709087a458ce9550">Towering the Raspberry Pi&rsquo;s</h4>
+
+<p>With the 5-node cluster we start similar as with the 3-node. We take
+the mounting plate for the Pi tower and stack all five Raspberry Pi&rsquo;s with the
+spacers.</p>
+
+<p><img src="/images/picocluster-kits/picocluster-5node-pi-tower.jpg" alt="PicoCluster 5-node" />
+<img src="/images/picocluster-kits/picocluster-5node-pi-tower2.jpg" alt="PicoCluster 5-node" /></p>
+
+<h4 id="wiring-all-together-1:098640bbbda183ea709087a458ce9550">Wiring all together</h4>
+
+<p>Next, we mount the PDU on top of the Pi tower with 4 screws and attach
+the USB power cables to the five Raspberry Pi&rsquo;s.</p>
+
+<p><img src="/images/picocluster-kits/picocluster-5node-pdu-tower.jpg" alt="PicoCluster 5-node" /></p>
+
+<p>As soon as we mount the tower on the base plate, we see that we do have a lot more
+parts left.</p>
+
+<p><img src="/images/picocluster-kits/picocluster-5node-base-tower.jpg" alt="PicoCluster 5-node" /></p>
+
+<p>For the 5-node cluster we have an internal dedicated 8-port switch, which we&rsquo;ll
+install inside the case and wire all the ethernet cables to the Pi&rsquo;s.</p>
+
+<p><img src="/images/picocluster-kits/picocluster-5node-ethernet-switch.jpg" alt="PicoCluster 5-node" /></p>
+
+<p>From now on, it&rsquo;s easy to complete the cluster installation: We connect
+the 12V power cable to the PDU and front cover. We can also attach the HDMI cable
+to the upper Raspberry Pi and mount the other end to the front cover, too.</p>
+
+<p><img src="/images/picocluster-kits/picocluster-5node-switch-tower.jpg" alt="PicoCluster 5-node" /></p>
+
+<p>You&rsquo;ll also find two USB cables in the kit, which you can connect to one or two
+different Pi&rsquo;s and mount the plug to the front panel as well. Attaching HDMI and USB
+plugs to the case is really optional.</p>
+
+<h4 id="assembling-the-case-1:098640bbbda183ea709087a458ce9550">Assembling the case</h4>
+
+<p>Finally, we mount the side and back cover and put on the top plate.
+Mounting with nuts &amp; bolts and our second PicoCluster is almost ready. As there are a
+few more parts to assemble the 5-node cluster, it will take a little bit longer than
+building the smaller cluster.</p>
+
+<h3 id="finally-we-have-two-new-clusters:098640bbbda183ea709087a458ce9550">Finally, we have two new clusters</h3>
+
+<p>At the end we have now built two new Raspberry Pi clusters, a 3-node and a 5-node
+from PicoCluster. Both are looking really neat and everything is stowed away in
+a perfect way. Only accessing the microSD cards is not optimal once after the case
+is closed. You just have to remove only a few screws and dismounting the rear side
+panel of the case and then you can easily access the SD card slots.</p>
+
+<p><img src="/images/picocluster-kits/picocluster-3node-and-5node-cluster.jpg" alt="PicoCluster 3- and 5-node" /></p>
+
+<p>Because the 5-node cluster includes an integrated 8-port Ethernet switch, we&rsquo;d recommend
+it to use as a standalone Pi cluster for experimenting with Docker Swarm and other
+cluster related tutorials and demos. You just have to attach a 12V power source and
+a single network link. This is all you need to start playing with it right away.</p>
+
+<p>Now, you can go ahead and install software on your new PicoCluster.
+However, this isn&rsquo;t within the scope of this hands-on project, so we&rsquo;ll point you to one of our
+latest tutorials where you learn <a href="http://blog.hypriot.com/post/how-to-setup-rpi-docker-swarm/">how to setup a Docker Swarm cluster with Raspberry Pi&rsquo;s</a>.</p>
+
+<h3 id="where-can-you-get-it:098640bbbda183ea709087a458ce9550">Where can you get it ?</h3>
+
+<p>You can order your own ready-to-use and tiny data center directly at <a href="http://picocluster.com">PicoCluster</a>
+with the Raspberry Pi&rsquo;s included. The hardware kits we used in this post should be available soon, too.
+PicoCluster is currently optimizing a few parts like the PDU to get more power for the new Raspberry Pi 3,
+so we expect the next version will get some changes and improvements compared to these
+beta units.</p>
+
+<p>Please send us your feedback on our <a href="https://gitter.im/hypriot/talk">Gitter channel</a> or tweet your thoughts and ideas on this project at <a href="https://twitter.com/HypriotTweets">@HypriotTweets</a>.</p>
+
+<p>Dieter <a href="https://twitter.com/Quintus23M">@Quintus23M</a></p>
+
+    <div class="social-sharing">
+  
+<div class="social-sharing-twitter" style="float: left;">
+  <a class="twitter-share-button"
+    href="https://twitter.com/share"
+    data-url="http://localhost:1313/post/lets-build-a-pi-docker-picocluster/"
+    data-lang="en"
+    data-show-count="true"
+    data-via="HypriotTweets">
+  Tweet
+  </a>
+  <script>
+  window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
+  </script>
+</div>
+
+  
+<div class="social-sharing-facebook" style="float: left;">
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5&appId=599115553447708";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+  <div class="fb-share-button" data-href="http://localhost:1313/post/lets-build-a-pi-docker-picocluster/" data-layout="button_count"></div>
+</div>
+
+  
+<div class="social-sharing-google">
+  <script >
+    window.___gcfg = {
+      lang: 'en-US',
+      parsetags: 'onload'
+    };
+  </script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <div class="g-plus" data-action="share" data-annotation="bubble" data-width="200" data-href="http://localhost:1313/post/lets-build-a-pi-docker-picocluster/"></div>
+</div>
+
+</div>
+
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'hypriot';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+</div>
+
+<script data-no-instant>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

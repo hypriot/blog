@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hardware on Docker Pirates ARMed with explosive stuff</title>
+    <link>http://localhost:1313/categories/hardware/</link>
+    <description>Recent content in Hardware on Docker Pirates ARMed with explosive stuff</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 14 Apr 2015 13:25:33 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/hardware/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Drive NeoPixels in Docker on Raspberry Pi</title>
+      <link>http://localhost:1313/post/drive-neopixels-in-docker/</link>
+      <pubDate>Tue, 14 Apr 2015 13:25:33 +0100</pubDate>
+      
+      <guid>http://localhost:1313/post/drive-neopixels-in-docker/</guid>
+      <description>
+
+&lt;p&gt;In our &lt;a href=&#34;http://localhost:1313/post/lets-get-physical/&#34;&gt;last blog post&lt;/a&gt; we showed you how to interact with the GPIO ports and how to turn on one LED. Now for some more magic lights we create a little Node.js application that drives a NeoPixel LED strip from Adafruit in a Docker container.&lt;/p&gt;
+
+&lt;p&gt;Thanks to the latest improvements now both Raspberry Pi B/B+ and the new Pi 2 B can  drive the NeoPixel LED strips from Adafruit with just a level shifter. So it&amp;rsquo;s time to put this into Docker for easier deployment.&lt;/p&gt;
+
+&lt;p&gt;The NeoPixel (or WS2812) LED&amp;rsquo;s are programmable RGB LED&amp;rsquo;s that receive their RGB value with a single serial wire.&lt;/p&gt;
+
+&lt;h2 id=&#34;wiring:463cf4b0db949da92d2a7ea79ab0611f&#34;&gt;Wiring&lt;/h2&gt;
+
+&lt;p&gt;Let&amp;rsquo;s have a look at the wiring first. The Raspberry Pi can create the serial signal on GPIO Pin 18 trough PWM/DMA. But the signal level has to be shifted from 3.3V to 5V for the LED strip. I have used a Adafruit Level Shifter Breakout Board, but a 74AHCT125 level converter could be used as well.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/neopixel/rpi-levelshifter-neopixel_Steckplatine.png&#34; alt=&#34;wiring diagram&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Do not power the NeoPixels directly from your Raspberry Pi as the 5V output could not source enough current to light many pixels. This could damage your Raspberry Pi!&lt;/strong&gt; For my tests with only eight pixels it is ok to use the 5V from the Pi, but be warned!&lt;/p&gt;
+
+&lt;h2 id=&#34;the-code:463cf4b0db949da92d2a7ea79ab0611f&#34;&gt;The code&lt;/h2&gt;
+
+&lt;p&gt;First we create the &lt;code&gt;package.json&lt;/code&gt; file with a dependency to the &lt;code&gt;rpi-ws281x-native&lt;/code&gt; Node.js module that supports all Raspberry Pi versions to drive the NeoPixels.&lt;/p&gt;
+
+&lt;h3 id=&#34;package-json:463cf4b0db949da92d2a7ea79ab0611f&#34;&gt;package.json&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-json&#34;&gt;{
+  &amp;quot;name&amp;quot;: &amp;quot;rpi-node-neopixel-example&amp;quot;,
+  &amp;quot;private&amp;quot;: true,
+  &amp;quot;version&amp;quot;: &amp;quot;0.0.1&amp;quot;,
+  &amp;quot;description&amp;quot;: &amp;quot;Node.js NeoPixel app in docker&amp;quot;,
+  &amp;quot;author&amp;quot;: &amp;quot;hypriot.com&amp;quot;,
+  &amp;quot;dependencies&amp;quot;: {
+    &amp;quot;rpi-ws281x-native&amp;quot;: &amp;quot;0.4.0&amp;quot;
+  }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;server-js:463cf4b0db949da92d2a7ea79ab0611f&#34;&gt;server.js&lt;/h3&gt;
+
+&lt;p&gt;Now we implement a Node.js sample that does some color magic. We have reduced the brightness of the LED&amp;rsquo;s a little bit.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-javascript&#34;&gt;var ws281x = require(&#39;rpi-ws281x-native&#39;);
+
+var NUM_LEDS = parseInt(process.argv[2], 10) || 8,
+    pixelData = new Uint32Array(NUM_LEDS);
+
+var brightness = 128;
+
+ws281x.init(NUM_LEDS);
+
+
+var lightsOff = function () {
+  for (var i = 0; i &amp;lt; NUM_LEDS; i++) {
+    pixelData[i] = color(0, 0, 0);
+  }
+  ws281x.render(pixelData);
+  ws281x.reset();
+}
+
+var signals = {
+  &#39;SIGINT&#39;: 2,
+  &#39;SIGTERM&#39;: 15
+};
+
+function shutdown(signal, value) {
+  console.log(&#39;Stopped by &#39; + signal);
+  lightsOff();
+  process.nextTick(function () { process.exit(0); });
+}
+
+Object.keys(signals).forEach(function (signal) {
+  process.on(signal, function () {
+    shutdown(signal, signals[signal]);
+  });
+});
+
+// ---- animation-loop
+var offset = 0;
+setInterval(function () {
+  for (var i = 0; i &amp;lt; NUM_LEDS; i++) {
+    pixelData[i] = wheel(((i * 256 / NUM_LEDS) + offset) % 256);
+  }
+
+  offset = (offset + 1) % 256;
+  ws281x.render(pixelData);
+}, 1000 / 30);
+
+console.log(&#39;Rainbow started. Press &amp;lt;ctrl&amp;gt;+C to exit.&#39;);
+
+// generate rainbow colors accross 0-255 positions.
+function wheel(pos) {
+  pos = 255 - pos;
+  if (pos &amp;lt; 85) { return color(255 - pos * 3, 0, pos * 3); }
+  else if (pos &amp;lt; 170) { pos -= 85; return color(0, pos * 3, 255 - pos * 3); }
+  else { pos -= 170; return color(pos * 3, 255 - pos * 3, 0); }
+}
+
+// generate integer from RGB value
+function color(r, g, b) {
+  r = r * brightness / 255;
+  g = g * brightness / 255;
+  b = b * brightness / 255;
+  return ((r &amp;amp; 0xff) &amp;lt;&amp;lt; 16) + ((g &amp;amp; 0xff) &amp;lt;&amp;lt; 8) + (b &amp;amp; 0xff);
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;dockerfile:463cf4b0db949da92d2a7ea79ab0611f&#34;&gt;Dockerfile&lt;/h3&gt;
+
+&lt;p&gt;The &lt;code&gt;Dockerfile&lt;/code&gt; is very simple here as we use the &lt;code&gt;onbuild&lt;/code&gt; version of our &lt;a href=&#34;https://registry.hub.docker.com/u/hypriot/rpi-iojs/&#34;&gt;hypriot/rpi-iojs&lt;/a&gt; Docker image.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;FROM hypriot/rpi-iojs:onbuild
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;build-the-docker-image:463cf4b0db949da92d2a7ea79ab0611f&#34;&gt;Build the Docker image&lt;/h2&gt;
+
+&lt;p&gt;We now have all parts together and are ready to build the docker image with this command&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ docker build -t node-neopixel .
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;run-the-docker-container:463cf4b0db949da92d2a7ea79ab0611f&#34;&gt;Run the Docker container&lt;/h2&gt;
+
+&lt;p&gt;Now it is time to turn on the NeoPixel LED&amp;rsquo;s by running the container&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ docker run --cap-add SYS_RAWIO --device /dev/mem -d node-neopixel
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;On a Raspberry Pi 2 you have to give the container more privileges. So you have to use this command instead&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ docker run --privileged -d node-neopixel
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/neopixel/neopixel640.gif&#34; alt=&#34;Let there be lights!&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You can find the complete Node.js example on GitHub at &lt;a href=&#34;https://github.com/hypriot/rpi-node-neopixel-example&#34;&gt;https://github.com/hypriot/rpi-node-neopixel-example&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;conclusion:463cf4b0db949da92d2a7ea79ab0611f&#34;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;Now you are ready to start your NeoPixel project on your Raspberry Pi and deploy it with Docker.&lt;/p&gt;
+
+&lt;p&gt;To learn more about NeoPixels head over to the excellent &lt;a href=&#34;https://learn.adafruit.com/adafruit-neopixel-uberguide/overview&#34;&gt;Adafruit&amp;rsquo;s NeoPixel Überguide&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;As always use the comments below to give us feedback and share it on Twitter or Facebook.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Let&#39;s get physical with Docker on the Raspberry Pi</title>
+      <link>http://localhost:1313/post/lets-get-physical/</link>
+      <pubDate>Thu, 09 Apr 2015 16:49:33 +0100</pubDate>
+      
+      <guid>http://localhost:1313/post/lets-get-physical/</guid>
+      <description>
+
+&lt;p&gt;With Docker on the Raspberry Pi we are able to connect cloud tools with IoT devices. So how can we interact with the real world from inside a Docker container? Let&amp;rsquo;s see and get physical&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;To keep the tutorial simple we will use the binary from the &lt;a href=&#34;http://wiringpi.com&#34;&gt;wiringPi&lt;/a&gt; project within a Docker container. This command line tool can be used to read and write the GPIO (General Purpose Input/Output) pins of the Raspberry Pi.&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;ve dockerized the wiringPi binary &lt;code&gt;gpio&lt;/code&gt; in a very tiny Docker image of about 2 MByte, so pulling this image even on a Raspberry Pi B is still a fast experience.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;docker pull hypriot/rpi-gpio
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;turn-an-led-on-and-off:ea2b0cf3ad09b4d9c9d4cc88763964bd&#34;&gt;Turn an LED on and off&lt;/h2&gt;
+
+&lt;p&gt;In a first little example we just want to turn an LED on and off. You need only a few components to try it yourself.&lt;/p&gt;
+
+&lt;p&gt;See the wiring diagram on how to connect the LED and the 220Ω resistor to your Raspberry Pi for the following examples. We use the 11th (BCM GPIO 17 / wiringPi Pin 0) and 9th (Ground) Pin of the Raspberry Pi B/B+ or Pi 2 B.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/gpio/wiringPi-LED-Pin0_Steckplatine.svg&#34; alt=&#34;wiringPi LED Pin 0&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;And here is the circuit diagram:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/gpio/wiringPi-LED-Pin0_Schaltplan.svg&#34; alt=&#34;wiringPi LED Pin 0 circuit&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Now you can use these commands:&lt;/p&gt;
+
+&lt;h3 id=&#34;get-status-of-all-gpios:ea2b0cf3ad09b4d9c9d4cc88763964bd&#34;&gt;Get status of all GPIOs&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ docker run --rm --cap-add SYS_RAWIO --device /dev/mem hypriot/rpi-gpio readall
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The output of this command shows a table with all pins and modes as well as the current states.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; +-----+-----+---------+------+---+---Pi 2---+---+------+---------+-----+-----+
+ | BCM | wPi |   Name  | Mode | V | Physical | V | Mode | Name    | wPi | BCM |
+ +-----+-----+---------+------+---+----++----+---+------+---------+-----+-----+
+ |     |     |    3.3v |      |   |  1 || 2  |   |      | 5v      |     |     |
+ |   2 |   8 |   SDA.1 | ALT0 | 1 |  3 || 4  |   |      | 5V      |     |     |
+ |   3 |   9 |   SCL.1 | ALT0 | 1 |  5 || 6  |   |      | 0v      |     |     |
+ |   4 |   7 | GPIO. 7 |   IN | 1 |  7 || 8  | 1 | ALT0 | TxD     | 15  | 14  |
+ |     |     |      0v |      |   |  9 || 10 | 1 | ALT0 | RxD     | 16  | 15  |
+ |  17 |   0 | GPIO. 0 |   IN | 0 | 11 || 12 | 0 | ALT5 | GPIO. 1 | 1   | 18  |
+ |  27 |   2 | GPIO. 2 |   IN | 0 | 13 || 14 |   |      | 0v      |     |     |
+ |  22 |   3 | GPIO. 3 |   IN | 0 | 15 || 16 | 0 | IN   | GPIO. 4 | 4   | 23  |
+ |     |     |    3.3v |      |   | 17 || 18 | 0 | IN   | GPIO. 5 | 5   | 24  |
+ |  10 |  12 |    MOSI | ALT0 | 0 | 19 || 20 |   |      | 0v      |     |     |
+ |   9 |  13 |    MISO | ALT0 | 0 | 21 || 22 | 0 | IN   | GPIO. 6 | 6   | 25  |
+ |  11 |  14 |    SCLK | ALT0 | 0 | 23 || 24 | 1 | ALT0 | CE0     | 10  | 8   |
+ |     |     |      0v |      |   | 25 || 26 | 1 | ALT0 | CE1     | 11  | 7   |
+ |   0 |  30 |   SDA.0 |   IN | 1 | 27 || 28 | 1 | IN   | SCL.0   | 31  | 1   |
+ |   5 |  21 | GPIO.21 |   IN | 1 | 29 || 30 |   |      | 0v      |     |     |
+ |   6 |  22 | GPIO.22 |   IN | 1 | 31 || 32 | 0 | IN   | GPIO.26 | 26  | 12  |
+ |  13 |  23 | GPIO.23 |   IN | 0 | 33 || 34 |   |      | 0v      |     |     |
+ |  19 |  24 | GPIO.24 |   IN | 0 | 35 || 36 | 0 | IN   | GPIO.27 | 27  | 16  |
+ |  26 |  25 | GPIO.25 |   IN | 0 | 37 || 38 | 0 | IN   | GPIO.28 | 28  | 20  |
+ |     |     |      0v |      |   | 39 || 40 | 0 | IN   | GPIO.29 | 29  | 21  |
+ +-----+-----+---------+------+---+----++----+---+------+---------+-----+-----+
+ | BCM | wPi |   Name  | Mode | V | Physical | V | Mode | Name    | wPi | BCM |
+ +-----+-----+---------+------+---+---Pi 2---+---+------+---------+-----+-----+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;set-mode-to-output:ea2b0cf3ad09b4d9c9d4cc88763964bd&#34;&gt;Set mode to output&lt;/h3&gt;
+
+&lt;p&gt;To turn on LED&amp;rsquo;s or switch other outputs you have to set the corresponding GPIO pin to output mode with&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ docker run --rm --cap-add SYS_RAWIO --device /dev/mem hypriot/rpi-gpio mode 0 out
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This has to be done only once after reboot.&lt;/p&gt;
+
+&lt;h3 id=&#34;turn-on-the-led:ea2b0cf3ad09b4d9c9d4cc88763964bd&#34;&gt;Turn on the LED&lt;/h3&gt;
+
+&lt;p&gt;Now we can turn on the LED with&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ docker run --rm --cap-add SYS_RAWIO --device /dev/mem hypriot/rpi-gpio write 0 on
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;turn-off-the-led:ea2b0cf3ad09b4d9c9d4cc88763964bd&#34;&gt;Turn off the LED&lt;/h3&gt;
+
+&lt;p&gt;or off with&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ docker run --rm --cap-add SYS_RAWIO --device /dev/mem hypriot/rpi-gpio write 0 off
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;read-a-button-from-gpio:ea2b0cf3ad09b4d9c9d4cc88763964bd&#34;&gt;Read a button from GPIO&lt;/h2&gt;
+
+&lt;p&gt;In another example we attach a button to the Raspberry Pi and read the state from the 12th pin (BCM GPIO 18, wiringPi Pin 1).
+The button is also connected to the 2nd Pin (3.3 V) and the pull down resistor is connected to 9th Pin (Ground).&lt;/p&gt;
+
+&lt;p&gt;The wiring diagram shows how to connect all parts. You need a push button, a 1kΩ resistor for pull down and a 10kΩ resistor to connect to the Raspberry Pi.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/gpio/wiringPi-Button-Pin1_Steckplatine.svg&#34; alt=&#34;wiringPi Button on Pin 1&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;And here is the corresponding circuit diagram:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/gpio/wiringPi-Button-Pin1_Schaltplan.svg&#34; alt=&#34;wiringPi Button on Pin 1 circuit&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;read-button-state:ea2b0cf3ad09b4d9c9d4cc88763964bd&#34;&gt;Read button state&lt;/h3&gt;
+
+&lt;p&gt;To get the status of just the 1th GPIO use this command&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-bash&#34;&gt;$ docker run --rm --cap-add SYS_RAWIO --device /dev/mem hypriot/rpi-gpio read 1
+0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The command returns &lt;code&gt;0&lt;/code&gt; or &lt;code&gt;1&lt;/code&gt; as a result of the input state.&lt;/p&gt;
+
+&lt;h2 id=&#34;conclusion:ea2b0cf3ad09b4d9c9d4cc88763964bd&#34;&gt;Conclusion&lt;/h2&gt;
+
+&lt;p&gt;In this blog post we showed you how easily you can use the GPIO ports of the Raspberry Pi from a Docker container with a simple command line tool.&lt;/p&gt;
+
+&lt;p&gt;There also is a more complete Docker image &lt;a href=&#34;https://registry.hub.docker.com/u/acencini/rpi-python-serial-wiringpi/&#34;&gt;acencini/rpi-python-serial-wiringpi&lt;/a&gt; on the Docker Hub that contains Python and the complete wiringPi2 library to play with.&lt;/p&gt;
+
+&lt;p&gt;If you want to learn more about the GPIO pins you can use the excellent &lt;a href=&#34;http://pi.gadgetoid.com/pinout&#34;&gt;interactive Raspberry Pi Pinout guide&lt;/a&gt; from Gadgetoid.&lt;/p&gt;
+
+&lt;p&gt;As always use the comments below to give us feedback and share the blog post on Twitter or Facebook.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,357 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Traffic Light on Docker Pirates ARMed with explosive stuff</title>
+    <link>http://localhost:1313/categories/traffic-light/</link>
+    <description>Recent content in Traffic Light on Docker Pirates ARMed with explosive stuff</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 13 Mar 2016 17:31:10 +0100</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/traffic-light/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>How to build a traffic light</title>
+      <link>http://localhost:1313/post/traffic-light/</link>
+      <pubDate>Sun, 13 Mar 2016 17:31:10 +0100</pubDate>
+      
+      <guid>http://localhost:1313/post/traffic-light/</guid>
+      <description>
+
+&lt;p&gt;My seven year old asked me how does a traffic light work. Before explaining too much we put some LEDs and wires together and did a hands-on tutorial. Finally we had a pedestrian crossing with a push button controlled by an app - of course - running dockerized on a Raspberry Pi 3.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/traffic-light/traffic-light.png&#34; alt=&#34;Traffic light wiring&#34; /&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;the-hardware:36e2dfd970af1a18eb3decac8ff94950&#34;&gt;The hardware&lt;/h2&gt;
+
+&lt;p&gt;First we have to build the curcuit. To follow this tutorial you need these parts&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Raspberry Pi 3, but any other is also good for this tutorial&lt;/li&gt;
+&lt;li&gt;Adafruit T-Cobbler Plus&lt;/li&gt;
+&lt;li&gt;Breadboard&lt;/li&gt;
+&lt;li&gt;2x Red, 1x yellow and 2x green LEDs&lt;/li&gt;
+&lt;li&gt;5x 220Ω resistors&lt;/li&gt;
+&lt;li&gt;1x 1kΩ resistor&lt;/li&gt;
+&lt;li&gt;1x 10kΩ resistor&lt;/li&gt;
+&lt;li&gt;1x push button&lt;/li&gt;
+&lt;li&gt;1x USB power for the Raspberry Pi&lt;/li&gt;
+&lt;li&gt;cables&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;the-software:36e2dfd970af1a18eb3decac8ff94950&#34;&gt;The software&lt;/h2&gt;
+
+&lt;p&gt;The application is written in Python and it is based on the blog post &lt;a href=&#34;http://www.bobrathbone.com/pi_traffic_led.htm&#34;&gt;Raspberry PI Traffic Lights&lt;/a&gt; by Bob Rathbone. I have added some more LEDs and changed it to our local traffic light scheme. You can find the full source code &lt;a href=&#34;https://github.com/StefanScherer/docker-rpi-traffic-light&#34;&gt;on GitHub&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;defining-the-gpio-pins:36e2dfd970af1a18eb3decac8ff94950&#34;&gt;Defining the GPIO pins&lt;/h3&gt;
+
+&lt;script src=&#34;https://gist-it.appspot.com/github/StefanScherer/docker-rpi-traffic-light/raw/master/pedestrian-crossing.py?slice=16:30&amp;footer=minimal&#34;&gt;&lt;/script&gt;
+
+&lt;h3 id=&#34;initializing-the-gpio-ports:36e2dfd970af1a18eb3decac8ff94950&#34;&gt;Initializing the GPIO ports&lt;/h3&gt;
+
+&lt;p&gt;At the beginning of the app we initialize the GPIO ports and turn off all LEDs. They may turned on from aborting a previous run.&lt;/p&gt;
+
+&lt;script src=&#34;https://gist-it.appspot.com/github/StefanScherer/docker-rpi-traffic-light/raw/master/pedestrian-crossing.py?slice=31:48&amp;footer=minimal&#34;&gt;&lt;/script&gt;
+
+&lt;h3 id=&#34;main-loop:36e2dfd970af1a18eb3decac8ff94950&#34;&gt;Main loop&lt;/h3&gt;
+
+&lt;p&gt;The main loop begins with green lights for the cars. In this state the button for the pedestrian crossing is checked.&lt;/p&gt;
+
+&lt;script src=&#34;https://gist-it.appspot.com/github/StefanScherer/docker-rpi-traffic-light/raw/master/pedestrian-crossing.py?slice=49:64&amp;footer=minimal&#34;&gt;&lt;/script&gt;
+
+&lt;h3 id=&#34;pedestrian-crossing:36e2dfd970af1a18eb3decac8ff94950&#34;&gt;Pedestrian crossing&lt;/h3&gt;
+
+&lt;p&gt;After the button has been pressed the next code block just changes the LEDs for the cars to red, green for pedestrians and back again.&lt;/p&gt;
+
+&lt;script src=&#34;https://gist-it.appspot.com/github/StefanScherer/docker-rpi-traffic-light/raw/master/pedestrian-crossing.py?slice=64:&amp;footer=minimal&#34;&gt;&lt;/script&gt;
+
+&lt;p&gt;That completes the whole app. I could explain how a traffic light works and my daughter could play with it for a while. This could be the whole story, but as I&amp;rsquo;ve deployed my app with Docker there is another story behind the story.&lt;/p&gt;
+
+&lt;h1 id=&#34;dockerize-all-the-things:36e2dfd970af1a18eb3decac8ff94950&#34;&gt;Dockerize all the things&lt;/h1&gt;
+
+&lt;p&gt;I want to save my work and make it reproducible for me and others. So beside putting the source code into a GitHub repo I also dockerized the application development and deployment. With the help of Docker and the Docker tools it is very easy to develop from eg. a MacBook.&lt;/p&gt;
+
+&lt;p&gt;Even after months and other projects it is easy to spin up that application again as there is a standardized way. There also is no need to backup the SD image and write down what you had to install on your Raspberry Pi.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/traffic-light/mac_rpi_development.png&#34; alt=&#34;Developing for RPi from a Mac&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;As shown in the diagram your Notebook should have the following tools installed.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://github.com/hypriot/flash&#34;&gt;flash tool&lt;/a&gt;&lt;/strong&gt; to flash the SD card image with HypriotOS&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://docs.docker.com/machine/overview/&#34;&gt;Docker Machine&lt;/a&gt;&lt;/strong&gt; to build a secured connection to the Raspberry Pi Docker Engine&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://docs.docker.com/compose/overview/&#34;&gt;Docker Compose&lt;/a&gt;&lt;/strong&gt; to easily start dockerized apps with a single command&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;a href=&#34;https://docs.docker.com&#34;&gt;Docker Client&lt;/a&gt;&lt;/strong&gt; to run other Docker commands&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;I don&amp;rsquo;t get into the details on how to connect your Notebook with the Docker Engine on the Raspberry Pi. This is part of a &lt;a href=&#34;http://blog.hypriot.com/post/how-to-setup-rpi-docker-swarm/&#34;&gt;previous blog post&lt;/a&gt; how to use docker-machine for that.&lt;/p&gt;
+
+&lt;h2 id=&#34;dockerfile:36e2dfd970af1a18eb3decac8ff94950&#34;&gt;Dockerfile&lt;/h2&gt;
+
+&lt;p&gt;To build the Docker image we need a Dockerfile. We use a Python base image and install the needed tools and dependencies. Then we add the application source code and define the command to execute.&lt;/p&gt;
+
+&lt;script src=&#34;https://gist-it.appspot.com/github/StefanScherer/docker-rpi-traffic-light/raw/master/Dockerfile?footer=minimal&#34;&gt;&lt;/script&gt;
+
+&lt;h2 id=&#34;docker-compose-yml:36e2dfd970af1a18eb3decac8ff94950&#34;&gt;docker-compose.yml&lt;/h2&gt;
+
+&lt;p&gt;Docker Compose can be used to simplify running the container. With the docker-compose.yml we can document all the parameters needed to start the container. The file is versioned in Git so we do not forget how to run this container.&lt;/p&gt;
+
+&lt;script src=&#34;https://gist-it.appspot.com/github/StefanScherer/docker-rpi-traffic-light/raw/master/docker-compose.yml?footer=minimal&#34;&gt;&lt;/script&gt;
+
+&lt;h2 id=&#34;developing-the-app:36e2dfd970af1a18eb3decac8ff94950&#34;&gt;Developing the app&lt;/h2&gt;
+
+&lt;p&gt;When you develop the app or want to modify the source code the Docker image has to be rebuilt with the new code. To do this just run this command&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker-compose build
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;running-the-app:36e2dfd970af1a18eb3decac8ff94950&#34;&gt;Running the app&lt;/h2&gt;
+
+&lt;pre&gt;&lt;code&gt;docker-compose up
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you want to stop the app again, just press &lt;code&gt;CTRL+C&lt;/code&gt;. You may have to press it twice to kill the app.&lt;/p&gt;
+
+&lt;h2 id=&#34;running-permanently:36e2dfd970af1a18eb3decac8ff94950&#34;&gt;Running permanently&lt;/h2&gt;
+
+&lt;p&gt;You can run the application automatically by adding &lt;code&gt;-d&lt;/code&gt;. The docker-compose.yml also sets the restart policy to always, so the container is starting right after booting the Raspberry Pi. This is very useful for such hardware projects which should start automatically after turning on your Pi.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker-compose up -d
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;If you want to stop the app again, just use this command&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker-compose kill
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;sharing-the-dockerized-app:36e2dfd970af1a18eb3decac8ff94950&#34;&gt;Sharing the dockerized app&lt;/h2&gt;
+
+&lt;p&gt;The advantage of using Docker is to easily share the dockerized app with others. As the developer of an app you just push the Docker image with to the Docker Hub. Others can pull this Docker image from there and run it without to know which tools and dependencies to install.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/traffic-light/mac_rpi_docker_push.png&#34; alt=&#34;Developing for RPi from a Mac&#34; /&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;pushing-the-docker-image:36e2dfd970af1a18eb3decac8ff94950&#34;&gt;Pushing the Docker image&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;docker images
+docker tag dockerrpitrafficlight_trafficlight stefanscherer/rpi-traffic-light
+docker push stefanscherer/rpi-traffic-light
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The Docker image is send sent to the Docker Hub. My example is available as image &lt;a href=&#34;https://hub.docker.com/r/stefanscherer/rpi-traffic-light/&#34;&gt;stefanscherer/rpi-traffic-light&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2 id=&#34;sharing-with-others:36e2dfd970af1a18eb3decac8ff94950&#34;&gt;Sharing with Others&lt;/h2&gt;
+
+&lt;p&gt;If someone else wants to build the traffic light and run your application, she has to use this little modified docker-compose.yml to pull the published Docker image instead of building it herself.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-yaml&#34;&gt;version: &#39;2&#39;
+services:
+  trafficlight:
+    image: stefanscherer/rpi-traffic-light
+    devices:
+      - &amp;quot;/dev/mem:/dev/mem&amp;quot;
+    cap_add:
+      - SYS_RAWIO
+    restart: always
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;And then run the application with&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker-compose up -d
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Or use the docker command with all the parameters&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;docker run --rm --cap-add SYS_RAWIO --device /dev/mem stefanscherer/rpi-traffic-light
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This command pulls the Docker image from the Docker hub if it isn&amp;rsquo;t available locally on the Raspberry Pi. After that it runs a Docker container with the application.&lt;/p&gt;
+
+&lt;p&gt;In this way any app can be published in the same way, regardless the programming language used.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;gallery clearfix&#34; itemscope itemtype=&#34;http://schema.org/ImageGallery&#34;&gt;
+&lt;div class=&#34;title&#34;&gt;Building a traffic light with Raspberry Pi 3&lt;/div&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/traffic-light/hardwired.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x1200&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/traffic-light/thumbnails/thumb_hardwired.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;First hardwired setup. Pull the wires to switch lights.&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    First hardwired setup. Pull the wires to switch lights.
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/traffic-light/cars-green.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x1200&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/traffic-light/thumbnails/thumb_cars-green.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Cars have green, pedestrians have to wait.&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Cars have green, pedestrians have to wait.
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/traffic-light/push-button.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x1200&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/traffic-light/thumbnails/thumb_push-button.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Push the button!&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Push the button!
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/traffic-light/walk.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x1200&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/traffic-light/thumbnails/thumb_walk.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Cars have to stop, pedestrian may cross the road.&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Cars have to stop, pedestrian may cross the road.
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/traffic-light/drive.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x1200&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/traffic-light/thumbnails/thumb_drive.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Safely crossed the street. Cars driving again.&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Safely crossed the street. Cars driving again.
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/traffic-light/raspberry-pi3-edimax.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x1200&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/traffic-light/thumbnails/thumb_raspberry-pi3-edimax.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Raspberry Pi 3 running traffic light app. Edimax as workaround, soon onboard WiFi support.&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Raspberry Pi 3 running traffic light app. Edimax as workaround, soon onboard WiFi support.
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+
+
+&lt;figure itemscope itemtype=&#34;http://schema.org/ImageObject&#34;&gt;
+  &lt;a href=&#34;http://localhost:1313/images/traffic-light/development.jpg&#34; itemprop=&#34;contentUrl&#34; data-size=&#34;1600x1200&#34;&gt;
+      &lt;img src=&#34;http://localhost:1313/images/traffic-light/thumbnails/thumb_development.jpg&#34; itemprop=&#34;thumbnail&#34; alt=&#34;Build, Ship and Run from a Mac&#34; /&gt;
+  &lt;/a&gt;
+
+
+  &lt;figcaption itemprop=&#34;caption description&#34;&gt;
+    Build, Ship and Run from a Mac
+    &lt;span itemprop=&#34;copyrightHolder&#34;&gt;Hypriot&lt;/span&gt;
+  &lt;/figcaption&gt;
+&lt;/figure&gt;
+
+
+&lt;/div&gt;
+&lt;/p&gt;
+
+&lt;p&gt;&lt;link rel=&#34;stylesheet&#34; href=&#34;http://localhost:1313/css/photoswipe.css&#34;&gt;
+&lt;link rel=&#34;stylesheet&#34; href=&#34;http://localhost:1313/css/default-skin/default-skin.css&#34;&gt;
+&lt;script src=&#34;http://localhost:1313/js/photoswipe.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://localhost:1313/js/photoswipe-ui-default.min.js&#34;&gt;&lt;/script&gt;
+&lt;script src=&#34;http://localhost:1313/js/initphotoswipe.js&#34;&gt;&lt;/script&gt;
+
+
+
+&lt;div class=&#34;pswp&#34; tabindex=&#34;-1&#34; role=&#34;dialog&#34; aria-hidden=&#34;true&#34;&gt;
+
+&lt;div class=&#34;pswp__bg&#34;&gt;&lt;/div&gt;
+
+&lt;div class=&#34;pswp__scroll-wrap&#34;&gt;
+    
+    &lt;div class=&#34;pswp__container&#34;&gt;
+      &lt;div class=&#34;pswp__item&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;pswp__item&#34;&gt;&lt;/div&gt;
+      &lt;div class=&#34;pswp__item&#34;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    
+    &lt;div class=&#34;pswp__ui pswp__ui--hidden&#34;&gt;
+    &lt;div class=&#34;pswp__top-bar&#34;&gt;
+      
+      &lt;div class=&#34;pswp__counter&#34;&gt;&lt;/div&gt;
+      &lt;button class=&#34;pswp__button pswp__button--close&#34; title=&#34;Close (Esc)&#34;&gt;&lt;/button&gt;
+      &lt;button class=&#34;pswp__button pswp__button--share&#34; title=&#34;Share&#34;&gt;&lt;/button&gt;
+      &lt;button class=&#34;pswp__button pswp__button--fs&#34; title=&#34;Toggle fullscreen&#34;&gt;&lt;/button&gt;
+      &lt;button class=&#34;pswp__button pswp__button--zoom&#34; title=&#34;Zoom in/out&#34;&gt;&lt;/button&gt;
+      
+      
+      &lt;div class=&#34;pswp__preloader&#34;&gt;
+        &lt;div class=&#34;pswp__preloader__icn&#34;&gt;
+          &lt;div class=&#34;pswp__preloader__cut&#34;&gt;
+            &lt;div class=&#34;pswp__preloader__donut&#34;&gt;&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class=&#34;pswp__share-modal pswp__share-modal--hidden pswp__single-tap&#34;&gt;
+      &lt;div class=&#34;pswp__share-tooltip&#34;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;button class=&#34;pswp__button pswp__button--arrow--left&#34; title=&#34;Previous (arrow left)&#34;&gt;
+    &lt;/button&gt;
+    &lt;button class=&#34;pswp__button pswp__button--arrow--right&#34; title=&#34;Next (arrow right)&#34;&gt;
+    &lt;/button&gt;
+    &lt;div class=&#34;pswp__caption&#34;&gt;
+      &lt;div class=&#34;pswp__caption__center&#34;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+
+&lt;style&gt;
+    .gallery {  }
+    .gallery img { width: 100%; height: auto; }
+    .gallery figure { display: block; float: left; margin: 0 5px 5px 0; width: 200px; }
+    .gallery figcaption { display: none; }
+    .gallery div.title { font-weight: bold; }
+    span[itemprop=&#34;copyrightHolder&#34;] { color : #888; float: right; }
+    span[itemprop=&#34;copyrightHolder&#34;]:before { content: &#34;Foto: &#34;; }
+    img[itemprop=&#34;thumbnail&#34;]{ width: 200px; }
+&lt;/style&gt;
+
+
+&lt;script&gt;initPhotoSwipeFromDOM(&#39;.gallery&#39;);&lt;/script&gt;
+&lt;/p&gt;
+
+&lt;p&gt;As always use the comments below to give us feedback and share it on Twitter or Facebook.&lt;/p&gt;
+
+&lt;p&gt;Stefan &lt;a href=&#34;https://twitter.com/stefscherer&#34;&gt;@stefscherer&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

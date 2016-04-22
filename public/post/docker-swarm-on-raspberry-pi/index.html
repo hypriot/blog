@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title> How to use Docker Swarm on your Raspberry Pi cluster &middot; Docker Pirates ARMed with explosive stuff </title>
+
+  
+  <link rel="stylesheet" href="/css/poole.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="stylesheet" href="/css/hyde.css">
+  <link rel="stylesheet" href="/css/hypriot.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Docker Pirates ARMed with explosive stuff" />
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-59194692-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+</head>
+
+<body>
+
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-logo">
+      <a href="/"><img src="/images/logo_tr.png" /></a>
+    </div>
+    <div class="sidebar-about">
+      <h1><a href="/">Docker Pirates ARMed with explosive stuff</a></h1>
+      <p class="lead">
+       Roaming the seven seas in search for golden container plunder. 
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="/">HOME</a> </li>
+      
+        <li><a href="/getting-started-with-docker-on-your-arm-device/"> GETTING STARTED </a></li>
+      
+        <li><a href="/downloads/"> DOWNLOADS </a></li>
+      
+        <li><a href="/faq/"> FAQ </a></li>
+      
+        <li><a href="https://gitter.im/hypriot/talk"> COMMUNITY </a></li>
+      
+        <li><a href="/about/"> ABOUT US </a></li>
+      
+        <li><a href="/crew/"> CREW </a></li>
+      
+    </ul>
+
+    <p>&copy; 2016 Hypriot </p>
+    <p><a href="/legal_notice" style="font-size: 1rem;">Legal Notice</a></p>
+    <div class="edit-github" id="edit-github-id">
+        <p>
+          <a href="https://github.com/hypriot/blog"><img src="https://www.presidecms.com/assets/img/icons/github.png" style="float:left; width:9%; height:9%; padding-right: 8px; padding-top: 6px; align: center; ">Edit this blog on GitHub</img></a>
+        </p>
+    </div>
+  </div>
+</div>
+
+
+<div class="content container">
+  <div class="post">
+    <h1>How to use Docker Swarm on your Raspberry Pi cluster</h1>
+    <span class="post-date">Thu, Jul 2, 2015</span>
+    
+
+<p>In this blog post we show you how easy it is to install Swarm on your Raspberry Pi and how to setup a Raspberry Pi Swarm cluster with the help of Docker Machine.</p>
+
+<p>We&rsquo;ve built a little &ldquo;Pi Tower&rdquo; with three Raspberry Pi 2 model B and combine them into a Docker Swarm.</p>
+
+<p>As you can see in the pictures below we&rsquo;ve mounted the three Raspberry Pi&rsquo;s on top of a 5-port D-Link GBit switch. All four devices get their power from an Anker 4-port USB charger. This makes a very solid but portable &ldquo;Pi Tower&rdquo; with only one power plug and one external network connector.</p>
+
+<p><div class="gallery clearfix" itemscope itemtype="http://schema.org/ImageGallery">
+<div class="title">Pi Tower</div>
+
+
+
+
+<figure itemscope itemtype="http://schema.org/ImageObject">
+  <a href="/images/docker-swarm/d-link_mounting_holes.jpg" itemprop="contentUrl" data-size="1600x1200">
+      <img src="/images/docker-swarm/thumbnails/thumb_d-link_mounting_holes.jpg" itemprop="thumbnail" alt="The Making of Pi Tower" />
+  </a>
+
+
+  <figcaption itemprop="caption description">
+    The Making of Pi Tower
+    <span itemprop="copyrightHolder">Hypriot</span>
+  </figcaption>
+</figure>
+
+
+
+
+<figure itemscope itemtype="http://schema.org/ImageObject">
+  <a href="/images/docker-swarm/d-link_rpi2_cluster.jpg" itemprop="contentUrl" data-size="1600x1200">
+      <img src="/images/docker-swarm/thumbnails/thumb_d-link_rpi2_cluster.jpg" itemprop="thumbnail" alt="Pi Tower with D-Link Switch" />
+  </a>
+
+
+  <figcaption itemprop="caption description">
+    Pi Tower with D-Link Switch
+    <span itemprop="copyrightHolder">Hypriot</span>
+  </figcaption>
+</figure>
+
+
+
+
+<figure itemscope itemtype="http://schema.org/ImageObject">
+  <a href="/images/docker-swarm/d-link_rpi2_cluster02.jpg" itemprop="contentUrl" data-size="1600x1200">
+      <img src="/images/docker-swarm/thumbnails/thumb_d-link_rpi2_cluster02.jpg" itemprop="thumbnail" alt="Pi Tower with D-Link Switch" />
+  </a>
+
+
+  <figcaption itemprop="caption description">
+    Pi Tower with D-Link Switch
+    <span itemprop="copyrightHolder">Hypriot</span>
+  </figcaption>
+</figure>
+
+
+
+
+<figure itemscope itemtype="http://schema.org/ImageObject">
+  <a href="/images/docker-swarm/d-link_rpi2_cluster_lights.jpg" itemprop="contentUrl" data-size="1600x1200">
+      <img src="/images/docker-swarm/thumbnails/thumb_d-link_rpi2_cluster_lights.jpg" itemprop="thumbnail" alt="Pi Tower at night" />
+  </a>
+
+
+  <figcaption itemprop="caption description">
+    Pi Tower at night
+    <span itemprop="copyrightHolder">Hypriot</span>
+  </figcaption>
+</figure>
+
+
+</div>
+</p>
+
+<p><link rel="stylesheet" href="/css/photoswipe.css">
+<link rel="stylesheet" href="/css/default-skin/default-skin.css">
+<script src="/js/photoswipe.min.js"></script>
+<script src="/js/photoswipe-ui-default.min.js"></script>
+<script src="/js/initphotoswipe.js"></script>
+
+
+
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+<div class="pswp__bg"></div>
+
+<div class="pswp__scroll-wrap">
+    
+    <div class="pswp__container">
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+      <div class="pswp__item"></div>
+    </div>
+    
+    <div class="pswp__ui pswp__ui--hidden">
+    <div class="pswp__top-bar">
+      
+      <div class="pswp__counter"></div>
+      <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+      <button class="pswp__button pswp__button--share" title="Share"></button>
+      <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+      <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+      
+      
+      <div class="pswp__preloader">
+        <div class="pswp__preloader__icn">
+          <div class="pswp__preloader__cut">
+            <div class="pswp__preloader__donut"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+      <div class="pswp__share-tooltip"></div>
+    </div>
+    <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+    </button>
+    <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+    </button>
+    <div class="pswp__caption">
+      <div class="pswp__caption__center"></div>
+    </div>
+    </div>
+    </div>
+</div>
+
+
+<style>
+    .gallery {  }
+    .gallery img { width: 100%; height: auto; }
+    .gallery figure { display: block; float: left; margin: 0 5px 5px 0; width: 200px; }
+    .gallery figcaption { display: none; }
+    .gallery div.title { font-weight: bold; }
+    span[itemprop="copyrightHolder"] { color : #888; float: right; }
+    span[itemprop="copyrightHolder"]:before { content: "Foto: "; }
+    img[itemprop="thumbnail"]{ width: 200px; }
+</style>
+
+
+<script>initPhotoSwipeFromDOM('.gallery');</script>
+</p>
+
+<h2 id="pre-requisites:8f0fe211d9770745ca52ec727b049d95">Pre-requisites</h2>
+
+<p>For this tutorial we just run all steps from a Mac (or Linux) notebook. To do this we need three tools.</p>
+
+<ul>
+<li>A flash tool to write the SD card images for all the Raspberry Pi&rsquo;s.</li>
+<li>The Docker client, which is only a <code>brew install docker</code> away.</li>
+<li>The Docker Machine binary with the hypriot driver</li>
+</ul>
+
+<h2 id="flash-all-sd-cards:8f0fe211d9770745ca52ec727b049d95">Flash all SD cards</h2>
+
+<p>First we want to install the SD cards with Docker preinstalled. On a Mac or Linux machine, we use our little <a href="https://github.com/hypriot/flash">flash command line tool</a> to prepare the three SD cards with these simple commands.</p>
+
+<pre><code class="language-bash">$ flash --hostname pi1 http://downloads.hypriot.com/hypriot-rpi-20150416-201537.img.zip
+$ flash --hostname pi2 http://downloads.hypriot.com/hypriot-rpi-20150416-201537.img.zip
+$ flash --hostname pi3 http://downloads.hypriot.com/hypriot-rpi-20150416-201537.img.zip
+</code></pre>
+
+<p>Now insert the SD cards into all Raspberry Pi&rsquo;s and boot them. They will come up with different host names after a while.</p>
+
+<h2 id="retrieve-ip-addresses:8f0fe211d9770745ca52ec727b049d95">Retrieve IP addresses</h2>
+
+<p>Our SD card image also starts the avahi-daemon to announce the hostname through mDNS, so each Pi is reachable with <code>pi1.local</code>, <code>pi2.local</code> and <code>pi3.local</code>.
+Docker Machine cannot resolve these hostnames at the moment, so we have to retrieve the IP addresses for the Raspberry Pi&rsquo;s.</p>
+
+<pre><code class="language-bash">$ ping -c 1 pi1.local
+$ ping -c 1 pi2.local
+$ ping -c 1 pi3.local
+</code></pre>
+
+<p>For this example we assume that the three IP adresses are <code>192.168.1.101</code>, <code>102</code> and <code>103</code>.</p>
+
+<h2 id="insert-ssh-public-key:8f0fe211d9770745ca52ec727b049d95">Insert SSH public key</h2>
+
+<p>Docker Machine connects to each Raspberry Pi through SSH. You have to insert your public
+SSH key to avoid entering the password of the <code>root</code> user. To insert the SSH public key into a remote machine there is a tool <code>ssh-copy-id</code></p>
+
+<pre><code class="language-bash">$ ssh-copy-id root@192.168.1.101
+$ ssh-copy-id root@192.168.1.102
+$ ssh-copy-id root@192.168.1.103
+</code></pre>
+
+<p>For each of the Raspberry Pi&rsquo;s you have to enter the password <code>hypriot</code> for the user <code>root</code>.</p>
+
+<h2 id="create-docker-machines:8f0fe211d9770745ca52ec727b049d95">Create Docker Machines</h2>
+
+<p>For the next step we use our Docker Machine driver to connect to the Raspberry Pi Hypriot devices.
+Our hypriot driver is not yet integrated into the official Docker Machine binary.
+So we have to download the <code>docker-machine</code> binary with our hypriot machine driver.</p>
+
+<pre><code class="language-bash">$ curl -o docker-machine http://downloads.hypriot.com/docker-machine_0.4.0-dev_darwin-amd64
+$ chmod +x ./docker-machine
+</code></pre>
+
+<p>We download the binary into the current directory and make it executable. You may move it
+into another directory in your PATH to use it from other directories.</p>
+
+<h3 id="create-swarm-token:8f0fe211d9770745ca52ec727b049d95">Create Swarm Token</h3>
+
+<p>A Docker Swarm cluster uses a unique Cluster ID to enable all swarm agents find each other. We need such a Cluster ID to build our Docker Swarm. This can be done in your shell with this command</p>
+
+<pre><code class="language-bash">$ export TOKEN=$(for i in $(seq 1 32); do echo -n $(echo &quot;obase=16; $(($RANDOM % 16))&quot; | bc); done; echo)
+$ echo $TOKEN
+</code></pre>
+
+<p>For this example we use</p>
+
+<pre><code class="language-bash">$ export TOKEN=babb1eb00bdecadedec0debabb1eb00b
+</code></pre>
+
+<p>If you already have a Docker swarm container up and running, you also can create a new Cluster ID
+with <code>docker run --rm hypriot/rpi-swarm create</code>. We simply used the shell commands above to skip this chicken or the egg problem.</p>
+
+<h3 id="create-the-swarm-master:8f0fe211d9770745ca52ec727b049d95">Create the Swarm Master</h3>
+
+<p>Now we create the Docker Swarm Master on the first Raspberry Pi with our generated Cluster ID</p>
+
+<pre><code class="language-bash">$ ./docker-machine create -d hypriot --swarm --swarm-master --swarm-discovery token://$TOKEN --hypriot-ip-address 192.168.1.101 pi1
+</code></pre>
+
+<p>This command connects to the Raspberry Pi, secures the Docker daemon with TLS and pulls the Docker image <code>hypriot/rpi-swarm:latest</code> from the Docker Hub. It starts both the Swarm Master as well as a Swarm Agent in a container.</p>
+
+<p>To check it we can connect to the newly started Swarm Master by using the following command that retrieves all environment variables needed for the Docker client to communicate with the Swarm.</p>
+
+<pre><code class="language-bash">$ eval $(./docker-machine env --swarm pi1)
+$ docker info
+Containers: 2
+Strategy: spread
+Filters: affinity, health, constraint, port, dependency
+Nodes: 1
+ pi1: 192.168.1.202:2376
+  └ Containers: 2
+  └ Reserved CPUs: 0 / 4
+  └ Reserved Memory: 0 B / 971.3 MiB
+</code></pre>
+
+<p>We now have a Swarm Manager running alone. So let&rsquo;s start some more Raspberry Pi&rsquo;s to build a bigger swarm.</p>
+
+<h3 id="create-the-swarm-agents:8f0fe211d9770745ca52ec727b049d95">Create the Swarm agents</h3>
+
+<p>For the rest of the Raspberry Pi&rsquo;s we also create Docker Machine connections with the same Cluster ID. This time we run docker-machine without the <code>--swarm-master</code> option to just spin up a Swarm Agent container in each Pi.</p>
+
+<pre><code class="language-bash">$ ./docker-machine create -d hypriot --swarm --swarm-discovery token://$TOKEN --hypriot-ip-address 192.168.1.102 pi2
+$ ./docker-machine create -d hypriot --swarm --swarm-discovery token://$TOKEN --hypriot-ip-address 192.168.1.103 pi3
+</code></pre>
+
+<p>Let&rsquo;s check what the swarm looks like now</p>
+
+<pre><code class="language-bash">$ docker info
+Containers: 4
+Strategy: spread
+Filters: affinity, health, constraint, port, dependency
+Nodes: 3
+ pi1: 192.168.1.101:2376
+  └ Containers: 2
+  └ Reserved CPUs: 0 / 4
+  └ Reserved Memory: 0 B / 971.3 MiB
+ pi2: 192.168.1.102:2376
+  └ Containers: 1
+  └ Reserved CPUs: 0 / 4
+  └ Reserved Memory: 0 B / 971.3 MiB
+ pi3: 192.168.1.103:2376
+  └ Containers: 1
+  └ Reserved CPUs: 0 / 4
+  └ Reserved Memory: 0 B / 971.3 MiB
+</code></pre>
+
+<p>We also can list all containers in the whole swarm as usual with</p>
+
+<pre><code class="language-bash">$ docker ps
+CONTAINER ID        IMAGE                      COMMAND                CREATED             STATUS              PORTS                                    NAMES
+5effaa7de4a3        hypriot/rpi-swarm:latest   &quot;/swarm join --addr    2 minutes ago       Up About a minute   2375/tcp                                 pi3/swarm-agent
+6b73003b7246        hypriot/rpi-swarm:latest   &quot;/swarm join --addr    4 minutes ago       Up 3 minutes        2375/tcp                                 pi2/swarm-agent
+5e00fbf7b9f6        hypriot/rpi-swarm:latest   &quot;/swarm join --addr    7 minutes ago       Up 7 minutes        2375/tcp                                 pi1/swarm-agent
+02c905ec25a0        hypriot/rpi-swarm:latest   &quot;/swarm manage --tls   7 minutes ago       Up 7 minutes        2375/tcp, 192.168.1.101:3376-&gt;3376/tcp   pi1/swarm-agent-master
+</code></pre>
+
+<p>After setting up the Docker Swarm you now can use the normal Docker commands through the port 3376. Have a look at the <a href="https://docs.docker.com/swarm/">official Docker Swarm documentation</a> for more details.</p>
+
+<p>Just remember to set the environments to communicate with the Swarm Master before using the Docker client.</p>
+
+<pre><code class="language-bash">$ eval $(docker-machine env --swarm pi1)
+</code></pre>
+
+<p>And then you can remotely manage your Raspberry Pi Swarm from your Mac or Linux machine.</p>
+
+<p>We hope you enjoyed this little tour of Docker Swarm!</p>
+
+<p>As always use the comments below to give us feedback and share it on Twitter or Facebook.</p>
+
+<p>Stefan</p>
+
+    <div class="social-sharing">
+  
+<div class="social-sharing-twitter" style="float: left;">
+  <a class="twitter-share-button"
+    href="https://twitter.com/share"
+    data-url="http://localhost:1313/post/docker-swarm-on-raspberry-pi/"
+    data-lang="en"
+    data-show-count="true"
+    data-via="HypriotTweets">
+  Tweet
+  </a>
+  <script>
+  window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
+  </script>
+</div>
+
+  
+<div class="social-sharing-facebook" style="float: left;">
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5&appId=599115553447708";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+  <div class="fb-share-button" data-href="http://localhost:1313/post/docker-swarm-on-raspberry-pi/" data-layout="button_count"></div>
+</div>
+
+  
+<div class="social-sharing-google">
+  <script >
+    window.___gcfg = {
+      lang: 'en-US',
+      parsetags: 'onload'
+    };
+  </script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <div class="g-plus" data-action="share" data-annotation="bubble" data-width="200" data-href="http://localhost:1313/post/docker-swarm-on-raspberry-pi/"></div>
+</div>
+
+</div>
+
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'hypriot';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+</div>
+
+<script data-no-instant>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

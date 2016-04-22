@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title> Introducing the new ClearFog Pro Router Board from SolidRun &middot; Docker Pirates ARMed with explosive stuff </title>
+
+  
+  <link rel="stylesheet" href="/css/poole.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="stylesheet" href="/css/hyde.css">
+  <link rel="stylesheet" href="/css/hypriot.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Docker Pirates ARMed with explosive stuff" />
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-59194692-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+</head>
+
+<body>
+
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-logo">
+      <a href="/"><img src="/images/logo_tr.png" /></a>
+    </div>
+    <div class="sidebar-about">
+      <h1><a href="/">Docker Pirates ARMed with explosive stuff</a></h1>
+      <p class="lead">
+       Roaming the seven seas in search for golden container plunder. 
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="/">HOME</a> </li>
+      
+        <li><a href="/getting-started-with-docker-on-your-arm-device/"> GETTING STARTED </a></li>
+      
+        <li><a href="/downloads/"> DOWNLOADS </a></li>
+      
+        <li><a href="/faq/"> FAQ </a></li>
+      
+        <li><a href="https://gitter.im/hypriot/talk"> COMMUNITY </a></li>
+      
+        <li><a href="/about/"> ABOUT US </a></li>
+      
+        <li><a href="/crew/"> CREW </a></li>
+      
+    </ul>
+
+    <p>&copy; 2016 Hypriot </p>
+    <p><a href="/legal_notice" style="font-size: 1rem;">Legal Notice</a></p>
+    <div class="edit-github" id="edit-github-id">
+        <p>
+          <a href="https://github.com/hypriot/blog"><img src="https://www.presidecms.com/assets/img/icons/github.png" style="float:left; width:9%; height:9%; padding-right: 8px; padding-top: 6px; align: center; ">Edit this blog on GitHub</img></a>
+        </p>
+    </div>
+  </div>
+</div>
+
+
+<div class="content container">
+  <div class="post">
+    <h1>Introducing the new ClearFog Pro Router Board from SolidRun</h1>
+    <span class="post-date">Mon, Mar 14, 2016</span>
+    
+
+<p>Could you imagine to run a standard Linux OS and your applications of choice securely
+within Docker containers on a beefy WiFi router at home?</p>
+
+<p>We think this will be possible soon with this new ARM-based router board from SolidRun.
+Thus we&rsquo;ll spent a whole blog post series to install our Debian-based HypriotOS
+and get Docker running on this Marvell ARMADA powered Single Board Computer (SBC).</p>
+
+<p>So let&rsquo;s get started and for our first episode in this series we&rsquo;ll dive deep into
+the technical specifications of the ClearFog Pro in order to get to know this neat
+little device.</p>
+
+<p><img src="/images/clearfog-pro-intro/clearfog-pro-overview.jpg" alt="ClearFog Pro Overview" /></p>
+
+<p>But be prepared, this one is really a powerful beast&hellip;</p>
+
+<p><img src="/images/clearfog-pro-intro/clearfog-pro-overview-01.jpg" alt="ClearFog Pro Overview" /></p>
+
+<h3 id="technical-specifications:568e70a5f9d2a7d5ec5b5140013e90f2">Technical specifications</h3>
+
+<p>The ClearFog is based upon the Marvell ARMADA 380 or 388 processors. The CPU is a
+single or dual core ARMv7 processor (Cortex A9) @ up to 1.6 GHz with 1MB L2 cache,
+NEON and FPU.</p>
+
+<table>
+<thead>
+<tr>
+<th>Features</th>
+<th>ClearFog Base*</th>
+<th>ClearFog Pro</th>
+</tr>
+</thead>
+
+<tbody>
+<tr>
+<td><a href="https://www.solid-run.com/marvell-armada-family/armada-som-system-on-module/">SoC Model</a></td>
+<td>ARMADA based A380/A388</td>
+<td>ARMADA based A380/A388</td>
+</tr>
+
+<tr>
+<td>Memory &amp; Storage</td>
+<td>256MB (A380)/1GB (A388)</td>
+<td>256MB (A380)/1GB (A388)</td>
+</tr>
+
+<tr>
+<td></td>
+<td>M.2**</td>
+<td>M.2</td>
+</tr>
+
+<tr>
+<td></td>
+<td>8GB microSD</td>
+<td>8GB microSD</td>
+</tr>
+
+<tr>
+<td></td>
+<td>4GB eMMC (optional)</td>
+<td>4GB eMMC (optional)</td>
+</tr>
+
+<tr>
+<td>Connectivity</td>
+<td>1x mSATA/mPCIE</td>
+<td>2x mSATA/mPCIE</td>
+</tr>
+
+<tr>
+<td></td>
+<td>1x USB 3.0 port</td>
+<td>1x USB 3.0 port</td>
+</tr>
+
+<tr>
+<td></td>
+<td>2x Port dedicated Ethernet</td>
+<td>1x Port dedicated Ethernet</td>
+</tr>
+
+<tr>
+<td></td>
+<td>1x SFP (A388 Only)</td>
+<td>6x Port switched Ethernet</td>
+</tr>
+
+<tr>
+<td></td>
+<td></td>
+<td>1x SFP Ethernet</td>
+</tr>
+
+<tr>
+<td>I/O and Misc.</td>
+<td>Analog Audio</td>
+<td>Analog Audio/TDM module support</td>
+</tr>
+
+<tr>
+<td></td>
+<td>GPIO Header (mikroBUS)</td>
+<td>GPIO Header (mikroBUS)</td>
+</tr>
+
+<tr>
+<td></td>
+<td>Indication LEDs</td>
+<td>Indication LEDs</td>
+</tr>
+
+<tr>
+<td></td>
+<td>User Push Buttons</td>
+<td>User Push Buttons</td>
+</tr>
+
+<tr>
+<td></td>
+<td>PoE expansion header</td>
+<td>PoE expansion header</td>
+</tr>
+
+<tr>
+<td></td>
+<td>RTC Battery</td>
+<td>RTC Battery</td>
+</tr>
+
+<tr>
+<td></td>
+<td>FTDI (console only), Debug Header</td>
+<td>FTDI (console only), Debug Header</td>
+</tr>
+
+<tr>
+<td></td>
+<td></td>
+<td>JTAG Header</td>
+</tr>
+
+<tr>
+<td>OS Support</td>
+<td>Linux Kernel 3.x, OpenWrt, Yocto</td>
+<td>Linux Kernel 3.x, OpenWrt, Yocto</td>
+</tr>
+
+<tr>
+<td>Power</td>
+<td>Wide range 9-32V</td>
+<td>Wide range 9-32V</td>
+</tr>
+
+<tr>
+<td></td>
+<td></td>
+<td>Advanced Power Control</td>
+</tr>
+
+<tr>
+<td></td>
+<td></td>
+<td>Fan Control</td>
+</tr>
+
+<tr>
+<td>Dimensions</td>
+<td>100mm x 74mm</td>
+<td>225mm x 100mm</td>
+</tr>
+</tbody>
+</table>
+
+<p>*available soon<br />
+**M.2 includes USB 3.0 support (in carrier Base only)</p>
+
+<p>More details can be found at the
+<a href="https://www.solid-run.com/marvell-armada-family/clearfog/">ClearFog Pro</a> product page.</p>
+
+<p><em>ClearFog Pro (top view)</em>
+<img src="/images/clearfog-pro-intro/clearfog-pro-components-top-view-1.jpg" alt="ClearFog Pro Top View" /></p>
+
+<p><em>ClearFog Pro (buttom view)</em>
+<img src="/images/clearfog-pro-intro/clearfog-pro-components-bottom-view.jpg" alt="ClearFog Pro Buttom View" /></p>
+
+<h3 id="technical-highlights:568e70a5f9d2a7d5ec5b5140013e90f2">Technical highlights</h3>
+
+<ul>
+<li>passive cooling</li>
+<li>all Ethernet ports supporting up to 1GBit/s at least</li>
+<li>the SFP Ethernet port supports up to 2.5GBit/s</li>
+<li>mSATA or miniPCIe mode can be configured</li>
+<li>M.2 slot supports a 2242 form factor M.2 card (22mm x 42mm)</li>
+</ul>
+
+<h3 id="first-impressions:568e70a5f9d2a7d5ec5b5140013e90f2">First impressions</h3>
+
+<p>We think you&rsquo;ll get it now - this device is somewhat special.</p>
+
+<p>It&rsquo;s not a real end-user product and it&rsquo;s therefore called a development board. But the
+ClearFog Pro is already equipped with some best-in-class components and has a superior
+build quality - once you see it in person you&rsquo;ll gonna know what we&rsquo;re talking about.</p>
+
+<h3 id="lot-s-of-possibilities:568e70a5f9d2a7d5ec5b5140013e90f2">Lot&rsquo;s of possibilities</h3>
+
+<p>As you now know some of the technical details of the ClearFog Pro, you can clearly
+imagine what could be possible with such a board.</p>
+
+<p>So, we&rsquo;re listing here only a few possibilities to start the brain storming&hellip;</p>
+
+<ul>
+<li>a high-speed WiFi router with a 802.11n or 802.11ac miniPCIe card</li>
+<li>a NAS system with mSATA or M.2 SSD disks</li>
+<li>a personal router and firewall</li>
+<li>an ownCloud server</li>
+<li>a streaming server for audio and video tracks</li>
+<li>or maybe all this above at once</li>
+<li>a powerful Docker host with insane network performance</li>
+</ul>
+
+<p>&hellip;and finally we&rsquo;d like to ask you:</p>
+
+<p><em>&ldquo;What would you like to build with a ClearFog Pro?&rdquo;</em></p>
+
+<p><strong>Update:</strong> new follow-up posts</p>
+
+<ul>
+<li>Part 2: <a href="http://blog.hypriot.com/post/clearfog-pro-part-2-lets-run-docker/">Let&rsquo;s run Docker on the ClearFog Pro router board</a></li>
+</ul>
+
+<p>Please send us your feedback on our <a href="https://gitter.im/hypriot/talk">Gitter channel</a> or tweet your thoughts and ideas on this project at <a href="https://twitter.com/HypriotTweets">@HypriotTweets</a>.</p>
+
+<p>Dieter <a href="https://twitter.com/Quintus23M">@Quintus23M</a></p>
+
+<p>P.S. this ClearFog Pro (ARMADA A388 w/ 1GByte memory) is already hooked up for testing in our labs
+<img src="/images/clearfog-pro-intro/clearfog-pro-cabled.jpg" alt="ClearFog Pro Cabled" /></p>
+
+    <div class="social-sharing">
+  
+<div class="social-sharing-twitter" style="float: left;">
+  <a class="twitter-share-button"
+    href="https://twitter.com/share"
+    data-url="http://localhost:1313/post/introducing-the-clearfog-pro-router-board/"
+    data-lang="en"
+    data-show-count="true"
+    data-via="HypriotTweets">
+  Tweet
+  </a>
+  <script>
+  window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
+  </script>
+</div>
+
+  
+<div class="social-sharing-facebook" style="float: left;">
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5&appId=599115553447708";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+  <div class="fb-share-button" data-href="http://localhost:1313/post/introducing-the-clearfog-pro-router-board/" data-layout="button_count"></div>
+</div>
+
+  
+<div class="social-sharing-google">
+  <script >
+    window.___gcfg = {
+      lang: 'en-US',
+      parsetags: 'onload'
+    };
+  </script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <div class="g-plus" data-action="share" data-annotation="bubble" data-width="200" data-href="http://localhost:1313/post/introducing-the-clearfog-pro-router-board/"></div>
+</div>
+
+</div>
+
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'hypriot';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+</div>
+
+<script data-no-instant>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

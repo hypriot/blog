@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title> Getting started with Docker on your Raspberry Pi &middot; Docker Pirates ARMed with explosive stuff </title>
+
+  
+  <link rel="stylesheet" href="/css/poole.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="stylesheet" href="/css/hyde.css">
+  <link rel="stylesheet" href="/css/hypriot.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Docker Pirates ARMed with explosive stuff" />
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-59194692-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+</head>
+
+<body>
+
+  <div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-logo">
+      <a href="/"><img src="/images/logo_tr.png" /></a>
+    </div>
+    <div class="sidebar-about">
+      <h1><a href="/">Docker Pirates ARMed with explosive stuff</a></h1>
+      <p class="lead">
+       Roaming the seven seas in search for golden container plunder. 
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="/">HOME</a> </li>
+      
+        <li><a href="/getting-started-with-docker-on-your-arm-device/"> GETTING STARTED </a></li>
+      
+        <li><a href="/downloads/"> DOWNLOADS </a></li>
+      
+        <li><a href="/faq/"> FAQ </a></li>
+      
+        <li><a href="https://gitter.im/hypriot/talk"> COMMUNITY </a></li>
+      
+        <li><a href="/about/"> ABOUT US </a></li>
+      
+        <li><a href="/crew/"> CREW </a></li>
+      
+    </ul>
+
+    <p>&copy; 2016 Hypriot </p>
+    <p><a href="/legal_notice" style="font-size: 1rem;">Legal Notice</a></p>
+    <div class="edit-github" id="edit-github-id">
+        <p>
+          <a href="https://github.com/hypriot/blog"><img src="https://www.presidecms.com/assets/img/icons/github.png" style="float:left; width:9%; height:9%; padding-right: 8px; padding-top: 6px; align: center; ">Edit this blog on GitHub</img></a>
+        </p>
+    </div>
+  </div>
+</div>
+
+
+  <div class="content container">
+    <div class="simple">
+      <h1>Getting started with Docker on your Raspberry Pi</h1>
+          
+
+<p>Docker is a new technology that emerged in the last two years and took the software world by storm. What exactly is Docker and why did it became so popular in such short time?</p>
+
+<p>The goal of this guide is to answer these questions and to get you started with Docker on a Raspberry Pi in no time.
+We are going to cover the procedure for Windows, OS X and Linux users.</p>
+
+<h2 id="what-the-heck-is-docker-and-why-would-i-use-it:397c66ef19f9f061b6711d2e296cb276">What the heck is Docker and why would I use it?</h2>
+
+<p>Docker simplifies the packaging, distribution, installation and execution of (complex) applications.</p>
+
+<p>In this context, applications are:</p>
+
+<ul>
+<li>blogging platforms like <a href="https://wordpress.com">Wordpress </a> or <a href="https://ghost.org/">Ghost</a></li>
+<li>tools for software collaboration like <a href="https://about.gitlab.com/">Gitlab</a> or <a href="http://gogs.io/">Gogs</a></li>
+<li>file synchronization platforms like <a href="https://owncloud.org/">OwnCloud</a> or <a href="http://seafile.com/en/home/">Seafile</a></li>
+</ul>
+
+<p>These kinds of applications usually consist of many components which need to be installed and configured. This is often a time consuming and frustrating experience for users.</p>
+
+<p>Docker allows administrators or developers to package these applications into something called containers.
+Containers are self-contained, preconfigured packages that a user can fetch and run with just a single command.
+By keeping different software components separated in containers they can also be easily updated or removed without influencing each other.
+There are many more advantages of using Docker; the details of which can be found in the official <a href="https://docs.docker.com">Docker Documentation</a>.</p>
+
+<h2 id="the-raspberry-pi-an-easy-low-cost-way-of-getting-started-with-docker:397c66ef19f9f061b6711d2e296cb276">The Raspberry Pi: An easy, low cost way of getting started with Docker</h2>
+
+<p>If we piqued your curiosity and you would like to dive into the magic world of Docker one of the easiest ways is by using Docker on a <a href="https://www.raspberrypi.org/help/what-is-a-raspberry-pi/">Raspberry Pi</a>.
+According to the creators of the Raspberry Pi it is:</p>
+
+<blockquote>
+<p>a low cost, credit-card sized computer that plugs into a computer monitor or TV, and uses a standard keyboard and mouse.
+It is a capable little device that enables people of all ages to explore computing, and to learn how to program in languages like Scratch and Python.
+It’s capable of doing everything you’d expect a desktop computer to do, from browsing the internet and playing high-definition video, to making spreadsheets, word-processing, and playing games.</p>
+</blockquote>
+
+<p>The goal of this guide is to show you the necessary steps to get you started with Docker on a Raspberry Pi. Please follow the guide that covers your operating system and continue below once you have finished.</p>
+
+<p>-&gt; <a href="/getting-started-with-docker-and-windows-on-the-raspberry-pi">The Windows guide for setting up Docker on a Raspberry Pi</a></p>
+
+<p>-&gt; <a href="/getting-started-with-docker-and-mac-on-the-raspberry-pi">The Mac OS X guide for setting up Docker on a Raspberry Pi</a></p>
+
+<p>-&gt; <a href="/getting-started-with-docker-and-linux-on-the-raspberry-pi">The Linux guide for setting up Docker on a Raspberry Pi</a></p>
+
+<h2 id="going-wild-with-docker-what-can-you-actually-do-with-it:397c66ef19f9f061b6711d2e296cb276">Going wild with Docker! What can you actually do with it?</h2>
+
+<p>As stated in the beginning Docker simplifies the way software is distributed and run. We even said that you would only need one command for that. It is time to prove it.</p>
+
+<p>Just type <code>docker run</code> into the terminal of your Raspberry Pi:</p>
+
+<pre><code>docker run -d -p 80:80 hypriot/rpi-busybox-httpd
+</code></pre>
+
+<p>This command will download and start the Docker image <em>hypriot/rpi-busybox-httpd</em> which contains a tiny webserver. Once an image is started it is called a <em>container</em>. An image can also be used to start multiple containers.
+You can check if your container is running by typing</p>
+
+<pre><code>docker ps
+</code></pre>
+
+<p>You should see the container you just started in the container list.</p>
+
+<p>Now you can open up your browser on your workstation and type in the IP address of your Raspberry Pi to see that it really works!</p>
+
+<p><img src="https://s3.eu-central-1.amazonaws.com/assets.hypriot.com/blog_post_getting-started/browser-pi-hypriot-logo.png" alt="hypriot-logo" /></p>
+
+<p>One great aspect of running a Docker-based app is, you can be sure that it works on every machine running Docker with one exception.</p>
+
+<p>Here we run Docker on a Raspberry Pi. So the CPU architecture here is <strong>ARM</strong> rather than x86/x64 by Intel or AMD. Thus, Docker-based apps you use have to be packaged specifically for ARM architecture! Docker-based apps packaged for x86/x64 will not work and will result in an error such as:</p>
+
+<pre><code>FATA[0003] Error response from daemon: Cannot start container 0f0fa3f8e510e53908e6a459e817d600b9649e621e7dede974d6a65761ad39e5: exec format error
+</code></pre>
+
+<p>Keep this in mind when searching for apps on the <a href="https://registry.hub.docker.com/search?q=library">Docker Hub</a> - <strong>the source</strong> for Docker apps/images. If you see the keyword <em>RPI</em> or <em>ARM</em> in the heading or description, this app can usually be used for the Raspberry Pi.</p>
+
+<p>We prepared a couple of <a href="https://registry.hub.docker.com/search?q=hypriot&amp;searchfield=">Raspberry Pi ready images</a> for your convenience. Try them out now and have fun!</p>
+
+<p><a href="https://registry.hub.docker.com/search?q=hypriot&searchfield="><img src="https://s3.eu-central-1.amazonaws.com/assets.hypriot.com/blog_post_getting-started/dockerhub-hypriot-search.png" alt="dockerhub-hypriot-search" /></a></p>
+
+	
+	  
+	  
+	    <div class="social-sharing">
+  
+<div class="social-sharing-twitter" style="float: left;">
+  <a class="twitter-share-button"
+    href="https://twitter.com/share"
+    data-url="http://localhost:1313/getting-started-with-docker-on-your-arm-device/"
+    data-lang="en"
+    data-show-count="true"
+    data-via="HypriotTweets">
+  Tweet
+  </a>
+  <script>
+  window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
+  </script>
+</div>
+
+  
+<div class="social-sharing-facebook" style="float: left;">
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5&appId=599115553447708";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+  <div class="fb-share-button" data-href="http://localhost:1313/getting-started-with-docker-on-your-arm-device/" data-layout="button_count"></div>
+</div>
+
+  
+<div class="social-sharing-google">
+  <script >
+    window.___gcfg = {
+      lang: 'en-US',
+      parsetags: 'onload'
+    };
+  </script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <div class="g-plus" data-action="share" data-annotation="bubble" data-width="200" data-href="http://localhost:1313/getting-started-with-docker-on-your-arm-device/"></div>
+</div>
+
+</div>
+
+	  
+	
+	  
+	  
+	    <div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'hypriot';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+	    
+
+   </div>
+  </div>
+
+<script data-no-instant>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>

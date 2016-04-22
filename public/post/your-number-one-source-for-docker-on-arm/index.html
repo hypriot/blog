@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title> Your No. 1 source for Docker on ARM &middot; Docker Pirates ARMed with explosive stuff </title>
+
+  
+  <link rel="stylesheet" href="/css/poole.css">
+  <link rel="stylesheet" href="/css/syntax.css">
+  <link rel="stylesheet" href="/css/hyde.css">
+  <link rel="stylesheet" href="/css/hypriot.css">
+  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="/favicon.ico">
+
+  
+  <link href="" rel="alternate" type="application/rss+xml" title="Docker Pirates ARMed with explosive stuff" />
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-59194692-1', 'auto');
+    ga('send', 'pageview');
+
+  </script>
+
+</head>
+
+<body>
+
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-logo">
+      <a href="/"><img src="/images/logo_tr.png" /></a>
+    </div>
+    <div class="sidebar-about">
+      <h1><a href="/">Docker Pirates ARMed with explosive stuff</a></h1>
+      <p class="lead">
+       Roaming the seven seas in search for golden container plunder. 
+      </p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li><a href="/">HOME</a> </li>
+      
+        <li><a href="/getting-started-with-docker-on-your-arm-device/"> GETTING STARTED </a></li>
+      
+        <li><a href="/downloads/"> DOWNLOADS </a></li>
+      
+        <li><a href="/faq/"> FAQ </a></li>
+      
+        <li><a href="https://gitter.im/hypriot/talk"> COMMUNITY </a></li>
+      
+        <li><a href="/about/"> ABOUT US </a></li>
+      
+        <li><a href="/crew/"> CREW </a></li>
+      
+    </ul>
+
+    <p>&copy; 2016 Hypriot </p>
+    <p><a href="/legal_notice" style="font-size: 1rem;">Legal Notice</a></p>
+    <div class="edit-github" id="edit-github-id">
+        <p>
+          <a href="https://github.com/hypriot/blog"><img src="https://www.presidecms.com/assets/img/icons/github.png" style="float:left; width:9%; height:9%; padding-right: 8px; padding-top: 6px; align: center; ">Edit this blog on GitHub</img></a>
+        </p>
+    </div>
+  </div>
+</div>
+
+
+<div class="content container">
+  <div class="post">
+    <h1>Your No. 1 source for Docker on ARM</h1>
+    <span class="post-date">Mon, Mar 28, 2016</span>
+    <p>Besides our <a href="https://blog.hypriot.com/downloads/">Download section</a> we do have another source for getting the latest and greatest Docker for ARM.<br />
+It is a debian package repository hosted at <a href="https://packagecloud.io/">packagecloud.io</a> that contains lots of the stuff from our Download section.</p>
+
+<p>Despite having a package repository for a couple of months now, it seems many people do not know it.
+I guess that&rsquo;s our own fault because we never spoke about it - we only added it to our prepared SD card images. :)
+Installing or updating Docker or other Docker goodies like Docker-Compose from this repository can be done by a simple <code>apt-get install</code>.</p>
+
+<p>In this post I gonna show you what you need to know to get started with this repository.</p>
+
+<p><img src="/images/packagecloud/packagecloud_io_wide.jpg" alt="Raspberry Pi Workshop in Brussels" /></p>
+
+<p>Packagecloud.io is a really great service for hosting different types of packages (DEBs, RPMs, Ruby Gems).
+You get detailed download/usage statistics and can manage all your packages easily with a Web-GUI or with an API.</p>
+
+<p>The last point was what convinced us to use packagecloud.io as it allows us to upload our packages directly from our Continuous Integration systems.
+Many popular CI systems offer build-in packagecloud support - for instance Travis or Circle-CI.</p>
+
+<p>Our packagecloud repository is conveniently named &ldquo;Schatzkiste&rdquo; and supports Debian-based Linux distributions.</p>
+
+<p>To use it you need to configure &lsquo;apt&rsquo; first by executing:</p>
+
+<pre><code>curl -s https://packagecloud.io/install/repositories/Hypriot/Schatzkiste/script.deb.sh | sudo bash
+</code></pre>
+
+<p>If you want to know what this script does you can look up the <a href="https://packagecloud.io/Hypriot/Schatzkiste/install">source of this script</a>.</p>
+
+<p>It installs &lsquo;apt-transport-https&rsquo; for connecting securely to our repository, adds the packagecloud GPG key to &lsquo;apt&rsquo; and then adds our &lsquo;Schatzkiste&rsquo;-repository sources to &lsquo;/etc/apt/sources.list.d/Hypriot_Schatzkiste.list&rsquo;.<br />
+Afterwards it updates the package sources via &lsquo;apt-get update&rsquo;.</p>
+
+<p>From there you are ready to search for the latest Docker via</p>
+
+<pre><code>$ apt-cache madison docker-hypriot
+docker-hypriot |   1.10.3-1 | https://packagecloud.io/Hypriot/Schatzkiste/debian/ wheezy/main armhf Packages
+docker-hypriot |   1.10.2-1 | https://packagecloud.io/Hypriot/Schatzkiste/debian/ wheezy/main armhf Packages
+docker-hypriot |   1.10.1-1 | https://packagecloud.io/Hypriot/Schatzkiste/debian/ wheezy/main armhf Packages
+docker-hypriot |   1.10.0-1 | https://packagecloud.io/Hypriot/Schatzkiste/debian/ wheezy/main armhf Packages
+docker-hypriot |    1.9.1-1 | https://packagecloud.io/Hypriot/Schatzkiste/debian/ wheezy/main armhf Packages
+docker-hypriot |    1.9.0-2 | https://packagecloud.io/Hypriot/Schatzkiste/debian/ wheezy/main armhf Packages
+docker-hypriot |    1.8.3-1 | https://packagecloud.io/Hypriot/Schatzkiste/debian/ wheezy/main armhf Packages
+docker-hypriot |    1.8.2-1 | https://packagecloud.io/Hypriot/Schatzkiste/debian/ wheezy/main armhf Packages
+docker-hypriot |    1.8.1-1 | https://packagecloud.io/Hypriot/Schatzkiste/debian/ wheezy/main armhf Packages
+docker-hypriot |    1.8.0-1 | https://packagecloud.io/Hypriot/Schatzkiste/debian/ wheezy/main armhf Packages
+docker-hypriot |    1.7.1-1 | https://packagecloud.io/Hypriot/Schatzkiste/debian/ wheezy/main armhf Packages
+docker-hypriot |    1.6.2-2 | https://packagecloud.io/Hypriot/Schatzkiste/debian/ wheezy/main armhf Packages
+docker-hypriot |    1.6.2-1 | https://packagecloud.io/Hypriot/Schatzkiste/debian/ wheezy/main armhf Packages
+docker-hypriot |    1.6.1-1 | https://packagecloud.io/Hypriot/Schatzkiste/debian/ wheezy/main armhf Packages
+docker-hypriot |    1.6.0-1 | https://packagecloud.io/Hypriot/Schatzkiste/debian/ wheezy/main armhf Packages
+docker-hypriot |    1.5.0-7 | https://packagecloud.io/Hypriot/Schatzkiste/debian/ wheezy/main armhf Packages
+</code></pre>
+
+<p>&lsquo;apt-cache madison&rsquo; will list all the available version for package &lsquo;docker-hypriot&rsquo; and as you can see the latest Docker 1.10.3 is already there, too.</p>
+
+<p>Install it with</p>
+
+<pre><code>$ apt-get install docker-hypriot=1.10.3-1
+</code></pre>
+
+<p>So I want to close this blog post with a huge thank you to the packagecloud.io guys as they are hosting our packages for free.</p>
+
+<p>I highly recommend their service as it can be so tedious and time-consuming to setup your own repository properly - I have been there myself.</p>
+
+<p>As always, use the comments below to give us feedback and share this post on Twitter, Google or Facebook.</p>
+
+<p>Govinda <a href="https://twitter.com/_beagile_">@_beagile_</a></p>
+
+    <div class="social-sharing">
+  
+<div class="social-sharing-twitter" style="float: left;">
+  <a class="twitter-share-button"
+    href="https://twitter.com/share"
+    data-url="http://localhost:1313/post/your-number-one-source-for-docker-on-arm/"
+    data-lang="en"
+    data-show-count="true"
+    data-via="HypriotTweets">
+  Tweet
+  </a>
+  <script>
+  window.twttr=(function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],t=window.twttr||{};if(d.getElementById(id))return;js=d.createElement(s);js.id=id;js.src="https://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);t._e=[];t.ready=function(f){t._e.push(f);};return t;}(document,"script","twitter-wjs"));
+  </script>
+</div>
+
+  
+<div class="social-sharing-facebook" style="float: left;">
+  <div id="fb-root"></div>
+  <script>(function(d, s, id) {
+    var js, fjs = d.getElementsByTagName(s)[0];
+    if (d.getElementById(id)) return;
+    js = d.createElement(s); js.id = id;
+    js.src = "//connect.facebook.net/en_GB/sdk.js#xfbml=1&version=v2.5&appId=599115553447708";
+    fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+  <div class="fb-share-button" data-href="http://localhost:1313/post/your-number-one-source-for-docker-on-arm/" data-layout="button_count"></div>
+</div>
+
+  
+<div class="social-sharing-google">
+  <script >
+    window.___gcfg = {
+      lang: 'en-US',
+      parsetags: 'onload'
+    };
+  </script>
+  <script src="https://apis.google.com/js/platform.js" async defer></script>
+  <div class="g-plus" data-action="share" data-annotation="bubble" data-width="200" data-href="http://localhost:1313/post/your-number-one-source-for-docker-on-arm/"></div>
+</div>
+
+</div>
+
+    <div id="disqus_thread"></div>
+<script type="text/javascript">
+
+(function() {
+    
+    
+    if (window.location.hostname == "localhost")
+        return;
+
+    var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+    var disqus_shortname = 'hypriot';
+    dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com/" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+  </div>
+</div>
+
+<script data-no-instant>document.write('<script src="http://'
+        + (location.host || 'localhost').split(':')[0]
+		+ ':1313/livereload.js?mindelay=10"></'
+        + 'script>')</script></body>
+</html>
