@@ -1,7 +1,7 @@
 Hypriot Blog
 ==================
 
-![Build Status](https://circleci.com/gh/hypriot/blog.svg?style=shield&circle-token=f2a332d914d4c85519d43ef688db963129ee0e5f)
+[![Circle CI](https://circleci.com/gh/hypriot/blog.svg?style=svg)](https://circleci.com/gh/hypriot/blog)
 [![Join the chat at https://gitter.im/hypriot/talk](https://badges.gitter.im/hypriot/talk.svg)](https://gitter.im/hypriot/talk?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
 This repository is used to generate the blog at [www.blog.hypriot.com](http://www.blog.hypriot.com).
