@@ -4,7 +4,7 @@ Hypriot Blog
 [![Circle CI](https://circleci.com/gh/hypriot/blog.svg?style=svg)](https://circleci.com/gh/hypriot/blog)
 [![Join the chat at https://gitter.im/hypriot/talk](https://badges.gitter.im/hypriot/talk.svg)](https://gitter.im/hypriot/talk?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-This repository is used to generate the blog at [www.blog.hypriot.com](http://www.blog.hypriot.com).
+This repository is used to generate the blog at [blog.hypriot.com](http://blog.hypriot.com).
 
 Feel free to create PRs for improving this blog!
 
