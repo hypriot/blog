@@ -144,7 +144,7 @@ After you found out the IP address establish a connection to the Raspberry Pi wi
 Replace the IP address after the `@` with the one of your Raspberry Pi.
 
 ```
-ssh root@192.168.0.27
+ssh pirate@192.168.0.27
 ```
 
 When you are asked for the password type `hypriot` and hit *Enter*.

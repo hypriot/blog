@@ -101,7 +101,7 @@ After starting *PuTTY* type in the IP address we determined into the field *Host
 
 ![Screenshot-putty-login](https://s3.eu-central-1.amazonaws.com/assets.hypriot.com/blog_post_getting-started/windows-screenies/putty-window-settings.png)
 
-In the new window which just opened type `root` as login name and hit *Enter*. Next you will be asked for a password. Type `hypriot` and hit *Enter* again.
+In the new window which just opened type `pirate` as login name and hit *Enter*. Next you will be asked for a password. Type `hypriot` and hit *Enter* again.
 
 If everything went fine you should now see the *HypriotOS* command line prompt waiting for your input. It should look like this:
 
