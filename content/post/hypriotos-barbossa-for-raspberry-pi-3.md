@@ -28,7 +28,7 @@ And that's just the tip of the iceberg. So read on to get all the glory details 
 * support for Raspberry Pi Zero, 1, 2 and 3
 * Linux kernel 4.1.19
 * Docker Engine 1.11.0
-* Docker Compose 1.7.0
+* Docker Compose 1.7.1
 * Swarm 1.2.2
 * Cluster-Lab 0.2.6
 * device-init 0.1.5
