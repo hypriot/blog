@@ -19,6 +19,7 @@ We also integrated the Hypriot Cluster-Lab into this release, which makes it rea
 And that's just the tip of the iceberg. So read on to get all the glory details of this new release ... :)
 
 ![Raspberry Pi 3](/images/hypriotos-barbossa/iceberg.jpg)
+<div style="text-align:right; font-size: smaller">Image courtesy of [David](https://www.flickr.com/photos/davidw/)</div>
 
 <!--more-->
 
