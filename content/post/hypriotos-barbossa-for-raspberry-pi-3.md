@@ -85,7 +85,7 @@ We added the Hypriot Cluster-Lab to the image, too.
 It is disabled by default, but can easily be enabled when you flash the image:
 
 ```
-flash --cluster-lab true https://github.com/hypriot/image-builder-rpi/releases/download/v0.5.6/sd-card-rpi-v0.5.6.img.zip
+flash --clusterlab true https://github.com/hypriot/image-builder-rpi/releases/download/v0.5.6/sd-card-rpi-v0.5.6.img.zip
 ```
 
 Setting this options starts the Cluster-Lab on boot.
