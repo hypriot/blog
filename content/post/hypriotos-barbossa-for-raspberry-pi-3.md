@@ -26,8 +26,8 @@ And that's just the tip of the iceberg. So read on to get all the glory details 
 ## Features at a glance
 
 * support for Raspberry Pi Zero, 1, 2 and 3
-* Linux kernel 4.1.19
-* Docker Engine 1.11.0
+* Linux kernel 4.4.10
+* Docker Engine 1.11.1
 * Docker Compose 1.7.1
 * Swarm 1.2.2
 * Cluster-Lab 0.2.6
@@ -36,10 +36,10 @@ And that's just the tip of the iceberg. So read on to get all the glory details 
 
 ## Updated Docker and Docker-Tools
 Compared to our latest HypriotOS Berry 0.7 we did upgrade the Docker-Engine to v1.11 which now has several binaries instead of one.
-Besides the original Docker binary there is now also a Containerd and a Runc binary. Containerd is basically a supervisor for individual containers that are run by Runc.
+Besides the original Docker binary there is now also a Containerd and a runC binary. Containerd is basically a supervisor for individual containers that are run by runC.
 
-The main reasons for splitting up the Docker binary were the efforts to support the [standardization of container technology](https://www.opencontainers.org/) and to make it easier to maintain the existing technology stack.
-You can get a good overview about these changes in the [blog post](https://blog.docker.com/2016/04/docker-engine-1-11-runc/) announcing the release of Docker 1.11.  
+The main reasons for splitting up the Docker binary were the efforts of Docker to support the [standardization of container technology](https://www.opencontainers.org/) and to make it easier to maintain the existing technology stack.
+You can get a good overview about these changes in the [blog post](https://blog.docker.com/2016/04/docker-engine-1-11-runc/) announcing the release of Docker 1.11.
 
 And there is also a very intersting deep dive into the details of those changes: 
 
@@ -65,7 +65,7 @@ The password is 'hypriot'. And that's it.
 By the way this also works if you attach an external WiFi adapter to a Raspberry Pi Zero, 1 and 2.
 
 ## Customizing your Raspberry Pi Configuration
-The ability to customize the hostname of your Pi, to add WiFi credentials, etc. is made possible with the help of device-init.
+The ability to customize the hostname of your Pi, to add WiFi credentials and more is made possible by a small tool of ours called [device-init](https://github.com/hypriot/device-init).
 
 In previous versions we used a tool called [occi](https://github.com/adafruit/Adafruit-Occi) from Addafruit to allow hostname and WiFi customization.
 
@@ -74,7 +74,7 @@ In this release we removed it and replaced it with device-init.
 device-init is a small programm that is started when your Raspberry Pi boots and it allows to customize a couple of settings.
 It takes its configuration from a file called 'device-init.yaml' which is located in the /boot directory. 
 
-This /boot directory is basically a small FAT partition on the SD cards that contains HypriotOS.
+This /boot directory is basically a small FAT partition on the SD card that contains HypriotOS.
 It can be easily accessed from your host computer before you boot your Pi. You can edit the 'device-init.yaml' file directly with a text-editor or by using the flash-tool as demonstrated above.
 
 We are going to add more features - like adding public ssh-keys, setting the locale or timezone - to device-init step by step in the next weeks.
