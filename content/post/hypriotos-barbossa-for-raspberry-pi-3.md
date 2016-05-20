@@ -29,7 +29,7 @@ And that's just the tip of the iceberg. So read on to get all the glory details 
 * Linux kernel 4.4.10
 * Docker Engine 1.11.1
 * Docker Compose 1.7.1
-* Swarm 1.2.2
+* Docker Swarm 1.2.2
 * Cluster-Lab 0.2.6
 * device-init 0.1.5
 
@@ -41,7 +41,7 @@ Besides the original Docker binary there is now also a Containerd and a runC bin
 The main reasons for splitting up the Docker binary were the efforts of Docker to support the [standardization of container technology](https://www.opencontainers.org/) and to make it easier to maintain the existing technology stack.
 You can get a good overview about these changes in the [blog post](https://blog.docker.com/2016/04/docker-engine-1-11-runc/) announcing the release of Docker 1.11.
 
-And there is also a very intersting deep dive into the details of those changes: 
+And there is also a very interesting deep dive into the details of those changes:
 
 <iframe id="ytplayer" type="text/html" width="1000" height="560" src="http://www.youtube.com/embed/QL8F2MLCybo" frameborder="0"></iframe>
 
@@ -57,7 +57,7 @@ flash --ssid MyNetworkName --password SomeSecret https://github.com/hypriot/imag
 After that you can usually connect to your Pi by:
 
 ```
-ssh pirate@black-pearl
+ssh pirate@black-pearl.local
 ```
 
 The password is 'hypriot'. And that's it.
@@ -67,7 +67,7 @@ By the way this also works if you attach an external WiFi adapter to a Raspberry
 ## Customizing your Raspberry Pi Configuration
 The ability to customize the hostname of your Pi, to add WiFi credentials and more is made possible by a small tool of ours called [device-init](https://github.com/hypriot/device-init).
 
-In previous versions we used a tool called [occi](https://github.com/adafruit/Adafruit-Occi) from Addafruit to allow hostname and WiFi customization.
+In previous versions we used a tool called [occi](https://github.com/adafruit/Adafruit-Occi) from Adafruit to allow hostname and WiFi customization.
 
 In this release we removed it and replaced it with device-init.
 
@@ -75,9 +75,9 @@ device-init is a small programm that is started when your Raspberry Pi boots and
 It takes its configuration from a file called 'device-init.yaml' which is located in the /boot directory. 
 
 This /boot directory is basically a small FAT partition on the SD card that contains HypriotOS.
-It can be easily accessed from your host computer before you boot your Pi. You can edit the 'device-init.yaml' file directly with a text-editor or by using the flash-tool as demonstrated above.
+It can be easily accessed from your host computer before you boot your Pi. You can edit the 'device-init.yaml' file directly with a text editor or by using the flash tool as demonstrated above.
 
-We are going to add more features - like adding public ssh-keys, setting the locale or timezone - to device-init step by step in the next weeks.
+We are going to add more features - like adding public ssh keys, setting the locale or timezone - to device-init step by step in the next weeks.
 
 ## Hypriot Cluster-Lab
 We added the Hypriot Cluster-Lab to the image, too.
@@ -90,7 +90,7 @@ flash --clusterlab true https://github.com/hypriot/image-builder-rpi/releases/do
 
 Setting this options starts the Cluster-Lab on boot.
 
-By flashing a couple of SD cards with different hostnames and Cluster-Lab enabled you can get a fully working Docker Swarm Cluster up and running in minutes.
+By flashing a couple of SD cards with different hostnames and Cluster-Lab enabled you can get a fully working Docker Swarm cluster up and running in minutes.
 The individual machines will find themselves automatically and form a Swarm cluster.
 
 You can read more about the Hypriot Cluster-Lab and why it is awesome on [its website](https://github.com/hypriot/cluster-lab/).
