@@ -35,7 +35,7 @@ And that's just the tip of the iceberg. So read on to get all the glory details 
 
 
 ## Updated Docker and Docker-Tools
-Compared to our latest HypriotOS Berry 0.7 we did upgrade the Docker-Engine to v1.11 which now has several binaries instead of one.
+Compared to our latest HypriotOS Berry 0.7 we did upgrade the Docker Engine to v1.11 which now has several binaries instead of one.
 Besides the original Docker binary there is now also a Containerd and a runC binary. Containerd is basically a supervisor for individual containers that are run by runC.
 
 The main reasons for splitting up the Docker binary were the efforts of Docker to support the [standardization of container technology](https://www.opencontainers.org/) and to make it easier to maintain the existing technology stack.
