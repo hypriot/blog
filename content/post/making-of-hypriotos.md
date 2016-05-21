@@ -27,7 +27,7 @@ The build process downloads some other artifacts like the root filesystem for th
 
 After each build Travis also runs **Serverspec** tests against the SD card image to have a minimal test of the generated output.
 
-![release process](/images/making-of-hypriotos/travis-serverspec-tests.png)
+![travis serverspec tests](/images/making-of-hypriotos/travis-serverspec-tests.png)
 
 When we trigger a release build, Travis deploys the newly generated SD card image to the **[GitHub releases](https://github.com/hypriot/image-builder-rpi/releases)** page. You can find releases, as well as pre-releases of upcoming versions there.
 
@@ -52,7 +52,11 @@ This enables everyone to make changes to the code base and send us Pull Requests
 
 The **Pull Requests** are tested with **Travis CI** of course, so we can see if it works well.
 
-![local build](/images/making-of-hypriotos/github-pr-success.png)
+![pull request successful](/images/making-of-hypriotos/github-pr-success.png)
+
+As there are several GitHub repositories involved to build the SD card image we use **Waffle.io** to have and overview of all issues, pull requests and tasks to do for a release.
+
+![waffle board](/images/making-of-hypriotos/waffle.png)
 
 ## What's next
 
