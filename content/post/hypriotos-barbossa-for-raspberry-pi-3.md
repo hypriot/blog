@@ -30,7 +30,7 @@ And that's just the tip of the iceberg. So read on to get all the glory details 
 * Docker Engine 1.11.1
 * Docker Compose 1.7.1
 * Docker Swarm 1.2.2
-* Cluster-Lab 0.2.6
+* Cluster-Lab 0.2.7
 * device-init 0.1.5
 
 
@@ -72,7 +72,7 @@ In previous versions we used a tool called [occi](https://github.com/adafruit/Ad
 In this release we removed it and replaced it with device-init.
 
 device-init is a small programm that is started when your Raspberry Pi boots and it allows to customize a couple of settings.
-It takes its configuration from a file called 'device-init.yaml' which is located in the /boot directory. 
+It takes its configuration from a file called 'device-init.yaml' which is located in the /boot directory.
 
 This /boot directory is basically a small FAT partition on the SD card that contains HypriotOS.
 It can be easily accessed from your host computer before you boot your Pi. You can edit the 'device-init.yaml' file directly with a text editor or by using the flash tool as demonstrated above.
