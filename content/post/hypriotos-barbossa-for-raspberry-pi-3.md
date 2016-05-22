@@ -29,6 +29,7 @@ And that's just the tip of the iceberg. So read on to get all the glory details 
 * Linux kernel 4.4.10
 * Docker Engine 1.11.1
 * Docker Compose 1.7.1
+* Docker Machine 0.7.0
 * Docker Swarm 1.2.2
 * Cluster-Lab 0.2.7
 * device-init 0.1.5
