@@ -21,7 +21,7 @@ This diagram above shows the release process of a new SD card image for any of t
 
 ## CI driven builds
 
-To build the SD card images in the Cloud we have chosen **Travis CI** as the Docker support fits our needs.
+To build the SD card images in the Cloud we have chosen a mixture of **Travis CI** and **CircleCI** as the Docker support fits our needs. Only where we need ARM servers to built natively we have our own **Drone** and **Jenkins** servers running on Scaleway C1 servers.
 
 The build process downloads some other artifacts like the root filesystem for the specific ARM CPU type and installs further DEB packages like the **Linux kernel**, the **Docker Engine** and **Docker Compose**.
 
