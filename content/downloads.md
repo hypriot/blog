@@ -9,17 +9,18 @@ Here you gonna find various stuff we created. Use it on your own risk.
 Download and flash this image to your SD card.  
 Start your Pi with the flashed SD card and enjoy instant Docker awesomeness.
 
-| Description            | Download Link                                                                                        | SHA256 Checksum                                                                  | Published  |
-| :--------------------- | :----------------------------------------------------------------------------------------------------| :--------------------------------------------------------------------------------| :----------|
+| Description                | Download Link                                                                                            | SHA256 Checksum                                                                      | Published  |
+| :------------------------- | :--------------------------------------------------------------------------------------------------------| :------------------------------------------------------------------------------------| :----------|
+| Version 0.8.0 Barbossa     | [hypriotos-rpi-v0.8.0.img.zip](https://downloads.hypriot.com/hypriotos-rpi-v0.8.0.img.zip)               | [Checksum](https://downloads.hypriot.com/hypriotos-rpi-v0.8.0.img.zip.sha256)        | 24.05.2016 |
 | Version 0.7.0 Berry (beta) | [hypriot-rpi-20160306-192317.img.zip](https://downloads.hypriot.com/hypriot-rpi-20160306-192317.img.zip) | [Checksum](https://downloads.hypriot.com/hypriot-rpi-20160306-192317.img.zip.sha256) | 06.03.2016 |
-| Version 0.6.1 Hector     | [hypriot-rpi-20151115-132854.img.zip](https://downloads.hypriot.com/hypriot-rpi-20151115-132854.img.zip) | [Checksum](https://downloads.hypriot.com/hypriot-rpi-20151115-132854.img.zip.sha256) | 15.11.2015 |
-| Version 0.6 Hector     | [hypriot-rpi-20151103-224349.img.zip](https://downloads.hypriot.com/hypriot-rpi-20151103-224349.img.zip) | [Checksum](https://downloads.hypriot.com/hypriot-rpi-20151103-224349.img.zip.sha256) | 03.11.2015 |
-| Version 0.5 Will       | [hypriot-rpi-20151004-132414.img.zip](https://downloads.hypriot.com/hypriot-rpi-20151004-132414.img.zip) | [Checksum](https://downloads.hypriot.com/hypriot-rpi-20151004-132414.img.zip.sha256) | 07.10.2015 |
-| Version 0.5 Will (beta)| [hypriot-rpi-20150727-151455.img.zip](https://downloads.hypriot.com/hypriot-rpi-20150727-151455.img.zip) | [Checksum](https://downloads.hypriot.com/hypriot-rpi-20150727-151455.img.zip.sha256) | 27.07.2015 |
-| Version 0.4 Elizabeth  | [hypriot-rpi-20150416-201537.img.zip](https://downloads.hypriot.com/hypriot-rpi-20150416-201537.img.zip) | [Checksum](https://downloads.hypriot.com/hypriot-rpi-20150416-201537.img.zip.sha256) | 16.04.2015 |
-| Version 0.3 Jack       | [hypriot-rpi-20150329-140334.img.zip](https://downloads.hypriot.com/hypriot-rpi-20150329-140334.img.zip) | [Checksum](https://downloads.hypriot.com/hypriot-rpi-20150329-140334.img.zip.sha256) | 30.03.2015 |
-| Version 0.2            | [hypriot-rpi-20150301-140537.img.zip](https://downloads.hypriot.com/hypriot-rpi-20150301-140537.img.zip) | [Checksum](https://downloads.hypriot.com/hypriot-rpi-20150301-140537.img.zip.sha256) | 04.03.2015 |
-| Version 0.1            | [hypriot-rpi-20150208-015447.zip](https://downloads.hypriot.com/hypriot-rpi-20150208-015447.zip)         |                                                                                  | 08.02.2015 |
+| Version 0.6.1 Hector       | [hypriot-rpi-20151115-132854.img.zip](https://downloads.hypriot.com/hypriot-rpi-20151115-132854.img.zip) | [Checksum](https://downloads.hypriot.com/hypriot-rpi-20151115-132854.img.zip.sha256) | 15.11.2015 |
+| Version 0.6 Hector         | [hypriot-rpi-20151103-224349.img.zip](https://downloads.hypriot.com/hypriot-rpi-20151103-224349.img.zip) | [Checksum](https://downloads.hypriot.com/hypriot-rpi-20151103-224349.img.zip.sha256) | 03.11.2015 |
+| Version 0.5 Will           | [hypriot-rpi-20151004-132414.img.zip](https://downloads.hypriot.com/hypriot-rpi-20151004-132414.img.zip) | [Checksum](https://downloads.hypriot.com/hypriot-rpi-20151004-132414.img.zip.sha256) | 07.10.2015 |
+| Version 0.5 Will (beta)    | [hypriot-rpi-20150727-151455.img.zip](https://downloads.hypriot.com/hypriot-rpi-20150727-151455.img.zip) | [Checksum](https://downloads.hypriot.com/hypriot-rpi-20150727-151455.img.zip.sha256) | 27.07.2015 |
+| Version 0.4 Elizabeth      | [hypriot-rpi-20150416-201537.img.zip](https://downloads.hypriot.com/hypriot-rpi-20150416-201537.img.zip) | [Checksum](https://downloads.hypriot.com/hypriot-rpi-20150416-201537.img.zip.sha256) | 16.04.2015 |
+| Version 0.3 Jack           | [hypriot-rpi-20150329-140334.img.zip](https://downloads.hypriot.com/hypriot-rpi-20150329-140334.img.zip) | [Checksum](https://downloads.hypriot.com/hypriot-rpi-20150329-140334.img.zip.sha256) | 30.03.2015 |
+| Version 0.2                | [hypriot-rpi-20150301-140537.img.zip](https://downloads.hypriot.com/hypriot-rpi-20150301-140537.img.zip) | [Checksum](https://downloads.hypriot.com/hypriot-rpi-20150301-140537.img.zip.sha256) | 04.03.2015 |
+| Version 0.1                | [hypriot-rpi-20150208-015447.zip](https://downloads.hypriot.com/hypriot-rpi-20150208-015447.zip)         |                                                                                      | 08.02.2015 |
 
 
 ### Hypriot Cluster Lab
