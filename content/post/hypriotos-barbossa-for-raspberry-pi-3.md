@@ -96,6 +96,8 @@ The individual machines will find themselves automatically and form a Swarm clus
 
 You can read more about the Hypriot Cluster-Lab and why it is awesome on [its website](https://github.com/hypriot/cluster-lab/).
 
+You can download the new release in our [download section](/downloads).
+
 If you encounter any problems with this new release please open up issues in one of the following repositories:
 
 https://github.com/hypriot/image-builder-rpi  
