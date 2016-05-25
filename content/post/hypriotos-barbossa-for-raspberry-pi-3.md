@@ -2,7 +2,7 @@
 Categories = ["Docker", "Raspberry Pi", "ARM"]
 Tags = ["Docker", "Raspberry Pi", "ARM"]
 date = "2016-05-16T04:00:00+00:00"
-draft = true
+draft = false
 more_link = "yes"
 title = "HypriotOS 0.8.0 Barbossa for Raspberry Pi 3"
 +++
