@@ -52,7 +52,7 @@ Noteworthy is also that we now have full support for the Raspberry Pi 3.
 With the help of our [flash-tool](https://github.com/hypriot/flash) it is really easy to bring a Raspberry Pi 3 online with only WiFi network connectivity:
 
 ```
-flash --ssid MyNetworkName --password SomeSecret https://github.com/hypriot/image-builder-rpi/releases/download/v0.8.0/sd-card-rpi-v0.8.0.img.zip
+flash --ssid MyNetworkName --password SomeSecret https://github.com/hypriot/image-builder-rpi/releases/download/v0.8.0/hypriotos-rpi-v0.8.0.img.zip
 ```
 
 After that you can usually connect to your Pi by:
@@ -86,7 +86,7 @@ We added the Hypriot Cluster-Lab to the image, too.
 It is disabled by default, but can easily be enabled when you flash the image:
 
 ```
-flash --clusterlab true https://github.com/hypriot/image-builder-rpi/releases/download/v0.5.6/sd-card-rpi-v0.5.6.img.zip
+flash --clusterlab true https://github.com/hypriot/image-builder-rpi/releases/download/v0.8.0/hypriotos-rpi-v0.8.0.img.zip
 ```
 
 Setting this options starts the Cluster-Lab on boot.
