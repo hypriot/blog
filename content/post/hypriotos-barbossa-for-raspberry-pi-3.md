@@ -31,8 +31,8 @@ And that's just the tip of the iceberg. So read on to get all the glory details 
 * Docker Compose 1.7.1
 * Docker Machine 0.7.0
 * Docker Swarm 1.2.2
-* Cluster-Lab 0.2.8
-* device-init 0.1.5
+* Cluster-Lab 0.2.12
+* device-init 0.1.7
 
 
 ## Updated Docker and Docker-Tools
