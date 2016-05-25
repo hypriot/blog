@@ -1,8 +1,8 @@
 +++
 Categories = ["Docker", "Raspberry Pi", "ARM"]
 Tags = ["Docker", "Raspberry Pi", "ARM"]
-date = "2016-05-21T17:19:19+01:00"
-draft = true
+date = "2016-05-25T18:03:32+01:00"
+draft = false
 more_link = "yes"
 title = "Making of HypriotOS"
 author = "Stefan Scherer"
