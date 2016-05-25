@@ -9,7 +9,7 @@ author = "Stefan Scherer"
 
 +++
 
-We recently released a new version of HypriotOS "Barbossa" - the SD card image with a ready-to-go Docker toolset for all Raspberry Pi's. Beginning with this release we have **open sourced every step** to build each parts, from the kernel and root filesystem up to the SD card image.
+Today we have released a new version of HypriotOS "Barbossa" - the SD card image with a ready-to-go Docker toolset for all Raspberry Pi's. Beginning with this release we have **open sourced every step** to build each parts, from the kernel and root filesystem up to the SD card image.
 
 We have also moved every build step out in the cloud to use the "programmable internet" to build and test everything with just a **git push**.
 
