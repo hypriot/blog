@@ -6,7 +6,21 @@ Hypriot Blog
 
 This repository is used to generate the blog at [blog.hypriot.com](http://blog.hypriot.com).
 
-Feel free to create PRs for improving this blog!
+Improve this blog, because you can!
+------------------------
+**The blog is completely open source, so everyone is empowered and welcome to create PRs to improve it!** It's as easy as the following steps:
+
+- Clone this repo
+- Setup `hugo` on your local machine by following the [official docs](http://gohugo.io/overview/installing/)
+- Change directory into the freshly cloned repo 
+- Start hugo locally as a server
+
+```bash
+hugo server -w
+```
+- Open a browser at URL [http://localhost:1313](http://localhost:1313)
+- Make changes and see them immediately updated in the browser. Find our static pages in subfolder `content/` and the blogposts in `content/post/`
+- Create a PR and ask the Hypriot Team for review
 
 
 License
