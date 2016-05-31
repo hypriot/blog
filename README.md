@@ -11,8 +11,8 @@ Improve this blog, because you can!
 **The blog is completely open source, so everyone is empowered and welcome to create PRs to improve it!** It's as easy as the following steps:
 
 - Clone this repo
-- Setup `hugo` on your local machine by following the [official docs](http://gohugo.io/overview/installing/)
 - Change directory into the freshly cloned repo 
+- Setup `hugo` on your local machine by following the [official docs](http://gohugo.io/overview/installing/)
 - Start hugo locally as a server
 
 ```bash
