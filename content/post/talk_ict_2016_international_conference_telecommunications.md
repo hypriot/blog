@@ -4,12 +4,12 @@ Tags = ["Docker", "Raspberry Pi", "ARM"]
 date = "2016-05-25T18:03:34+01:00"
 draft = false
 more_link = "yes"
-title = "Hypriot Cluster Lab meets education sector at ICT 2016 in Greece"
+title = "Learning platform Hypriot Cluster Lab meets education sector at ICT 2016 in Greece"
 +++
 
-Our cooperation with University of Bamberg pays off once again: We have been invited to present our Hypriot Cluster Lab (HCL) at [ICT 2016](http://ict-2016.org/), the International Conference on Telecommunications. The conference attendees are mainly scientific researchers from all over the globe. Thus, HCL as a tool to learn about computer clustering could not get closer to representatives of the education sector.
+Our cooperation with University of Bamberg pays off once again: We had the chance to present our Hypriot Cluster Lab (HCL) at [ICT 2016](http://ict-2016.org/), the International Conference on Telecommunications. The conference attendees were mainly scientific researchers from all over the globe. Thus, HCL as a tool to learn about computer clustering could not get closer to representatives of the education sector.
 
-In this post, we publish the [presentation slides](/images/ict-2016-greece/ICT-Presentation.pdf). However, the slides are not throughout self-explanatory, so we also write down what we presented to the audience.
+Now, after the show, we publish the [presentation slides](/images/ict-2016-greece/ICT-Presentation.pdf). However, the slides are not throughout self-explanatory, so we also write down what we've presented to the audience.
 
 ![IoT-requirements](/images/ict-2016-greece/ict_logo.jpg)
 
@@ -30,7 +30,7 @@ HCL is about clustering – and also about the IoT
 --------------------------------------------
 HCL also serves a second purpose: It can be used as a cheap learning platform to play with clustering. The minimal hardware configuration requires three Raspberry Pis plus accessoires, which is affordable for everyone to get their hands on a real, physical cluster. We've already seen lecturers, students and pupils getting started on the HCL with different topics related to clustering, e.g. playing with micro services or distributed databases. A set of ready-to-go use cases can be found [here](https://github.com/hypriot/rpi-cluster-lab-demos).
 
-Even though the HCL is intended to be used as a tool to learn, its containing concepts are applicable for a promising IoT software solution. Comparing IoT's general requirements for hard- and software that I identified in my bachelor thesis ([download here](http://mathias-renner.de/thesis.pdf)) against the functionalities of HCL reveals that HCL's feature set is almost complete:
+Even though the HCL is intended to be used as a tool to learn, its containing concepts are applicable for promising IoT software solutions. Comparing IoT's general requirements for hard- and software that I identified in my bachelor thesis ([details here](https://medium.com/@mathiasrenner/docker-container-virtualization-and-the-internet-of-things-bachelor-thesis-a6bc783b81fa#.f09czsq2e)) against the functionalities of HCL reveals that HCL's feature set is almost complete:
 
 ![IoT-requirements](/images/ict-2016-greece/iot-requirements.png)
 
