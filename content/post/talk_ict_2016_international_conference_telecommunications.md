@@ -46,7 +46,7 @@ Conclusion
 ----------
 All in all, the conference was an enriching experience. Discussing with scientific researches and professors from many different countries resulted in high-grade feedback and inspirations of how we can further improve the HCL. Particularly interesting were the discussions after some glasses of good, greek wine. They resulted in less high-grade feedback, but much fun instead :)
 
-Thus, we look forward to also attend more conferences. Well, the next conference is already set: In two weeks, three of the Hypriot team (Dieter, Stefan and myself) will attend DockerCon in Seattle, USA! We will give workshops and talks, so we are happy to meet you there! For everyone who won't attend: Stay tuned, we try to share as much as possible via our channels.
+Thus, we look forward to attend more conferences. Well, the next conference is already set: In two weeks, three of the Hypriot team (Dieter, Stefan and myself) will attend DockerCon in Seattle, USA! We will give workshops and talks, so we are happy to meet you there! For everyone who won't attend: Stay tuned, we try to share as much as possible via our channels.
 
 Last but not least, I give special thanks Marcel Großmann (research assistant at University of Bamberg) for his great support. He is not only providing high quality feedback to our work, meanwhile he also contributes to the HCL. Not to mention that he also provides the venue for our Docker Meetups. His continunous support is worth a virtual applause!
 
