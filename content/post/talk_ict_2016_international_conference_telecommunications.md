@@ -14,7 +14,7 @@ Our cooperation with University of Bamberg pays off once again: We had the chanc
 
 We built the Hypriot Cluster Lab as lab environment that allows to easily teach about clustering and cloud computing. At the conference, the Hypriot Cluster Lab piqued lots of interest, so we are confident that it will be used more and more in educational institutions.
 
-Now, after the show, we are publishing the [presentation slides](/images/ict-2016-greece/ICT-Presentation.pdf). However, the slides are not throughout self-explanatory, so we've also written down what we've presented to the audience back in Greece.
+Now, after the show, we are publishing [the paper](http://ict-2016.org/pdf/Demo1.pdf) that has been accepted at the conference and the [presentation slides](/images/ict-2016-greece/ICT-Presentation.pdf). However, the paper is (intentionally) very brief and the slides are not throughout self-explanatory, so we've also written down what we've presented to the audience back in Greece.
 
 
 IoT requires "Expansion to small"
