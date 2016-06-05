@@ -4,16 +4,17 @@ Tags = ["Docker", "Raspberry Pi", "ARM"]
 date = "2016-05-25T18:03:34+01:00"
 draft = false
 more_link = "yes"
-title = "Learning platform Hypriot Cluster Lab meets education sector at ICT 2016 in Greece"
+title = "Cloud Computing Learning platform Hypriot Cluster Lab at ICT 2016"
 +++
 
-Our cooperation with University of Bamberg pays off once again: We had the chance to present our Hypriot Cluster Lab (HCL) at [ICT 2016](http://ict-2016.org/), the International Conference on Telecommunications. The conference attendees were mainly scientific researchers from all over the globe. Thus, HCL as a tool to learn about computer clustering could not get closer to representatives of the education sector.
+Our cooperation with University of Bamberg pays off once again: We had the chance to present our Hypriot Cluster Lab (HCL) at [ICT 2016](http://ict-2016.org/), the International Conference on Telecommunications. The conference attendees were mainly scientific researchers from all over the globe. Thus, HCL as a tool to learn about computer cloud computing could not get closer to representatives of the education sector.
 
 Now, after the show, we publish the [presentation slides](/images/ict-2016-greece/ICT-Presentation.pdf). However, the slides are not throughout self-explanatory, so we also write down what we've presented to the audience.
 
 ![IoT-requirements](/images/ict-2016-greece/ict_logo.jpg)
 
 <!--more-->
+
 
 IoT requires "Expansion to small"
 ---------------------------------
@@ -26,19 +27,19 @@ At this point, HCL comes into play:
 This "Expansion to Small" was the theme of the ICT 2016, which made HCL a perfect fit to the conference's agenda.
 
 
-HCL is about clustering – and also about the IoT
+HCL is about Cloud Computing – and also about the IoT
 --------------------------------------------
-HCL also serves a second purpose: It can be used as a cheap learning platform to play with clustering. The minimal hardware configuration requires three Raspberry Pis plus accessoires, which is affordable for everyone to get their hands on a real, physical cluster. We've already seen lecturers, students and pupils getting started on the HCL with different topics related to clustering, e.g. playing with micro services or distributed databases. A set of ready-to-go use cases can be found [here](https://github.com/hypriot/rpi-cluster-lab-demos).
+HCL also serves a second purpose: It can be used as a cheap learning platform to play with clustering or cloud computing. The minimal hardware configuration requires three Raspberry Pis plus accessoires, which is affordable for everyone to get their hands on a real, physical cluster. We've already seen lecturers, students and pupils getting started on the HCL with different topics related to cloud computing, e.g. playing with micro services or distributed databases. A set of ready-to-go use cases can be found [here](https://github.com/hypriot/rpi-cluster-lab-demos).
 
 Even though the HCL is intended to be used as a tool to learn, its containing concepts are applicable for promising IoT software solutions. Comparing IoT's general requirements for hard- and software that I identified in my bachelor thesis ([details here](https://medium.com/@mathiasrenner/docker-container-virtualization-and-the-internet-of-things-bachelor-thesis-a6bc783b81fa#.f09czsq2e)) against the functionalities of HCL reveals that HCL's feature set is almost complete:
 
 ![IoT-requirements](/images/ict-2016-greece/iot-requirements.png)
 
-This checklist shows that HCL (software) e.g. on Raspberry Pis (hardware) implements many concepts required in the IoT. So everyone who is both keen on touching the IoT and learning about clustering can thereby kill two birds with one stone.
+This checklist shows that HCL (software) e.g. on Raspberry Pis (hardware) implements many concepts required in the IoT. So everyone who is both keen on touching the IoT and learning about cloud computing can thereby kill two birds with one stone.
+
 
 Sharing HCL use cases
 -------------
-
 For the ones of you who like to think in practical, real world terms, see the following photo as a use case of a HCL-like software that implements the missing features. Each wind turbine hosts a multitude of sensors, which are organized in clusters...   
 
 ![IoT-requirements](/images/ict-2016-greece/wind.jpg)
