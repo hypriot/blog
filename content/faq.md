@@ -16,9 +16,11 @@ See [this description here](http://blog.hypriot.com/about#hypriotos:6083a88ee341
 ### Is there an easy way to flash the image of HypriotOS onto a SD card?
 Yes, check out our [flash tool](https://github.com/hypriot/flash), which makes the flashing process super easy and fast.
 
+### Default Credentials
+The default credentials for the image are pirate/hypriot
+
 ### Connection via SSH to a fresh HypriotOS, I get `connection reset by peer`.
 After all, Re-flashing of the SD cards is all that we've experienced as a solution for this error.
-
 
 
 </br>
