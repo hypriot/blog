@@ -20,7 +20,7 @@ It comes as no suprise that Docker was a hot topic at the PiAndMore conference, 
 
 ## Docker and the Raspberry Pi - a dream team?
 
-The Docker Pirates were invited to give a talk about Docker on the Raspberry Pi.
+The Docker Pirates were invited to give a talk about [Docker on the Raspberry Pi](http://www.slideshare.net/GovindaFichtner/docker-and-raspberry-pi-a-dream-team).  
 Despite being one of the first talks at nine o'clock in the morning it was well visited. 
 
 After some inital technical problems with the local power supply, network and beamer (yeah - all three!) the talk went well.
