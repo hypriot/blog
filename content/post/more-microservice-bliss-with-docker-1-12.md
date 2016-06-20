@@ -18,6 +18,7 @@ It makes setting up a Docker Swarm Cluster a really simple and straigtforward ta
 Let's see how this new thing works...
 
 ![Docker Swarm](/images/more-microservices/swarm.jpg)
+<div style="text-align:right; font-size: smaller">Image courtesy of [Brent M](https://www.flickr.com/photos/thewakingdragon/)</div>
 
 <!--more-->
 
