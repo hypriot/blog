@@ -28,8 +28,12 @@ And the backend for the sake of simplicity was just a simple Go-based HTTP webse
 ![Traffic](/images/traefik/microsservice_example_end.jpg)
 
 The new Docker Swarm removes the need for a separate HTTP proxy in front of our application containers. 
+The architecture from above is now slimmed down considerably and looks like this:
+
+![With Swarm](/images/more-microservices/architecture_with_swarm.jpg)
 
 Less moving parts - that is great!
+
 
 Still we get built-in loadbalancing to our backend services. We even can access those services from every node in our cluster.
 Docker Swarm has a kind of built-in mesh routing integrated that takes care of routing requests to the appropriate backend containers.
