@@ -29,6 +29,9 @@ I started by giving a short introduction to Docker and finished with a live demo
 Starting with some basic Docker Fu the demo soon gathered speed and I showed how to use Docker Compose and Swarm to get a 
 two tiered microservice architecture up and running in less then 5 minutes.
 
+Here is a recording of the talk made by [Call-a-Tux](https://call-a-tux.de/):
+<iframe id="ytplayer" type="text/html" width="1000" height="560" src="http://www.youtube.com/embed/9xAkILSdlxE" frameborder="0"></iframe>
+
 ## Docker Workshop
 It seems the talk was able to whet the appetite of the audience as many joined the two hour workshop later.
 Soon all seats were taken and the attendees embarked on a whirlwind tour through HypriotOS and Docker.
