@@ -177,7 +177,7 @@ Swarm: active
  IsManager: No
 ```
 
-Unil now we just have an interesting, but still very empty Swarm cluster. 
+Until now we just have an interesting, but still very empty Swarm cluster. 
 Let's change that.
 
 Before we start let me introduce you to the concept of a service that is also new abstraction with Docker 1.12. 
@@ -282,7 +282,7 @@ e1863a2be88d        hypriot/rpi-whoami:latest   "/http"             8 minutes ag
 1b6df814c654        hypriot/rpi-whoami:latest   "/http"             15 minutes ago      Up 14 minutes       8000/tcp            whoami.1.bg4qlpiye6h6uxyf8cmkwuh52
 ```
 
-What we witnessed here is the same what would have happend if we just had a failing 'pi1' node.
+What we witnessed here is the same what would have happened if we just had a failing 'pi1' node.
 All the containers that were running on node 'pi1' were migrated to the remaining cluster nodes automatically.
 That's pretty impressive.
 
@@ -291,7 +291,7 @@ We created a small dynamic microservice applications with just the plain Docker.
 Docker Swarm is now integrated into the Docker-Engine instead of being a separate piece of software. 
 In many cases this makes a separate proxy for the backend services of your application obsolete. No more nginx, HAProxy or Traefik. Sorry to see you go... 
 
-Despite having less moving parts we now have additional loadbalancing and high availability feature builtin. 
+Despite having fewer moving parts we now have additional load balancing and high availability features built-in. 
 I am really looking forward to find out what else there is in store with the new Docker Swarm and how it works together with Docker Compose.
 
 But that's a story for another day...
