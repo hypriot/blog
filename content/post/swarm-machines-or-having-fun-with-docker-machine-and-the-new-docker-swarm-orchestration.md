@@ -71,8 +71,8 @@ Let's see if we already have some existing hosts that are managed by Docker Mach
 ```
 $ docker-machine ls
 NAME   ACTIVE   DRIVER    STATE     URL                          SWARM   DOCKER        ERRORS
-pi2    -        generic   Running   tcp://192.168.178.171:2376           v1.12.0-rc1
-pi6    -        generic   Running   tcp://192.168.178.24:2376            v1.12.0-rc1
+pi1    -        generic   Running   tcp://192.168.178.171:2376           v1.12.0-rc1
+pi2    -        generic   Running   tcp://192.168.178.24:2376            v1.12.0-rc1
 ```
 
 And indeed we have two hosts that are already managed by Docker Machine.
@@ -129,9 +129,9 @@ Alright, let's see if we now have a third host under our Machine control:
 ```
 $ docker-machine ls
 NAME   ACTIVE   DRIVER    STATE     URL                          SWARM   DOCKER        ERRORS
-pi2    -        generic   Running   tcp://192.168.178.171:2376           v1.12.0-rc1
+pi1    -        generic   Running   tcp://192.168.178.171:2376           v1.12.0-rc1
 pi3    -        generic   Running   tcp://192.168.178.59:2376            v1.12.0-rc1
-pi6    -        generic   Running   tcp://192.168.178.24:2376            v1.12.0-rc1
+pi2    -        generic   Running   tcp://192.168.178.24:2376            v1.12.0-rc1
 ```
 
 Yeah - we do.
@@ -143,7 +143,7 @@ Sometimes when Docker Machine tries to add a new host it happens that it is stuc
 In those cases the best course of action is often to remove the host first and add it again later.
 
 ```
-$ docker-machine rm pi2
+$ docker-machine rm pi3
 ```
 
 Let's assume all went well and we now have a list of host under remote control. How do you work with those now?
@@ -218,7 +218,7 @@ Changing to another host is also easy.
 Just repeat the command from above and replace the hostname with another:
 
 ```
-$ eval $(docker-machine env pi6)
+$ eval $(docker-machine env pi2)
 ```
 
 ## Docker Machine and Docker Swarm Mode
@@ -260,7 +260,7 @@ There is also another command that is able to show us which nodes are part of ou
 ```
 $ docker node ls
 ID                           NAME  MEMBERSHIP  STATUS  AVAILABILITY  MANAGER STATUS
-efyap0lxrttld19djs3ygtuac *  pi2   Accepted    Ready   Active        Leader
+efyap0lxrttld19djs3ygtuac *  pi1   Accepted    Ready   Active        Leader
 ```
 
 OK. Time to add two more nodes.
@@ -268,8 +268,8 @@ OK. Time to add two more nodes.
 First we need to switch our Docker environment with Docker Machine. Afterwards we join the existing Swarm cluster with the next node.
 
 ```
-$ eval $(docker-machine env pi3)
-$ docker swarm join pi2:2377
+$ eval $(docker-machine env pi2)
+$ docker swarm join pi1:2377
 This node joined a Swarm as a worker.
 ```
 
@@ -286,20 +286,20 @@ Obviously we are only able to use the 'node' subcommand from a Swarm Manager nod
 So ignoring this for the moment let's add the last node, too.
 
 ```
-$ eval $(docker-machine env pi6)
-$ docker swarm join pi2:2377
+$ eval $(docker-machine env pi3)
+$ docker swarm join pi1:2377
 This node joined a Swarm as a worker.
 ```
 
 Let's switch back to our original Swarm Manager node:
 
 ```
-$ eval $(docker-machine env pi2)
+$ eval $(docker-machine env pi1)
 $ docker node ls
 ID                           NAME  MEMBERSHIP  STATUS  AVAILABILITY  MANAGER STATUS
-3cgg9qfo6nk77zisgrst1333n    pi6   Accepted    Ready   Active
+3cgg9qfo6nk77zisgrst1333n    pi2   Accepted    Ready   Active
 6lezwd8vplgcdmxyhswbc1cvp    pi3   Accepted    Ready   Active
-efyap0lxrttld19djs3ygtuac *  pi2   Accepted    Ready   Active        Leader
+efyap0lxrttld19djs3ygtuac *  pi1   Accepted    Ready   Active        Leader
 ```
 
 As you can see we have sucessfully set up a Docker Swarm Cluster with three nodes.
@@ -319,18 +319,18 @@ Seeing is believing so let's check this again by using the 'docker service task'
 ```
 $ docker service tasks hypriot-httpd
 ID                         NAME             SERVICE        IMAGE                      LAST STATE         DESIRED STATE  NODE
-14ywlwfix019b95oizce0hgd2  hypriot-httpd.1  hypriot-httpd  hypriot/rpi-busybox-httpd  Running 6 minutes  Running        pi2
+14ywlwfix019b95oizce0hgd2  hypriot-httpd.1  hypriot-httpd  hypriot/rpi-busybox-httpd  Running 6 minutes  Running        pi1
 60k55m336zq04rke696m848w1  hypriot-httpd.2  hypriot-httpd  hypriot/rpi-busybox-httpd  Running 6 minutes  Running        pi3
-55sl8zwi1v8om3pvtb0zscf8d  hypriot-httpd.3  hypriot-httpd  hypriot/rpi-busybox-httpd  Running 6 minutes  Running        pi6
+55sl8zwi1v8om3pvtb0zscf8d  hypriot-httpd.3  hypriot-httpd  hypriot/rpi-busybox-httpd  Running 6 minutes  Running        pi2
 105gbhovh5p3zmwpqaeg3hprd  hypriot-httpd.4  hypriot-httpd  hypriot/rpi-busybox-httpd  Running 6 minutes  Running        pi3
-8her9l13z78g9mjdrkovs9d46  hypriot-httpd.5  hypriot-httpd  hypriot/rpi-busybox-httpd  Running 6 minutes  Running        pi6
-5xwwxuvbwsr7pmomg91cnf08y  hypriot-httpd.6  hypriot-httpd  hypriot/rpi-busybox-httpd  Running 6 minutes  Running        pi2
+8her9l13z78g9mjdrkovs9d46  hypriot-httpd.5  hypriot-httpd  hypriot/rpi-busybox-httpd  Running 6 minutes  Running        pi2
+5xwwxuvbwsr7pmomg91cnf08y  hypriot-httpd.6  hypriot-httpd  hypriot/rpi-busybox-httpd  Running 6 minutes  Running        pi1
 ```
 
 On a Mac we now can open the website that is served by this service with:
 
 ```
-$ open http://$(docker-machine ip pi2):8080
+$ open http://$(docker-machine ip pi1):8080
 ```
 
 We are then rewarded with this neat little website:
