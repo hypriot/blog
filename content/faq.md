@@ -17,10 +17,27 @@ See [this description here](http://blog.hypriot.com/about#hypriotos:6083a88ee341
 Yes, check out our [flash tool](https://github.com/hypriot/flash), which makes the flashing process super easy and fast.
 
 ### Default Credentials
-The default credentials for the image are pirate/hypriot
+The default credentials for the image are user **pirate** with password **hypriot**.
 
 ### Connection via SSH to a fresh HypriotOS, I get `connection reset by peer`.
 After all, Re-flashing of the SD cards is all that we've experienced as a solution for this error.
+
+### How can I change the hostname?
+We use [device-init](https://github.com/hypriot/device-init) to automatically change some settings on every boot.
+
+Just edit the `/boot/device-init.yaml` file with an editor
+
+```bash
+sudo nano /boot/device-init.yaml
+```
+
+and change the line with `hostname:`
+
+```yaml
+hostname: "black-pearl"
+```
+
+After a reboot the device boots up with the new hostname. See more details about the [device-init.yaml](https://github.com/hypriot/device-init#the-bootdevice-inityaml) file.
 
 
 </br>
