@@ -81,6 +81,6 @@ FATA[0003] Error response from daemon: Cannot start container 0f0fa3f8e510e53908
 
 Keep this in mind when searching for apps on the [Docker Hub](https://registry.hub.docker.com/search?q=library) - **the source** for Docker apps/images. If you see the keyword *RPI* or *ARM* in the heading or description, this app can usually be used for the Raspberry Pi.
 
-We prepared a couple of [Raspberry Pi ready images](https://registry.hub.docker.com/search?q=hypriot&searchfield=) for your convenience. Try them out now and have fun!
+We prepared a couple of [Raspberry Pi ready images](https://hub.docker.com/u/hypriot/) for your convenience. Try them out now and have fun!
 
 <a href="https://registry.hub.docker.com/search?q=hypriot&searchfield=">![dockerhub-hypriot-search](https://s3.eu-central-1.amazonaws.com/assets.hypriot.com/blog_post_getting-started/dockerhub-hypriot-search.png)</a>
