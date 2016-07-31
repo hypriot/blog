@@ -127,16 +127,10 @@ a [pull request](https://github.com/docker/docker/pull/25192)
 which enables us to build the Docker .deb packages. This gives me
 the change to explain how you can easily apply a PR on top of a release version.
 
-But first we have to tell `git` a few required settings about my username and
-email address. Otherwise we'll get an error message when applying the PR.
-```
-$ git config --global user.email "dieter.reuter@me.com"
-$ git config --global user.name "Dieter Reuter"
-```
-
 So, let's cherry pick this specific pull request.
 ```
-$ curl -sSL https://patch-diff.githubusercontent.com/raw/docker/docker/pull/25192.patch | git am
+$ git fetch origin pull/25192/head:fix-manpages-on-arm
+$ git cherry-pick fix-manpages-on-arm
 ```
 
 And finally let's check if everything is OK with the git history.
