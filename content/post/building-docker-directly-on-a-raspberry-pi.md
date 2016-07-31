@@ -45,7 +45,6 @@ specs for the hardware.
 * enabled swap space (1 GByte of memory is not sufficient!)
 * Docker Engine 1.11
 
-
 #### Installing the Build Environment
 
 As you will see, setting up the build environment is damn easy, because we'll just
@@ -152,10 +151,11 @@ As you can see, the second last commit is the release commit for the official v1
 version of the Docker Engine. The last commit is from the applied PR.
 
 
-### Run the Builder
+### Run the build
 
-And here comes the really boring magic, we'll start the building process and have
-to wait for a really long time to get the build finished.
+And here comes the magic: we'll start the build process and then have to wait
+for a really long time for it to finish.
+
 ```
 $ time make deb
 
@@ -167,6 +167,7 @@ sys	0m4.870s
 
 The complete build process takes almost 6 hours on a fast Raspberry Pi 3, but finally
 we'll get the Docker Engine v1.12.0 build for a few different ARM operating systems.
+
 ```
 $ ls -al ~/docker/bundles/1.12.0/build-deb/*/*.deb
 -rw-r--r-- 1 root root 15933554 Jul 31 10:46 /home/pirate/docker/bundles/1.12.0/build-deb/debian-jessie/docker-engine_1.12.0-0~jessie_armhf.deb
@@ -175,9 +176,11 @@ $ ls -al ~/docker/bundles/1.12.0/build-deb/*/*.deb
 ```
 
 To install the Docker Engine on our Raspberry Pi's, we just pick
+
 `raspbian-jessie/docker-engine_1.12.0-0~jessie_armhf.deb`.
 
 Here is the install process on HypriotOS:
+
 ```
 $ sudo apt-get purge -y docker-hypriot
 $ sudo dpkg -i docker-engine_1.12.0-0~jessie_armhf.deb
@@ -185,6 +188,7 @@ $ sudo dpkg -i docker-engine_1.12.0-0~jessie_armhf.deb
 
 And now we do have the latest release version v1.12.0 of the Docker Engine running
 on our Raspberry Pi.
+
 ```
 $ docker version
 Client:
@@ -206,15 +210,15 @@ Server:
 
 ### What other build options can be used?
 
-We do have some Raspberry Pi users who wants to run Docker on ArchLinux or other
-non-supported OSes. And for them it's also easy to build the Docker binaries in
-a static version as well.
+Some Raspberry Pi owners such as (Alex Ellis)[http://blog.alexellis.io/] run Docker on [Arch Linux for ARM (ALARM)](http://archlinuxarm.org) or other compatible Linux distributions. For most non-Debian
+distributions it makes sense to build a static binary with the below command:
 
 ```
 $ cd ~/docker
 $ time make binary
 ```
 
+You will find the binary files in the `bundles` folder and can then move then to `/usr/bin` or `/usr/local/bin`.
 
 ### Lessons learned
 
@@ -226,7 +230,6 @@ I strongly recommend to use the faster Raspberry Pi 3 and a SD card of at least
 16 GByte, with a smaller SD card the build will crash after some hours and you
 have to start all over again!
 
-
 ### Feedback, please
 
 As always use the comments below to give us feedback and share it on Twitter or Facebook.
@@ -234,3 +237,5 @@ As always use the comments below to give us feedback and share it on Twitter or 
 Please send us your feedback on our [Gitter channel](https://gitter.im/hypriot/talk) or tweet your thoughts and ideas on this project at [@HypriotTweets](https://twitter.com/HypriotTweets).
 
 Dieter [@Quintus23M](https://twitter.com/Quintus23M)
+
+*Edits by [Alex Ellis](http://twitter.com/alexellisuk)*
