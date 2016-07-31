@@ -210,7 +210,7 @@ Server:
 
 ### What other build options can be used?
 
-Some Raspberry Pi owners such as (Alex Ellis)[http://blog.alexellis.io/] run Docker on [Arch Linux for ARM (ALARM)](http://archlinuxarm.org) or other compatible Linux distributions. For most non-Debian
+Some Raspberry Pi owners such as [Alex Ellis](http://blog.alexellis.io/) run Docker on [Arch Linux for ARM (ALARM)](http://archlinuxarm.org) or other compatible Linux distributions. For most non-Debian
 distributions it makes sense to build a static binary with the below command:
 
 ```
