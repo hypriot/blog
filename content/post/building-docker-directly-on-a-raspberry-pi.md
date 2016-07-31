@@ -8,32 +8,29 @@ title = "Building Docker 1.12 on a Raspberry Pi"
 
 +++
 
-In the past a lot of our users did asked us, how we're building the Docker Engine
-and the associated Debian packages. They'd like to hack on some new features and
-would like to use the very latest software releases as soon as possible.
+Over time many of our users have asked us exactly how we build the Docker Engine
+and the associated Debian packages. For instance: they'd like to hack on some
+ new features and need the latest software releases as soon as possible.
 
-Here I'd like to share all the details how to build the latest Docker version even
-on a Raspberry Pi directly. Be warned: it's not too complicated, but it requires
+Here I'll share all the details on building the latest Docker version - even on
+a Raspberry Pi itself. Beware: while it's not too complicated it will require
 a large amount of time!
 
 ![Docker on Raspberry](/images/build-docker-on-raspberrypi/docker-on-raspberrypi.jpg)
 
-So, let's get started and follow me down the Rabbit Hole...
+So, let's get started. Follow me down the *Rabbit Hole*...
 
 <!--more-->
 
 ### Background
 
-The goal of this tutorial is to give you all the details you need to know, when you'd
-like to build the Docker Engine by yourself on your cool and fast $35 super-computer,
-a standard Raspberry Pi.
-
+The goal of this tutorial is to give you all the details you need to build the
+Docker Engine yourself on your cool and fast $35 super-computer (the Raspberry Pi).
 
 ### Prepare the Build Environment
 
-Before we can begin the bloody work we have to make sure to prepare our build environment
-for this heavy and long-running workload.
-
+Before we begin this arduous task have to prepare our build environment for what
+will be a large, long-running workload.
 
 #### Hardware and Software Requirements
 
