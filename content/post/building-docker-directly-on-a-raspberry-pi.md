@@ -16,6 +16,8 @@ Here I'd like to share all the details how to build the latest Docker version ev
 on a Raspberry Pi directly. Be warned: it's not too complicated, but it requires
 a large amount of time!
 
+![Docker on Raspberry](/images/build-docker-on-raspberrypi/docker-on-raspberrypi.jpg)
+
 So, let's get started and follow me down the Rabbit Hole...
 
 <!--more-->
@@ -111,9 +113,8 @@ but for our use case the default 1.8 GByte swap file is sufficient.
 ### Clone the Docker repo
 
 ```
-$ cd
 $ git clone https://github.com/docker/docker.git
-$ cd ~/docker
+$ cd docker
 $ git checkout v1.12.0
 ```
 As you can see, we're using a tagged release for Docker to build this exact version.
