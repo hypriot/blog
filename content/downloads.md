@@ -11,7 +11,7 @@ Start your Pi with the flashed SD card and enjoy instant Docker awesomeness.
 
 | Description                | Download Link                                                                                            | SHA256 Checksum                                                                      | Published  |
 | :------------------------- | :--------------------------------------------------------------------------------------------------------| :------------------------------------------------------------------------------------| :----------|
-| Version 1.0.0 Blackbeard     | [hypriotos-rpi-v0.8.0.img.zip](https://downloads.hypriot.com/hypriotos-rpi-v1.0.0.img.zip)               | [Checksum](https://downloads.hypriot.com/hypriotos-rpi-v1.0.0.img.zip.sha256)        | 19.08.2016 |
+| Version 1.0.0 Blackbeard     | [hypriotos-rpi-v1.0.0.img.zip](https://downloads.hypriot.com/hypriotos-rpi-v1.0.0.img.zip)               | [Checksum](https://downloads.hypriot.com/hypriotos-rpi-v1.0.0.img.zip.sha256)        | 19.08.2016 |
 | Version 0.8.0 Barbossa     | [hypriotos-rpi-v0.8.0.img.zip](https://downloads.hypriot.com/hypriotos-rpi-v0.8.0.img.zip)               | [Checksum](https://downloads.hypriot.com/hypriotos-rpi-v0.8.0.img.zip.sha256)        | 24.05.2016 |
 | Version 0.7.0 Berry (beta) | [hypriot-rpi-20160306-192317.img.zip](https://downloads.hypriot.com/hypriot-rpi-20160306-192317.img.zip) | [Checksum](https://downloads.hypriot.com/hypriot-rpi-20160306-192317.img.zip.sha256) | 06.03.2016 |
 | Version 0.6.1 Hector       | [hypriot-rpi-20151115-132854.img.zip](https://downloads.hypriot.com/hypriot-rpi-20151115-132854.img.zip) | [Checksum](https://downloads.hypriot.com/hypriot-rpi-20151115-132854.img.zip.sha256) | 15.11.2015 |
