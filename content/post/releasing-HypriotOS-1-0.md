@@ -21,10 +21,12 @@ Therefore, this release illustrates very much how we work as Hypriot Team: We do
 As a result, you can be sure that we fine-tuned all adjusting screws to ensure we provide not some container OS, but an awesome one.
 
 
-## Feature Highlights
+## Feature Highlights of HypriotOS
 
 **Latest Docker 1.12.1 with Swarm Mode** </br>
 You can get your hands on the new features of the freshly-baked Docker 1.12.1  that is still warm. It includes the new Swarm Mode, which allows high availability of services in a multi-node cluster within just a few commands.
+[See this short video how it works.](https://blog.docker.com/2016/07/swarm-mode-on-a-raspberry-pi-cluster/)
+
 
 **Support for the complete Raspberry Pi family** </br>
 Now you can run HypriotOS even on the compute module of the Raspberry Pi family. Thus, all Raspberry Pi devices are now fully supported.
@@ -40,7 +42,7 @@ We think that security should be shipped out-of-the-box. We make HypriotOS more 
 As with security, running Docker with high performance comes out-of-the-box with HypriotOS. This includes faster booting times (15-17 sec.), an optimized file system file system to support more Inodes, minimal memory footprint and disk usage, and the reliable overlay storage driver for Docker by default.
 
 **Now 50% smaller in size, even smaller than Raspbian Lite** </br>
-Even though HypriotOS is fully packed with the complete Docker tool set, it now comes at a size smaller than the tiniest version of Raspbian. We achieved this mainly by reducing the cache's footprint, thus you won't miss any features you are used to. Now, you need to download only 232 MB instead of 504 MB.
+Even though HypriotOS is fully packed with the complete Docker tool set, it now comes at a size smaller than the tiniest version of Raspbian. We achieved this mainly by reducing the cache's footprint, thus you won't miss any features you are used to. You just need to download only 232 MB instead of 504 MB as before.
 
 Please see all details in the [release notes](https://github.com/hypriot/image-builder-rpi/releases).
 
