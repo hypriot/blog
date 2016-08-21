@@ -12,7 +12,10 @@ title = "Releasing HypriotOS 1.0.0 \"Blackbeard\""
 
 For this major release we've taken an especially great deal of trouble. Out of the box, you not only get the breaking features of the Docker Engine 1.12.1 and the latest versions of Docker Compose and Docker Machine, but also many improvements that enhance the performance, reliability and usability.
 
-![Raspberry Pi 3](/images/release-1-0/docker_pirate_650px.jpg)
+<div align="center">
+  ![Raspberry Pi 3](/images/release-1-0/docker_pirate_650px.jpg)
+</div>
+
 
 <!--more-->
 
@@ -44,7 +47,7 @@ As with security, running Docker with high performance comes out-of-the-box with
 **Now 50% smaller in size, even smaller than Raspbian Lite** </br>
 Even though HypriotOS 1.0.0 is fully packed with the complete and latest Docker tool set, it now comes at a size smaller than the tiniest version of Raspbian ("Raspbian Lite"). We achieved this mainly by reducing the cache's footprint and leaving out some unused packages, so you won't miss any features you are used to. You just need to download only 232 MB instead of 504 MB as before. With this improvements the minimum disk usage is reduced down to 600 MB.
 
-Please see all details in the [release notes](https://github.com/hypriot/image-builder-rpi/releases/tag/v1.0.0) for HypriotOS 1.0.0.
+Please see all details in the [release notes](https://github.com/hypriot/image-builder-rpi/releases/tag/v1.0.0).
 
 ## Quick start
 **Download our [flash tool](https://github.com/hypriot/flash) and run**
