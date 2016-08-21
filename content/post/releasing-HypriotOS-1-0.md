@@ -12,7 +12,7 @@ title = "Releasing HypriotOS 1.0.0 \"Blackbeard\""
 
 For this major release we've taken an especially great deal of trouble. Out of the box, you not only get the breaking features of the Docker Engine 1.12.1 and the latest versions of Docker Compose and Docker Machine, but also many improvements that enhance the performance, reliability and usability.
 
-![Raspberry Pi 3](/images/release-1-0/docker_pirate.jpg)
+![Raspberry Pi 3](/images/release-1-0/docker_pirate_650px.jpg)
 
 <!--more-->
 
@@ -35,14 +35,14 @@ You can run HypriotOS on each and every model of the Raspberry Pi family - we're
 We improved our [flash tool](https://github.com/hypriot/flash), which puts HypriotOS onto a SD card that is ready to boot from with a single command. After you flashed the SD card, you can store the settings of your environment, e.g. Wi-Fi connection parameters into a configuration file on the SD card `/boot/device-init.yaml`. HypriotOS includes [device-init](https://github.com/hypriot/device-init), which makes your Raspberry Pi directly connecting to your Wi-Fi network after booting.
 After booting, you can find the Raspberry Pi at your network with a simple `ping black-pearl.local` – no more searching for IP addresses required thanks to the integrated Avahi service discovery.
 
-**Enhanced Security out of the box** </br>
+**Enhanced security out of the box** </br>
 We think that security should be shipped out-of-the-box. We make HypriotOS more secure without you even noticing it. For instance, there is no built-in "root" user any more. Also, the default user "pirate" (password "hypriot") is able to run Docker commands directly, which usually requires sudo rights. For an even better security, we strongly recommend to change the default user password and to restrict SSH access to pre-shared keys only with disabling SSH password authentication.
 
-**Maximum Performance out of the box** </br>
+**Maximum performance out of the box** </br>
 As with security, running Docker with high performance comes out-of-the-box with HypriotOS. This includes faster booting times (15-17 sec.), an optimized file system to support more Inodes, minimal memory footprint and disk usage, and the reliable overlay storage driver for Docker by default.
 
 **Now 50% smaller in size, even smaller than Raspbian Lite** </br>
-Even though HypriotOS 1.0.0 is fully packed with the complete and latest Docker tool set, it now comes at a size smaller than the tiniest version of Raspbian ("Raspbian Lite"). We achieved this mainly by reducing the cache's footprint and leaving out some unused packages, thus you won't miss any features you are used to. You just need to download only 232 MB instead of 504 MB as before. With this improvements the minimum disk usage is reduced down to 600 MB.
+Even though HypriotOS 1.0.0 is fully packed with the complete and latest Docker tool set, it now comes at a size smaller than the tiniest version of Raspbian ("Raspbian Lite"). We achieved this mainly by reducing the cache's footprint and leaving out some unused packages, so you won't miss any features you are used to. You just need to download only 232 MB instead of 504 MB as before. With this improvements the minimum disk usage is reduced down to 600 MB.
 
 Please see all details in the [release notes](https://github.com/hypriot/image-builder-rpi/releases/tag/v1.0.0) for HypriotOS 1.0.0.
 
@@ -54,15 +54,16 @@ flash https://downloads.hypriot.com/hypriotos-rpi-v1.0.0.img.zip
 
 **Afterwards, put the SD card into the Raspberry Pi and power it. That's all to get HypriotOS up and running!**
 
+
+### Next steps
+
 If you wanna connect to the Raspberry Pi, run
 ```
 ssh pirate@black-pearl.local
 ```
 with password "hypriot".
 
-If you want the Raspberry Pi to connect directly to your Wi-Fi after boot, change the hostname of the Raspberry Pi and more, edit `/boot/device-init.yaml` of the SD card and have a look at the [documentation of device-init](https://github.com/hypriot/device-init). Alternatively, checkout the parameters of the `flash` tool that also allows you to define configurations.
-
-Really, it's just so damn easy using our Hypriot [flash tool](https://github.com/hypriot/flash):
+If you want the Raspberry Pi to connect directly to your Wi-Fi after boot, change the hostname of the Raspberry Pi and more, edit `/boot/device-init.yaml` of the SD card and have a look at the [documentation of device-init](https://github.com/hypriot/device-init). Alternatively, checkout the parameters of the [Hypriot flash tool](https://github.com/hypriot/flash) that also allows you to define configurations. Really, it's just so damn easy:
 ```
 flash -n myHOSTNAME -s mySSID -p myWIFIPASSWORD https://downloads.hypriot.com/hypriotos-rpi-v1.0.0.img.zip
 ```
