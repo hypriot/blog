@@ -4,7 +4,7 @@ Tags = ["Docker", "Raspberry Pi", "ARM"]
 date = "2016-08-21T12:30:00+02:00"
 draft = false
 more_link = "yes"
-title = "Releasing HypriotOS 1.0.0"
+title = "Releasing HypriotOS 1.0.0 \"Blackbeard\""
 
 +++
 
