@@ -12,9 +12,9 @@ title = "Releasing HypriotOS 1.0.0 \"Blackbeard\""
 
 For this major release we've taken an especially great deal of trouble. Out of the box, you not only get the breaking features of the Docker Engine 1.12.1 and the latest versions of Docker Compose and Docker Machine, but also many improvements that enhance the performance, reliability and usability.
 
-<div align="center">
-  ![Raspberry Pi 3](/images/release-1-0/docker_pirate_650px.jpg)
-</div>
+
+  ![Raspberry Pi 3](/images/release-1-0/docker_pirate_650px_full-width.jpg)
+
 
 
 <!--more-->
