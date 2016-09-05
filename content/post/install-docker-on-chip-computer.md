@@ -8,7 +8,7 @@ title = "Install Docker 1.12 on the $9 C.H.I.P. computer"
 
 +++
 
-Did you seen the successfully launch of a really cheap ARM board for $9 only - the C.H.I.P. computer? It has an ARMv7 CPU with 512 MByte of main memory, 4 GByte flash memory as disk storage and is equipped with onboard WiFi and bluetooth as well.
+Did you see the successfully launch of a really cheap ARM board for $9 only - the C.H.I.P. computer? It has an ARMv7 CPU with 512 MByte of main memory, 4 GByte flash memory as disk storage and is equipped with onboard WiFi and bluetooth as well.
 ![chip-and-banana](/images/install-docker-on-chip-computer/chip-and-banana.jpg)
 
 With these awesome features built-in it would be really a great device to run Docker containers if only the recent Linux kernel 4.4  has the correct modules included, but it doesn't - what a bummer!
