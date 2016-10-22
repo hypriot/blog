@@ -10,7 +10,7 @@ In its release in June this year, Docker announced two exciting news about its D
 
 These two news combined beg for testing these new capabilities in reality. Let's see if it really works!
 
-![TODO](/images/high-availability-testing/TODO)
+![SwarmClusterHA](/images/high-availability-testing/high-availability-docker-swarm.png)
 
 
 <!--more-->
