@@ -8,9 +8,9 @@ title = "Testing High Availability of Docker on a Raspberry Pi Cluster"
 
 In its release in June this year, Docker announced two exciting news about its Docker Engine: First, the Engine 1.12 comes with built-in high availability features, called "Docker Swarm Mode". And second, Docker started providing official support for the ARM architecture.
 
-These two news combined beg for testing these new capababilites in reality. Let's see if it really works!
+These two news combined beg for testing these new capabilities in reality. Let's see if it really works!
 
-![IoT-requirements](/images/high-availability-testing/PicoCluster.jpg)
+![TODO](/images/high-availability-testing/TODO)
 
 
 <!--more-->
@@ -31,7 +31,7 @@ https://www.picocluster.com/collections/starter-picocluster-kits/products/pico-5
 ). Thanks to PicoCluster for providing the kit to us for testing!
 
 This is how the cluster looks like:
-![IoT-requirements](/images/high-availability-testing/PicoCluster.jpg)
+![PicoClusterBuilt](/images/high-availability-testing/PicoCluster.jpg)
 
 **As software**, I chose HypriotOS. I also tried Raspbian, but it requires a large system upgrade after the first boot in order to provide all features required by Docker (e.g. VXLAN kernel module). Before and after the system upgrade, I also had to run [Docker's test script]( https://github.com/docker/docker/blob/master/contrib/check-config.sh) to make sure everything is ok. All of this is not a big deal, but if there is an OS available that comes out of the box with all Docker needs, it saves time and provides a hassle-free experience. So I flashed all SD cards with HypriotOS using our [flash tool](https://github.com/hypriot/flash).
 
@@ -39,7 +39,7 @@ This is how the cluster looks like:
 
 Finally, we have 5 terminals opened, all waiting for commands:
 
-![IoT-requirements](/images/high-availability-testing/terminal.png)
+![Terminator](/images/high-availability-testing/terminal.png)
 
 That's it! Let's get our Hands on Docker now.
 
@@ -55,7 +55,7 @@ docker swarm init
 
 Then, on all other nodes, run what the output of the previous command suggested.
 
-Finally, on the node at which you executed `docker swarm init`, check if all nodes of your cluster sucessfully formed a swarm:
+Finally, on the node at which you executed `docker swarm init`, check if all nodes of your cluster successfully formed a swarm:
 
 ```
 docker node ls
