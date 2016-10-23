@@ -23,7 +23,8 @@ Now, with these two news, let's get our hands dirty and test if the announced pr
 
 
 Setup the cluster
-------------
+----------------------
+
 **As hardware**, I have 5x Raspberry Pi 3, connected in a network with Internet access.
 
 The Raspberry Pis with their SD cards, the network switch, power input and all cables live in a [hardware kit from PicoCluster](
@@ -46,7 +47,8 @@ That's all to do before getting our hands on Docker itself!
 
 
 Setup Docker Swarm on the cluster
-----------------------
+--------------------------------
+
 On latest HypriotOS, you'll have the latest Docker installed, so we can instantly start playing.
 
 On an arbitrary node of the cluster, run
@@ -54,7 +56,21 @@ On an arbitrary node of the cluster, run
 docker swarm init
 ```
 
-Then, on all other nodes, run what the output of the previous command suggested.
+The output should look similar to that:
+```
+Swarm initialized: current node (node-master) is now a manager.
+
+To add a worker to this swarm, run the following command:
+
+    docker swarm join \
+    --token SWMTKN-1-1acm9qa7b0hmzz5v8t40d75v5fsgckeu2z5ds6ls0x7cny7l8p-307wqrc8756akpxjxls9abbbs \
+    [2a02:810d:8600:2a78:f6c6:d67d:6912:17ca]:2377
+
+To add a manager to this swarm, run 'docker swarm join-token manager' and follow the instructions.
+
+```
+
+As explained in this output, now you need to run the presented `docker swarm join ...` command on all other nodes, which you want to join the cluster.
 
 Finally, on the node at which you executed `docker swarm init`, check if all nodes of your cluster successfully formed a swarm:
 
@@ -66,7 +82,7 @@ If the terminal prints a list of all nodes of your cluster, the setup is all don
 
 
 Execution of tests
------------
+---------------------
 My tests of Docker's ability to recover from failures comprise the following use cases:
 
   - The ethernet interface of a random node (master or slave) got unavailable
@@ -86,10 +102,14 @@ As shown in the screencast, Docker is able to recover from failure of the ethern
 
 
 More to come soon
-----
+------------------
 This post is only a small chunk of the data I gathered during the tests. The next option to get the details is during my talk at the [HighLoad++ Conference](http://highload.co/) in Moskow, Russia. I'd be happy if you can make it there!
 
-Also, this is not the end of the story, of course. Thorough testing requires also measuring incoming requests from an external load tester to the cluster while a failure occurs. After some research, I have not found any evidence that someone has ever performed that tests (please correct me if I'm wrong!). Also, Kubernetes received much attention lately since its support for ARM became better and better. That should be enough for a teaser, so just stay tuned for the next blog post :)
+Also, this is not the end of the story, of course. Thorough testing requires also measuring incoming requests from an external load tester to the cluster while a failure occurs. After some research, I have not found any evidence that someone has ever performed that tests (please correct me if I'm wrong!).
+
+Moreover, Kubernetes received much attention lately since its support for ARM became better and better. So wouldn't it be interesting to see if Docker or Kubernetes is better in keeping a service available and performing well, even if there are outages in the cluster?
+
+So there's more coming soon, just stay tuned for the upcoming posts :)
 
 As always, use the comments below to give us feedback and share this post on Twitter, Google or Facebook.
 
