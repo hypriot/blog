@@ -14,28 +14,27 @@ Start your Pi with the flashed SD card and enjoy instant Docker awesomeness.
 | Version 1.1.0      | [hypriotos-rpi-v1.1.0.img.zip](https://github.com/hypriot/image-builder-rpi/releases/download/v1.1.0/hypriotos-rpi-v1.1.0.img.zip)               | [Checksum](https://github.com/hypriot/image-builder-rpi/releases/download/v1.1.0/hypriotos-rpi-v1.1.0.img.zip.sha256)        | 12.10.2016 |
 | Version 1.0.0 Blackbeard     | [hypriotos-rpi-v1.0.0.img.zip](https://github.com/hypriot/image-builder-rpi/releases/download/v1.0.0/hypriotos-rpi-v1.0.0.img.zip)               | [Checksum](https://github.com/hypriot/image-builder-rpi/releases/download/v1.0.0/hypriotos-rpi-v1.0.0.img.zip.sha256)        | 19.08.2016 |
 | Version 0.8.0 Barbossa     | [hypriotos-rpi-v0.8.0.img.zip](https://github.com/hypriot/image-builder-rpi/releases/download/v0.8.0/hypriotos-rpi-v0.8.0.img.zip)               | [Checksum](https://github.com/hypriot/image-builder-rpi/releases/download/v0.8.0/hypriotos-rpi-v0.8.0.img.zip.sha256)        | 24.05.2016 |
-| Version 0.7.0 Berry (beta) | [hypriot-rpi-20160306-192317.img.zip](https://downloads.hypriot.com/hypriot-rpi-20160306-192317.img.zip) | [Checksum](https://downloads.hypriot.com/hypriot-rpi-20160306-192317.img.zip.sha256) | 06.03.2016 |
-| Version 0.6.1 Hector       | [hypriot-rpi-20151115-132854.img.zip](https://downloads.hypriot.com/hypriot-rpi-20151115-132854.img.zip) | [Checksum](https://downloads.hypriot.com/hypriot-rpi-20151115-132854.img.zip.sha256) | 15.11.2015 |
-| Version 0.6 Hector         | [hypriot-rpi-20151103-224349.img.zip](https://downloads.hypriot.com/hypriot-rpi-20151103-224349.img.zip) | [Checksum](https://downloads.hypriot.com/hypriot-rpi-20151103-224349.img.zip.sha256) | 03.11.2015 |
-| Version 0.5 Will           | [hypriot-rpi-20151004-132414.img.zip](https://downloads.hypriot.com/hypriot-rpi-20151004-132414.img.zip) | [Checksum](https://downloads.hypriot.com/hypriot-rpi-20151004-132414.img.zip.sha256) | 07.10.2015 |
-| Version 0.5 Will (beta)    | [hypriot-rpi-20150727-151455.img.zip](https://downloads.hypriot.com/hypriot-rpi-20150727-151455.img.zip) | [Checksum](https://downloads.hypriot.com/hypriot-rpi-20150727-151455.img.zip.sha256) | 27.07.2015 |
-| Version 0.4 Elizabeth      | [hypriot-rpi-20150416-201537.img.zip](https://downloads.hypriot.com/hypriot-rpi-20150416-201537.img.zip) | [Checksum](https://downloads.hypriot.com/hypriot-rpi-20150416-201537.img.zip.sha256) | 16.04.2015 |
-| Version 0.3 Jack           | [hypriot-rpi-20150329-140334.img.zip](https://downloads.hypriot.com/hypriot-rpi-20150329-140334.img.zip) | [Checksum](https://downloads.hypriot.com/hypriot-rpi-20150329-140334.img.zip.sha256) | 30.03.2015 |
-| Version 0.2                | [hypriot-rpi-20150301-140537.img.zip](https://downloads.hypriot.com/hypriot-rpi-20150301-140537.img.zip) | [Checksum](https://downloads.hypriot.com/hypriot-rpi-20150301-140537.img.zip.sha256) | 04.03.2015 |
-| Version 0.1                | [hypriot-rpi-20150208-015447.zip](https://downloads.hypriot.com/hypriot-rpi-20150208-015447.zip)         |                                                                                      | 08.02.2015 |
+| Version 0.7.0 Berry (beta) | hypriot-rpi-20160306-192317.img.zip |  | 06.03.2016 |
+| Version 0.6.1 Hector       | hypriot-rpi-20151115-132854.img.zip |  | 15.11.2015 |
+| Version 0.6 Hector         | hypriot-rpi-20151103-224349.img.zip |  | 03.11.2015 |
+| Version 0.5 Will           | hypriot-rpi-20151004-132414.img.zip |  | 07.10.2015 |
+| Version 0.5 Will (beta)    | hypriot-rpi-20150727-151455.img.zip |  | 27.07.2015 |
+| Version 0.4 Elizabeth      | hypriot-rpi-20150416-201537.img.zip |  | 16.04.2015 |
+| Version 0.3 Jack           | hypriot-rpi-20150329-140334.img.zip |  | 30.03.2015 |
+| Version 0.2                | hypriot-rpi-20150301-140537.img.zip |  | 04.03.2015 |
+| Version 0.1                | hypriot-rpi-20150208-015447.zip     |  | 08.02.2015 |
 
 
 ### Hypriot Cluster Lab
-Download and flash this image to your SD card. Boot the RPis and see a real cluster up and running!  
+Download Hypriot Cluster Lab packages from packagecloud.io.
 
-| Description                                                                                                                            | Download Link                                                                                                                                     | SHA256 Checksum                                                                                         | Published  |
-|:-------------------------------------------------------------------------------------------------------------------------------------- |:--------------------------------------------------------------------------------------------------------------------------------------------------|:--------------------------------------------------------------------------------------------------------|:------------|
-| Version 0.1.1  | [hypriot_20160121-235123_clusterlab.img.zip](https://downloads.hypriot.com/hypriot_20160121-235123_clusterlab.img.zip) | [Checksum](https://downloads.hypriot.com/hypriot_20160121-235123_clusterlab.img.zip.sha256) | 18.01.2016 |
-| Version 0.1 | [hypriot-rpi-20151128-152209-docker-swarm-cluster.img.zip](https://downloads.hypriot.com/hypriot-rpi-20151128-152209-docker-swarm-cluster.img.zip) | [Checksum](https://downloads.hypriot.com/hypriot-rpi-20151128-152209-docker-swarm-cluster.img.zip.sha25) | 08.12.2015 |
+| Description        | Download Link                                                                                                | Published  |
+| :----------------- | :------------------------------------------------------------------------------------------------------------| :------------------------------------------------------------------------------------| :----------|
+| Hypriot Cluster Lab 0.2.14 | [hypriot-cluster-lab_0.2.14-1_all.deb](https://packagecloud.io/Hypriot/Schatzkiste/packages/debian/jessie/hypriot-cluster-lab_0.2.14-1_all.deb)       | 08.06.2016 |
 
 ### Hypriot Docker Debian Packages for Raspberry Pi
 These Docker packages are tested with our Docker Hypriot SD card image.  
-Download and then install with `dpkg -i package_name.deb`.
+Download them from packagecloud.io.
 
 | Description        | Download Link                                                                                                | Published  |
 | :----------------- | :------------------------------------------------------------------------------------------------------------| :------------------------------------------------------------------------------------| :----------|
