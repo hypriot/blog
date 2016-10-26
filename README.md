@@ -10,9 +10,9 @@ Improve this blog, because you can!
 ------------------------
 **The blog is completely open source, so everyone is empowered and welcome to create PRs to improve it!** It's as easy as the following steps:
 
+- [Install Hugo](https://gohugo.io/overview/installing/) on your machine, thereby make sure you install exactly the same version as defined [here](https://github.com/hypriot/blog/blob/master/ci-install-hugo.sh#L2).
 - Clone this repo
 - Change directory into the freshly cloned repo 
-- Setup `hugo` on your local machine by following the [official docs](http://gohugo.io/overview/installing/)
 - Start hugo locally as a server
 
 ```bash
