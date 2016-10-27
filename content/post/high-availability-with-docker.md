@@ -105,7 +105,7 @@ More to come soon
 ------------------
 This post is only a small chunk of the data I gathered during the tests. The next option to get the details is during my talk at the [HighLoad++ Conference](http://highload.co/) in Moskow, Russia. I'd be happy if you can make it there!
 
-Also, this is not the end of the story,kontakt@pringuin.de of course. Thorough testing requires also measuring incoming requests from an external load tester to the cluster while a failure occurs. After some research, I have not found any evidence that someone has ever performed that tests (please correct me if I'm wrong!).
+Also, this is not the end of the story of course. Thorough testing requires also measuring incoming requests from an external load tester to the cluster while a failure occurs. After some research, I have not found any evidence that someone has ever performed that tests (please correct me if I'm wrong!).
 
 Moreover, Kubernetes received much attention lately since its support for ARM became better and better. So wouldn't it be interesting to see if Docker or Kubernetes is better in keeping a service available and performing well, even if there are outages in the cluster?
 
