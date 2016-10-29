@@ -52,7 +52,7 @@ Please see all details in the [release notes](https://github.com/hypriot/image-b
 ## Quick start
 **Download our [flash tool](https://github.com/hypriot/flash) and run**
 ```
-flash https://downloads.hypriot.com/hypriotos-rpi-v1.0.0.img.zip
+flash https://github.com/hypriot/image-builder-rpi/releases/download/v1.0.0/hypriotos-rpi-v1.0.0.img.zip
 ```
 
 **Afterwards, put the SD card into the Raspberry Pi and power it. That's all to get HypriotOS up and running!**
@@ -68,7 +68,7 @@ with password "hypriot".
 
 If you want the Raspberry Pi to connect directly to your Wi-Fi after boot, change the hostname of the Raspberry Pi and more, edit `/boot/device-init.yaml` of the SD card and have a look at the [documentation of device-init](https://github.com/hypriot/device-init). Alternatively, checkout the parameters of the [Hypriot flash tool](https://github.com/hypriot/flash) that also allows you to define configurations. Really, it's just so damn easy:
 ```
-flash -n myHOSTNAME -s mySSID -p myWIFIPASSWORD https://downloads.hypriot.com/hypriotos-rpi-v1.0.0.img.zip
+flash -n myHOSTNAME -s mySSID -p myWIFIPASSWORD https://github.com/hypriot/image-builder-rpi/releases/download/v1.0.0/hypriotos-rpi-v1.0.0.img.zip
 ```
 
 

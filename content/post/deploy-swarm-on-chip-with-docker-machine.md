@@ -243,7 +243,7 @@ Here you can see that using [HypriotOS for RPi](https://github.com/hypriot/image
 
 Flash the SD card, and power up the Raspberry Pi Zero.
 ```
-flash -n swarm-raspi01 -s "WLAN-R46VFR" -p "************" https://downloads.hypriot.com/hypriotos-rpi-v1.0.0.img.zip
+flash -n swarm-raspi01 -s "WLAN-R46VFR" -p "************" https://github.com/hypriot/image-builder-rpi/releases/download/v1.0.0/hypriotos-rpi-v1.0.0.img.zip
 ```
 
 Determine the IP address of the Pi Zero.

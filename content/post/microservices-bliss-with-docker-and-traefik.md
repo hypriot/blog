@@ -56,12 +56,12 @@ $ cd flash/Darwin
 
 With the flash tool ready we now can prepare the SD card for our __leader node__:
 ```
-$ ./flash --hostname cl-leader https://downloads.hypriot.com/hypriotos-rpi-v0.8.0.img.zip
+$ ./flash --hostname cl-leader https://github.com/hypriot/image-builder-rpi/releases/download/v0.8.0/hypriotos-rpi-v0.8.0.img.zip
 ```
 
 Repeat the process for the __follower nodes__:
 ```
-$ for i in {1..4} do; ./flash --hostname cl-follower${i} https://downloads.hypriot.com/hypriotos-rpi-v0.8.0.img.zip; done
+$ for i in {1..4} do; ./flash --hostname cl-follower${i} https://github.com/hypriot/image-builder-rpi/releases/download/v0.8.0/hypriotos-rpi-v0.8.0.img.zip; done
 ```
 
 While the SD cards for the follower nodes are still being flashed you can already start the leader node.
