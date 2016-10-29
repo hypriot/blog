@@ -8,7 +8,7 @@ title = "HypriotOS 0.7.0 Berry - the Raspberry Pi Birthday release"
 
 +++
 
-We've just prepared a new beta release of HypriotOS 0.7.0 Berry which is based upon an updated 0.6.1 Hector. Feel free to check it out: http://blog.hypriot.com/downloads/.
+We've just prepared a new beta release of HypriotOS 0.7.0 Berry which is based upon an updated 0.6.1 Hector. Feel free to check it out: /downloads/.
 
 ![Raspberry Pi 3](/images/hypriotos-berry-rpi3/IMG_0763.jpeg)
 

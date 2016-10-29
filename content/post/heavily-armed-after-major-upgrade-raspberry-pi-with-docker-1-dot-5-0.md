@@ -5,11 +5,11 @@ date = "2015-03-03T22:09:33+01:00"
 title = "Heavily ARMed after major upgrade: Raspberry Pi with Docker 1.5.0"
 aliases = [ "heavily-armed-after-major-upgrade-raspberry-pi-with-docker-1-dot-5-0" ]
 
-disqus_url = "http://blog.hypriot.com/post/heavily-armed-after-major-upgrade-raspberry-pi-with-docker-1-dot-5-0"
+disqus_url = "/post/heavily-armed-after-major-upgrade-raspberry-pi-with-docker-1-dot-5-0"
 disqus_title = "Heavily ARMed after major upgrade: Raspberry Pi with Docker 1.5.0"
 
-tweet_url = "http://blog.hypriot.com/heavily-armed-after-major-upgrade-raspberry-pi-with-docker-1-dot-5-0"
-facebook_url = "http://blog.hypriot.com/heavily-armed-after-major-upgrade-raspberry-pi-with-docker-1-dot-5-0"
+tweet_url = "/heavily-armed-after-major-upgrade-raspberry-pi-with-docker-1-dot-5-0"
+facebook_url = "/heavily-armed-after-major-upgrade-raspberry-pi-with-docker-1-dot-5-0"
 
 more_link = "yes"
 
@@ -18,7 +18,7 @@ galleryfolder = "heavily-armed-after-major-upgrade"
 gallerythumbnail = "thumbnails"
 +++
 
-Nearly two weeks ago we have been blown away by the positive feedback we got for [our first Raspberry Pi SD card image](http://blog.hypriot.com/kick-ass-raspberry-pi-2-having-a-forbidden-love-affair-with-docker-1-dot-4-1). It allowed people to get up and running with Docker on the Raspberry Pi in no time.
+Nearly two weeks ago we have been blown away by the positive feedback we got for [our first Raspberry Pi SD card image](/kick-ass-raspberry-pi-2-having-a-forbidden-love-affair-with-docker-1-dot-4-1). It allowed people to get up and running with Docker on the Raspberry Pi in no time.
 
 The positive feedback we received and the fact that two days later Docker 1.5.0 was released did motivate us to create an improved version of our Get-Docker-Up-And-Running-On-Your-Pi-In-No-Time SD card image.
 <!--more-->
@@ -63,7 +63,7 @@ The image can be downloaded here:
 [Docker-Pi Image](http://downloads.hypriot.com/hypriot-rpi-20150301-140537.img.zip) (~347MB)  
 [SHA256 checksum](http://downloads.hypriot.com/hypriot-rpi-20150301-140537.img.zip.sha256)
 
-__Update (30.03.2015):__ We have published a more [recent version of our SD card image](http://blog.hypriot.com/post/hypriotos-back-again-with-docker-on-arm).
+__Update (30.03.2015):__ We have published a more [recent version of our SD card image](/post/hypriotos-back-again-with-docker-on-arm).
 
 ## How to get started
 Download our SD card image and flash it on your own SD card. [Here](http://computers.tutsplus.com/articles/how-to-flash-an-sd-card-for-raspberry-pi--mac-53600) is a short guide on how to do this for Mac, Windows and Linux users. Afterwards insert the SD card in your Raspberry Pi and wait while it boots. The first time will take a little longer as it resizes the file system to its maximum and reboots again.

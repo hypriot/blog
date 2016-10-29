@@ -13,7 +13,7 @@ from SolidRun which is powered by a dual core Marvell ARMADA ARMv7 CPU. In case
 you missed the intro a few days ago, we highly recommend reading the technical
 specifications first to get an impression of this board.
 
-* Part 1: [Introducing the new ClearFog Pro Router Board from SolidRun](http://blog.hypriot.com/post/introducing-the-clearfog-pro-router-board/)
+* Part 1: [Introducing the new ClearFog Pro Router Board from SolidRun](/post/introducing-the-clearfog-pro-router-board/)
 
 This time we'll get our hands on this new board and try to install Linux with a
 recent kernel version and hopefully we're able to install and run the Docker Engine

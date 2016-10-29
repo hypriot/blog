@@ -165,7 +165,7 @@ a single network link. This is all you need to start playing with it right away.
 
 Now, you can go ahead and install software on your new PicoCluster.
 However, this isn't within the scope of this hands-on project, so we'll point you to one of our
-latest tutorials where you learn [how to setup a Docker Swarm cluster with Raspberry Pi's](http://blog.hypriot.com/post/how-to-setup-rpi-docker-swarm/).
+latest tutorials where you learn [how to setup a Docker Swarm cluster with Raspberry Pi's](/post/how-to-setup-rpi-docker-swarm/).
 
 
 ### Where can you get it ?

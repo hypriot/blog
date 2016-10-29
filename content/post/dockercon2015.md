@@ -59,7 +59,7 @@ The person who successfully manage to get the highest number of these [Docker co
 
 To get you started for this challenge we prepared a couple of links for you:
 
-- [Getting started with our Docker Hypriot SD-card image on Raspberry Pi](http://blog.hypriot.com/getting-started)
+- [Getting started with our Docker Hypriot SD-card image on Raspberry Pi](/getting-started)
 - [Raspberry Pi Docker Image for HTTPd](https://github.com/hypriot/rpi-busybox-httpd)
 - [Start-Script for running lots of containers on the Raspberry Pi](https://github.com/hypriot/rpi-busybox-httpd/blob/master/start-webservers.sh)
 

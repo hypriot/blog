@@ -24,7 +24,7 @@ From now on, let's better refer to an app as a **service** because often a Docke
 
 In order to directly apply the necessary steps, we go through an example. In this example, we wanna port the [Apache webserver](http://httpd.apache.org/) to ARM.
 
-As hardware for our example, we use a Raspberry Pi, which is one of the most popular ARM devices for developers. Of course, as operating system we use our [SD Card image](http://blog.hypriot.com/downloads/) that provides Docker on the Raspberry Pi by just [flashing it to a SD card and booting it](https://github.com/hypriot/flash).
+As hardware for our example, we use a Raspberry Pi, which is one of the most popular ARM devices for developers. Of course, as operating system we use our [SD Card image](/downloads/) that provides Docker on the Raspberry Pi by just [flashing it to a SD card and booting it](https://github.com/hypriot/flash).
 
 
 ## Let's ARM it!
@@ -51,7 +51,7 @@ When the Docker command completed, point your browser to `http://<IP OF YOUR PI>
 
 Next, let's move to the target machine running on ARM. Copy the content of the Dockerfile as is to your ARM machine.
 
-In our case, we log into the Raspberry Pi ([get help from our getting started guide](http://blog.hypriot.com/getting-started-with-docker-on-your-arm-device/)) and copy the content of the Dockerfile to the machine. For this, on the machine, we use the `vim` editor by executing
+In our case, we log into the Raspberry Pi ([get help from our getting started guide](/getting-started-with-docker-on-your-arm-device/)) and copy the content of the Dockerfile to the machine. For this, on the machine, we use the `vim` editor by executing
 
 ```vim Dockerfile```
 

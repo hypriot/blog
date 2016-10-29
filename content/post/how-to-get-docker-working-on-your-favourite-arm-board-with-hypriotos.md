@@ -18,7 +18,7 @@ Read on to learn what happened next...
 
 <!--more-->
 
-Last December he started the work to get Docker running on the ShieldTV and [described his journey](http://blog.hypriot.com/post/getting-docker-running-on-a-highend-arm-gaming-console-for-fun-and-profit/) on our blog.
+Last December he started the work to get Docker running on the ShieldTV and [described his journey](/post/getting-docker-running-on-a-highend-arm-gaming-console-for-fun-and-profit/) on our blog.
 The gist of it is that it was quite an involved process of creating his own custom Debian based operating system that supported building Go and Docker for ARM64.
 
 The work of Dieter on the ShieldTV inspired our team to revisit the way we were building our beloved HypriotOS for the Raspberry Pi.

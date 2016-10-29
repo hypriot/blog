@@ -36,7 +36,7 @@ Here is a recording of the talk made by [Call-a-Tux](https://call-a-tux.de/):
 It seems the talk was able to whet the appetite of the audience as many joined the two hour workshop later.
 Soon all seats were taken and the attendees embarked on a whirlwind tour through HypriotOS and Docker.
 
-Thanks to [HypriotOS](http://blog.hypriot.com/post/hypriotos-barbossa-for-raspberry-pi-3/) and our convenient [flash tool](https://github.com/hypriot/flash) everybody was able to start with Docker in no time.  
+Thanks to [HypriotOS](/post/hypriotos-barbossa-for-raspberry-pi-3/) and our convenient [flash tool](https://github.com/hypriot/flash) everybody was able to start with Docker in no time.  
 After learning the basic Docker commands everybody started to feel like a real Docker Pirate.
 
 From there it was mostly smooth sailing and we even started to manage our containers with Docker Compose and Swarm.
