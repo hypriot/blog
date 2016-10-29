@@ -13,7 +13,7 @@ facebook_url = "http://blog.hypriot.com/heavily-armed-after-major-upgrade-raspbe
 
 more_link = "yes"
 
-galleryprefix = "http://assets.hypriot.com/gallery"
+galleryprefix = "/images/gallery"
 galleryfolder = "heavily-armed-after-major-upgrade"
 gallerythumbnail = "thumbnails"
 +++
@@ -23,7 +23,7 @@ Nearly two weeks ago we have been blown away by the positive feedback we got for
 The positive feedback we received and the fact that two days later Docker 1.5.0 was released did motivate us to create an improved version of our Get-Docker-Up-And-Running-On-Your-Pi-In-No-Time SD card image.
 <!--more-->
 
-{{< image file="http://assets.hypriot.com/gallery/heavily-armed-after-major-upgrade/black-pearl.jpg" copyright="Kevin Boone" copyright_link="http://www.kevinboone.net/black_pearl.html" >}}
+{{< image file="/images/gallery/heavily-armed-after-major-upgrade/black-pearl.jpg" copyright="Kevin Boone" copyright_link="http://www.kevinboone.net/black_pearl.html" >}}
 
 The most important upgrade of our second image is the support for Docker 1.5.0 which has been released just recently. Most noteworthy about Docker 1.5.0 is the new support for IPv6, read-only containers and advanced statistics for image resource consumption. We find the last one especially interesting for people like us who are running Docker on small devices.
 
