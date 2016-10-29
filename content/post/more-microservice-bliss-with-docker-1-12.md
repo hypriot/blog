@@ -7,7 +7,7 @@ more_link = "yes"
 title = "More Microservices Bliss with Docker 1.12 and Swarm only"
 +++
 
-A couple of days ago I wrote a [blog post](http://blog.hypriot.com/post/microservices-bliss-with-docker-and-traefik/) about how easy it is to get a microservice application up and running with Docker and a HTTP proxy called Traefik.
+A couple of days ago I wrote a [blog post](/post/microservices-bliss-with-docker-and-traefik/) about how easy it is to get a microservice application up and running with Docker and a HTTP proxy called Traefik.
 I explained how awesome Traefik is because it makes complex setups with HAProxy, Registrator, Consul, etc. a thing of the past. 
 
 I really thought it couldn't get much easier. Oh boy - was I wrong!

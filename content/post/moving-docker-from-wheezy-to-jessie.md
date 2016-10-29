@@ -33,7 +33,7 @@ During the next two weeks we want to improve it step by step and gather feedback
 [hypriot-rpi-20150727-151455.img.zip](http://downloads.hypriot.com/hypriot-rpi-20150727-151455.img.zip) (~ 424 MB)  
 [SHA256 checksum](http://downloads.hypriot.com/hypriot-rpi-20150727-151455.img.zip.sha256)
 
-Check out our [Getting-Started-Guide](http://blog.hypriot.com/getting-started-with-docker-on-your-arm-device/) on how to get this SD card image running on our Pi.
+Check out our [Getting-Started-Guide](/getting-started-with-docker-on-your-arm-device/) on how to get this SD card image running on our Pi.
 
 As always use the comments below to give us feedback and share it on Twitter or Facebook.
 

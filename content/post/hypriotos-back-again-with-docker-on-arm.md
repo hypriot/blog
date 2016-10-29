@@ -5,7 +5,7 @@ date = "2015-03-30T00:00:00+02:00"
 more_link = "yes"
 title = "HypriotOS: Back Again and Better then Ever"
 aliases = [ "post/back_again" ]
-disqus_url = "http://blog.hypriot.com/post/back_again"
+disqus_url = "/post/back_again"
 
 +++
 Time is running and it is nearly a month since we released our last ARM Docker SD card image for the Raspberry Pi.

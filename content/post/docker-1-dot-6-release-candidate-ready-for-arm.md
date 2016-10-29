@@ -24,7 +24,7 @@ The ones that stand out the most are
 
 Find out more details in the [changelog](https://github.com/docker/docker/blob/v1.6.0-rc2/CHANGELOG.md) yourself.
 
-The only prerequisite to get started is that you are using our Hypriot SD card image for the Rasperry Pi. We published a new version just yesterday and you can the blog post about it here: [HypriotOS: Back Again and Better then Ever](http://blog.hypriot.com/post/hypriotos-back-again-with-docker-on-arm).
+The only prerequisite to get started is that you are using our Hypriot SD card image for the Rasperry Pi. We published a new version just yesterday and you can the blog post about it here: [HypriotOS: Back Again and Better then Ever](/post/hypriotos-back-again-with-docker-on-arm).
 
 ### Get it while it is still hot
 [docker-hypriot_1.6.0-rc2-1_armhf.deb](http://downloads.hypriot.com/docker-hypriot_1.6.0-rc2-1_armhf.deb) (~ 6MB)  

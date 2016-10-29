@@ -29,7 +29,7 @@ docker-machine version 0.8.0, build b85aac1
 
 #### Step 2: Prepare all C.H.I.P.'s with Docker Machine
 
-In order to connect a couple of C.H.I.P. computers to a Docker Swarm cluster, we have to install Docker 1.12.1 first. This can be done easily by following the steps of my last tutorial [Install Docker 1.12 on the $9 C.H.I.P. computer](http://blog.hypriot.com/post/install-docker-on-chip-computer/). Then we're using the standard Docker Machine from a Mac to attach each C.H.I.P. device via a secured Docker API port and give each device an individual hostname on the network. With the help of Docker Machine it's easier to access all the C.H.I.P. devices we'd like to connect to the Swarm cluster from a Mac, Linux or Windows machine.
+In order to connect a couple of C.H.I.P. computers to a Docker Swarm cluster, we have to install Docker 1.12.1 first. This can be done easily by following the steps of my last tutorial [Install Docker 1.12 on the $9 C.H.I.P. computer](/post/install-docker-on-chip-computer/). Then we're using the standard Docker Machine from a Mac to attach each C.H.I.P. device via a secured Docker API port and give each device an individual hostname on the network. With the help of Docker Machine it's easier to access all the C.H.I.P. devices we'd like to connect to the Swarm cluster from a Mac, Linux or Windows machine.
 
 Here are the basic steps we have to follow for each single C.H.I.P. computer:
 

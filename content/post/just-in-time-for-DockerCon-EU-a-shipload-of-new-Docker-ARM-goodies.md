@@ -56,7 +56,7 @@ Just give it a try: Download our [latest image](http://downloads.hypriot.com/hyp
 [hypriot-rpi-20151115-132854.img.zip](http://downloads.hypriot.com/hypriot-rpi-20151115-132854.img.zip) (~ 438 MB)
 [SHA256 checksum](hypriot-rpi-20151115-132854.img.zip.sha256)
 
-Check out our [Getting-Started-Guide](http://blog.hypriot.com/getting-started-with-docker-on-your-arm-device/) on how to get this SD card image running on your Raspberry Pi.
+Check out our [Getting-Started-Guide](/getting-started-with-docker-on-your-arm-device/) on how to get this SD card image running on your Raspberry Pi.
 
 As always, use the comments below to give us feedback and share this post on Twitter, Google+ or Facebook.
 

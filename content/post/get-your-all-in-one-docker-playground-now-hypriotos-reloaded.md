@@ -27,7 +27,7 @@ Thus it was an obvious choice for us to start our mission on the Raspberry Pi.
 
 The standard way to provide software for the Raspberry Pi is by using a SD card that includes the operating system with all necessary user software.
 So our first step was to provide a SD card image that included an operating system that was optimized for the use of Docker.
-And that was exactly what we did when we published the [first version](http://blog.hypriot.com/post/kick-ass-raspberry-pi-2-having-a-forbidden-love-affair-with-docker-1-dot-4-1/) of our Get-Docker-Up-And-Running-On-Your-Pi-In-No-Time SD card image.
+And that was exactly what we did when we published the [first version](/post/kick-ass-raspberry-pi-2-having-a-forbidden-love-affair-with-docker-1-dot-4-1/) of our Get-Docker-Up-And-Running-On-Your-Pi-In-No-Time SD card image.
 It allowed even novice users to get a working Docker environment running in minutes.
 
 Besides the ease of use there was another important "feature" for us when we started publishing our SD card image.
@@ -80,7 +80,7 @@ Rest assured that we still have some more major improvements in our release pipe
 [SHA256 checksum](http://downloads.hypriot.com/hypriot-rpi-20151004-132414.img.zip.sha256)
 
 
-Check out our [Getting-Started-Guide](http://blog.hypriot.com/getting-started-with-docker-on-your-arm-device/) on how to get this SD card image running on our Pi.
+Check out our [Getting-Started-Guide](/getting-started-with-docker-on-your-arm-device/) on how to get this SD card image running on our Pi.
 
 As always, use the comments below to give us feedback and share this post on Twitter or Facebook.
 You also might wanna discuss this release on [HackerNews](https://news.ycombinator.com/item?id=10351792) or vote it up if you find it interesting.

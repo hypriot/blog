@@ -1,4 +1,4 @@
-baseurl = "http://blog.hypriot.com/"
+baseurl = "https://blog.hypriot.com/"
 languageCode = "en-us"
 title = "Docker Pirates ARMed with explosive stuff"
 theme = "hyde"

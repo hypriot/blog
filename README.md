@@ -4,7 +4,7 @@ Hypriot Blog
 [![Circle CI](https://circleci.com/gh/hypriot/blog.svg?style=svg)](https://circleci.com/gh/hypriot/blog)
 [![Join the chat at https://gitter.im/hypriot/talk](https://badges.gitter.im/hypriot/talk.svg)](https://gitter.im/hypriot/talk?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-This repository is used to generate the blog at [blog.hypriot.com](http://blog.hypriot.com).
+This repository is used to generate the blog at [blog.hypriot.com](https://blog.hypriot.com).
 
 Improve this blog, because you can!
 ------------------------
@@ -12,7 +12,7 @@ Improve this blog, because you can!
 
 - [Install Hugo](https://gohugo.io/overview/installing/) on your machine, thereby make sure you install exactly the same version as defined [here](https://github.com/hypriot/blog/blob/master/ci-install-hugo.sh#L2).
 - Clone this repo
-- Change directory into the freshly cloned repo 
+- Change directory into the freshly cloned repo
 - Start hugo locally as a server
 
 ```bash

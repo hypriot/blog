@@ -15,7 +15,7 @@ The most popular and affordable small ARM device in 2014 was the Raspberry Pi wh
 In early 2015 there was no easy and approachable way to run Docker on the Raspberry Pi or any other ARM device.
 So our first task was to change exactly that.
 
-In [February 2014](http://blog.hypriot.com/post/kick-ass-raspberry-pi-2-having-a-forbidden-love-affair-with-docker-1-dot-4-1/) we brought out the first version of HypriotOS, which is a minimal Debian-based operating systems that is optimized to run Docker.
+In [February 2014](/post/kick-ass-raspberry-pi-2-having-a-forbidden-love-affair-with-docker-1-dot-4-1/) we brought out the first version of HypriotOS, which is a minimal Debian-based operating systems that is optimized to run Docker.
 It made it dead easy use Docker on any Raspberry Pi by just downloading and flashing a prepared SD card image with HypriotOS.
 From start to finish it takes a user less than 5 minutes to get started with Docker on Raspberry Pi.
 

@@ -7,7 +7,7 @@ more_link = "yes"
 title = "Exciting Docker Swarm experiments in the Hypriot Cluster Lab"
 +++
 
-This post is - like the [last one](http://blog.hypriot.com/post/how-to-setup-rpi-docker-swarm/) - dedicated to the [Docker #SwarmWeek](https://blog.docker.com/2016/03/swarmweek-join-your-first-swarm/).
+This post is - like the [last one](/post/how-to-setup-rpi-docker-swarm/) - dedicated to the [Docker #SwarmWeek](https://blog.docker.com/2016/03/swarmweek-join-your-first-swarm/).
 
 If you thought that it was pretty easy to set up a Swarm Cluster after our last post - you are going to be pretty surprised to find out that there is still room for improvement.
 
