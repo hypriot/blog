@@ -26,12 +26,11 @@ On top of that we added all the battle-tested ingredients of our previous Get-Do
 - support for __Avahi__ (aka Apple Bonjour)
 - support for __Open vSwitch__
 
-We consider this new version of our SD card image still as __beta quality__. 
+We consider this new version of our SD card image still as __beta quality__.
 During the next two weeks we want to improve it step by step and gather feedback to make it a great out-of-the-box experience for our users.
 
 ### Get it while it is still hot
-[hypriot-rpi-20150727-151455.img.zip](http://downloads.hypriot.com/hypriot-rpi-20150727-151455.img.zip) (~ 424 MB)  
-[SHA256 checksum](http://downloads.hypriot.com/hypriot-rpi-20150727-151455.img.zip.sha256)
+ hypriot-rpi-20150727-151455.img.zip (~ 424 MB)  
 
 Check out our [Getting-Started-Guide](http://blog.hypriot.com/getting-started-with-docker-on-your-arm-device/) on how to get this SD card image running on our Pi.
 

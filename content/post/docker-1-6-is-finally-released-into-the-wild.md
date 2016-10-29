@@ -17,8 +17,7 @@ Use it to get the best Docker experience available for the Raspberry Pi. It is r
 
 The image can be downloaded here:
 
-[Docker-Pi Image](http://downloads.hypriot.com/hypriot-rpi-20150416-201537.img.zip) (~369MB)  
-[SHA256 checksum](http://downloads.hypriot.com/hypriot-rpi-20150416-201537.img.zip.sha256)
+Docker-Pi Image (hypriot-rpi-20150416-201537.img.zip) (~369MB)  
 
 For everybody else use our Docker Debian package at your own peril... :)
 
@@ -41,8 +40,7 @@ Read some more details on the official Docker blog
 [DOCKER 1.6: ENGINE & ORCHESTRATION UPDATES, REGISTRY 2.0, & WINDOWS CLIENT PREVIEW](https://blog.docker.com/2015/04/docker-release-1-6/)
 
 ## Get it while it is still hot
-[docker-hypriot_1.6.0-1_armhf.deb](http://downloads.hypriot.com/docker-hypriot_1.6.0-1_armhf.deb) (~ 6MB)  
-[SHA256 checksum](http://downloads.hypriot.com/docker-hypriot_1.6.0-1_armhf.deb.sha256)
+docker-hypriot_1.6.0-1_armhf.deb
 
 All you have to do is to start up your Pi with our SD card image, download the prepared Docker package and install it with dpkg.
 

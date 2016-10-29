@@ -46,8 +46,7 @@ On top of [Jessie](http://arstechnica.com/information-technology/2015/05/debian-
 During the next two weeks we want to improve the SD card image and gather more feedback to make it a great out-of-the-box experience for our users.
 
 ### Get it while it is still hot
-[hypriot-rpi-20150928-174643.img.zip](http://downloads.hypriot.com/hypriot-rpi-20150928-174643.img.zip) (~ 438 MB)
-[SHA256 checksum](http://downloads.hypriot.com/hypriot-rpi-20150928-174643.img.zip.sha256)
+hypriot-rpi-20150928-174643.img.zip (~ 438 MB)
 
 Check out our [Getting-Started-Guide](http://blog.hypriot.com/getting-started-with-docker-on-your-arm-device/) on how to get this SD card image running on our Pi.
 
