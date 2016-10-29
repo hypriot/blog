@@ -6,7 +6,7 @@ watch = "true"
 
 [params]
   Description = "Roaming the seven seas in search for golden container plunder."
-  galleryprefix = "http://assets.hypriot.com/gallery"
+  galleryprefix = "/images"
   disqusShortname = "hypriot"
   GoogleAnalyticsTrackingID = "UA-59194692-1"
 
