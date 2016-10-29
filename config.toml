@@ -2,7 +2,7 @@ baseurl = "https://blog.hypriot.com/"
 languageCode = "en-us"
 title = "Docker Pirates ARMed with explosive stuff"
 theme = "hyde"
-watch = "true"
+watch = "false"
 
 [params]
   Description = "Roaming the seven seas in search for golden container plunder."
