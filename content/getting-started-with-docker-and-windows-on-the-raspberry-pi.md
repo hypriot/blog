@@ -20,7 +20,7 @@ The SD card contains all the software which we are going to use on our Raspberry
 With software we basically mean two things: first an operating system for your Raspberry Pi and second the software you as user would like to use - e.g. a browser or a word processing program.
 In our case the software we wanna use is Docker.
 
-We - from Hypriot - created a preconfigured [SD card image](http://blog.hypriot.com/downloads/) which contains everything you need to run Docker on your Raspberry Pi.
+We - from Hypriot - created a preconfigured [SD card image](https://blog.hypriot.com/downloads/) which contains everything you need to run Docker on your Raspberry Pi.
 To use the image you first have to download and transfer it to your SD card. Transferring an image to an SD card is often referred to as *flashing*.
 Afterwards you just have to insert the flashed SD card into your Raspberry Pi and start it up.
 
@@ -36,7 +36,7 @@ For this tutorial you will need to install four applications which we are going 
 
 
 ### Download the Hypriot Docker SD card image
-Download our latest SD card image from the [download page](http://blog.hypriot.com/downloads/).
+Download our latest SD card image from the [download page](https://blog.hypriot.com/downloads/).
 
 Next go to your **Download** folder and extract the downloaded zip file by right-clicking on the file and then clicking on **7-zip** -> **extract here...**.
 

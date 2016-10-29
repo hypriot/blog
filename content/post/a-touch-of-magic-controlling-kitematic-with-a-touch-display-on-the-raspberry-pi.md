@@ -10,7 +10,7 @@ galleryfolder = "kitematic-on-pi"
 gallerythumbnail = "thumbnails"
 +++
 
-We have recently released our [new SD card image](http://blog.hypriot.com/post/get-your-all-in-one-docker-playground-now-hypriotos-reloaded/) called __Will__.
+We have recently released our [new SD card image](https://blog.hypriot.com/post/get-your-all-in-one-docker-playground-now-hypriotos-reloaded/) called __Will__.
 It is the ultimate Docker playground with Docker Engine, Docker Compose, Docker Swarm and Docker Machine preinstalled.
 This image now also supports the new 7" Raspberry Pi Touch Display out-of-the-box. So we thought, wouldn't it be cool to have Kitematic running directly on your Raspberry Pi? And yes, we did it.
 

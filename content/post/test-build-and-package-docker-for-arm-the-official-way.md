@@ -143,7 +143,7 @@ The last thing we need to check is if we really have a working Docker installati
 
 ```
 # dpkg -l | grep docker
-ii  docker-hypriot                   1.9.1-1                         armhf        Docker for ARM devices, compiled and packaged by http://blog.hypriot.com
+ii  docker-hypriot                   1.9.1-1                         armhf        Docker for ARM devices, compiled and packaged by https://blog.hypriot.com
 ```
 Well, this aleady looks promising. Seems we also do have a Hypriot Docker running here, too. Nice. :)
 

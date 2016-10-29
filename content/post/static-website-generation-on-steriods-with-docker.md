@@ -35,7 +35,7 @@ And - surprise - that is exactly what we did. You can find the prepared image on
 Setting up Hugo
 ---------------
 To get started with Hugo you need a Raspberry Pi with a running Docker engine.
-The best way to get there is with our [Getting Started Guide](http://blog.hypriot.com/getting-started-with-docker-on-your-arm-device/).
+The best way to get there is with our [Getting Started Guide](https://blog.hypriot.com/getting-started-with-docker-on-your-arm-device/).
 
 After logging into your Raspberry Pi via SSH do a
 
@@ -121,7 +121,7 @@ How we use Hugo
 ---------------
 Right at the beginning when we started blogging about Docker on ARM we were faced with several challenges.
 We failed to address these challenges with our first blogging platform - Posthaven - and soon switched to Hugo.
-We wrote about this false start with Posthaven in [We moved our blog from Posthaven to Hugo after only three posts. Why?](http://blog.hypriot.com/post/moved-from-posthaven-to-hugo/).
+We wrote about this false start with Posthaven in [We moved our blog from Posthaven to Hugo after only three posts. Why?](https://blog.hypriot.com/post/moved-from-posthaven-to-hugo/).
 
 But we did not tell you everything in that blog post. We held some bits back... :)  
 Hugo in Docker really starts to make a lot of sense when it is used together with some other tools in a **team publishing workflow**.

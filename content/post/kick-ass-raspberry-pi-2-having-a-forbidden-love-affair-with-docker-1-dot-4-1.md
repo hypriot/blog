@@ -5,11 +5,11 @@ date = "2015-02-08T22:09:33+01:00"
 title = "Kick-Ass Raspberry Pi 2 having a forbidden love affair with Docker 1.4.1"
 aliases = [ "kick-ass-raspberry-pi-2-having-a-forbidden-love-affair-with-docker-1-dot-4-1" ]
 
-disqus_url = "http://blog.hypriot.com/post/kick-ass-raspberry-pi-2-having-a-forbidden-love-affair-with-docker-1-dot-4-1"
+disqus_url = "https://blog.hypriot.com/post/kick-ass-raspberry-pi-2-having-a-forbidden-love-affair-with-docker-1-dot-4-1"
 disqus_title = "Kick-Ass Raspberry Pi 2 having a forbidden love affair with Docker 1.4.1"
 
-tweet_url = "http://blog.hypriot.com/kick-ass-raspberry-pi-2-having-a-forbidden-love-affair-with-docker-1-dot-4-1"
-facebook_url = "http://blog.hypriot.com/kick-ass-raspberry-pi-2-having-a-forbidden-love-affair-with-docker-1-dot-4-1"
+tweet_url = "https://blog.hypriot.com/kick-ass-raspberry-pi-2-having-a-forbidden-love-affair-with-docker-1-dot-4-1"
+facebook_url = "https://blog.hypriot.com/kick-ass-raspberry-pi-2-having-a-forbidden-love-affair-with-docker-1-dot-4-1"
 
 more_link = "yes"
 
@@ -64,7 +64,7 @@ We really would like to see how our image works for others and that is why you c
 
 [Docker-Pi-Image](http://downloads.hypriot.com/hypriot-rpi-20150208-015447.zip) (~400MB)
 
-__Update (30.03.2015):__ We have published a more [recent version of our SD card image](http://blog.hypriot.com/post/hypriotos-back-again-with-docker-on-arm).
+__Update (30.03.2015):__ We have published a more [recent version of our SD card image](https://blog.hypriot.com/post/hypriotos-back-again-with-docker-on-arm).
 
 Tell us what you like or dislike about this image!
 

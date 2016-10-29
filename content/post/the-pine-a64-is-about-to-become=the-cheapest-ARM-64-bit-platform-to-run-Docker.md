@@ -22,7 +22,7 @@ __The Pine A64 sells for 15 bucks__.
 So why is that noteworthy when there are boards like the Pi Zero around that sell for $5?
 
 It very much is, when you put that price into perspective. The cheapest 64-bit ARM board we knew before the Pine was
-the [NVIDIA ShieldTV](http://blog.hypriot.com/post/getting-docker-running-on-a-highend-arm-gaming-console-for-fun-and-profit/), which sells for about $200.
+the [NVIDIA ShieldTV](https://blog.hypriot.com/post/getting-docker-running-on-a-highend-arm-gaming-console-for-fun-and-profit/), which sells for about $200.
 Next comes the much more expensive [AMD Opteron A1100 series](http://www.slashgear.com/amd-starts-shipping-seattle-arm-server-chips-14423259/) where an individual chip alone starts with a price tag of $150.
 
 All in all that means that the Pine A64 is the most affordable way to lay your hands on real 64-bit ARM hardware - and that by a long shot!
@@ -275,7 +275,7 @@ Bus 001 Device 004: ID 1f3a:efe8
 ```
 
 For further access via FEL mode, we need to install and compile the very latest version of the sunxi-tools.
-As our development computer we are using a Raspberry Pi running [HypriotOS](http://blog.hypriot.com/post/just-in-time-for-DockerCon-EU-a-shipload-of-new-Docker-ARM-goodies/).
+As our development computer we are using a Raspberry Pi running [HypriotOS](https://blog.hypriot.com/post/just-in-time-for-DockerCon-EU-a-shipload-of-new-Docker-ARM-goodies/).
 So let's install all the development dependencies we need and then clone the sunxi-tools repo and compile them from source.
 
 ```
