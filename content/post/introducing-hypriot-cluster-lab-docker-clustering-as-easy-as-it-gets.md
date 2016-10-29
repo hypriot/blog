@@ -8,7 +8,7 @@ aliases = [ "raspberry-pi-clustering" ]
 +++
 
 Today we wanna share something with you that we have been working on for the last couple of weeks. And we are pretty exited about it, too.
-It is based on our beloved [HypriotOS](http://blog.hypriot.com/post/get-your-all-in-one-docker-playground-now-hypriotos-reloaded/) and makes it dead simple to build Docker clusters.
+It is based on our beloved [HypriotOS](https://blog.hypriot.com/post/get-your-all-in-one-docker-playground-now-hypriotos-reloaded/) and makes it dead simple to build Docker clusters.
 
 Until now it was not exactly easy to get started with Docker clustering.
 You would have needed specific knowledge and lots of time to manually configure the cluster and its individual nodes.
@@ -80,7 +80,7 @@ __3.__ Put the freshly flashed SD cards in each node's SD card slot.
 
 __4.__ Power on **only one** node. This node will automatically become the master node of the cluster. It might take up to two minutes until the master node is fully functional.
 
-__5.__ Find out the IP address of your master node. One way to do this is via [nmap](https://nmap.org/) and is described [here](http://blog.hypriot.com/getting-started-with-docker-and-linux-on-the-raspberry-pi/#ensure-everything-works:8814904f208dcaade82991443c7514e0).
+__5.__ Find out the IP address of your master node. One way to do this is via [nmap](https://nmap.org/) and is described [here](https://blog.hypriot.com/getting-started-with-docker-and-linux-on-the-raspberry-pi/#ensure-everything-works:8814904f208dcaade82991443c7514e0).
 
 __6.__ Use the IP (from step 5) or the hostname (from step 2) to point your browser to `http://{IP or hostname of the master node}:8500`. In our case `http://cl-master:8500` opens the Consul web interface and our cluster master node is displayed:  
 

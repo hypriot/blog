@@ -27,7 +27,7 @@ This makes it a perfect candidate for a home-grown GitHub alternative that can e
 In this post, we show you how to set up *Gogs* in just a couple of minutes. Thanks to Docker it will be fast and easy.
 
 To follow along you gonna need a Raspberry Pi with Docker.
-In case you do not have Docker running on your Raspberry Pi our [Getting-Started guide](http://blog.hypriot.com/getting-started-with-docker-on-your-arm-device/) will cover everything you need to know to get up and running in a snap.
+In case you do not have Docker running on your Raspberry Pi our [Getting-Started guide](https://blog.hypriot.com/getting-started-with-docker-on-your-arm-device/) will cover everything you need to know to get up and running in a snap.
 
 ![Gogs Screenshots](http://gogs.qiniudn.com/gogs_demo.gif)
 
@@ -36,7 +36,7 @@ If you wanna dive more deeply into *Gogs* there is a [official *Gogs* documentat
 ## How to set up Gogs
 
 First, log into your Raspberry Pi via SSH.
-Please refer to our [Getting-Started guide](http://blog.hypriot.com/getting-started-with-docker-on-your-arm-device/) if you are not sure about how to do this.
+Please refer to our [Getting-Started guide](https://blog.hypriot.com/getting-started-with-docker-on-your-arm-device/) if you are not sure about how to do this.
 
 After logging in successfully pull and run *Gogs* by executing the following command:
 

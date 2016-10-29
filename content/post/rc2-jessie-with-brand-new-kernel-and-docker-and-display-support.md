@@ -10,7 +10,7 @@ title = "RC2: Jessie with upgraded Firmware, Linux Kernel and Docker-Engine"
 Here comes __Release Candiate 2__ of our brand new *Get-Docker-Running-in-under-5-Minutes Hypriot SD card image*.
 It is the ultimate Docker playground for the Raspberry Pi 1 & 2.
 
-This image builds on the [RC1 we released roughly two weeks ago](http://blog.hypriot.com/post/rc1-jessie-with-brand-new-kernel-and-docker/) and fixes a couple of issues that were reported by our community.
+This image builds on the [RC1 we released roughly two weeks ago](https://blog.hypriot.com/post/rc1-jessie-with-brand-new-kernel-and-docker/) and fixes a couple of issues that were reported by our community.
 
 We also upgraded the included firmware as well as the Linux-Kernel- and the Docker-Version.
 <!--more-->
@@ -49,7 +49,7 @@ During the next two weeks we want to improve the SD card image and gather more f
 [hypriot-rpi-20150928-174643.img.zip](http://downloads.hypriot.com/hypriot-rpi-20150928-174643.img.zip) (~ 438 MB)
 [SHA256 checksum](http://downloads.hypriot.com/hypriot-rpi-20150928-174643.img.zip.sha256)
 
-Check out our [Getting-Started-Guide](http://blog.hypriot.com/getting-started-with-docker-on-your-arm-device/) on how to get this SD card image running on our Pi.
+Check out our [Getting-Started-Guide](https://blog.hypriot.com/getting-started-with-docker-on-your-arm-device/) on how to get this SD card image running on our Pi.
 
 As always use the comments below to give us feedback and share this post on Twitter or Facebook.
 

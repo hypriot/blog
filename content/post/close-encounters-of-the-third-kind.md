@@ -22,7 +22,7 @@ Nope, believe me, that's really true...
 
 ## Behind the scenes
 
-As I showed in my last blog post about the [First Touch Down with Docker for Mac](http://blog.hypriot.com/post/first-touch-down-with-docker-for-mac/),
+As I showed in my last blog post about the [First Touch Down with Docker for Mac](https://blog.hypriot.com/post/first-touch-down-with-docker-for-mac/),
 "Docker for Mac" uses an Alpine Linux VM under the hood with the capability of emulating
 ARM binaries on Intel CPUs. Because of "Docker for Windows" uses exactly the same
 Alpine Linux in a Hyper-V virtual machine, this should work on Windows 10, too.

@@ -228,7 +228,7 @@ No way, that sounds to good to be true. And mainly because the Raspberry Pi uses
 an ARM CPU, which cannot be executed on an Intel-based Mac, right?
 
 To test this, I'll select one of my most famous Docker containers:
-the webserver I've presented at DockerCon 2015 San Francisco, CA, last year in June (more details can be found in a dedicated blog post about the [Hypriot-Demo and challenge at DockerCon 2015](http://blog.hypriot.com/post/dockercon2015/)).
+the webserver I've presented at DockerCon 2015 San Francisco, CA, last year in June (more details can be found in a dedicated blog post about the [Hypriot-Demo and challenge at DockerCon 2015](https://blog.hypriot.com/post/dockercon2015/)).
 
 Ok, here we go. Let's run an ARM container on a Mac:
 

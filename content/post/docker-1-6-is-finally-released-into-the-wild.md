@@ -60,7 +60,7 @@ Afterwards you should be able to quench your curiosity by playing with the lates
 
 And if you are especially daring today you might wanna try it together with Docker Compose:
 
-http://blog.hypriot.com/post/docker-compose-nodejs-haproxy
+https://blog.hypriot.com/post/docker-compose-nodejs-haproxy
 
 Have fun!
 

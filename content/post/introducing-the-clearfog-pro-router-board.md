@@ -111,7 +111,7 @@ So, we're listing here only a few possibilities to start the brain storming...
 
 **Update:** new follow-up posts
 
-* Part 2: [Let's run Docker on the ClearFog Pro router board](http://blog.hypriot.com/post/clearfog-pro-part-2-lets-run-docker/)
+* Part 2: [Let's run Docker on the ClearFog Pro router board](https://blog.hypriot.com/post/clearfog-pro-part-2-lets-run-docker/)
 
 Please send us your feedback on our [Gitter channel](https://gitter.im/hypriot/talk) or tweet your thoughts and ideas on this project at [@HypriotTweets](https://twitter.com/HypriotTweets).
 

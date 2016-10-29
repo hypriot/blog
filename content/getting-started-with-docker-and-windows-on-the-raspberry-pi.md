@@ -20,7 +20,7 @@ The SD card contains all the software which we are going to use on our Raspberry
 With software we basically mean two things: first an operating system for your Raspberry Pi and second the software you as user would like to use - e.g. a browser or a word processing program.
 In our case the software we wanna use is Docker.
 
-We - from Hypriot - created a preconfigured [SD card image](http://blog.hypriot.com/downloads/) which contains everything you need to run Docker on your Raspberry Pi.
+We - from Hypriot - created a preconfigured [SD card image](https://blog.hypriot.com/downloads/) which contains everything you need to run Docker on your Raspberry Pi.
 To use the image you first have to download and transfer it to your SD card. Transferring an image to an SD card is often referred to as *flashing*.
 Afterwards you just have to insert the flashed SD card into your Raspberry Pi and start it up.
 
@@ -36,7 +36,7 @@ For this tutorial you will need to install four applications which we are going 
 
 
 ### Download the Hypriot Docker SD card image
-Download our latest SD card image from the [download page](http://blog.hypriot.com/downloads/).
+Download our latest SD card image from the [download page](https://blog.hypriot.com/downloads/).
 
 Next go to your **Download** folder and extract the downloaded zip file by right-clicking on the file and then clicking on **7-zip** -> **extract here...**.
 
@@ -51,7 +51,7 @@ Now, with the *Win32 Disk Imager*'s window opened, click on the blue folder icon
 Next to the blue folder button, you will find a dropdown menu in which you can select your SD card.
 To double check the device letter open your Windows Explorer and locate the SD card drive.
 
-![image-writer](https://s3.eu-central-1.amazonaws.com/assets.hypriot.com/blog_post_getting-started/windows-screenies/image-writer-opened.png)
+![image-writer](https://assets.hypriot.com/blog_post_getting-started/windows-screenies/image-writer-opened.png)
 
 Finally click on **write** which will flash the SD card image to the SD card.
 
@@ -59,7 +59,7 @@ Upon completion close *Win32 Disk Imager* and eject the SD card before removing 
 In order to eject the SD card use the *secure eject* function in the menu next to your system clock.
 This is usually in the very bottom right corner of your screen.
 
-![eject-sd](https://s3.eu-central-1.amazonaws.com/assets.hypriot.com/blog_post_getting-started/windows-screenies/eject-sd-card.png)
+![eject-sd](https://assets.hypriot.com/blog_post_getting-started/windows-screenies/eject-sd-card.png)
 
 
 ### Start your Raspberry Pi with the SD card
@@ -87,25 +87,25 @@ nmap -sP 192.168.0.100/24
 
 As a result you should see this:
 
-![zenmap-scan-result](https://s3.eu-central-1.amazonaws.com/assets.hypriot.com/blog_post_getting-started/windows-screenies/zenmap-scan-result.PNG)
+![zenmap-scan-result](https://assets.hypriot.com/blog_post_getting-started/windows-screenies/zenmap-scan-result.PNG)
 
 *Zenmap* list all active hosts within your local network.
 In order to find the Raspberry Pi click the button *filter hosts* at the bottom of the *Zenmap* and type in *black*.
 Now the first line of the list should show the IP address of your Raspberry Pi.
 
-![zenmap-with-filter-with-marker](https://s3.eu-central-1.amazonaws.com/assets.hypriot.com/blog_post_getting-started/windows-screenies/zenmap-with-filter-with-marker.png)
+![zenmap-with-filter-with-marker](https://assets.hypriot.com/blog_post_getting-started/windows-screenies/zenmap-with-filter-with-marker.png)
 
 Since we now know where to find the Raspberry Pi within your network it is time to start *PuTTY* to establish a SSH connection to your Raspberry Pi.
 
 After starting *PuTTY* type in the IP address we determined into the field *Host Name*. With a click on the button *Open* the connection will be established.
 
-![Screenshot-putty-login](https://s3.eu-central-1.amazonaws.com/assets.hypriot.com/blog_post_getting-started/windows-screenies/putty-window-settings.png)
+![Screenshot-putty-login](https://assets.hypriot.com/blog_post_getting-started/windows-screenies/putty-window-settings.png)
 
 In the new window which just opened type `pirate` as login name and hit *Enter*. Next you will be asked for a password. Type `hypriot` and hit *Enter* again.
 
 If everything went fine you should now see the *HypriotOS* command line prompt waiting for your input. It should look like this:
 
-![putty-window-login](https://s3.eu-central-1.amazonaws.com/assets.hypriot.com/blog_post_getting-started/windows-screenies/putty-window-login.png)
+![putty-window-login](https://assets.hypriot.com/blog_post_getting-started/windows-screenies/putty-window-login.png)
 
 Finally to check if the Docker service is running type
 
@@ -115,7 +115,7 @@ docker info
 
 The output of the `docker info` command should look similar to:
 
-![docker-info](https://s3.eu-central-1.amazonaws.com/assets.hypriot.com/blog_post_getting-started/windows-screenies/putty-window-docker-info.png)
+![docker-info](https://assets.hypriot.com/blog_post_getting-started/windows-screenies/putty-window-docker-info.png)
 
 **Congratulations! You have succeeded in getting Docker running on your Raspberry Pi!** :)
 

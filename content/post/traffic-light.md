@@ -75,7 +75,7 @@ As shown in the diagram your Notebook should have the following tools installed.
 * **[Docker Compose](https://docs.docker.com/compose/overview/)** to easily start dockerized apps with a single command
 * **[Docker Client](https://docs.docker.com)** to run other Docker commands
 
-I don't get into the details on how to connect your Notebook with the Docker Engine on the Raspberry Pi. This is part of a [previous blog post](http://blog.hypriot.com/post/how-to-setup-rpi-docker-swarm/) how to use docker-machine for that.
+I don't get into the details on how to connect your Notebook with the Docker Engine on the Raspberry Pi. This is part of a [previous blog post](https://blog.hypriot.com/post/how-to-setup-rpi-docker-swarm/) how to use docker-machine for that.
 
 ## Dockerfile
 

@@ -6,7 +6,7 @@ more_link = "yes"
 title = "Brand new Getting-Started guide for Docker on the Raspberry Pi"
 +++
 
-The last couple of days Mathias Renner and I were busy creating a comprehensive [Getting Started guide for Docker on the Raspberry Pi](http://blog.hypriot.com/getting-started).
+The last couple of days Mathias Renner and I were busy creating a comprehensive [Getting Started guide for Docker on the Raspberry Pi](https://blog.hypriot.com/getting-started).
 Our goal was to give users easy to understand step by step instructions on how to get Docker running on a Raspberry Pi.
 <!--more-->
 
