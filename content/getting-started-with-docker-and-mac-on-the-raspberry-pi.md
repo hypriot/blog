@@ -56,7 +56,7 @@ diskutil list
 
 You should see a list of all your disks like this:
 
-![disktuil-list](https://s3.eu-central-1.amazonaws.com/assets.hypriot.com/blog_post_getting-started/mac-screenies/diskutil-list.png)
+![disktuil-list](https://assets.hypriot.com/blog_post_getting-started/mac-screenies/diskutil-list.png)
 
 
 Now identify the SD card. Look at the fourth column which shows the size of the devices of your workstation.
@@ -72,7 +72,7 @@ diskutil unmountdisk /dev/disk5
 
 As a result you should see
 
-![Screenshot unmounted](https://s3.eu-central-1.amazonaws.com/assets.hypriot.com/blog_post_getting-started/mac-screenies/unmount.png)
+![Screenshot unmounted](https://assets.hypriot.com/blog_post_getting-started/mac-screenies/unmount.png)
 
 Now we are ready to flash the SD card. We are going to use the `dd` command for this.
 
@@ -89,7 +89,7 @@ While this command is executed you won't get any information about its progress.
 Depending on your hardware and the performance of your SD card it can take up to five minutes to flash the image.
 When the `dd` is finished, you should get an output like this:
 
-![after-dd-success](https://s3.eu-central-1.amazonaws.com/assets.hypriot.com/blog_post_getting-started/mac-screenies/dd-success.png)
+![after-dd-success](https://assets.hypriot.com/blog_post_getting-started/mac-screenies/dd-success.png)
 
 Finally unmount the SD card again in the same way as before.
 
@@ -119,7 +119,7 @@ If it does not report back an IP address, you are probably connected via cable t
 
 As you can see in the following screenshot our IP address is `192.168.0.101`.
 
-![own-ip-address](https://s3.eu-central-1.amazonaws.com/assets.hypriot.com/blog_post_getting-started/mac-screenies/own-ip-address.png)
+![own-ip-address](https://assets.hypriot.com/blog_post_getting-started/mac-screenies/own-ip-address.png)
 
 Then replace the IP address in front of the `/24` with yours and type
 
@@ -144,7 +144,7 @@ The first time you establish the connection you will be asked if you are sure th
 
 If everything went fine you should now see the *HypriotOS* command line prompt waiting for your input.
 
-![hypriot-ssh-prompt-after-login](https://s3.eu-central-1.amazonaws.com/assets.hypriot.com/blog_post_getting-started/mac-screenies/hypriot-ssh-prompt-after-login.png)
+![hypriot-ssh-prompt-after-login](https://assets.hypriot.com/blog_post_getting-started/mac-screenies/hypriot-ssh-prompt-after-login.png)
 
 
 Finally check if the Docker Service is running by typing
@@ -155,7 +155,7 @@ docker info
 
 The output of the `docker info` command should look similar to:
 
-![docker-info](https://s3.eu-central-1.amazonaws.com/assets.hypriot.com/blog_post_getting-started/mac-screenies/docker-info.png)
+![docker-info](https://assets.hypriot.com/blog_post_getting-started/mac-screenies/docker-info.png)
 
 
 **Congratulations! You have succeeded in getting Docker running on your Raspberry Pi!** :)
