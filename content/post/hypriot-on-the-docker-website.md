@@ -14,5 +14,5 @@ more_link = "no"
 
 We just had our short moment of fame when we were featured on the docker website.
 
-![Hypriot on the Docker Website](http://assets.hypriot.com/gallery/hypriot-on-the-docker-website/docker_community.jpg)
+![Hypriot on the Docker Website](/images/gallery/hypriot-on-the-docker-website/docker_community.jpg)
 <!--more-->

@@ -69,7 +69,7 @@ You should see the container you just started in the container list.
 
 Now you can open up your browser on your workstation and type in the IP address of your Raspberry Pi to see that it really works!
 
-![hypriot-logo](https://s3.eu-central-1.amazonaws.com/assets.hypriot.com/blog_post_getting-started/browser-pi-hypriot-logo.png)
+![hypriot-logo](/images/blog_post_getting-started/browser-pi-hypriot-logo.png)
 
 One great aspect of running a Docker-based app is, you can be sure that it works on every machine running Docker with one exception.
 
@@ -83,4 +83,4 @@ Keep this in mind when searching for apps on the [Docker Hub](https://registry.h
 
 We prepared a couple of [Raspberry Pi ready images](https://hub.docker.com/u/hypriot/) for your convenience. Try them out now and have fun!
 
-<a href="https://registry.hub.docker.com/search?q=hypriot&searchfield=">![dockerhub-hypriot-search](https://s3.eu-central-1.amazonaws.com/assets.hypriot.com/blog_post_getting-started/dockerhub-hypriot-search.png)</a>
+<a href="https://registry.hub.docker.com/search?q=hypriot&searchfield=">![dockerhub-hypriot-search](/images/blog_post_getting-started/dockerhub-hypriot-search.png)</a>

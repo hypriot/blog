@@ -56,7 +56,7 @@ lsblk
 
 You should see a list of all your disks like this:
 
-![lsblk](https://s3.eu-central-1.amazonaws.com/assets.hypriot.com/blog_post_getting-started/linux-screenies/lsblk.png)
+![lsblk](/images/blog_post_getting-started/linux-screenies/lsblk.png)
 
 Now identify the SD Card. Look at the fourth column which shows the size of the devices of your workstation.
 One item in the list should have a size that is very close to the size of your SD card.
@@ -90,7 +90,7 @@ Depending on your hardware and the performance of your SD card it will take up t
 
 When `dd` is finished you should get an output like this:
 
-![after-dd](https://s3.eu-central-1.amazonaws.com/assets.hypriot.com/blog_post_getting-started/linux-screenies/after-dd.png)
+![after-dd](/images/blog_post_getting-started/linux-screenies/after-dd.png)
 
 Finally unmount the SD card again in the same way as before.
 
@@ -126,7 +126,7 @@ hostname -I
 
 As you can see in the following screenshot our IP address is `192.168.0.101`.
 
-![hostname-i](https://s3.eu-central-1.amazonaws.com/assets.hypriot.com/blog_post_getting-started/linux-screenies/hostname-i.png)
+![hostname-i](/images/blog_post_getting-started/linux-screenies/hostname-i.png)
 
 Then replace the IP address in front of the `/24` with yours and type
 
@@ -134,7 +134,7 @@ Then replace the IP address in front of the `/24` with yours and type
 nmap -sP 192.168.0.101/24 | grep black-pearl
 ```
 
-![nmap result of query](https://s3.eu-central-1.amazonaws.com/assets.hypriot.com/blog_post_getting-started/linux-screenies/nmap.png)
+![nmap result of query](/images/blog_post_getting-started/linux-screenies/nmap.png)
 
 The output of the `nmap` command should show you the IP address of your Raspberry Pi.
 If you get a blank line without an IP address your Raspberry Pi is probably not connected to the network.
@@ -153,7 +153,7 @@ The first time you establish the connection you will be asked if you are sure th
 
 If everything went fine you should now see the *HypriotOS* command line prompt waiting for your input.
 
-![screenshot docker first connection](https://s3.eu-central-1.amazonaws.com/assets.hypriot.com/blog_post_getting-started/linux-screenies/rpi-first-connect.png)
+![screenshot docker first connection](/images/blog_post_getting-started/linux-screenies/rpi-first-connect.png)
 
 
 Finally check if the Docker service is running by typing
@@ -164,7 +164,7 @@ docker info
 
 The output of the `docker info` command should look similar to:
 
-![screenshot docker info](https://s3.eu-central-1.amazonaws.com/assets.hypriot.com/blog_post_getting-started/linux-screenies/docker-info.png)
+![screenshot docker info](/images/blog_post_getting-started/linux-screenies/docker-info.png)
 
 **Congratulations! You have succeeded in getting Docker running on your Raspberry Pi!** :)
 

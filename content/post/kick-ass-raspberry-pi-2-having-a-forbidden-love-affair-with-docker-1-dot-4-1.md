@@ -13,7 +13,7 @@ facebook_url = "http://blog.hypriot.com/kick-ass-raspberry-pi-2-having-a-forbidd
 
 more_link = "yes"
 
-galleryprefix = "http://assets.hypriot.com/gallery"
+galleryprefix = "/images/gallery"
 galleryfolder = "forbidden-love-affair"
 gallerythumbnail = "thumbnails"
 +++
