@@ -147,8 +147,7 @@ Windows users need to install [iTunes](https://www.apple.com/de/itunes/download/
 ## Download
 The new image can be downloaded here:
 
-[Docker-Pi Image](http://downloads.hypriot.com/hypriot-rpi-20150329-140334.img.zip) (~367MB)  
-[SHA256 checksum](http://downloads.hypriot.com/hypriot-rpi-20150329-140334.img.zip.sha256)
+Docker-Pi Image (hypriot-rpi-20150329-140334.img.zip) (~367MB)  
 
 ## How to get started
 Download our SD card image and flash it on your own SD card. [Here](http://computers.tutsplus.com/articles/how-to-flash-an-sd-card-for-raspberry-pi--mac-53600) is a short guide on how to do this for Mac, Windows and Linux users. Afterwards insert the SD card in your Raspberry Pi and wait while it boots. The first time will take a little longer as it resizes the file system to its maximum and reboots again.

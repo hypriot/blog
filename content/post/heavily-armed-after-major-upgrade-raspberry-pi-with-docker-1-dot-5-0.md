@@ -60,8 +60,7 @@ Besides that we kept some features which were already awesome
 ## Download
 The image can be downloaded here:
 
-[Docker-Pi Image](http://downloads.hypriot.com/hypriot-rpi-20150301-140537.img.zip) (~347MB)  
-[SHA256 checksum](http://downloads.hypriot.com/hypriot-rpi-20150301-140537.img.zip.sha256)
+Docker-Pi Image (hypriot-rpi-20150301-140537.img.zip) (~347MB)  
 
 __Update (30.03.2015):__ We have published a more [recent version of our SD card image](/post/hypriotos-back-again-with-docker-on-arm).
 

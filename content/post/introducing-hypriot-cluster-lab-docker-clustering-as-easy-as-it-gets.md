@@ -66,7 +66,7 @@ Additionally, the switch should not filter IEEE 802.1Q VLAN flags out of network
 
 ### Download. Flash. Boot. Enjoy!
 
-__1.__ __Download__ the [Hypriot Cluster Lab SD card image](http://downloads.hypriot.com/hypriot_20160121-235123_clusterlab.img.zip).
+__1.__ __Download__ the Hypriot Cluster Lab SD card image (hypriot_20160121-235123_clusterlab.img.zip).
 
 __2.__ Flash the image to your SD cards your way or use [our funky flash script](https://github.com/hypriot/flash) which makes flashing the SD cards so much easier.  
 

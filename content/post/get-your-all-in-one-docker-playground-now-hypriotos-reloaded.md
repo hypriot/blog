@@ -76,8 +76,7 @@ Rest assured that we still have some more major improvements in our release pipe
 
 
 ### Download: Get it while it is still hot
-[hypriot-rpi-20151004-132414.img.zip](http://downloads.hypriot.com/hypriot-rpi-20151004-132414.img.zip) (~ 438 MB)
-[SHA256 checksum](http://downloads.hypriot.com/hypriot-rpi-20151004-132414.img.zip.sha256)
+hypriot-rpi-20151004-132414.img.zip
 
 
 Check out our [Getting-Started-Guide](/getting-started-with-docker-on-your-arm-device/) on how to get this SD card image running on our Pi.

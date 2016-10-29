@@ -62,7 +62,7 @@ Our first tests went really well and we could do all the basic Docker stuff with
 
 We really would like to see how our image works for others and that is why you can download it here:
 
-[Docker-Pi-Image](http://downloads.hypriot.com/hypriot-rpi-20150208-015447.zip) (~400MB)
+ Docker-Pi-Image (hypriot-rpi-20150208-015447.zip) (~400MB)
 
 __Update (30.03.2015):__ We have published a more [recent version of our SD card image](/post/hypriotos-back-again-with-docker-on-arm).
 

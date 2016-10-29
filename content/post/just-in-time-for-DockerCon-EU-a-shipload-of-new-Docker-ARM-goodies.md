@@ -33,7 +33,7 @@ Besides that we enabled some missing cgroup kernel settings for better Docker su
 We also added a default `/boot/config.txt`, which for instance allows for a better out-of-the-box HDMI display experience (`hdmi_force_hotplug=1`).
 
 There is no easier way to get started with Docker on ARM.
-Just give it a try: Download our [latest image](http://downloads.hypriot.com/hypriot-rpi-20151115-132854.img.zip) and get started in less than 5 minutes.
+Just give it a try: Download our latest image (hypriot-rpi-20151115-132854.img.zip) and get started in less than 5 minutes.
 
 
 ### Detailed Features of HypriotOS "Hector"
@@ -53,8 +53,7 @@ Just give it a try: Download our [latest image](http://downloads.hypriot.com/hyp
 
 
 ### Download: Get it while it is still hot
-[hypriot-rpi-20151115-132854.img.zip](http://downloads.hypriot.com/hypriot-rpi-20151115-132854.img.zip) (~ 438 MB)
-[SHA256 checksum](hypriot-rpi-20151115-132854.img.zip.sha256)
+hypriot-rpi-20151115-132854.img.zip (hypriot-rpi-20151115-132854.img.zip) (~ 438 MB)
 
 Check out our [Getting-Started-Guide](/getting-started-with-docker-on-your-arm-device/) on how to get this SD card image running on your Raspberry Pi.
 
