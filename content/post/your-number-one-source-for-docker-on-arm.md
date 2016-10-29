@@ -7,7 +7,7 @@ more_link = "yes"
 title = "Your No. 1 source for Docker on ARM"
 +++
 
-Besides our [Download section](https://blog.hypriot.com/downloads/) we do have another source for getting the latest and greatest Docker for ARM.  
+Besides our [Download section](/downloads/) we do have another source for getting the latest and greatest Docker for ARM.  
 It is a debian package repository hosted at [packagecloud.io](https://packagecloud.io/) that contains lots of the stuff from our Download section.
 
 Despite having a package repository for a couple of months now, it seems many people do not know it.
