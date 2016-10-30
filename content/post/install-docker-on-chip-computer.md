@@ -252,7 +252,7 @@ In order to keep this tutorial short and easy to follow, I'd like to use an alre
 Therefore we only have to install our new Linux kernel and have to reboot the system to activate it.
 ```
 # install custom Linux Kernel and reboot
-curl -sSL https://downloads.hypriot.com/chip-kernel-4.4.11-hypriotos.tar.bz2 | tar xvfj - -C /
+curl -sSL https://github.com/hypriot/binary-downloads/releases/download/chip-kernel-4.4.11/4.4.11-hypriotos.tar.bz2 | tar xvfj - -C /
 reboot
 ```
 
@@ -378,7 +378,7 @@ these are the only commands you need to install Docker
 curl -sSL https://github.com/DieterReuter/arm-docker-fixes/raw/master/002-fix-install-docker-on-chip-computer/apply-fix-002.sh | bash
 
 # install custom Linux Kernel and reboot
-curl -sSL https://downloads.hypriot.com/chip-kernel-4.4.11-hypriotos.tar.bz2 | tar xvfj - -C /
+curl -sSL https://github.com/hypriot/binary-downloads/releases/download/chip-kernel-4.4.11/4.4.11-hypriotos.tar.bz2 | tar xvfj - -C /
 reboot
 ```
 
