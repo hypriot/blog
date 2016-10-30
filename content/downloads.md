@@ -29,7 +29,7 @@ Start your Pi with the flashed SD card and enjoy instant Docker awesomeness.
 Download Hypriot Cluster Lab packages from packagecloud.io.
 
 | Description        | Download Link                                                                                                | Published  |
-| :----------------- | :------------------------------------------------------------------------------------------------------------| :------------------------------------------------------------------------------------| :----------|
+| :----------------- | :------------------------------------------------------------------------------------------------------------| :----------|
 | Hypriot Cluster Lab 0.2.14 | [hypriot-cluster-lab_0.2.14-1_all.deb](https://packagecloud.io/Hypriot/Schatzkiste/packages/debian/jessie/hypriot-cluster-lab_0.2.14-1_all.deb)       | 08.06.2016 |
 
 ### Hypriot Docker Debian Packages for Raspberry Pi
@@ -37,7 +37,7 @@ These Docker packages are tested with our Docker Hypriot SD card image.
 Download them from packagecloud.io.
 
 | Description        | Download Link                                                                                                | Published  |
-| :----------------- | :------------------------------------------------------------------------------------------------------------| :------------------------------------------------------------------------------------| :----------|
+| :----------------- | :------------------------------------------------------------------------------------------------------------| :----------|
 | Docker 1.10.3 | [docker-hypriot_1.10.3-1_armhf.deb](https://packagecloud.io/Hypriot/Schatzkiste/packages/debian/wheezy/docker-hypriot_1.10.3-1_armhf.deb)       | 10.03.2016 |
 | Docker 1.10.2 | [docker-hypriot_1.10.2-1_armhf.deb](https://packagecloud.io/Hypriot/Schatzkiste/packages/debian/wheezy/docker-hypriot_1.10.2-1_armhf.deb)       | 24.02.2016 |
 | Docker 1.10.1 | [docker-hypriot_1.10.1-1_armhf.deb](https://packagecloud.io/Hypriot/Schatzkiste/packages/debian/wheezy/docker-hypriot_1.10.1-1_armhf.deb)       | 12.02.2016 |
