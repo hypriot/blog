@@ -54,12 +54,11 @@ The UI provides some more views to list for example all local Docker images and 
 
 ## Portainer
 
-Last week I found [portainer.io](http://portainer.io) which also looks very good. They provide Docker images for Linux and Windows, but not for ARM right now.
+Last week I found [portainer.io](http://portainer.io) which also looks very good. They provide Docker images for Linux and Windows, ~~but not for ARM right now~~ and as well an image for ARM.
 
 The source code is also available on GitHub https://github.com/portainer/portainer and it's based on the work of DockerUI.
 
-As there is no Linux ARM version for it, I just sent them a [pull request](https://github.com/portainer/portainer/pull/299) to add support for it.
-In the meantime we provide a Docker image for the Rapsberry Pi at [hypriot/rpi-portainer](https://hub.docker.com/r/hypriot/rpi-portainer/).
+The [pull request](https://github.com/portainer/portainer/pull/299) to add Linux ARM support was merged and now you can get the Docker image for the Rapsberry Pi using the image [portainer/portainer:arm](https://hub.docker.com/r/portainer/portainer/).
 
 Just use the same Docker Compose sample from above and replace the image name. Killing the old container and running a new one with `docker-compose up -d ui` you have Portainer up and running.
 
