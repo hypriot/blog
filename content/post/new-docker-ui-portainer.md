@@ -71,7 +71,7 @@ In the container list you can see all running and stopped containers as well as 
 
 ![Portainer Dashboard](/images/dockerui-portainer/portainer-container.png)
 
-Clickin on one of the running containers you have access to the details, environment variables, port mappings, volumes.
+Clicking on one of the running containers you have access to the details, environment variables, port mappings, volumes.
 You can also access some CPU/memory and network statistics as well as the logs of your container, as well as the processes running inside the container.
 
 ![Portainer Stats](/images/dockerui-portainer/portainer-stats.png)
@@ -81,7 +81,7 @@ You can also access some CPU/memory and network statistics as well as the logs o
 If you want to remote control your Raspberry Pi Docker containers from a nice Web UI, then try
 one of these prebuilt Docker images. Of course be aware that everyone in your home network
 is able to manipulate your Docker containers with it as there is no login dialog.
-But for some private projects it is still an advantage to simplify starting and stopping containers from your your mobile phone.
+But for some private projects it is still an advantage to simplify starting and stopping containers from your mobile phone.
 
 As always use the comments below to give us feedback and share it on Twitter or Facebook.
 
