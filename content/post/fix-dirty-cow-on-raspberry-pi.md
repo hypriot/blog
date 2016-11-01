@@ -1,7 +1,7 @@
 +++
 Categories = ["Docker", "Raspberry Pi", "ARM", "HypriotOS", "Raspbian", "DirtyCOW"]
 Tags = ["Docker", "Raspberry Pi", "ARM", "HypriotOS", "Raspbian", "DirtyCOW"]
-date = "2016-11-01T16:28:20+01:00"
+date = "2016-11-01T13:42:20+01:00"
 draft = false
 more_link = "yes"
 title = "Fix Dirty COW on Raspberry Pi the Docker way"
