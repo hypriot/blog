@@ -16,7 +16,7 @@ Improve this blog, because you can!
 - Start hugo locally as a server
 
 ```bash
-hugo server -w
+hugo server --watch=true -D
 ```
 - Open a browser at URL [http://localhost:1313](http://localhost:1313)
 - Make changes and see them immediately updated in the browser. Find our static pages in subfolder `content/` and the blogposts in `content/post/`
