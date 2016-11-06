@@ -104,14 +104,11 @@ As shown in the screencast, Docker is able to recover from failure of the ethern
 
 > Based on Jeremy's report, I was able to create a quick fix for this issue. On a node, simply run:
 
->```
-sudo crontab -e
-```
-Then insert this:
+>"sudo crontab -e"
+>
+>Then insert this:
+>"@reboot docker ps"
 
->```
-@reboot docker ps
-```
 > Having this configured, after a crash or reboot the node recovered correctly in my tests. I look forward for feedback about this issue! Please use the discussion below.
 
 More to come soon
