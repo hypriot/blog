@@ -106,7 +106,7 @@ As shown in the screencast, Docker is able to recover from failure of the ethern
 
 >"sudo crontab -e"
 >
->There, insert the following line and save the file.
+>There, insert the following line (without quotation marks) and save the file.
 >
 >"@reboot docker ps"
 
