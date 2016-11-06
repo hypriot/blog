@@ -3,7 +3,7 @@ Categories = ["Docker", "High Availability", "Fault Tolerance", "Cluster","Raspb
 Tags = ["Docker", "High Availability", "Fault Tolerance", "Cluster","Raspberry Pi", "Cloud Computing"]
 date = "2016-10-26T18:03:34+01:00"
 more_link = "yes"
-title = "Testing High Availability of Docker Swarm on a Raspberry Pi Cluster"
+title = "Testing High Availability of Docker Swarm on a Raspberry Pi Cluster (Updated)"
 +++
 
 In its release in June this year, Docker announced two exciting news about the Docker Engine: First, the Engine 1.12 comes with built-in high availability features, called "Docker Swarm Mode". And second, Docker started providing official support for the ARM architecture.
@@ -98,8 +98,21 @@ I documented one of the test runs in the following screencast.
 
 Results
 ------------
-As shown in the screencast, Docker is able to recover from failure of the ethernet interface. After testing the other use cases later on, I can confirm that Docker recovers flawlessly from a reboot and crash as well. This holds for the slave and the master node, which is remarkable!
+As shown in the screencast, Docker is able to recover from failure of the ethernet interface. After testing the other use cases later on, Docker recovered flawlessly from a reboot and crash as well. This holds for the slave and the master node, which is remarkable!
 
+> **Edit on 6.11.2016**: Jérémy Derussé and Nikolay Kushin reported in the discussion below that for them a reboot or crash of a node did not result in a healthy cluster state after bringing up the node again. As of today, unfortunately I can confirm this, with Docker version 1.12.1, 1.12.2 as well as 1.12.3. I cannot explain why during my tests for this post a crashed node recovered smoothly.
+
+> Based on Jeremy's report, I was able to create a quick fix for this issue. On a node, simply run:
+
+>```
+sudo crontab -e
+```
+Then insert this:
+
+>```
+@reboot docker ps
+```
+> Having this configured, after a crash or reboot the node recovered correctly in my tests. I look forward for feedback about this issue! Please use the discussion below.
 
 More to come soon
 ------------------
