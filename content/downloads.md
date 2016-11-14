@@ -9,7 +9,7 @@ Here you gonna find various stuff we created. Use it on your own risk.
 Download and flash this image to your SD card.  
 Start your Pi with the flashed SD card and enjoy instant Docker awesomeness.
 
-| Description                | Download Link                                                                                            | SHA256 Description                                                                      | Published  |
+| Description                | Download Link                                                                                            | Description                                                                      | Published  |
 | :------------------------- | :--------------------------------------------------------------------------------------------------------| :------------------------------------------------------------------------------------| :----------|
 | Version 1.1.1      | [hypriotos-rpi-v1.1.1.img.zip](https://github.com/hypriot/image-builder-rpi/releases/download/v1.1.1/hypriotos-rpi-v1.1.1.img.zip) [Checksum](https://github.com/hypriot/image-builder-rpi/releases/download/v1.1.1/hypriotos-rpi-v1.1.1.img.zip.sha256)              | Docker 1.12.3, fix for Dirty COW        | 14.11.2016 |
 | Version 1.1.0      | [hypriotos-rpi-v1.1.0.img.zip](https://github.com/hypriot/image-builder-rpi/releases/download/v1.1.0/hypriotos-rpi-v1.1.0.img.zip) [Checksum](https://github.com/hypriot/image-builder-rpi/releases/download/v1.1.0/hypriotos-rpi-v1.1.0.img.zip.sha256)              | Docker 1.12.2        | 12.10.2016 |
