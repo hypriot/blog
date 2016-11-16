@@ -64,7 +64,7 @@ Docker version 1.12.3, build 6b644ec
 
 Once we have Docker installed, we can test against Dirty COW.
 ```
-$ docker run hypriot/rpi-dirtycow
+$ docker run --rm hypriot/rpi-dirtycow
 Unable to find image 'hypriot/rpi-dirtycow:latest' locally
 latest: Pulling from hypriot/rpi-dirtycow
 38070c4d0c33: Pull complete
@@ -94,7 +94,7 @@ And we'll test it again. Hopefully we've fixed it.
 $ uname -a
 Linux raspberrypi 4.4.26-v7+ #915 SMP Thu Oct 20 17:08:44 BST 2016 armv7l GNU/Linux
 
-$ docker run hypriot/rpi-dirtycow
+$ docker run --rm hypriot/rpi-dirtycow
 
 Test for Dirty Cow:
   $ echo "You are SAFE!          " > foo
@@ -120,7 +120,7 @@ Linux black-pearl 4.4.24-hypriotos-v7+ #1 SMP PREEMPT Tue Oct 11 17:15:58 UTC 20
 
 Test for Dirty COW.
 ```
-$ time docker run hypriot/rpi-dirtycow
+$ time docker run --rm hypriot/rpi-dirtycow
 Unable to find image 'hypriot/rpi-dirtycow:latest' locally
 latest: Pulling from hypriot/rpi-dirtycow
 38070c4d0c33: Pull complete
@@ -156,7 +156,7 @@ Now, we have the latest Linux kernel 4.4.27 for HypriotOS installed and we're sa
 $ uname -a
 Linux black-pearl 4.4.27-hypriotos-v7+ #1 SMP PREEMPT Fri Oct 28 09:06:49 UTC 2016 armv7l GNU/Linux
 
-$ time docker run hypriot/rpi-dirtycow
+$ time docker run --rm hypriot/rpi-dirtycow
 
 Test for Dirty Cow:
   $ echo "You are SAFE!          " > foo
