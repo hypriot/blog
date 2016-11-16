@@ -17,7 +17,7 @@ These two news combined beg for testing the new capabilities in reality.
 
 The "old" Docker Swarm already offered some high availability features, but the new called "Swarm Mode" goes far beyond: To me, the most important capabilities to mention are: built-in security, rolling updates and - maybe one of the most important benefits - super user-friendliness. Production ready clustering based on powerful container technology has probably never been easier before.
 
-Also, the release of Docker 1.12 comes with official support for the ARM architecture. Running Docker on ARM has been possible for long time, but now, users can install it the same way on their Raspberry Pis as they do it on any other architecture: Using Docker's official repositories. If you are one of our regular readers, you know that our Team at Hypriot intensively collaborated with Docker to make this official support possible. So we are also very happy that this huge milestone that many people asked for is eventually checked!
+Also, the release of Docker 1.12 comes with official support for the ARM architecture. Running Docker on ARM has been possible for long time, but now, users can install it the same way on their Raspberry Pis as they do it on any other architecture: Using Docker's official repositories. If you are one of our regular readers, you know that our team at Hypriot intensively collaborated with Docker to make this official support possible. So we are also very happy that this huge milestone that many people asked for is eventually checked!
 
 Now, with these two news, let's get our hands dirty and test if the announced promises hold.
 
@@ -49,7 +49,7 @@ That's all to do before getting our hands on Docker itself!
 Setup Docker Swarm on the cluster
 --------------------------------
 
-On latest HypriotOS, you'll have the latest Docker installed, so we can instantly start playing.
+On HypriotOS, you'll have the latest Docker installed, so we can instantly start playing.
 
 On an arbitrary node of the cluster, run
 ```
@@ -98,7 +98,7 @@ I documented one of the test runs in the following screencast.
 
 Results
 ------------
-As shown in the screencast, Docker is able to recover from failure of the ethernet interface. After testing the other use cases later on, Docker recovered flawlessly from a reboot and crash as well. This holds for the slave and the master node, which is remarkable!
+As shown in the screencast, Docker is able to recover from failure of the ethernet interface. After testing the other use cases later on, Docker recovered flawlessly from a reboot and crash as well. Note that this also holds for master nodes, not only for slave nodes! This is remarkable because in contrast to slave nodes, master nodes hold important data of the cluster state. A master nodes's outage is critical for the health of the cluster. With e.g. [Kubernetes-on-arm](https://github.com/luxas/kubernetes-on-arm), the cluster does not recover after rebooting or crashing a master node. 
 
 > **Edit on 6.11.2016**: Jérémy Derussé and Nikolay Kushin reported in the discussion below that for them a reboot or crash of a node did not result in a healthy cluster state after bringing up the node again. As of today, unfortunately I can confirm this, with Docker version 1.12.1, 1.12.2 as well as 1.12.3. I cannot explain why during my tests for this post a crashed node recovered smoothly.
 
