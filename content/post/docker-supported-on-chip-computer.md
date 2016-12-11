@@ -4,7 +4,7 @@ Tags = ["Docker", "Raspberry Pi", "ARM", "CHIP", "NextThingCo"]
 date = "2016-12-11T13:22:15+01:00"
 draft = false
 more_link = "yes"
-title = "Docker is now supported on the $9 C.H.I.P. computer"
+title = "Docker is supported on the $9 C.H.I.P. computer"
 
 +++
 
@@ -27,10 +27,10 @@ As I've already covered all these steps in detail in my post [Install Docker 1.1
 
 ### Necessary steps to install Docker
 
-1. Flash the latest available firmware (see last post)
-2. Connect to the C.H.I.P. via USB or UART console cable (see last post)
-3. Configure WiFi connection (see last post)
-4. Configure SSH to access the C.H.I.P. (see last post)
+1. Flash the latest available firmware (see [last post](http://blog.hypriot.com/post/install-docker-on-chip-computer/))
+2. Connect to the C.H.I.P. via USB or UART console cable (see [last post](http://blog.hypriot.com/post/install-docker-on-chip-computer/))
+3. Configure WiFi connection (see [last post](http://blog.hypriot.com/post/install-docker-on-chip-computer/))
+4. Configure SSH to access the C.H.I.P. (see [last post](http://blog.hypriot.com/post/install-docker-on-chip-computer/))
 5. Checking the OS and Linux kernel version
 6. Upgrade the Linux kernel and operating system
 7. Install the Docker Engine the official way
@@ -84,7 +84,7 @@ the new Linux kernel has the same version, but a newer build time from `Tue Dec 
 
 #### Step 6: Install the Docker Engine the official way
 
-To install Docker the official way is quite easy today because we can use the APT packages and install scripts directly provided by the Docker project. And Debian for ARMv7 is one of the officially supported OS.
+To install Docker the official way is quite easy today because we can use the APT packages and install scripts directly provided by the [Docker project](https://github.com/docker/docker). And Debian for ARMv7 is one of the officially supported OS.
 
 ```
 curl -sSL https://get.docker.com | sh
@@ -205,7 +205,7 @@ open http://192.168.2.112
 
 ![first-container-on-chip](/images/install-docker-on-chip-computer/first-container-on-chip.jpg)
 
-#### TL;DR - Install Docker on the C.H.I.P. computer
+### TL;DR - Install Docker on the C.H.I.P. computer
 
 For all the impatient users, these are the minimal steps to install the latest Linux kernel and the latest Docker Engine on the C.H.I.P. computer.
 ```
@@ -216,6 +216,12 @@ curl -sSL https://get.docker.com | sh
 ```
 
 DONE !!!!
+
+### Acknowledgments
+
+Again, I like to thank Wynter Woods [@zerotri](https://twitter.com/zerotri) from [@NextThingCo](https://twitter.com/nextthingco) for his efforts and hard work to include all the Linux kernel changes necessary to run the Docker Engine pretty slick on the C.H.I.P. computer. It's so great to see when all the changes will be accepted and implemented in the upstream version, so everybody can use the new features without spending too much time.
+
+That's the important point to work in opensource, contributing back so that all users benefit from the results!
 
 ### Feedback, please
 
