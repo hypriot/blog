@@ -205,6 +205,44 @@ open http://192.168.2.112
 
 ![first-container-on-chip](/images/install-docker-on-chip-computer/first-container-on-chip.jpg)
 
+### Using latest RC of Docker Engine
+
+If you'd like to get the latest Docker Engine for testing, like release candidates, you can install it pretty easily with
+```
+curl -sSL https://test.docker.com | sh
+```
+Or you can upgrade your current system with
+```
+#edit /etc/apt/sources.list.d/docker.list # change 'main' to 'testing'
+cat /etc/apt/sources.list.d/docker.list
+deb [arch=armhf] https://apt.dockerproject.org/repo debian-jessie testing
+
+apt-get update
+apt-get install -y docker-engine
+```
+
+Now you can test the latest available release candidate of the Docker Engine with all the newest features with Docker Swarm mode and other goodies.
+```
+docker version
+Client:
+ Version:      1.13.0-rc3
+ API version:  1.25
+ Go version:   go1.7.3
+ Git commit:   4d92237
+ Built:        Mon Dec  5 19:00:08 2016
+ OS/Arch:      linux/arm
+
+Server:
+ Version:      1.13.0-rc3
+ API version:  1.25 (minimum version 1.12)
+ Go version:   go1.7.3
+ Git commit:   4d92237
+ Built:        Mon Dec  5 19:00:08 2016
+ OS/Arch:      linux/arm
+ Experimental: false
+```
+
+
 ### TL;DR - Install Docker on the C.H.I.P. computer
 
 For all the impatient users, these are the minimal steps to install the latest Linux kernel and the latest Docker Engine on the C.H.I.P. computer.
