@@ -8,7 +8,7 @@ title = "Setup a simple CI pipeline to build Docker images for ARM"
 
 +++
 
-In last November I did an experiment: Can we build Docker images for ARM on ordinary cloud CI services that only provide Intel CPU's?
+Recently I did an experiment: Can we build Docker images for ARM on ordinary cloud CI services that only provide Intel CPU's?
 
 The idea was to get rid of self hosted CI build agents that you have to care for. If you want to provide an ARM Docker image for an open source project your task is to build it and not to setup and maintain a whole pipeline for it.
 
@@ -18,16 +18,18 @@ The idea was to get rid of self hosted CI build agents that you have to care for
 
 ### Background
 
-We at Hypriot have created several Dockerfiles for open source tools like MySQL, Traefik and so on to make them available as Docker images for your ARM devices.
+We at Hypriot have created several Dockerfiles for open source tools like [MySQL](https://github.com/hypriot/rpi-mysql), [Træfɪk](https://github.com/hypriot/rpi-traefik) or [Node.js](https://github.com/hypriot/rpi-node) to make them available as Docker images for your ARM devices.
 
 Building such images and maintaining them over a longer period of time you have to care for updates. We are happy to receive pull requests from our community that help us updating the Dockerfiles.
-But from time to time our ARM CI pipeline went offline and we had to put in some time and effort to fix the pipeline. There were pull requests lying around for some time without any CI checks.
+But sometimes it happended that our ARM CI pipeline went offline and we had to put in some time and effort to fix it. There were pull requests lying around for some time without any CI checks.
 
-To get out of this trap I wanted a simpler CI pipeline without self hosted build agents. There are several cloud CI services like Travis, Codeship, Circle and so on, but they all only offer you Intel based CPU's. But they have one thing in common: Just add a YAML file to your GitHub repo, connect it to their CI servers and you are done. There must be a way to use this for our ARM builds.
+To get out of this trap I wanted a simpler CI pipeline without self hosted build agents. There are several cloud CI services like Travis, Codeship, Circle and so on, but they all only offer you Intel based CPU's.
+
+But they have one thing in common: Just add a YAML file to your GitHub repo, connect it to their CI servers and you are done. There must be a way to use this convenient way for our ARM builds.
 
 ### QEMU for the rescue
 
-There are some blog posts how to use QEMU to emulate ARM on Intel CPU's and many have even tried to build Docker images. But there were several steps needed to set up everything and it looked very complex.
+There are some blog posts how to use QEMU to emulate ARM on Intel CPU's and many have even tried to build Docker images. I followed these tutorials, but many steps were needed to set up everything and it looked very complex.
 
 But after some hours of investigation I found out that all comes down to just two things:
 
@@ -37,25 +39,23 @@ But after some hours of investigation I found out that all comes down to just tw
 
 Fortunately both steps can be done in a very simple way.
 
-### Base image with QEMU binary
+### Choose a base image with QEMU binary
 
-The Raspbian Docker images from Resin already have the QEMU binary in it. It seems that they also build images on Intel machines and this is very
+The Raspbian Docker images from [Resin](https://resin.io) already have the QEMU binary in it. As these are the most common base images used you are already prepared.
 
-So if you use
+So if you use the following line in your `Dockerfile`
 
 ```Dockerfile
 FROM resin/rpi-raspbian
 ```
 
-you are done with the first step. But what about Alpine? Well we have created a similar - still small - Docker image [hypriot/rpi-alpine](https://github.com/hypriot/rpi-alpine) that uses the "official" armhf/alpine image and just append the QEMU binary. If you want to build ARM Alpine images just use
+you are done with the first step. But what about Alpine? Well we have created a similar - still small - Docker image [hypriot/rpi-alpine](https://github.com/hypriot/rpi-alpine) that uses the "official" [armhf/alpine](https://hub.docker.com/r/armhf/alpine/) image and just append the QEMU binary. If you want to build ARM Alpine images just use this line:
 
 ```Dockerfile
 FROM hypriot/rpi-alpine
 ```
 
-### Register QEMU
-
-I'll show you how we use Travis CI to build ARM images. But if you prefer another cloud CI services that offers Docker builds, it should be the same.
+### Register QEMU in the build agent
 
 The next step is to register QEMU in the build agent. There is a Docker image available that can do this for us in just one line:
 
@@ -63,11 +63,13 @@ The next step is to register QEMU in the build agent. There is a Docker image av
 docker run --rm --privileged multiarch/qemu-user-static:register --reset
 ```
 
-That's it. Just add this line to your `.travis.yml` and you can build ARM Docker images.
+That's it. Just add this line to your YAML file before the other docker commands.
 
 ### Travis builds MySQL ARM image
 
-So now put all pieces together and have a look at the final `.travis.yml` file that is used to build the [hypriot/rpi-mysql](https://github.com/hypriot/rpi-mysql) Docker image for ARM.
+I have done the tests with Travis CI to build ARM images. But if you prefer another cloud CI services that offers Docker builds, it should be the same.
+
+So let's put all pieces together and have a look at the final `.travis.yml` file that is used to build the [hypriot/rpi-mysql](https://github.com/hypriot/rpi-mysql) Docker image for ARM.
 
 ```
 sudo: required
@@ -104,7 +106,7 @@ You only have to remember two things to let the cloud build your ARM images:
 
 We are using this setup for more and more GitHub repos to gain speed and respond to pull requests much faster.
 
-We also are using [matrix builds](https://github.com/hypriot/rpi-node/blob/33d6ea9bebeca9bf31abac1b5dbc66a9f9902184/.travis.yml#L5-L8) for all major versions of Node.js to build new Docker images with Travis.
+For example we also are using [matrix builds](https://github.com/hypriot/rpi-node/blob/33d6ea9bebeca9bf31abac1b5dbc66a9f9902184/.travis.yml#L5-L8) for all major versions of Node.js to build new Docker images with Travis.
 
 ### Feedback, please
 
