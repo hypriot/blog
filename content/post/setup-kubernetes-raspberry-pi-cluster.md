@@ -177,7 +177,7 @@ The HTML is the response of the service. Good, it's up and running! Next, let's 
 Finally access your service from outside the cluster
 ------------------
 
-We will now deploy an example Ingress Controller to manage incoming requests from the outside world onto our tiny service. Also, in this example we we'll use [Traefik](traefik.io) as load balancer. Read the following notes if you wanna know more about Ingress and Traefik.
+We will now deploy an example Ingress Controller to manage incoming requests from the outside world onto our tiny service. Also, in this example we we'll use [Traefik](https://traefik.io) as load balancer. Read the following notes if you wanna know more about Ingress and Traefik.
 
    > **In contrast to Docker Swarm, Kubernetes itself does not provide an option to define a specific port that you can use to access a service**. According to Lucas is this an important design decision; routing of incoming requests should be handled by a third party, such as a load balancer or a webserver, but not by the core product. The core Kubernetes should be lean and extensible, and encourage others to build tools on top of it for their specific needs.
 
