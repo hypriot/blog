@@ -1,7 +1,7 @@
 +++
 Categories = ["Docker", "Kubernetes","K8s", "Clustering", "Cluster","Raspberry Pi", "Cloud Computing"]
 Tags = ["Docker", "Kubernetes","K8s", "Clustering", "Cluster","Raspberry Pi", "Cloud Computing"]
-date = "2017-01-12T14:03:34+01:00"
+date = "2017-01-11T14:03:34+01:00"
 more_link = "yes"
 title = "Setup Kubernetes on a Raspberry Pi Cluster easily the official way!"
 +++
