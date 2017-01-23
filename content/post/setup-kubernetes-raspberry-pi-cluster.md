@@ -242,6 +242,9 @@ If you wanna reset the whole cluster to the state after a fresh install, just ru
 $ kubeadm reset
 ```
 
+In addition, it is recommended to delete some additional files [as it is mentioned here](http://stackoverflow.com/questions/41359224/kubernetes-failed-to-setup-network-for-pod-after-executed-kubeadm-reset/41372829#41372829).
+
+
 </br>
 Optional: Deploy the Kubernetes dashboard
 ------------------------------
