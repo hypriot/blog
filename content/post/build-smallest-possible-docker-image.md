@@ -12,6 +12,8 @@ Imagine what happens if we're starting to use Docker containers on IoT devices. 
 
 SIZE DOES MATTER
 
+![docker-image-minimal.png](/images/build-smallest-possible-docker-image/docker-image-minimal.png)
+
 If we're doing it right we'll get a lot of benefits such as blasting fast download speed for updating to a new or more secured version. On wireless networks we are also reducing the costs for data transfers as well.
 
 According to my [tweet](https://twitter.com/quintus23m/status/834132186211180544) I'd like to start a new Docker challenge:
@@ -112,6 +114,8 @@ There are not many rules for this challenge, but let's give you some hints:
 3. feel free to use a CPU architecture of your choice: Intel, ARMv7, ARMv8/AARCH64, ...
 
 Please publish your results on DockerHub, source codes on GitHub and tweet about it on Twitter with the hashtag #DockerChallenge. The goal of this challenge is to get familiar with the techniques to build minimal sized Docker images not only for IoT use cases, to understand the fact that a Docker container can be just a single process, and that this process can be really extremely small itself. On the way we'll learn to take care about all the necessary steps to reduce the size and how we can optimize our development workflow as well.
+
+![docker-image-minimal2.png](/images/build-smallest-possible-docker-image/docker-image-minimal2.png)
 
 So, let's start the journey...
 
