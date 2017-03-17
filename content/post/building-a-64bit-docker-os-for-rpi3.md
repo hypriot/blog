@@ -47,7 +47,7 @@ Please be aware that this OS is in a development phase and far from being perfec
 
 I'm going to publish all the details and steps to build the new operating system in a public GitHub repo. All other details and necessary GitHub repos will be linked here in this section as a future reference.
 
-* **Workshop Repo** https://github.com/bee42/workshop-raspberrypi-64bit-os
+* **Workshop Repo** https://github.com/dieterreuter/workshop-raspberrypi-64bit-os
 
 So please stay tuned, this link list will be extended over the next few days.
 
