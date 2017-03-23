@@ -7,10 +7,11 @@ See [this description here](/about#hypriotos:6083a88ee3411b0d17ce02d738f69d47).
 
 ### On which boards can HypriotOS run?
 - [All Raspberry Pis: Zero, 1, 2 and 3](https://github.com/hypriot/image-builder-rpi)
-- [ODROID C1+](https://github.com/hypriot/image-builder-odroid-c1)
+- [ODROID C1/C1+](https://github.com/hypriot/image-builder-odroid-c1)
+- [ODROID C2](https://github.com/hypriot/image-builder-odroid-c2)
 - [NVIDIA ShieldTV](https://github.com/hypriot/image-builder-nvidia-shieldtv)
 - [Olimex Micro board](/downloads/)
-- [XU 4](https://github.com/hypriot/image-builder-odroid-xu4/releases)</br>
+- [ODROID XU 4](https://github.com/hypriot/image-builder-odroid-xu4/releases)</br>
 - You know another device that works fine with HypriotOS? [Extend the list on GitHub!](https://github.com/hypriot/blog)
 
 ### Is there an easy way to flash the image of HypriotOS onto a SD card?
