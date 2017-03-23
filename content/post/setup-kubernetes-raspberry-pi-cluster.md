@@ -51,7 +51,7 @@ As hardware, take at least two Raspberry Pis and make sure they are connected to
 First, we need an operating system. Download and flash [HypriotOS](https://github.com/hypriot/image-builder-rpi/releases). The fastest way to download and flash HypriotOS on your SD cards is by using our [flash tool](https://github.com/hypriot/flash) like so:
 
 ```
-flash --hostname node01 https://github.com/hypriot/image-builder-rpi/releases/download/v1.1.3/hypriotos-rpi-v1.1.3.img.zip
+flash --hostname node01 https://github.com/hypriot/image-builder-rpi/releases/download/v1.4.0/hypriotos-rpi-v1.4.0.img.zip
 ```
 
 Provision all Raspberry Pis you have like this and boot them up.
