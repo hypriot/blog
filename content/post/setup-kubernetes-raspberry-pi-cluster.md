@@ -102,6 +102,12 @@ After Kubernetes has been initialized, the last lines of your terminal should lo
 
 ![init](/images/kubernetes-setup-cluster/init.png)
 
+To start using your cluster, you need to run (as a regular user):
+```
+$ sudo cp /etc/kubernetes/admin.conf $HOME/
+$ sudo chown $(id -u):$(id -g) $HOME/admin.conf
+$ export KUBECONFIG=$HOME/admin.conf
+```
 
 Next, as told by that output, let all other nodes join the cluster via the given `kubeadm join` command. It will look something like:
 ```
