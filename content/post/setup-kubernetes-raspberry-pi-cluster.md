@@ -126,7 +126,8 @@ Your terminal should look like this:
 Finally, **we need to setup flannel as the Pod network driver**. Run this **on the master node**:
 
 ```
-$ curl -sSL https://rawgit.com/coreos/flannel/v0.7.0/Documentation/kube-flannel.yml | sed "s/amd64/arm/g" | kubectl create -f -
+$ curl -sSL https://rawgit.com/coreos/flannel/v0.7.1/Documentation/kube-flannel-rbac.yml | kubectl create -f -
+$ curl -sSL https://rawgit.com/coreos/flannel/v0.7.1/Documentation/kube-flannel.yml | sed "s/amd64/arm/g" | kubectl create -f -
 ```
 
 Your terminal should look like this:
