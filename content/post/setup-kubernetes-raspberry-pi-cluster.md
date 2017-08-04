@@ -96,7 +96,7 @@ It is important that you add the `--pod-network-cidr` command as given here, bec
 
   >  flannel can use and is using in this example the Kubernetes API to store metadata about the Pod CIDR allocations, and therefore we need to tell _Kubernetes_ first which subnet we want to use. The subnet we chose here is somehow fixed, because the [flannel configuration file](https://github.com/coreos/flannel/blob/master/Documentation/kube-flannel.yml#L25) that we'll use later in this guide predefines the equivalent subnet. Of course, you can adapt both. 
 
-If you are connected via WIFI instead of Ethernet, add `--api-advertise-addresses=<wifi-ip-address>` as parameter to `kubeadm init` in order to publish Kubernetes' API via WiFi. Feel free to explore the other options that exist for `kubeadm init`.
+If you are connected via WIFI instead of Ethernet, add `--apiserver-advertise-address=<wifi-ip-address>` as parameter to `kubeadm init` in order to publish Kubernetes' API via WiFi. Feel free to explore the other options that exist for `kubeadm init`.
 
 After Kubernetes has been initialized, the last lines of your terminal should look like this:
 
