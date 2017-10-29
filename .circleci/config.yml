@@ -1,6 +1,6 @@
 version: 2
 jobs:
-  build:
+  build-job:
     steps:
       - checkout
       - run:
@@ -11,7 +11,7 @@ jobs:
         path: public
         destination: site
 
-  deploy:
+  deploy-job:
     steps:
       - ./update_github_pages.sh
 
@@ -19,10 +19,10 @@ workflows:
   version: 2
   release:
     jobs:
-      - build
-      - deploy:
+      - build-job
+      - deploy-job:
         requires:
-          - build
+          - build-job
         filters:
           branches:
             only: master
