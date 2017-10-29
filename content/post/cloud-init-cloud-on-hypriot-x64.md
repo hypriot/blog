@@ -12,7 +12,7 @@ social_sharing = "yes"
 
 > Things may come to those who wait, but only the things left by those who hustle.
 
-Over the last year, a lot has happened in the Raspberry Pi and Docker communities, there are Docker Captains helping lead the charge, one of those, [Dieter Reuter](https://twitter.com/Quintus23M) really has been pushing the cause for ARM64 support with both Raspberry Pi 3 and LinuxKit. He isn't a single man army, the rest of the [Docker Pirates](http://blog.hypriot.com/crew/) over at [Hypriot](http://blog.hypriot.com/) has been doing some awesome things as well!
+Over the last year, a lot has happened in the Raspberry Pi and Docker communities, there are Docker Captains helping lead the charge, one of those, [Dieter Reuter](https://twitter.com/Quintus23M) really has been pushing the cause for ARM64 support with both Raspberry Pi 3 and LinuxKit. He isn't a single man army, the rest of the [Docker Pirates](http://blog.hypriot.com/crew/) over at [Hypriot](http://blog.hypriot.com/) have been doing some awesome things as well!
 
 Building on the backs of these outstanding community members, I was finally able to spin up a Raspberry Pi, exactly like I do in the "real world", just turn it on, let it self-configure, then software just runs.
 
