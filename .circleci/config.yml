@@ -1,0 +1,28 @@
+version: 2
+jobs:
+  build:
+    steps:
+      - checkout
+      - run:
+        name: Install Hugo
+        command: ./ci-install-hugo.sh
+      - hugo
+      - store_artifacts:
+        path: public
+        destination: site
+
+  deploy:
+    steps:
+      - ./update_github_pages.sh
+
+workflows:
+  version: 2
+  release:
+    jobs:
+      - build
+      - deploy:
+        requires:
+          - build
+        filters:
+          branches:
+            only: master
