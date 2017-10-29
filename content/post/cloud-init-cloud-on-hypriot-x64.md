@@ -22,7 +22,7 @@ A lot of this is really about having [cloud-init ](http://cloudinit.readthedocs.
 
 ## Before
 
-Before we talk about the "new" pirate way, let't talk about the "old" non-pirate way"
+Before we talk about the "new" pirate way, let't talk about the "old" non-pirate way.
 
 * Download Jessie Lite (the easiest for nubbies like me)
 * Flash said image to an SD Card
@@ -44,12 +44,12 @@ Before we talk about the "new" pirate way, let't talk about the "old" non-pirate
 * Do victory dances when you created a bunch of automation around setting up servers
 * Go find out what the community is doing
 
-It is at that point, when the community really is an awesome place. Given the latest [HypriotOS-rpi64](https://github.com/DieterReuter/image-builder-rpi64/releases/tag/v20171013-172949) the [flash](https://github.com/hypriot/flash) utility (also from Hypriot), Docker images now being multi-architecture supported through the [manifest v2 API](https://github.com/docker/distribution/blob/master/docs/spec/manifest-v2-2.md) and Docker pushing to get all the [supported images covering a lot of architectures](https://github.com/docker-library/official-images#architectures-other-than-amd64), life begins to get much easier.
+It is at that point, when the community really is an awesome place. Given the latest [HypriotOS-rpi64](https://github.com/DieterReuter/image-builder-rpi64/releases/tag/v20171013-172949), the [flash](https://github.com/hypriot/flash) utility (also from Hypriot), Docker images now being multi-architecture supported through the [manifest v2 API](https://github.com/docker/distribution/blob/master/docs/spec/manifest-v2-2.md) and Docker pushing to get all the [supported images covering a lot of architectures](https://github.com/docker-library/official-images#architectures-other-than-amd64), life begins to get much **much** easier.
 
 ---
 **DISCLAIMER**: Before we continue, we need to talk about ARM 64 naming issues.
 
-[ARM is complicated](https://en.wikipedia.org/wiki/ARM_architecture#64.2F32-bit_architecture) when it comes to the latest version of the architecture (v8). A lot of the distros still haven't settled onwhat to call it, and you will find a lot of differences: `AArch64` and `ARM64v8` being the two most popular. When in doubt, do what [Docker does](https://github.com/docker-library/official-images#architectures-other-than-amd64).
+[ARM is complicated](https://en.wikipedia.org/wiki/ARM_architecture#64.2F32-bit_architecture) when it comes to the latest version of the architecture (v8). A lot of the distros still haven't settled on what to call it, and you will find a lot of differences: `AArch64` and `ARM64v8` being the two most popular. When in doubt, do what [Docker does](https://github.com/docker-library/official-images#architectures-other-than-amd64).
 
 ---
 
@@ -59,9 +59,15 @@ Now that we got that out of the way, let's get into some code. Given the list of
 
 ### User Data
 
-The first thing we need to do, is create our `user-data` file. This will be placed inside of our SD card when we flash it and instruct `cloud-init` what to do when the system boots for the first time. It should be noted, that at this time, the cloud-init version available for Debian distribution is [0.7.9](http://cloudinit.readthedocs.io/en/0.7.9/), not the 17.1 you would have thought (as latest). Currently only Ubuntu is the only distribution I know of that is using 17.1. The next important fact to know is that the Data Source we are utilizing is the [NoCloud](http://cloudinit.readthedocs.io/en/0.7.9/topics/datasources/nocloud.html) data source. This basically means (in the 0.7.9 and below version) that the `user-data` and `meta-data` are on the local file system, not pulled from a remote resource or other means.
+The first thing we need to do, is create our `user-data` file. This will be placed inside of our SD card when we flash it and instruct `cloud-init` what to do when the system boots for the first time. 
 
-The `user-data` file is simply a YAML file, you can get a lot more complicated, but for the sake of simplicity, let's just call it a YAML file. This is the `user-data` for this project:
+It should be noted, that at this time, the cloud-init version available for Debian distribution is [0.7.9](http://cloudinit.readthedocs.io/en/0.7.9/), not the 17.1 you would have thought (as latest). Currently only Ubuntu is the only distribution I know of that is using 17.1. 
+
+The next important fact to know is that the Data Source we are utilizing is the [NoCloud](http://cloudinit.readthedocs.io/en/0.7.9/topics/datasources/nocloud.html) data source. This basically means (in the 0.7.9 and below version) that the `user-data` and `meta-data` are on the local file system, not pulled from a remote resource or other means.
+
+The `user-data` file is simply a YAML file, you can get a lot more complicated, but for the sake of simplicity, let's just call it a YAML file. 
+
+The `user-data` for this project:
 
 ```yaml
 #cloud-config
@@ -317,7 +323,9 @@ At the time of writing this, you are still going to have to go fish out your IP 
 
 So, after you get some coffee, you can try navigating to your PI on port 9000 with your browser, that should get you into the Portainer instance without any type of authentication (don't do this in a real environment please, go read the docs on securing it).
 
-After you go get a snack and take a short walk, you can try navigating to your PI on port 80 with your browser, once you get prompted, login with user: `pirate` and password: `hypriot` to get access to your cloud. Click close on the annoying modal about downloading sync programs, and there you have it... Your own personal cloud, bootstrapped from a simple YAML file, without you ever having to SSH into your PI. Here is the fun part, you can reflash that anytime you want to recreate the exact same baseline image.
+After you go get a snack and take a short walk, you can try navigating to your PI on port 80 with your browser, once you get prompted, login with user: `pirate` and password: `hypriot` to get access to your cloud. Click close on the annoying modal about downloading sync programs, and there you have it... Your own personal cloud, bootstrapped from a simple YAML file, without you ever having to SSH into your PI. 
+
+Here is the fun part, you can reflash that anytime you want to recreate the exact same baseline image.
 
 ## Summary
 
