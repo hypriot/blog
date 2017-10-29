@@ -14,6 +14,9 @@ social_sharing = "yes"
 
 Over the last year, a lot has happened in the Raspberry Pi and Docker communities, there are Docker Captains helping lead the charge, one of those, [Dieter Reuter](https://twitter.com/Quintus23M) really has been pushing the cause for ARM64 support with both Raspberry Pi 3 and LinuxKit. He isn't a single man army, the rest of the [Docker Pirates](http://blog.hypriot.com/crew/) over at [Hypriot](http://blog.hypriot.com/) have been doing some awesome things as well!
 
+![airplanes](/images/cloud-init/brown-airplanes.jpg)
+<div style="text-align:right; font-size: smaller">Image courtesy of [Horia Varlan](https://www.flickr.com/photos/horiavarlan/5019447085/in/photolist-8DxYK8-6RFbEf-6RFfrw-6RLCGd-6RAH6n-6RF9gf-6RATnx-6RGCKM-6RB7L2-6REXqA-6T4VEQ-6RBeKg-brFbp6-6RAZU8-6RGwNk-6RAiLD-6RBgp6-6RLAvm-6RBbwM-6RAE5e-6RLJVj-6RLFdN-6RBsmr-6RFxxw-6RLJrY-6RFvGJ-6RFtZS-6REvrf-6RENUY-6RFwCC-6RGBEn-6RGz9n-6RFpb3-6RFzo1-if9tn-9NF66y-84UZy9-6RFew9-6RFq2m-6RLHWJ-6T4Wd9-9NChKc-6RAZ5V-9NCiK8-6T5Lbf-6RAUfp-6RBhb6-9NF3UW-9NF979-9NFaFW)</div>
+
 Building on the backs of these outstanding community members, I was finally able to spin up a Raspberry Pi, exactly like I do in the "real world", just turn it on, let it self-configure, then software just runs.
 
 <!--more-->
@@ -59,13 +62,13 @@ Now that we got that out of the way, let's get into some code. Given the list of
 
 ### User Data
 
-The first thing we need to do, is create our `user-data` file. This will be placed inside of our SD card when we flash it and instruct `cloud-init` what to do when the system boots for the first time. 
+The first thing we need to do, is create our `user-data` file. This will be placed inside of our SD card when we flash it and instruct `cloud-init` what to do when the system boots for the first time.
 
-It should be noted, that at this time, the cloud-init version available for Debian distribution is [0.7.9](http://cloudinit.readthedocs.io/en/0.7.9/), not the 17.1 you would have thought (as latest). Currently only Ubuntu is the only distribution I know of that is using 17.1. 
+It should be noted, that at this time, the cloud-init version available for Debian distribution is [0.7.9](http://cloudinit.readthedocs.io/en/0.7.9/), not the 17.1 you would have thought (as latest). Currently only Ubuntu is the only distribution I know of that is using 17.1.
 
 The next important fact to know is that the Data Source we are utilizing is the [NoCloud](http://cloudinit.readthedocs.io/en/0.7.9/topics/datasources/nocloud.html) data source. This basically means (in the 0.7.9 and below version) that the `user-data` and `meta-data` are on the local file system, not pulled from a remote resource or other means.
 
-The `user-data` file is simply a YAML file, you can get a lot more complicated, but for the sake of simplicity, let's just call it a YAML file. 
+The `user-data` file is simply a YAML file, you can get a lot more complicated, but for the sake of simplicity, let's just call it a YAML file.
 
 The `user-data` for this project:
 
@@ -117,27 +120,27 @@ runcmd:
   - [ systemctl, restart, docker ]
   - [docker, swarm, init ]
   - [
-      docker, service, create, 
-      "--detach=false", 
-      "--name", "portainer", 
-      "--publish", "9000:9000", 
-      "--mount", "type=volume,src=portainer_data,dst=/data", 
-      "--mount", "type=bind,src=//var/run/docker.sock,dst=/var/run/docker.sock", 
+      docker, service, create,
+      "--detach=false",
+      "--name", "portainer",
+      "--publish", "9000:9000",
+      "--mount", "type=volume,src=portainer_data,dst=/data",
+      "--mount", "type=bind,src=//var/run/docker.sock,dst=/var/run/docker.sock",
       "portainer/portainer", "-H", "unix:///var/run/docker.sock", "--no-auth"
     ]
   - [mkdir, "-p", "/var/cloud/data" ]
   - [setfacl, "-m", "u:www-data:rwx", "/var/cloud/data" ]
   - [
-      docker, service, create, 
-      "--detach=false", 
-      "--name", "nextcloud", 
-      "--publish", "80:80", 
-      "--mount", "type=volume,src=nextcloud,dst=/var/www/html", 
-      "--mount", "type=bind,src=//var/cloud/data,dst=/var/www/html/data", 
-      "--env", "SQLITE_DATABASE=nextcloud", 
-      "--env", "NEXTCLOUD_ADMIN_USER=pirate", 
-      "--env", "NEXTCLOUD_ADMIN_PASSWORD=hypriot", 
-      "nextcloud:latest" 
+      docker, service, create,
+      "--detach=false",
+      "--name", "nextcloud",
+      "--publish", "80:80",
+      "--mount", "type=volume,src=nextcloud,dst=/var/www/html",
+      "--mount", "type=bind,src=//var/cloud/data,dst=/var/www/html/data",
+      "--env", "SQLITE_DATABASE=nextcloud",
+      "--env", "NEXTCLOUD_ADMIN_USER=pirate",
+      "--env", "NEXTCLOUD_ADMIN_PASSWORD=hypriot",
+      "nextcloud:latest"
     ]
 ```
 
@@ -235,46 +238,46 @@ The last steps are all specific to NextCloud. I create a new directory to store 
 runcmd:
   # Pickup the hostname changes
   - [ systemctl, restart, avahi-daemon ]
-  
+
   # Pickup the daemon.json changes
   - [ systemctl, restart, docker ]
-  
+
   # Init a swarm, because why not
   - [docker, swarm, init ]
-  
+
   # Run portainer, so we can see our logs and control stuff from a UI
   - [
-      docker, service, create, 
-      "--detach=false", 
-      "--name", "portainer", 
-      "--publish", "9000:9000", 
-      "--mount", "type=volume,src=portainer_data,dst=/data", 
-      "--mount", "type=bind,src=//var/run/docker.sock,dst=/var/run/docker.sock", 
+      docker, service, create,
+      "--detach=false",
+      "--name", "portainer",
+      "--publish", "9000:9000",
+      "--mount", "type=volume,src=portainer_data,dst=/data",
+      "--mount", "type=bind,src=//var/run/docker.sock,dst=/var/run/docker.sock",
       "portainer/portainer", "-H", "unix:///var/run/docker.sock", "--no-auth"
     ]
 
-  # Create a specific directory to store all the data, 
+  # Create a specific directory to store all the data,
   # this way you could mount an external drive later (coming soon!)
   - [mkdir, "-p", "/var/cloud/data" ]
 
-  # This gives the nextcloud permissions to write to this directory 
+  # This gives the nextcloud permissions to write to this directory
   # since it runs as www-data
   - [setfacl, "-m", "u:www-data:rwx", "/var/cloud/data" ]
 
-  # Create the nextcloud instance configuring it on startup 
-  # - you should change the user/password below to something less obvious 
+  # Create the nextcloud instance configuring it on startup
+  # - you should change the user/password below to something less obvious
   # or use the config UI
   - [
-      docker, service, create, 
-      "--detach=false", 
-      "--name", "nextcloud", 
-      "--publish", "80:80", 
-      "--mount", "type=volume,src=nextcloud,dst=/var/www/html", 
-      "--mount", "type=bind,src=//var/cloud/data,dst=/var/www/html/data", 
-      "--env", "SQLITE_DATABASE=nextcloud", 
-      "--env", "NEXTCLOUD_ADMIN_USER=pirate", 
-      "--env", "NEXTCLOUD_ADMIN_PASSWORD=hypriot", 
-      "nextcloud:latest" 
+      docker, service, create,
+      "--detach=false",
+      "--name", "nextcloud",
+      "--publish", "80:80",
+      "--mount", "type=volume,src=nextcloud,dst=/var/www/html",
+      "--mount", "type=bind,src=//var/cloud/data,dst=/var/www/html/data",
+      "--env", "SQLITE_DATABASE=nextcloud",
+      "--env", "NEXTCLOUD_ADMIN_USER=pirate",
+      "--env", "NEXTCLOUD_ADMIN_PASSWORD=hypriot",
+      "nextcloud:latest"
     ]
 ```
 
@@ -323,7 +326,7 @@ At the time of writing this, you are still going to have to go fish out your IP 
 
 So, after you get some coffee, you can try navigating to your RPi on port 9000 with your browser, that should get you into the Portainer instance without any type of authentication (don't do this in a real environment please, go read the docs on securing it).
 
-After you go get a snack and take a short walk, you can try navigating to your RPi on port 80 with your browser, once you get prompted, login with user: `pirate` and password: `hypriot` to get access to your cloud. Click close on the annoying modal about downloading sync programs, and there you have it... Your own personal cloud, bootstrapped from a simple YAML file, without you ever having to SSH into your PI. 
+After you go get a snack and take a short walk, you can try navigating to your RPi on port 80 with your browser, once you get prompted, login with user: `pirate` and password: `hypriot` to get access to your cloud. Click close on the annoying modal about downloading sync programs, and there you have it... Your own personal cloud, bootstrapped from a simple YAML file, without you ever having to SSH into your PI.
 
 Here is the fun part, you can reflash that anytime you want to recreate the exact same baseline SD card image.
 
@@ -331,7 +334,7 @@ Here is the fun part, you can reflash that anytime you want to recreate the exac
 
 This was a lot of fun for me, and without having to actually figure out some nitty gritty details, not over documenting things, and getting prepared to write this post, it realistically took me about 10 minutes to go from downloading the OS image to running NextCloud on my RPi. And that is all due to the hard work of the community, and especially the Docker Pirates at Hypriot, and to them, I thank you.
 
-I plan to continue playing with this, potentially updating the server to use an external USB drive for data and auto-mounting it on boot, possible setup a GlusterFS and run them in a small 2 or 3 node cluster, and call it my PiCloud. 
+I plan to continue playing with this, potentially updating the server to use an external USB drive for data and auto-mounting it on boot, possible setup a GlusterFS and run them in a small 2 or 3 node cluster, and call it my PiCloud.
 
 Who knows, it's all about having fun and experimenting right?
 
