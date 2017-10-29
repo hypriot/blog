@@ -1,7 +1,7 @@
 <div class="sidebar">
   <div class="container sidebar-sticky">
     <div class="sidebar-logo">
-      <a href="{{ .Site.BaseURL }}"><img src="{{ .Site.BaseURL }}images/logo_tr.png" /></a>
+      <a href="{{ .Site.BaseURL }}index.html"><img src="{{ .Site.BaseURL }}images/logo_tr.png" /></a>
     </div>
     <div class="sidebar-about">
       <h1><a href="{{ .Site.BaseURL }}">{{ .Site.Title }}</a></h1>
@@ -11,7 +11,7 @@
     </div>
 
     <ul class="sidebar-nav">
-      <li><a href="{{ .Site.BaseURL }}">HOME</a> </li>
+      <li><a href="{{ .Site.BaseURL }}index.html">HOME</a> </li>
       {{ range .Site.Menus.main }}
         <li><a href="{{.URL}}"> {{ .Name }} </a></li>
       {{end}}
