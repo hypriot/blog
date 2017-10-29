@@ -1,4 +1,4 @@
 <div class="profile">
   <p><strong>{{ .Get "name" }}</strong> - <i>{{ .Get "summary" }}</i></p>
-  <img src="{{ .Get "image" }}"> {{ .Get "description" }}
+  <img src="{{ .Site.BaseURL }}{{ .Get "image" }}"> {{ .Get "description" }}
 </div>
