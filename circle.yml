@@ -1,3 +1,7 @@
+general:
+  artifacts:
+    - public
+
 dependencies:
   pre:
     - ./ci-install-hugo.sh
