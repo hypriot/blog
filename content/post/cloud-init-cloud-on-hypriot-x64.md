@@ -1,6 +1,6 @@
 +++
 Categories = ["Docker", "Raspberry Pi", "ARM", "ARM64"]
-Tags = ["Docker", "Raspberry Pi", "ARM", "ARM64", "External" "cloud-init", "rpi-64"]
+Tags = ["Docker", "Raspberry Pi", "ARM", "ARM64", "External", "cloud-init", "rpi-64"]
 Description = "Bootstrapping a Cloud with Cloud-Init and HypriotOS"
 date = "2017-10-29T00:14:00-07:00"
 more_link = "yes"
@@ -12,9 +12,9 @@ social_sharing = "yes"
 
 > Things may come to those who wait, but only the things left by those who hustle.
 
-Over the last year, a lot has happened in the Raspberry Pi and Docker communities, there are captains helping lead the charge, one of those, [Dieter Reuter](https://twitter.com/Quintus23M) really has been pushing the cause for ARM64 support with both Raspberry Pi 3 and LinuxKit. He isn't a single man army, the rest of the [Docker Pirates](http://blog.hypriot.com/crew/) over at [Hypriot](http://blog.hypriot.com/) has been doing some awesome things as well!
+Over the last year, a lot has happened in the Raspberry Pi and Docker communities, there are Docker Captains helping lead the charge, one of those, [Dieter Reuter](https://twitter.com/Quintus23M) really has been pushing the cause for ARM64 support with both Raspberry Pi 3 and LinuxKit. He isn't a single man army, the rest of the [Docker Pirates](http://blog.hypriot.com/crew/) over at [Hypriot](http://blog.hypriot.com/) has been doing some awesome things as well!
 
-Building on the backs of these outstanding community members, I was finally able to spin up a RaspberryPi, exactly like I do in the "real world", just turn it on, let it self-configure, then software just runs.
+Building on the backs of these outstanding community members, I was finally able to spin up a Raspberry Pi, exactly like I do in the "real world", just turn it on, let it self-configure, then software just runs.
 
 <!--more-->
 
@@ -24,15 +24,15 @@ A lot of this is really about having [cloud-init ](http://cloudinit.readthedocs.
 
 Before we talk about the "new" pirate way, let't talk about the "old" non-pirate way.
 
-* Download Jessie Lite (the easiest for nubbies like me)
+* Download Raspbian Lite (the easiest for nubbies like me)
 * Flash said image to an SD Card
 * Optionally re-mount SD Card and monkey some stuff around
-* Put the card in your PI
-* Power up the PI
+* Put the card in your RPi
+* Power up the RPi
 * If you don't have avahi/bonjour, go find the IP in your router
 * SSH into the server
 * Update Packages
-* Run `raspi-config` and modify some junk.
+* Run `raspi-config` and modify some junk
 * Reboot
 * Install Docker
 * Initialize Docker Swarm
@@ -156,7 +156,7 @@ manage_etc_hosts: true
 
 #### Resize File System
 
-This is something that had plagued RPI users for years, finally at some point the foundation images included this on first boot, but the wonderful thing about `cloud-init` is it already had this built in. You "really" don't need these settings in the file, I put these here to show that this is just built in functionality for `cloud-init`.
+This is something that had plagued RPi users for years, finally at some point the foundation images included this on first boot, but the wonderful thing about `cloud-init` is it already had this built in. You "really" don't need these settings in the file, I put these here to show that this is just built in functionality for `cloud-init`.
 
 ```yaml
 resize_rootfs: true
@@ -227,7 +227,7 @@ write_files:
 
 There are actually a few ways to run commands in `cloud-init`, this is the most used, because it is the last thing that is done during initialization.
 
-In this, we are essentially restarting docker and avahi to pickup our configuration changes, initializing docker swarm, running good ol Portainer (so we can see what is going on without SSH).
+In this, we are essentially restarting Docker and avahi to pickup our configuration changes, initializing Docker Swarm, running good ol Portainer (so we can see what is going on without SSH).
 
 The last steps are all specific to NextCloud. I create a new directory to store the files and SQL Lite database, set permissions for the `www-data` user since NextCloud is using Apache, and running as a known user, we need to give that specific user permissions, and finally bootstrap NextCloud to self-configure and initialize.
 
@@ -315,23 +315,23 @@ When finished, pull out that sweet SD card, and let's get ready to plug in.
 
 ### Boot and Forget
 
-For this, I simply put the SD card into a random RPI3 I had laying around, plugged in a network cable to my switch and the PI, and then applied power to it.
+For this, I simply put the SD card into a random RPi3 I had laying around, plugged in a network cable to my switch and the RPi, and then applied power to it.
 
-This is really where the waiting game begins, the PI is going to boot up, self-name, self-update, possible reboot, pull down some docker images, bootstrap a swarm, run portainer, then finally... start a personal cloud.
+This is really where the waiting game begins, the RPi is going to boot up, self-name, self-update, possible reboot, pull down some Docker images, bootstrap a Docker Swarm, run Portainer, then finally... start a personal cloud.
 
-At the time of writing this, you are still going to have to go fish out your IP from DNS unless you are on Mac or Linux with avahi, at that case, you can just navigate to `http://<hostname>.local` or `http://<hostname>` if you used an fqdn like I did. There are actually ways to get the PI to phone home when it is finished bootstrapping, but I am going to save that for another post!
+At the time of writing this, you are still going to have to go fish out your IP from DNS unless you are on Mac or Linux with avahi, at that case, you can just navigate to `http://<hostname>.local` or `http://<hostname>` if you used an fqdn like I did. There are actually ways to get the RPi to phone home when it is finished bootstrapping, but I am going to save that for another post!
 
-So, after you get some coffee, you can try navigating to your PI on port 9000 with your browser, that should get you into the Portainer instance without any type of authentication (don't do this in a real environment please, go read the docs on securing it).
+So, after you get some coffee, you can try navigating to your RPi on port 9000 with your browser, that should get you into the Portainer instance without any type of authentication (don't do this in a real environment please, go read the docs on securing it).
 
-After you go get a snack and take a short walk, you can try navigating to your PI on port 80 with your browser, once you get prompted, login with user: `pirate` and password: `hypriot` to get access to your cloud. Click close on the annoying modal about downloading sync programs, and there you have it... Your own personal cloud, bootstrapped from a simple YAML file, without you ever having to SSH into your PI. 
+After you go get a snack and take a short walk, you can try navigating to your RPi on port 80 with your browser, once you get prompted, login with user: `pirate` and password: `hypriot` to get access to your cloud. Click close on the annoying modal about downloading sync programs, and there you have it... Your own personal cloud, bootstrapped from a simple YAML file, without you ever having to SSH into your PI. 
 
-Here is the fun part, you can reflash that anytime you want to recreate the exact same baseline image.
+Here is the fun part, you can reflash that anytime you want to recreate the exact same baseline SD card image.
 
 ## Summary
 
-This was a lot of fun for me, and without having to actually figure out some nitty gritty details, not over documenting things, and getting prepared to write this post, it realistically took me about 10 minutes to go from downloading the OS image to running NextCloud on my PI. And that is all due to the hard work of the community, and especially the Docker Pirates at Hypriot, and to them, I thank you.
+This was a lot of fun for me, and without having to actually figure out some nitty gritty details, not over documenting things, and getting prepared to write this post, it realistically took me about 10 minutes to go from downloading the OS image to running NextCloud on my RPi. And that is all due to the hard work of the community, and especially the Docker Pirates at Hypriot, and to them, I thank you.
 
-I plan to continue playing with this, potentially updating the server to use an external USB drive for data and auto-mounting it on boot, possible setup a Gluster FS and run them in a small 2 or 3 node cluster, and call it my PiCloud. 
+I plan to continue playing with this, potentially updating the server to use an external USB drive for data and auto-mounting it on boot, possible setup a GlusterFS and run them in a small 2 or 3 node cluster, and call it my PiCloud. 
 
 Who knows, it's all about having fun and experimenting right?
 
