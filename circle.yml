@@ -8,7 +8,7 @@ dependencies:
 
 test:
   override:
-    - hugo
+    - hugo --baseURL 0/home/ubuntu/blog/public
 
 deployment:
   release:
