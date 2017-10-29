@@ -335,10 +335,14 @@ I plan to continue playing with this, potentially updating the server to use an 
 
 Who knows, it's all about having fun and experimenting right?
 
+All the samples can be [found on on GitHub](https://gist.github.com/RenEvo/6a9e244b670df334c42578b8fe95400b).
+
 ## About Me
 
 > Who is this guy, and why is he posting on this blog?
 
 My name is [Tom Anderson](https://twitter.com/TribalTom), I am a Senior II Cloud Software Engineer by day at a killer gaming company, and by night I am a father, musician, tinkerer, and still... a hobbiest programmer of all the things. Dieter Reuter was nice enough to ask me to guest post this topic, and I just felt it had to be done! The Pirates have given so much to the community, I felt I needed to give a little something back.
+
+Additionally, I build and talk about some things I think are cool on my own blog [tomanderson.me](http://tomanderson.me), feel free to stop by and say hi!
 
 Finally, because legaleeze and stuff... All opinions here are my own, and do not reflect the opinions of Blizzard Entertainment.
