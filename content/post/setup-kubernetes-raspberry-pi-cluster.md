@@ -173,7 +173,7 @@ You should see three endpoints (= containers) like this:
 
 ![show-endpoints](/images/kubernetes-setup-cluster/show-endpoints.png)
 
-Let' curl one of them to see if the service is up:
+Let's curl one of them to see if the service is up:
 
 ![curl-service](/images/kubernetes-setup-cluster/curl-service.png)
 
@@ -186,7 +186,7 @@ Finally access your service from outside the cluster
 
 We will now deploy an example Ingress Controller to manage incoming requests from the outside world onto our tiny service. Also, in this example we we'll use [Traefik](https://traefik.io) as load balancer. Read the following notes if you wanna know more about Ingress and Traefik.
 
-   > **In contrast to Docker Swarm, Kubernetes itself does not provide an option to define a specific port that you can use to access a service**. According to Lucas is this an important design decision; routing of incoming requests should be handled by a third party, such as a load balancer or a webserver, but not by the core product. The core Kubernetes should be lean and extensible, and encourage others to build tools on top of it for their specific needs.
+   > **In contrast to Docker Swarm, Kubernetes itself does not provide an option to define a specific port that you can use to access a service**. According to Lucas this is an important design decision; routing of incoming requests should be handled by a third party, such as a load balancer or a webserver, but not by the core product. The core Kubernetes should be lean and extensible, and encourage others to build tools on top of it for their specific needs.
 
    > Regarding load balancers in front of a cluster, there is [the Ingress API object](http://kubernetes.io/docs/user-guide/ingress/) and some sample [Ingress Controllers](https://github.com/kubernetes/ingress). Ingress is a built-in way of exposing Services to the outside world via an Ingress Controller that anyone can build. An *Ingress rule* defines how traffic should flow from the node the Ingress controller runs on to services inside of the cluster.
 
