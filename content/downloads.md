@@ -7,8 +7,8 @@ Here you gonna find various stuff we created. Use it on your own risk.
 
 ### Hypriot Docker Image for Raspberry Pi
 Download and flash this image to your SD card.  
-Start your Pi with the flashed SD card and enjoy instant Docker awesomeness.
-The latest releases can always be found on [GitHub]("https://github.com/hypriot/image-builder-rpi/releases").
+Start your Pi with the flashed SD card and enjoy instant Docker awesomeness.  
+The latest releases can always be found on [GitHub](https://github.com/hypriot/image-builder-rpi/releases).
 
 | Description                | Download Link                                                                                            | Description                                                                      | Published  |
 | :------------------------- | :--------------------------------------------------------------------------------------------------------| :------------------------------------------------------------------------------------| :----------|
