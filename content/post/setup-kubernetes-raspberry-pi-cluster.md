@@ -258,15 +258,28 @@ Optional: Deploy the Kubernetes dashboard
 The dashboard is a wonderful interface to visualize the state of the cluster. Start it with:
 
 ```
-$ curl -sSL https://rawgit.com/kubernetes/dashboard/master/src/deploy/kubernetes-dashboard.yaml | sed "s/amd64/arm/g" | kubectl create -f -
+$ kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard-arm.yaml
+```
+
+Edit the kubernetes-dashboard service to use `type: ClusterIP` to `type: NodePort`, see [Accessing Kubernetes Dashboard](https://github.com/kubernetes/dashboard/wiki/Accessing-Dashboard---1.7.X-and-above) for more details.
+
+```
+$ kubectl -n kube-system edit service kubernetes-dashboard
 ```
 
 The following command provides the port that the dashboard is exposed at on every node with the NodePort function of Services, which is another way to expose your Services to the outside of your cluster:
+
 ```
 $ kubectl -n kube-system get service kubernetes-dashboard -o template --template="{{ (index .spec.ports 0).nodePort }}" | xargs echo
 ```
 
-Then you can checkout the dashboard on any node's IP address on that port!
+Then you can checkout the dashboard on any node's IP address on that port! Make sure to use `https` when accessing the dashboard, for example if running on port `31657` access it at `https://node:31657`.
+
+Newer versions of the Kubernetes Dashboard require either a `Kubeconfig` or `Token` to view information on the dashboard. [Bearer tokens](https://github.com/kubernetes/dashboard/wiki/Access-control#introduction) are recommended to setup proper permissions for a user, but to test the `replicaset-controller-token` Token may be used to test.
+
+```
+kubectl -n kube-system describe secret `kubectl -n kube-system get secret | grep replicaset-controller-token | awk '{print $1}'` | grep token: | awk '{print $2}'
+```
 
 </br>
 You like a follow-up?
