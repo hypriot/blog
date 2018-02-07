@@ -41,7 +41,7 @@ cd ~/Downloads
 Now extract the zip file with
 
 ```
-unzip hypriot-rpi-201???.img.zip
+unzip hypriotos-rpi-201???.img.zip
 ```
 
 After the file is unzipped you will have a new file with an **.img** extension.
@@ -82,7 +82,7 @@ Before you execute the command below, make sure to
 - replace the parameter after `of=` with the identifier of your SD card. Make sure you put a `r` in front of `disk` as you can see in the example
 
 ```
-sudo dd if=hypriot-rpi-201???.img of=/dev/rdisk5 bs=1m
+sudo dd if=hypriotos-rpi-201???.img of=/dev/rdisk5 bs=1m
 ```
 
 While this command is executed you won't get any information about its progress.
