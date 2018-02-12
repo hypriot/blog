@@ -44,7 +44,7 @@ and change the line with `hostname:`
 hostname: black-pearl
 ```
 
-After a reboot the device boots up with the new hostname. See more details about the `user-data]` file in the blog post [Bootstrapping a Cloud with Cloud-Init and HypriotOS](https://blog.hypriot.com/post/cloud-init-cloud-on-hypriot-x64/).
+After a reboot the device boots up with the new hostname. See more details about the `user-data` file in the blog post [Bootstrapping a Cloud with Cloud-Init and HypriotOS](https://blog.hypriot.com/post/cloud-init-cloud-on-hypriot-x64/).
 
 ### How can I boot a Raspberry Pi Zero?
 
