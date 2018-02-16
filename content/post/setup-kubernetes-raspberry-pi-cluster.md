@@ -123,11 +123,10 @@ Your terminal should look like this:
 
 ![k8S](/images/kubernetes-setup-cluster/get-nodes.png)
 
-Finally, **we need to setup flannel v0.7.1 as the Pod network driver**. Do not use [v0.8.0](https://github.com/coreos/flannel/releases/tag/v0.8.0) due to a known [bug](https://github.com/coreos/flannel/issues/773) that can cause a `CrashLoopBackOff` error. Run this **on the master node**:
+Finally, **we need to setup flannel v0.9.1 as the Pod network driver**. Do not use [v0.8.0](https://github.com/coreos/flannel/releases/tag/v0.8.0) due to a known [bug](https://github.com/coreos/flannel/issues/773) that can cause a `CrashLoopBackOff` error. Run this **on the master node**:
 
 ```
-$ curl -sSL https://rawgit.com/coreos/flannel/v0.7.1/Documentation/kube-flannel-rbac.yml | kubectl create -f -
-$ curl -sSL https://rawgit.com/coreos/flannel/v0.7.1/Documentation/kube-flannel.yml | sed "s/amd64/arm/g" | kubectl create -f -
+$ curl -sSL https://rawgit.com/coreos/flannel/v0.9.1/Documentation/kube-flannel.yml | sed "s/amd64/arm/g" | kubectl create -f -
 ```
 
 Your terminal should look like this:
