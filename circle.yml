@@ -1,10 +1,14 @@
+general:
+  artifacts:
+    - public
+
 dependencies:
   pre:
     - ./ci-install-hugo.sh
 
 test:
   override:
-    - hugo
+    - hugo --baseURL 0/home/ubuntu/blog/public
 
 deployment:
   release:
