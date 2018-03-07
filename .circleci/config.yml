@@ -1,0 +1,19 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: buildpack-deps:stretch
+    steps:
+      - checkout
+      - run:
+          name: Install Hugo
+          command: ./ci-install-hugo.sh
+      - run:
+          name: Hugo
+          command: hugo
+      - deploy:
+          name: Deploy
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              ./update_github_pages.sh
+            fi
