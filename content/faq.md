@@ -127,6 +127,8 @@ runcmd:
   - 'ifup wlan0'
 ```
 
+Please note, that you can either use your WiFi password directly or encrypted with `wpa_passphrase`. If you use the plain password use quotes around your password (e.g `psk="s3cr3t"`), if you use an encrypted key you have to use it _without_ quotes (e.g. `psk=1acd324e...`).
+
 After turning on your Raspberry Pi Zero it should be connected to your WiFi and reachable at `black-pearl.local` (or your hostname of choice).
 
 </br>
