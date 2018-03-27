@@ -92,7 +92,7 @@ Then flash an SD image with this command
 flash -u rainbow.yml https://github.com/hypriot/image-builder-rpi/releases/download/v1.8.0/hypriotos-rpi-v1.8.0.img.zip
 ```
 
-And after booting a Raspberry Pi Zero or Pi 3/Pi 3 B+ you will see some blinking LED's after some minutes.
+And after booting a Raspberry Pi Zero or Pi 3/Pi 3 B+ you will see some blinking LED's once everything has been set up after the first boot.
 
 ![Raspberry Pi 3 B+ with rainbow service](/images/release-1-8/rainbow.jpg)
 
