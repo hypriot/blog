@@ -76,6 +76,26 @@ flash -n myHOSTNAME -u wifi.yml https://github.com/hypriot/image-builder-rpi/rel
 
 We will improve the flash tool to bring back support of the `-s` and `-p` options so you can add WiFi support without creating your own user-data template file.
 
+## Hands-free projects
+
+We have put together a small sample YAML that shows what you can do with HypriotOS, cloud-init and Docker. You can prepare a wireless Raspberry Pi with an SD card image that creates a Docker Swarm and starts a service to drive some LED's automatically. You don't have to login to this device. It will also start the service again after a power outage.
+
+The sample [rainbow.yml](https://github.com/hypriot/flash/blob/master/sample/rainbow.yml) shows how to setup a user with SSH public key authentication, activate WiFi and run a rainbow service.
+You only have to customize the YAML file at
+
+* line 16: insert your SSH public key for authentication
+* line 32 and 33: insert your WiFi settings
+
+Then flash an SD image with this command
+
+```
+flash -u rainbow.yml https://github.com/hypriot/image-builder-rpi/releases/download/v1.8.0/hypriotos-rpi-v1.8.0.img.zip
+```
+
+And after booting a Raspberry Pi Zero or Pi 3/Pi 3 B+ you will see some blinking LED's after some minutes.
+
+![Raspberry Pi 3 B+ with rainbow service](/images/release-1-8/rainbow.jpg)
+
 ## Feedback, please
 
 As always, use the comments below to give us feedback and share it on Twitter or Facebook.
