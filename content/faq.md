@@ -47,6 +47,8 @@ hostname: black-pearl
 At the first boot the device comes up with the new hostname. See more details about the `user-data` file in the blog post [Bootstrapping a Cloud with Cloud-Init and HypriotOS](https://blog.hypriot.com/post/cloud-init-cloud-on-hypriot-x64/).
 After the first boot you can change the hostname as usual on any Linux box.
 
+**See also our [sample cloud-init configuration files](https://github.com/hypriot/flash/tree/master/sample) for more inspiration.**
+
 <a name="wifi"></a>
 
 ### How can I boot a Raspberry Pi Zero?
