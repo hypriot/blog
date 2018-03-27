@@ -21,6 +21,9 @@ At this years Pi day the Raspberry Pi foundation [has announced a new model](htt
 You can use the latest features of the freshly-baked Engine Docker 18.03.0-ce that is still warm. It includes the Swarm Mode, which allows high availability of services in a multi-node cluster within just a few simple commands.
 [See this short video how it works.](https://blog.docker.com/2016/07/swarm-mode-on-a-raspberry-pi-cluster/)
 
+**Up to date with Raspbian Lite** </br>
+You can run HypriotOS with an up-to-date OS and Linux kernel which is in sync with Raspbian Lite. We have updated to Raspbian Stretch and also prepared a new Docker optimized kernel 4.9.80.
+
 **Support for the complete Raspberry Pi family** </br>
 You can run HypriotOS on every model of the Raspberry Pi family - we're supporting Pi 1, 2, 3, the 3 B+, Zero and even the Compute Module.
 
