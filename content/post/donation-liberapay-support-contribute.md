@@ -4,17 +4,16 @@ Tags = ["Docker", "Raspberry Pi", "ARM"]
 date = "2018-05-29T16:30:00+02:00"
 draft = false
 more_link = "yes"
-title = "Buy us a beer! We now accept donations."
+title = "We now accept donations. Buy us a beer!"
 +++
 
 **Many of our users have asked for it for quite a long time. Now, we finally took the time to setup a donation option.**
 
-<!--more-->
-
 ![Donations Screenshot Liberpay](/images/donations/liberapay-hypriot.png)
 
-Since we startet Hypriot in 2015, we received great attention from a growing community around Docker on ARMed devices. We received many "Kudos" and nice words. Even though we really greatly appreciate this until today, words do not enable us to pay our infrastructure bills.
+Since we startet Hypriot in 2015, we received great attention from a growing community around Docker on ARMed devices. We received numerous "kudos" and nice words. Even though we really greatly appreciate this until today, words do not enable us to pay our infrastructure bills.
 
+<!--more-->
 
 ## What we do with your donation
 
@@ -34,11 +33,10 @@ Thus Liberapay offers several advantages over other popular platforms like Patre
 
 ## Buy us at least a little beer!
 
-If many of our community only provide little portions, the sum can be high. Just click on the following button, create an account and charge the account with some euros or dollars. Finally, set a little amount you donate to us.
+If many of our community only provide little portions, the sum can be high. So please click on the following button, create an account and charge the account with some euros or dollars. Finally, specify a little amount you'd like to donate to us.
 
 <a href="https://liberapay.com/Hypriot/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg"></a>
 
-We look forward to gather experience with Liberapay and especially for the first one who sets a donation!
+Thank you very much in advance!
 
-
-@MathiasRenner at [Twitter](https://twitter.com/MathiasRenner) or on [Mastodon](ttps://mastodon.social/@mathiasrenner)
+@MathiasRenner at [Twitter](https://twitter.com/MathiasRenner) or [Mastodon](https://mastodon.social/@mathiasrenner)
