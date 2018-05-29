@@ -23,7 +23,7 @@ Our Hypriot crew currently consists of five guys who have too much spare time.
 {{% profile name="Mathias Renner"
             summary="Information systems enthusiast by day and work-a-frolic by night."
             image="/images/mathias_200px_bw_round.jpg"
-            description="I consider myself a workafrolic since I enjoy working with lots of different IT topics. I worked as Linux administrator, tester, developer and founded two small startups. I excessively use free software and follow DIY as often as possible because if you do it yourself you know how it works. Today, I apply IT in the renewable energy sector. See more at www.mathias-renner.com" %}}
+            description="I consider myself a workafrolic since I enjoy working with lots of different IT topics. I worked as Linux administrator, tester, developer, consultant and founded two small startups. I excessively use free software and follow DIY as often as possible because if you do it yourself you know how it works. Today, I apply IT in the renewable energy sector. See more at www.mathias-renner.com" %}}
 
 {{% profile name="Andreas Eiermann"
             summary="student of information systems by day and tinkerer by night."
