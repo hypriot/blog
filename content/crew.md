@@ -21,9 +21,9 @@ Our Hypriot crew currently consists of five guys who have too much spare time.
             description="Working as Software Engineer for about 20 years. Automation obsessed. I like to exercise with small ARM devices and other tiny things to show that these little chips are more powerful than you might think." %}}
 
 {{% profile name="Mathias Renner"
-            summary="Student of information systems by day and work-a-frolic by night."
+            summary="Information systems enthusiast by day and work-a-frolic by night."
             image="/images/mathias_200px_bw_round.jpg" 
-            description="I consider myself a workafrolic since I enjoy doing lots of different things. I worked as Linux administrator, tester, developer and founded two small startups. I excessively use open source and follow DIY as often as possible because if you do it yourself you know how it works." %}}
+            description="I consider myself a workafrolic since I enjoy doing lots of different things. I worked as Linux administrator, tester, developer and founded two small startups. I excessively use open source and follow DIY as often as possible because if you do it yourself you know how it works. [-> Read more at www.mathias-renner.com](https://mathias-renner.com/)" %}}
 
 {{% profile name="Andreas Eiermann"
             summary="student of information systems by day and tinkerer by night."
