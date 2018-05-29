@@ -9,9 +9,9 @@ title = "We now accept donations. Buy us a beer!"
 
 **Many of our users have asked for it for quite a long time. Now, we finally took the time to setup a donation option.**
 
-![Donations Screenshot Liberpay](/images/donations/liberapay-hypriot.png)
+Since we startet Hypriot in 2015, we received great attention from a growing community around Docker on ARMed devices. We received numerous "kudos" and nice words. Even though we greatly appreciate this until today, words do not enable us to pay our infrastructure bills. Now you have the option to support us materialistically.
 
-Since we startet Hypriot in 2015, we received great attention from a growing community around Docker on ARMed devices. We received numerous "kudos" and nice words. Even though we really greatly appreciate this until today, words do not enable us to pay our infrastructure bills.
+![Donations Screenshot Liberpay](/images/donations/liberapay-hypriot.png)
 
 <!--more-->
 
