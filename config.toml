@@ -44,3 +44,9 @@ watch = "false"
     weight = -70
     identifier = "crew"
     url = "/crew"
+[[menu.main]]
+    name = "DONATE"
+    pre = "<i class='fa fa-heart'></i>"
+    weight = -60
+    identifier = "doonate"
+    url = "https://blog.hypriot.com/post/donation-liberapay-support-contribute/"
