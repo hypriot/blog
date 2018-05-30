@@ -24,7 +24,7 @@ Today, everything at Hypriot we do in our leasure time and pay for related bills
 If the infrastructure costs are completely funded, we'll use the surplus to enjoy a good beer during our hacking sessions :-)
 
 
-## Why Liberpay?
+## Why Liberapay?
 
 Liberapay is a relativley new and trendy donation platform for free software projects. The unique thing about ths platform: **it pays its bills for development by receiving donations on its own platform**! As transaction fees for payments this platform only invoices for the fees they are charged by their financial provider. In addition, Liberapay is fully open source and based within the European Union. Using software stemming from within the EU got more important with the advent of the new data protection regulation.
 
