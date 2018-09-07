@@ -7,7 +7,7 @@ more_link = "yes"
 title = "Releasing HypriotOS 1.8.0: Raspberry Pi 3 B+, Stretch and more"
 +++
 
-**We're proud to announce our 1.8.0 release of HypriotOS - the fasted way to get Docker up and running on any Raspberry Pi including the new Pi 3 B+.**
+**We're proud to announce our 1.8.0 release of HypriotOS - the fastest way to get Docker up and running on any Raspberry Pi including the new Pi 3 B+.**
 
 At this years Pi day the Raspberry Pi foundation [has announced a new model](https://www.raspberrypi.org/blog/raspberry-pi-3-model-bplus-sale-now-35/) - the Raspberry Pi 3 B+ with improved networking and a faster CPU. A good reason for us to update our HypriotOS to support this new device. And while we were at it we also updated the OS to Raspbian Stretch and Linux Kernel version 4.9.80 - and of course the latest Docker 18.03.0-ce release.
 
