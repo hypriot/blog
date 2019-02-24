@@ -58,7 +58,7 @@ To configure and boot a Raspberry Pi Zero without a mini HDMI adapter you can pr
 Run our flash script with the following options to have a wireless out-of-the-box experience on first boot.
 
 ```
-flash --userdata wifi.yaml hypriotos-rpi-v1.8.0.img.zip
+flash --userdata wifi.yaml hypriotos-rpi-v1.10.0.img.zip
 ```
 
 You can also use the `--hostname` option to adjust the hostname per flash command without changing your `wifi.yml` template. This is super convenient if you want to flash a whole cluster of Raspberry Pi's.
