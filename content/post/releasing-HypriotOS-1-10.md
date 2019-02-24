@@ -9,6 +9,7 @@ title = "Releasing HypriotOS 1.10.0: Raspberry Pi 3 B+, Stretch and more"
 
 **We're proud to announce our 1.10.0 release of HypriotOS - the fastest way to get Docker up and running on any Raspberry Pi.**
 
+![Raspberry Pi Zero with Docker 18.06.3](/images/release-1-10/hypriotos-1.10.0-docker-18.06.3.png)
 
 <!--more-->
 
