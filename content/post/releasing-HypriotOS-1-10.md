@@ -4,7 +4,7 @@ Tags = ["Docker", "Raspberry Pi", "ARM"]
 date = "2019-02-24T16:01:00+02:00"
 draft = false
 more_link = "yes"
-title = "Releasing HypriotOS 1.10.0: Raspberry Pi 3 B+, Stretch and more"
+title = "Releasing HypriotOS 1.10.0: Docker 18.06.3 CE from Raspberry Pi Zero to 3 B+"
 +++
 
 **We're proud to announce our 1.10.0 release of HypriotOS - the fastest way to get Docker up and running on any Raspberry Pi.**
