@@ -243,7 +243,7 @@ Here is another screenshot directly from the Jetson Nano desktop with running th
 
 ### Starting a Docker Container for ARM
 
-Pull a first Docker Image which should run on ARM, here I'm going to use a Docker Image I did created almost four years ago for the Raspberry Pi and showcased live on stage at DockerCon 2015 in San Francisco. As this is an 32bit ARM image, let's see if it works out-of-the-box on this brandnew Jetson Nano board. 
+Pull a first Docker Image which should run on ARM, here I'm going to use a Docker Image I did created almost four years ago for the Raspberry Pi and showcased live on stage at DockerCon 2015 in San Francisco, see [Hypriot-Demo and challenge at DockerCon 2015](https://blog.hypriot.com/post/dockercon2015/). As this is an 32bit ARM image, let's see if it works out-of-the-box on this brandnew Jetson Nano board.
 
 ```bash
 pirate@jetson-nano:~$ sudo docker pull hypriot/rpi-busybox-httpd
