@@ -292,6 +292,8 @@ As you can see, there is already a fully running version of the Docker Engine pr
 
 So, Docker just works out-of-the-box and you are able to use Docker Images right away. Even 32bit Docker images are able to run on this board because it's based upon an ARM Cortex A57 CPU and this one is capable to run 64bit and 32bit ARM instructions.
 
+If you want to learn more general details about the NVIDIA Jetson Nano Developer Kit, please visit the JetsonHacks website at https://www.jetsonhacks.com/2019/03/25/nvidia-jetson-nano-developer-kit/.
+
 
 ### Feedback, please
 
