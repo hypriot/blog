@@ -1,5 +1,5 @@
 +++
-date = "2019-04-20T13:47:52+02:00"
+date = "2019-04-22T08:44:52+02:00"
 title = "NVIDIA Jetson Nano - Upgrade Docker Engine"
 draft = false
 more_link = "yes"
