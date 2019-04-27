@@ -56,7 +56,7 @@ $ docker run --rm --privileged hypriot/qemu-register
 
 This registers a few Qemu emulators inside of our Linux kernel with the help of the `binfmt` tool. This instructs the Linux loader to start the specific Qemu emulator program to run the binary/executable if it's not based on Intel. Here we register `/qemu-arm` for Arm 32-bit and `/qemu-aarch64` for Arm 64-bit.
 
-Just to be precise, these emulators will be registered through a privileged Docker container. This is possible for all Linux kernel 4.9 and later. The emulators will be uploaded into memory, registered in the kernel and stay there persistent until you reboot your machine. This means you don't have to change anything inside of your Docker Images, all magic will be done by the Linux kernel on the host system!
+Just to be precise, these emulators will be registered through a privileged Docker container. This is possible for all Linux kernel versions 4.9 and later. The emulators will be uploaded into memory, registered in the kernel and stay there persistent until you reboot your machine. This means you don't have to change anything inside of your Docker Images, all magic will be done by the Linux kernel on the host system!
 
 
 ```bash
