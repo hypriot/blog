@@ -45,8 +45,6 @@ If you have your Linux system available you can download and run the script dire
 $ ./check-config.sh
 ```
 
-**Hint:** On some Linux systems like Raspbian for the Raspberry Pi, the kernel .config is only available as a kernel module. Then you have to load the module first, using the command `sudo modprobe configs`.
-
 Then you'll get a detailled output with all kernel settings which are important for running containers.
 
 If you want to verify a kernel from a remote system, you could also first extract the Linux kernel config on this system and analyse it later.
@@ -57,6 +55,8 @@ $ zcat /proc/config.gz > kernel.config
 $ ls -al kernel.config
 -rw-rw-r-- 1 pirate pirate 165739 Apr 28 07:26 kernel.config
 ```
+
+**Hint:** On some Linux systems like Raspbian for the Raspberry Pi, the kernel .config is only available as a kernel module. Then you have to load the module first, using the command `sudo modprobe configs`.
 
 
 #### Verify the Linux Kernel from a .config file
