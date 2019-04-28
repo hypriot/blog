@@ -47,7 +47,7 @@ $ ./check-config.sh
 
 Then you'll get a detailled output with all kernel settings which are important for running containers.
 
-If you want to verify a kernel from a remote system, you could also first extract the Linux kernel config on this system and analyse it latet.
+If you want to verify a kernel from a remote system, you could also first extract the Linux kernel config on this system and analyse it later.
 ```bash
 # extract the .config from a running kernel
 $ zcat /proc/config.gz > kernel.config
