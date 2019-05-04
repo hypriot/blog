@@ -262,7 +262,7 @@ ASCIINEMA recording of the final run of `check-config.sh` with the fully optimiz
 
 **Result: An almost perfect Linux kernel to run Containers on the NVIDIA Jetson Nano!**
 
-![jetson-nano-board-docker-running.jpg](/images/nvidia-jetson-nano-build-kernel-docker-optimized/jetson-nano-board-docker-running.jpg)
+![jetson-nano-board-docker-running2.jpg](/images/nvidia-jetson-nano-build-kernel-docker-optimized/jetson-nano-board-docker-running2.jpg)
 
 
 ### Conclusion
