@@ -67,7 +67,7 @@ The password `hypriot` will grant you access.
 Install Kubernetes
 -------------------------
 
-The installation requries root privileges. Retrieve them by
+The installation requires root privileges. Retrieve them by
 ```
 sudo su -
 ```
