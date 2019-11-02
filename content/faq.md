@@ -96,6 +96,7 @@ write_files:
       iface default inet dhcp
     path: /etc/network/interfaces.d/wlan0
   - content: |
+      country=de
       ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
       update_config=1
       network={
@@ -118,6 +119,8 @@ runcmd:
 ```
 
 Please note, that you can either use your WiFi password directly or encrypted with `wpa_passphrase`. If you use the plain password use quotes around your password (e.g `psk="s3cr3t"`), if you use an encrypted key you have to use it _without_ quotes (e.g. `psk=1acd324e...`).
+
+Adjust the line with `country=` to your country code.
 
 After turning on your Raspberry Pi Zero it should be connected to your WiFi and reachable at `black-pearl.local` (or your hostname of choice).
 
