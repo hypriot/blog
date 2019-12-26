@@ -8,7 +8,7 @@ See [this description here](/about#hypriotos:6083a88ee3411b0d17ce02d738f69d47).
 
 ### On which boards can HypriotOS run?
 
-* [All Raspberry Pis: Zero, 1, 2 and 3](https://github.com/hypriot/image-builder-rpi)
+* [All Raspberry Pis: Zero, 1, 2 3, and 4](https://github.com/hypriot/image-builder-rpi)
 * [ODROID C1/C1+](https://github.com/hypriot/image-builder-odroid-c1)
 * [ODROID C2](https://github.com/hypriot/image-builder-odroid-c2)
 * [NVIDIA ShieldTV](https://github.com/hypriot/image-builder-nvidia-shieldtv)
