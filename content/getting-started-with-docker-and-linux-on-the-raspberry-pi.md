@@ -121,7 +121,7 @@ yum install nmap       # for red hat based distros
 First identify the IP address of your own workstation. Type
 
 ```
-hostname -I
+hostname -i
 ```
 
 As you can see in the following screenshot our IP address is `192.168.0.101`.
