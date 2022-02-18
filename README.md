@@ -23,14 +23,6 @@ hugo server --watch=true -D
 - Create a PR and ask the Hypriot Team for review
 
 
-Buy us a beer!
-------------------------
-
-This FLOSS software is funded by donations only. Please support us to maintain and further improve it!
-
-<a href="https://liberapay.com/Hypriot/donate"><img alt="Donate using Liberapay" src="https://liberapay.com/assets/widgets/donate.svg"></a>
-
-
 License
 --------
 <img src="http://www.creativecommons.ch/wp-content/uploads/2014/03/by-nc1.png" width="88" height="31" />
